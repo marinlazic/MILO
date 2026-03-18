@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MILO — Otion Performance OS</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg:          #F0F2F5;
+    --surface:     #FFFFFF;
+    --surface2:    #F7F8FA;
+    --border:      #E4E8EE;
+    --border2:     #D0D6E0;
+
+    --blue:        #1A6BF5;
+    --blue-mid:    #3D85F7;
+    --blue-light:  #E8F0FE;
+    --blue-dark:   #0D47C4;
+    --blue-grad:   linear-gradient(135deg, #1A6BF5 0%, #6BA8FF 100%);
+
+    --text:        #0E1117;
+    --text2:       #3A4156;
+    --muted:       #7A8499;
+    --muted2:      #A0ABBE;
+
+    --green:       #0D7A4E;
+    --green-bg:    #E6F7F0;
+    --amber:       #8A5A00;
+    --amber-bg:    #FEF3CC;
+    --red:         #C0202A;
+    --red-bg:      #FDEAEA;
+
+    --mono:   'DM Mono', monospace;
+    --head:   'DM Sans', sans-serif;
+    --body:   'Inter', sans-serif;
+
+    --r:    14px;
+    --r-sm: 9px;
+    --sh:   0 1px 2px rgba(0,0,0,0.05), 0 4px 20px rgba(0,0,0,0.06);
+    --sh2:  0 2px 8px rgba(26,107,245,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── LAYOUT ─────────────────────────────────── */
+  .shell { display: grid; grid-template-columns: 230px 1fr; min-height: 100vh; }
+
+  /* ─── SIDEBAR ─────────────────────────────────── */
+  .sidebar {
+    background: var(--text);
+    display: flex; flex-direction: column;
+    padding: 0; position: sticky; top: 0; height: 100vh; overflow: hidden;
+  }
+
+  .sidebar-top {
+    padding: 26px 24px 22px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .logo {
+    display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px;
+  }
+  .logo-word {
+    font-family: var(--head);
+    font-size: 26px; font-weight: 800;
+    letter-spacing: -0.05em; color: #fff;
+  }
+  .logo-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--blue); margin-bottom: 4px; flex-shrink: 0;
+  }
+  .logo-sub {
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(255,255,255,0.25);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav { flex: 1; padding: 16px 0; overflow-y: auto; }
+
+  .nav-sec {
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    padding: 14px 24px 5px;
+  }
+
+  .nav-item {
+    display: flex; align-items: center; gap: 11px;
+    padding: 8px 24px; font-family: var(--body);
+    font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.42); cursor: pointer;
+    transition: all 0.15s; position: relative;
+  }
+  .nav-item:hover { color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.04); }
+  .nav-item.active {
+    color: #fff; background: rgba(26,107,245,0.18);
+  }
+  .nav-item.active::before {
+    content: ''; position: absolute; left: 0; top: 4px; bottom: 4px;
+    width: 3px; background: var(--blue); border-radius: 0 3px 3px 0;
+  }
+
+  .nav-ic {
+    width: 15px; height: 15px;
+    stroke: currentColor; fill: none;
+    stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+    flex-shrink: 0; opacity: 0.8;
+  }
+
+  .nav-badge {
+    margin-left: auto; background: var(--red);
+    color: #fff; font-family: var(--mono);
+    font-size: 9px; padding: 1px 6px; border-radius: 20px;
+  }
+
+  .sidebar-bottom {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .profile-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.05);
+    border-radius: var(--r-sm);
+    cursor: pointer; transition: background 0.15s;
+  }
+  .profile-row:hover { background: rgba(255,255,255,0.09); }
+  .profile-av {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--blue); color: #fff;
+    font-family: var(--head); font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .profile-name { font-family: var(--head); font-size: 13px; font-weight: 600; color: #fff; }
+  .profile-role { font-family: var(--mono); font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
+
+  /* ─── MAIN ─────────────────────────────────── */
+  .main { padding: 30px 30px 50px; overflow-y: auto; }
+
+  /* ─── TOPBAR ─────────────────────────────────── */
+  .topbar { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 22px; }
+  .page-heading { font-family: var(--head); font-size: 24px; font-weight: 800; letter-spacing: -0.04em; color: var(--text); }
+  .page-sub { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .btn {
+    padding: 8px 18px; border-radius: 8px; font-family: var(--body);
+    font-size: 12px; font-weight: 600; cursor: pointer; border: none;
+    transition: all 0.15s; letter-spacing: -0.01em;
+  }
+  .btn-blue { background: var(--blue-grad); color: #fff; box-shadow: var(--sh2); }
+  .btn-blue:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-outline { background: var(--surface); color: var(--text2); border: 1px solid var(--border2); }
+  .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+  .btn-row { display: flex; gap: 8px; }
+
+  /* ─── MILO STRIP ─────────────────────────────────── */
+  .milo-strip {
+    background: var(--text);
+    border-radius: var(--r); padding: 16px 22px;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px;
+    box-shadow: var(--sh);
+    animation: up 0.4s ease both;
+  }
+  .milo-left { display: flex; align-items: center; gap: 14px; }
+  .milo-icon {
+    width: 36px; height: 36px; border-radius: 9px;
+    background: var(--blue-grad); display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+  }
+  .milo-text-head { font-family: var(--head); font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .milo-text-sub { font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
+  .milo-right { display: flex; align-items: center; gap: 10px; }
+  .milo-status {
+    display: flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    padding: 6px 12px; border-radius: 7px;
+  }
+  .pulse { width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; animation: blink 2s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+  .milo-ask-btn {
+    padding: 7px 16px; background: var(--blue-grad); color: #fff;
+    border: none; border-radius: 7px; font-family: var(--body);
+    font-size: 11px; font-weight: 600; cursor: pointer; box-shadow: var(--sh2);
+  }
+
+  /* ─── STAT CARDS ─────────────────────────────────── */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+
+  .scard {
+    background: var(--surface); border-radius: var(--r);
+    padding: 18px 20px; border: 1px solid var(--border);
+    box-shadow: var(--sh); animation: up 0.4s ease both;
+  }
+  .scard:nth-child(1){animation-delay:.05s}
+  .scard:nth-child(2){animation-delay:.10s}
+  .scard:nth-child(3){animation-delay:.15s}
+  .scard:nth-child(4){animation-delay:.20s}
+
+  @keyframes up { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+  .scard-label {
+    font-family: var(--mono); font-size: 9px;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--muted); margin-bottom: 10px;
+  }
+  .scard-val {
+    font-family: var(--head); font-size: 34px;
+    font-weight: 800; letter-spacing: -0.05em; line-height: 1;
+    margin-bottom: 5px;
+  }
+  .scard-delta { font-family: var(--body); font-size: 11px; font-weight: 500; }
+  .up   { color: var(--green); }
+  .warn { color: var(--amber); }
+  .dn   { color: var(--red); }
+
+  /* blue accent card */
+  .scard-accent { background: var(--blue-grad); border-color: transparent; }
+  .scard-accent .scard-label { color: rgba(255,255,255,0.5); }
+  .scard-accent .scard-val   { color: #fff; }
+  .scard-accent .scard-delta { color: rgba(255,255,255,0.7); }
+
+  /* ─── MAIN GRID ─────────────────────────────────── */
+  .grid-main { display: grid; grid-template-columns: 1fr 320px; gap: 14px; margin-bottom: 14px; }
+
+  /* ─── CARD ─────────────────────────────────── */
+  .card {
+    background: var(--surface); border-radius: var(--r);
+    border: 1px solid var(--border); box-shadow: var(--sh);
+    overflow: hidden; animation: up 0.5s ease both; animation-delay: 0.25s;
+  }
+
+  .card-head {
+    padding: 15px 20px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .card-title { font-family: var(--head); font-size: 14px; font-weight: 700; letter-spacing: -0.02em; }
+  .card-link { font-family: var(--mono); font-size: 10px; color: var(--blue); cursor: pointer; letter-spacing: 0.03em; }
+
+  /* ─── TABLE ─────────────────────────────────── */
+  .tbl-head {
+    display: grid;
+    grid-template-columns: 38px 1fr 84px 96px 84px 96px;
+    gap: 8px; padding: 8px 20px;
+    background: var(--surface2); border-bottom: 1px solid var(--border);
+  }
+  .th { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+  .tbl-row {
+    display: grid;
+    grid-template-columns: 38px 1fr 84px 96px 84px 96px;
+    gap: 8px; padding: 11px 20px; border-bottom: 1px solid var(--border);
+    align-items: center; cursor: pointer; transition: background 0.1s;
+  }
+  .tbl-row:hover { background: var(--surface2); }
+  .tbl-row:last-child { border-bottom: none; }
+
+  .av {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--blue-light); color: var(--blue-dark);
+    font-family: var(--head); font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .cl-name { font-family: var(--head); font-size: 13px; font-weight: 600; }
+  .cl-role { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 1px; }
+
+  .pill {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 3px 10px; border-radius: 20px;
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    min-width: 42px;
+  }
+  .p-hi  { background: var(--green-bg);  color: var(--green); }
+  .p-mid { background: var(--amber-bg);  color: var(--amber); }
+  .p-lo  { background: var(--red-bg);    color: var(--red); }
+
+  .load-wrap { display: flex; align-items: center; gap: 6px; }
+  .load-track { flex: 1; height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; border: 1px solid var(--border); }
+  .load-fill { height: 100%; border-radius: 2px; }
+  .load-n { font-family: var(--mono); font-size: 10px; color: var(--muted); width: 22px; text-align: right; }
+
+  .tag {
+    font-family: var(--mono); font-size: 10px; font-weight: 500;
+    padding: 3px 8px; border-radius: 6px;
+  }
+  .t-done { background: var(--green-bg); color: var(--green); }
+  .t-due  { background: var(--amber-bg); color: var(--amber); }
+  .t-miss { background: var(--red-bg);   color: var(--red); }
+
+  /* ─── RIGHT COL ─────────────────────────────────── */
+  .right-col { display: flex; flex-direction: column; gap: 12px; }
+
+  /* ─── GAUGE ─────────────────────────────────── */
+  .gauge-body { padding: 18px 20px; text-align: center; }
+  .gauge-val { font-family: var(--head); font-size: 38px; font-weight: 800; letter-spacing: -0.05em; color: var(--blue); }
+  .gauge-lbl { font-family: var(--mono); font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; margin-bottom: 14px; }
+  .gauge-split { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .gs-item { text-align: center; }
+  .gs-val { font-family: var(--head); font-size: 18px; font-weight: 800; }
+  .gs-lbl { font-family: var(--mono); font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ─── ALERTS ─────────────────────────────────── */
+  .alert-item {
+    display: flex; gap: 10px; padding: 12px 18px;
+    border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.1s;
+  }
+  .alert-item:hover { background: var(--surface2); }
+  .alert-item:last-child { border-bottom: none; }
+  .a-dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 3px; flex-shrink: 0; }
+  .ad-r { background: #EF4444; }
+  .ad-a { background: #F59E0B; }
+  .ad-g { background: #10B981; }
+  .a-text { font-family: var(--body); font-size: 12px; line-height: 1.5; }
+  .a-time { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* ─── BOTTOM ROW ─────────────────────────────────── */
+  .grid-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  /* ─── CHART ─────────────────────────────────── */
+  .chart-body { padding: 16px 20px; }
+
+  /* ─── CHECK-IN ─────────────────────────────────── */
+  .ci-body { padding: 14px 20px; }
+  .ci-row { margin-bottom: 12px; }
+  .ci-top { display: flex; justify-content: space-between; margin-bottom: 5px; }
+  .ci-lbl { font-family: var(--body); font-size: 12px; font-weight: 500; color: var(--text2); }
+  .ci-num { font-family: var(--mono); font-size: 11px; color: var(--blue); font-weight: 500; }
+  input[type=range] {
+    width: 100%; height: 4px; appearance: none;
+    background: var(--blue-light); border-radius: 2px; outline: none; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    appearance: none; width: 15px; height: 15px; border-radius: 50%;
+    background: var(--blue); cursor: pointer;
+    box-shadow: 0 0 0 3px rgba(26,107,245,0.15);
+  }
+  .ci-submit {
+    width: 100%; padding: 10px; margin-top: 6px;
+    background: var(--blue-grad); color: #fff;
+    border: none; border-radius: 8px;
+    font-family: var(--body); font-size: 12px; font-weight: 600;
+    cursor: pointer; box-shadow: var(--sh2); transition: opacity 0.15s;
+  }
+  .ci-submit:hover { opacity: 0.9; }
+
+  /* ─── WEEK STATS ─────────────────────────────────── */
+  .wk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 14px 20px; }
+  .wk-stat { background: var(--surface2); border-radius: var(--r-sm); padding: 12px; border: 1px solid var(--border); }
+  .wk-val { font-family: var(--head); font-size: 20px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 2px; }
+  .wk-lbl { font-family: var(--mono); font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .wk-full { grid-column: 1/-1; background: var(--blue-light); border-color: rgba(26,107,245,0.15); }
+  .wk-full .wk-val { color: var(--blue-dark); }
+  .wk-full .wk-lbl { color: var(--blue); }
+
+  /* ─── SCROLLBAR ─────────────────────────────────── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- ── SIDEBAR ─────────────────── -->
+  <nav class="sidebar">
+    <div class="sidebar-top">
+      <div class="logo">
+        <span class="logo-word">MILO</span>
+        <div class="logo-dot"></div>
+      </div>
+      <div class="logo-sub">Otion Performance OS</div>
+    </div>
+
+    <div class="sidebar-nav">
+      <div class="nav-sec">Main</div>
+      <div class="nav-item active">
+        <svg class="nav-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Dashboard
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Clients
+        <span class="nav-badge" style="margin-left:auto">11</span>
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Programs
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Check-ins
+        <span class="nav-badge" style="margin-left:auto;background:var(--amber)">3</span>
+      </div>
+
+      <div class="nav-sec">Analytics</div>
+      <div class="nav-item">
+        <svg class="nav-ic" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Load Trends
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Recovery
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        DJL Score
+      </div>
+
+      <div class="nav-sec">MILO AI</div>
+      <div class="nav-item">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Ask MILO
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ic" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Build Program
+      </div>
+      <div class="nav-item">
+        <svg class="nav-ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        Teach MILO
+      </div>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="profile-row">
+        <div class="profile-av">ML</div>
+        <div>
+          <div class="profile-name">Marin Lazic</div>
+          <div class="profile-role">Head Coach · Otion</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ─────────────────── -->
+  <div class="main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <div>
+        <div class="page-heading">Good morning, Marin.</div>
+        <div class="page-sub">Tue 18 Mar 2026 &nbsp;·&nbsp; 11 active clients &nbsp;·&nbsp; Week 11 of 24</div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-outline">Export week</button>
+        <button class="btn btn-blue">+ Add client</button>
+      </div>
+    </div>
+
+    <!-- MILO strip -->
+    <div class="milo-strip">
+      <div class="milo-left">
+        <div class="milo-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <div class="milo-text-head">MILO has 2 flags for you this morning.</div>
+          <div class="milo-text-sub">Anna Lim — readiness 41 &nbsp;·&nbsp; Sarah Reeves — load spike &nbsp;·&nbsp; Ask MILO to build this week's programs</div>
+        </div>
+      </div>
+      <div class="milo-right">
+        <div class="milo-status"><div class="pulse"></div> MILO active</div>
+        <button class="milo-ask-btn">Ask MILO →</button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="scard scard-accent">
+        <div class="scard-label">Active clients</div>
+        <div class="scard-val">11</div>
+        <div class="scard-delta" style="color:rgba(255,255,255,0.7)">↑ 2 this month</div>
+      </div>
+      <div class="scard">
+        <div class="scard-label">Check-ins due</div>
+        <div class="scard-val warn">3</div>
+        <div class="scard-delta warn">Overdue 24h+</div>
+      </div>
+      <div class="scard">
+        <div class="scard-label">Avg readiness</div>
+        <div class="scard-val" style="color:var(--blue)">74</div>
+        <div class="scard-delta up">↑ 6 vs last week</div>
+      </div>
+      <div class="scard">
+        <div class="scard-label">Flags today</div>
+        <div class="scard-val dn">2</div>
+        <div class="scard-delta dn">Needs attention</div>
+      </div>
+    </div>
+
+    <!-- Main grid -->
+    <div class="grid-main">
+
+      <!-- Roster table -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Client roster</div>
+          <span class="card-link">View all →</span>
+        </div>
+        <div class="tbl-head">
+          <div></div>
+          <div class="th">Client</div>
+          <div class="th" style="text-align:center">Readiness</div>
+          <div class="th">Load</div>
+          <div class="th" style="text-align:center">Recovery</div>
+          <div class="th" style="text-align:center">Check-in</div>
+        </div>
+
+        <div class="tbl-row">
+          <div class="av">JC</div>
+          <div><div class="cl-name">James Chen</div><div class="cl-role">CEO · Fintech</div></div>
+          <div style="text-align:center"><span class="pill p-hi">87</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:72%;background:var(--green)"></div></div><div class="load-n">72</div></div>
+          <div style="text-align:center"><span class="pill p-hi">81</span></div>
+          <div style="text-align:center"><span class="tag t-done">Done</span></div>
+        </div>
+
+        <div class="tbl-row">
+          <div class="av" style="background:var(--amber-bg);color:var(--amber)">SR</div>
+          <div><div class="cl-name">Sarah Reeves</div><div class="cl-role">COO · SaaS</div></div>
+          <div style="text-align:center"><span class="pill p-mid">58</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:91%;background:#F59E0B"></div></div><div class="load-n">91</div></div>
+          <div style="text-align:center"><span class="pill p-lo">44</span></div>
+          <div style="text-align:center"><span class="tag t-due">Due today</span></div>
+        </div>
+
+        <div class="tbl-row">
+          <div class="av">DM</div>
+          <div><div class="cl-name">David Mills</div><div class="cl-role">Founder · PE</div></div>
+          <div style="text-align:center"><span class="pill p-hi">92</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:55%;background:var(--green)"></div></div><div class="load-n">55</div></div>
+          <div style="text-align:center"><span class="pill p-hi">88</span></div>
+          <div style="text-align:center"><span class="tag t-done">Done</span></div>
+        </div>
+
+        <div class="tbl-row">
+          <div class="av" style="background:var(--red-bg);color:var(--red)">AL</div>
+          <div><div class="cl-name">Anna Lim</div><div class="cl-role">MD · Law</div></div>
+          <div style="text-align:center"><span class="pill p-lo">41</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:88%;background:#EF4444"></div></div><div class="load-n">88</div></div>
+          <div style="text-align:center"><span class="pill p-lo">38</span></div>
+          <div style="text-align:center"><span class="tag t-miss">Missed</span></div>
+        </div>
+
+        <div class="tbl-row">
+          <div class="av">TW</div>
+          <div><div class="cl-name">Tom Walsh</div><div class="cl-role">VP · Mining</div></div>
+          <div style="text-align:center"><span class="pill p-mid">69</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:64%;background:var(--green)"></div></div><div class="load-n">64</div></div>
+          <div style="text-align:center"><span class="pill p-mid">71</span></div>
+          <div style="text-align:center"><span class="tag t-done">Done</span></div>
+        </div>
+
+        <div class="tbl-row">
+          <div class="av">RK</div>
+          <div><div class="cl-name">Rachel Kim</div><div class="cl-role">CFO · Healthcare</div></div>
+          <div style="text-align:center"><span class="pill p-hi">83</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:60%;background:var(--green)"></div></div><div class="load-n">60</div></div>
+          <div style="text-align:center"><span class="pill p-hi">79</span></div>
+          <div style="text-align:center"><span class="tag t-done">Done</span></div>
+        </div>
+
+        <div class="tbl-row">
+          <div class="av">MB</div>
+          <div><div class="cl-name">Mark Benson</div><div class="cl-role">MD · Investment</div></div>
+          <div style="text-align:center"><span class="pill p-mid">62</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:77%;background:#F59E0B"></div></div><div class="load-n">77</div></div>
+          <div style="text-align:center"><span class="pill p-mid">67</span></div>
+          <div style="text-align:center"><span class="tag t-due">Due today</span></div>
+        </div>
+
+      </div>
+
+      <!-- Right column -->
+      <div class="right-col">
+
+        <!-- Gauge card -->
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Roster readiness</div>
+            <span class="card-link">This week</span>
+          </div>
+          <div class="gauge-body">
+            <svg width="150" height="82" viewBox="0 0 150 82" style="display:block;margin:0 auto 4px">
+              <path d="M 16 74 A 59 59 0 0 1 134 74" fill="none" stroke="var(--blue-light)" stroke-width="10" stroke-linecap="round"/>
+              <path d="M 16 74 A 59 59 0 0 1 134 74" fill="none" stroke="var(--blue)" stroke-width="10" stroke-linecap="round" stroke-dasharray="185" stroke-dashoffset="50"/>
+              <text x="75" y="70" text-anchor="middle" font-family="DM Sans" font-size="28" font-weight="800" fill="var(--blue)">74</text>
+            </svg>
+            <div class="gauge-lbl">Average readiness score</div>
+            <div class="gauge-split">
+              <div class="gs-item">
+                <div class="gs-val" style="color:var(--green)">7</div>
+                <div class="gs-lbl">High</div>
+              </div>
+              <div class="gs-item">
+                <div class="gs-val" style="color:var(--amber)">3</div>
+                <div class="gs-lbl">Watch</div>
+              </div>
+              <div class="gs-item">
+                <div class="gs-val" style="color:var(--red)">2</div>
+                <div class="gs-lbl">Flag</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alerts -->
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Flags</div>
+            <span style="background:var(--red-bg);color:var(--red);font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:20px;font-weight:500">2 urgent</span>
+          </div>
+          <div class="alert-item">
+            <div class="a-dot ad-r"></div>
+            <div>
+              <div class="a-text">Anna Lim — readiness 41, load 88. Travel week.</div>
+              <div class="a-time">6:40 AM today</div>
+            </div>
+          </div>
+          <div class="alert-item">
+            <div class="a-dot ad-r"></div>
+            <div>
+              <div class="a-text">Sarah Reeves — 3rd consecutive low recovery.</div>
+              <div class="a-time">7:02 AM today</div>
+            </div>
+          </div>
+          <div class="alert-item">
+            <div class="a-dot ad-a"></div>
+            <div>
+              <div class="a-text">Tom Walsh — check-in streak broken.</div>
+              <div class="a-time">Yesterday 11 PM</div>
+            </div>
+          </div>
+          <div class="alert-item">
+            <div class="a-dot ad-g"></div>
+            <div>
+              <div class="a-text">David Mills — best readiness in 6 weeks.</div>
+              <div class="a-time">This morning</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="grid-bottom">
+
+      <!-- Trend chart -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">7-day trend</div>
+          <span class="card-link">Readiness vs Load</span>
+        </div>
+        <div class="chart-body">
+          <canvas id="trendChart" height="138"></canvas>
+        </div>
+      </div>
+
+      <!-- Check-in -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Daily check-in</div>
+          <span class="card-link">Template →</span>
+        </div>
+        <div class="ci-body">
+          <div class="ci-row">
+            <div class="ci-top"><span class="ci-lbl">Sleep quality</span><span class="ci-num" id="n1">7</span></div>
+            <input type="range" min="1" max="10" value="7" oninput="document.getElementById('n1').textContent=this.value">
+          </div>
+          <div class="ci-row">
+            <div class="ci-top"><span class="ci-lbl">Energy level</span><span class="ci-num" id="n2">6</span></div>
+            <input type="range" min="1" max="10" value="6" oninput="document.getElementById('n2').textContent=this.value">
+          </div>
+          <div class="ci-row">
+            <div class="ci-top"><span class="ci-lbl">Stress load</span><span class="ci-num" id="n3">5</span></div>
+            <input type="range" min="1" max="10" value="5" oninput="document.getElementById('n3').textContent=this.value">
+          </div>
+          <div class="ci-row">
+            <div class="ci-top"><span class="ci-lbl">Motivation</span><span class="ci-num" id="n4">8</span></div>
+            <input type="range" min="1" max="10" value="8" oninput="document.getElementById('n4').textContent=this.value">
+          </div>
+          <button class="ci-submit" onclick="this.textContent='✓  Submitted';this.style.background='var(--green)';setTimeout(()=>{this.textContent='Submit check-in';this.style.background=''},2200)">Submit check-in</button>
+        </div>
+      </div>
+
+      <!-- Week stats -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Week 11 summary</div>
+          <span class="card-link">View report →</span>
+        </div>
+        <div class="wk-grid">
+          <div class="wk-stat">
+            <div class="wk-val" style="color:var(--blue)">89%</div>
+            <div class="wk-lbl">Check-in rate</div>
+          </div>
+          <div class="wk-stat">
+            <div class="wk-val" style="color:var(--green)">31</div>
+            <div class="wk-lbl">Sessions done</div>
+          </div>
+          <div class="wk-stat">
+            <div class="wk-val" style="color:var(--amber)">3</div>
+            <div class="wk-lbl">Programs due</div>
+          </div>
+          <div class="wk-stat">
+            <div class="wk-val" style="color:var(--red)">2</div>
+            <div class="wk-lbl">Active flags</div>
+          </div>
+          <div class="wk-stat wk-full">
+            <div class="wk-val">↑ 6 pts</div>
+            <div class="wk-lbl">Avg readiness vs last week</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const ctx = document.getElementById('trendChart').getContext('2d');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+    datasets: [
+      {
+        label: 'Readiness',
+        data: [68,71,65,69,74,78,74],
+        borderColor: '#1A6BF5',
+        backgroundColor: 'rgba(26,107,245,0.07)',
+        borderWidth: 2.5,
+        pointBackgroundColor: '#1A6BF5',
+        pointRadius: 4, pointHoverRadius: 6,
+        tension: 0.4, fill: true,
+      },
+      {
+        label: 'Avg Load',
+        data: [62,74,80,68,64,55,58],
+        borderColor: '#F59E0B',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [5,3],
+        pointBackgroundColor: '#F59E0B',
+        pointRadius: 3, pointHoverRadius: 5,
+        tension: 0.4,
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: { font:{family:'DM Mono',size:10}, color:'#7A8499', boxWidth:12, boxHeight:2, padding:14, usePointStyle:true }
+      },
+      tooltip: {
+        backgroundColor:'#0E1117', titleFont:{family:'DM Mono',size:10},
+        bodyFont:{family:'DM Mono',size:11}, padding:10, cornerRadius:8,
+      }
+    },
+    scales: {
+      x: { grid:{display:false}, ticks:{font:{family:'DM Mono',size:10},color:'#7A8499'} },
+      y: { min:40, max:100, grid:{color:'#E4E8EE',drawBorder:false}, ticks:{font:{family:'DM Mono',size:10},color:'#7A8499',stepSize:20} }
+    }
+  }
+});
+</script>
+</body>
+</html>
