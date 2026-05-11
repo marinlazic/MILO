@@ -3665,12 +3665,63 @@ async function getWorkoutContent(workoutId) {
   return _workoutCache[workoutId] || null;
 }
 
+/* Logged set history — actual weights/reps an athlete recorded in Bridge.
+   Currently ~6 of 19 athletes log data (Reini, Melanie, Stephanie, Linda,
+   Alana, Liam). The others just mark workouts complete. */
+let _setHistoryCache = null;
+async function getSetHistory() {
+  if (!_setHistoryCache) {
+    try {
+      const r = await fetch('bridge-set-history.json');
+      _setHistoryCache = await r.json();
+    } catch (e) { _setHistoryCache = { sets: {}, exerciseNames: {} }; }
+  }
+  return _setHistoryCache;
+}
+
+/**
+ * Per-exercise estimated-1RM time series for this client, using
+ * Epley's formula on ACTUAL logged weights (resultWeight / 1,000,000 = kg).
+ * Returns { exerciseName -> [{ date, e1rm, weight, reps }] sorted oldest→newest }
+ */
+async function getExerciseProgression(client) {
+  const { sets, exerciseNames } = await getSetHistory();
+  const userSets = sets[client.bridgeId] || [];
+  if (!userSets.length) return {};
+
+  // Best e1RM per (date, exercise)
+  const bySessionEx = {};
+  for (const s of userSets) {
+    if (!s.rw || !s.rr) continue;
+    const weight = s.rw / 1000000;         // mg → kg
+    const reps = parseInt(s.rr, 10);
+    if (!weight || !reps || reps < 1) continue;
+    const e1rm = weight * (1 + reps / 30); // Epley
+    const key = `${s.d}|${s.ex}`;
+    if (!bySessionEx[key] || e1rm > bySessionEx[key].e1rm) {
+      bySessionEx[key] = { e1rm, weight, reps, date: s.d, exId: s.ex };
+    }
+  }
+
+  // Group by exercise name
+  const out = {};
+  for (const v of Object.values(bySessionEx)) {
+    const name = exerciseNames[v.exId] || `Exercise #${v.exId}`;
+    if (!out[name]) out[name] = [];
+    out[name].push({ date: v.date, e1rm: v.e1rm, weight: v.weight, reps: v.reps });
+  }
+  for (const name of Object.keys(out)) {
+    out[name].sort((a, b) => a.date.localeCompare(b.date));
+  }
+  return out;
+}
+
 if (typeof window !== "undefined") {
   window.MILO = {
     BRIDGE_DATA,
     getClient, getAllClients,
     activePrograms, completedPrograms, primaryProgram,
     avgRpe, sessionsThisRange, lastWorkoutDate, daysSinceLastWorkout,
-    getWorkoutContent,
+    getWorkoutContent, getSetHistory, getExerciseProgression,
   };
 }

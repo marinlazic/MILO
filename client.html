@@ -223,6 +223,19 @@
   .region-val{font-family:var(--head);font-size:20px;font-weight:800;color:var(--text);letter-spacing:-0.03em}
   .region-lbl{font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px}
 
+  /* EXERCISE PROGRESSION GRID */
+  .ex-prog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .ex-prog-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px}
+  .ex-prog-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:8px}
+  .ex-prog-name{font-family:var(--head);font-size:12px;font-weight:700;color:var(--text);line-height:1.3;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ex-prog-delta{font-family:var(--mono);font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:0.03em;white-space:nowrap}
+  .ex-prog-delta.up{background:var(--green-bg);color:var(--green)}
+  .ex-prog-delta.dn{background:var(--red-bg);color:var(--red)}
+  .ex-prog-delta.flat{background:var(--surface);color:var(--muted)}
+  .ex-prog-sub{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.04em;margin-bottom:8px;display:flex;justify-content:space-between}
+  .ex-prog-chart{height:64px;position:relative}
+  @media (max-width: 700px) { .ex-prog-grid{grid-template-columns:1fr} }
+
   /* STRENGTH PROGRESSION */
   .prog-pattern-row{display:grid;grid-template-columns:90px 1fr 90px 80px;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
   .prog-pattern-row:last-child{border-bottom:none}
@@ -421,6 +434,18 @@
       </div>
     </div>
 
+    <!-- Exercise Progression (estimated 1RM line graphs over 12 weeks) -->
+    <div class="card" style="margin-bottom:14px" id="exProgCard">
+      <div class="card-head">
+        <div style="display:flex;align-items:baseline;gap:12px">
+          <div class="card-title">Exercise progression</div>
+          <span id="exProgOverall" style="font-family:var(--mono);font-size:11px;letter-spacing:0.04em;color:var(--muted)">Loading…</span>
+        </div>
+        <span class="card-link">12 weeks · estimated 1RM (Epley)</span>
+      </div>
+      <div id="exProgBody" style="padding:16px 20px"></div>
+    </div>
+
     <!-- Strength Progression -->
     <div class="card" style="margin-bottom:14px" id="progressCard">
       <div class="card-head">
@@ -573,6 +598,9 @@ function renderClient(c) {
 
   // MOVEMENT PROFILE WIDGETS
   renderMovementProfile(taggedWorkouts);
+
+  // EXERCISE PROGRESSION — e1RM over 12 weeks
+  renderExerciseProgression(c);
 
   // STRENGTH PROGRESSION — per-pattern adaptation trends
   renderStrengthProgress(c.recentWorkouts || []);
@@ -849,19 +877,13 @@ function renderWorkoutContent(content) {
     const weightUnit = (s.weightUnit ?? s.wu ?? 'lbs').toLowerCase();
     const distance = s.distance ?? s.d;
     const distanceUnit = s.distanceUnit ?? s.du ?? 'm';
-    const rpe = s.rpe;
-    const rest = s.rest;
     if (reps !== null && reps !== undefined && reps !== '') parts.push(`${typeof reps === 'object' ? (reps.value ?? '-') : reps} reps`);
-    // Always display weight in kg — Bridge stores values × 1000.
-    // If unit is lbs, convert to kg (× 0.4536).
     if (weight !== null && weight !== undefined) {
       const raw = weight / 1000;
       const kg = weightUnit === 'kg' ? raw : raw * 0.4536;
       parts.push(`${Math.round(kg)} kg`);
     }
     if (distance !== null && distance !== undefined) parts.push(`${Math.round(distance / 1000)}${distanceUnit}`);
-    if (rpe !== null && rpe !== undefined && rpe !== '') parts.push(`RPE ${typeof rpe === 'object' ? rpe.value : rpe}`);
-    if (rest) parts.push(`rest ${rest}s`);
     return parts.join(' · ') || '—';
   };
   const blocks = content.blocks || content.b || [];
@@ -1186,6 +1208,123 @@ function renderMovementProfile(taggedWorkouts) {
       Upper : Lower = ${r.upper}:${r.lower}${r.upper > 0 && r.lower > 0 && Math.abs(r.upper - r.lower) > Math.max(r.upper, r.lower) * 0.5 ? ' · ⚠ imbalanced' : ''}
     </div>
   `;
+}
+
+async function renderExerciseProgression(client) {
+  const overall = document.getElementById('exProgOverall');
+  const body = document.getElementById('exProgBody');
+  // Uses ACTUAL logged weights from bridge-set-history.json (resultWeight / 1M = kg)
+  const series = await window.MILO.getExerciseProgression(client);
+
+  // Top exercises by number of sessions
+  const ranked = Object.entries(series)
+    .map(([name, pts]) => ({ name, pts, sessions: pts.length }))
+    .filter(e => e.sessions >= 2) // need at least 2 datapoints for a line
+    .sort((a, b) => b.sessions - a.sessions);
+
+  if (ranked.length === 0) {
+    overall.textContent = '—';
+    body.innerHTML = `
+      <div style="padding:20px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:11px;line-height:1.6">
+        No logged set data in last 12 weeks.<br>
+        ${client.name} marks workouts complete in Bridge but doesn't log<br>
+        individual set weights/reps — so we can't compute strength gains.<br>
+        <span style="color:var(--blue)">Ask them to record set results in the Bridge app to enable this view.</span>
+      </div>`;
+    return;
+  }
+
+  // Aggregate "improvement signal" across top 6
+  const top = ranked.slice(0, 6);
+  let improving = 0, declining = 0, flat = 0;
+  for (const ex of top) {
+    const first = ex.pts[0].e1rm;
+    const last = ex.pts[ex.pts.length - 1].e1rm;
+    const pct = ((last - first) / first) * 100;
+    if (pct > 2) improving++;
+    else if (pct < -2) declining++;
+    else flat++;
+  }
+  overall.innerHTML = `<span style="color:var(--green);background:rgba(13,122,78,0.12);padding:2px 8px;border-radius:10px;font-weight:600">↑${improving}</span>
+    <span style="color:var(--muted);background:var(--surface2);padding:2px 8px;border-radius:10px;font-weight:600">→${flat}</span>
+    <span style="color:var(--red);background:rgba(192,32,42,0.10);padding:2px 8px;border-radius:10px;font-weight:600">↓${declining}</span>
+    <span style="color:var(--muted);margin-left:6px">across top ${top.length}</span>`;
+
+  body.innerHTML = `<div class="ex-prog-grid">${top.map((ex, i) => exCardHtml(ex, i)).join('')}</div>
+    <div style="margin-top:12px;font-family:var(--mono);font-size:9px;color:var(--muted);text-align:center;line-height:1.5">
+      Estimated 1RM via Epley · weight × (1 + reps/30) · from athlete-logged sets in Bridge
+    </div>`;
+
+  // Now render the actual charts (deferred so DOM exists)
+  for (let i = 0; i < top.length; i++) {
+    const ex = top[i];
+    const ctx = document.getElementById('exChart' + i)?.getContext('2d');
+    if (!ctx) continue;
+    const labels = ex.pts.map(p => {
+      const d = new Date(p.date);
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    });
+    const data = ex.pts.map(p => Math.round(p.e1rm));
+    const first = ex.pts[0].e1rm;
+    const last = ex.pts[ex.pts.length - 1].e1rm;
+    const color = last > first * 1.02 ? '#0D7A4E' : last < first * 0.98 ? '#C0202A' : '#1A6BF5';
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          data,
+          borderColor: color,
+          backgroundColor: color + '20',
+          borderWidth: 2,
+          tension: 0.35,
+          fill: true,
+          pointRadius: 2.5,
+          pointBackgroundColor: color,
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#0E1117', titleFont: { family: 'DM Mono', size: 10 }, bodyFont: { family: 'DM Mono', size: 11 },
+            padding: 8, cornerRadius: 6,
+            callbacks: {
+              label: (c) => {
+                const p = ex.pts[c.dataIndex];
+                return `e1RM ${Math.round(p.e1rm)} kg (${p.reps}r × ${Math.round(p.weight)} kg)`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: { display: false },
+          y: { display: false, beginAtZero: false }
+        }
+      }
+    });
+  }
+}
+
+function exCardHtml(ex, i) {
+  const first = ex.pts[0].e1rm;
+  const last = ex.pts[ex.pts.length - 1].e1rm;
+  const pct = ((last - first) / first) * 100;
+  const deltaCls = pct > 2 ? 'up' : pct < -2 ? 'dn' : 'flat';
+  const deltaTxt = pct > 0 ? `+${Math.round(pct)}%` : `${Math.round(pct)}%`;
+  return `
+    <div class="ex-prog-card">
+      <div class="ex-prog-head">
+        <div class="ex-prog-name" title="${escapeHtml(ex.name)}">${escapeHtml(ex.name)}</div>
+        <div class="ex-prog-delta ${deltaCls}">${deltaTxt}</div>
+      </div>
+      <div class="ex-prog-sub">
+        <span>${ex.sessions} session${ex.sessions === 1 ? '' : 's'}</span>
+        <span>${Math.round(first)} → ${Math.round(last)} kg</span>
+      </div>
+      <div class="ex-prog-chart"><canvas id="exChart${i}"></canvas></div>
+    </div>`;
 }
 
 function renderStrengthProgress(workouts) {
