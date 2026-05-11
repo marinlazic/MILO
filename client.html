@@ -844,16 +844,21 @@ function renderWorkoutContent(content) {
   }
   const fmtSet = (s) => {
     const parts = [];
-    // Support both full schema (reps/weight/distance) and compact (r/w/d)
     const reps = s.reps ?? s.r;
     const weight = s.weight ?? s.w;
-    const weightUnit = s.weightUnit ?? s.wu ?? 'lbs';
+    const weightUnit = (s.weightUnit ?? s.wu ?? 'lbs').toLowerCase();
     const distance = s.distance ?? s.d;
     const distanceUnit = s.distanceUnit ?? s.du ?? 'm';
     const rpe = s.rpe;
     const rest = s.rest;
     if (reps !== null && reps !== undefined && reps !== '') parts.push(`${typeof reps === 'object' ? (reps.value ?? '-') : reps} reps`);
-    if (weight !== null && weight !== undefined) parts.push(`${Math.round(weight / 1000)} ${weightUnit}`);
+    // Always display weight in kg — Bridge stores values × 1000.
+    // If unit is lbs, convert to kg (× 0.4536).
+    if (weight !== null && weight !== undefined) {
+      const raw = weight / 1000;
+      const kg = weightUnit === 'kg' ? raw : raw * 0.4536;
+      parts.push(`${Math.round(kg)} kg`);
+    }
     if (distance !== null && distance !== undefined) parts.push(`${Math.round(distance / 1000)}${distanceUnit}`);
     if (rpe !== null && rpe !== undefined && rpe !== '') parts.push(`RPE ${typeof rpe === 'object' ? rpe.value : rpe}`);
     if (rest) parts.push(`rest ${rest}s`);
