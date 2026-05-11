@@ -59,12 +59,12 @@
       try {
         const [assignments, activities] = await Promise.all([
           get(`/api/v2/organizations/${orgId}/users/${id}/assignments?active=true&completed=true&teamIds=${teamId}`),
-          get(`/api/v1/organizations/${orgId}/teams/${teamId}/users/${id}/activities?timeRange=4&include=workoutHistories&objectTypes=workoutHistory&dataLimit=30`),
+          get(`/api/v1/organizations/${orgId}/teams/${teamId}/users/${id}/activities?timeRange=12&include=workoutHistories&objectTypes=workoutHistory&dataLimit=100`),
         ]);
 
         const recent = (activities.data || [])
           .filter(a => a.objectType === 'workoutHistory')
-          .slice(0, 10)
+          .slice(0, 100)
           .map(w => ({
             date: w.date ? w.date.slice(0, 10) : null,
             name: w.name,

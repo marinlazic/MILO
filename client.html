@@ -108,6 +108,60 @@
 
   .grid-2{display:grid;grid-template-columns:1fr 380px;gap:14px;margin-bottom:14px}
   .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+
+  /* ACWR */
+  .acwr-val{font-family:var(--head);font-size:38px;font-weight:800;text-align:center;letter-spacing:-0.05em;line-height:1;margin-bottom:4px}
+  .acwr-zone{font-family:var(--mono);font-size:10px;text-align:center;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;padding:3px 10px;border-radius:20px;display:inline-block;margin-left:50%;transform:translateX(-50%);position:relative}
+  .acwr-zone-wrap{text-align:center;margin-bottom:14px}
+  .acwr-meter{position:relative;height:12px;border-radius:6px;background:linear-gradient(90deg,#EF4444 0%,#F59E0B 15%,#10B981 30%,#10B981 60%,#F59E0B 80%,#EF4444 100%);overflow:visible;margin-bottom:6px}
+  .acwr-pin{position:absolute;top:-3px;width:4px;height:18px;background:var(--text);border-radius:2px;transform:translateX(-50%);transition:left 0.4s}
+  .acwr-labels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.04em}
+  .acwr-explain{margin-top:10px;font-family:var(--mono);font-size:9px;color:var(--muted);text-align:center;line-height:1.4}
+  .delta-up{color:#0D7A4E}
+  .delta-dn{color:#C0202A}
+  .delta-flat{color:var(--muted)}
+
+  /* MOBILE */
+  @media (max-width: 1100px) {
+    .grid-4{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width: 900px) {
+    .shell{grid-template-columns:1fr}
+    .sidebar{position:fixed;left:-260px;top:0;height:100vh;width:230px;z-index:100;transition:left 0.25s ease;box-shadow:8px 0 30px rgba(0,0,0,0.25)}
+    .sidebar.open{left:0}
+    .sidebar-toggle{position:fixed;top:14px;left:14px;z-index:101;width:38px;height:38px;background:var(--text);color:#fff;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--sh2)}
+    .sidebar-toggle svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+    .main{padding:60px 14px 30px}
+    .hero{grid-template-columns:auto 1fr;padding:18px}
+    .hero-actions{grid-column:1/-1;flex-direction:row}
+    .hero-actions .btn{flex:1}
+    .hero-av{width:54px;height:54px;font-size:18px}
+    .hero-name{font-size:22px}
+    .hero-meta{gap:14px;margin-top:8px}
+    .meta-val{font-size:13px}
+    .stats-row{grid-template-columns:1fr 1fr}
+    .grid-2{grid-template-columns:1fr}
+    .grid-3{grid-template-columns:1fr}
+    .grid-4{grid-template-columns:1fr 1fr}
+    .prog-row{grid-template-columns:1fr 70px}
+    .prog-row > div:last-child{display:none}
+    .wo-row{grid-template-columns:50px 1fr 40px 38px;padding:10px 14px}
+    .card-head{padding:12px 14px}
+    .chart-body{padding:10px 12px}
+    .crumb{font-size:9px;margin-bottom:14px}
+  }
+  @media (max-width: 600px) {
+    .grid-4{grid-template-columns:1fr}
+    .stats-row{grid-template-columns:1fr 1fr;gap:8px}
+    .scard{padding:14px 14px}
+    .scard-val{font-size:24px}
+    .hero{padding:14px;gap:12px}
+    .hero-name{font-size:18px}
+    .hero-meta{gap:10px}
+    .meta-lbl{font-size:8px}
+    .meta-val{font-size:12px}
+  }
 
   /* PROGRAM ROW */
   .prog-row{padding:13px 20px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 90px 90px;gap:14px;align-items:center}
@@ -190,6 +244,12 @@
 </style>
 </head>
 <body>
+<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" style="display:none">
+  <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<style>
+  @media (max-width: 900px) { .sidebar-toggle { display: flex !important; } }
+</style>
 <div class="shell">
 
   <nav class="sidebar">
@@ -281,13 +341,13 @@
 
     <div class="stats-row" id="statRow"></div>
 
-    <!-- Volume × Intensity (last 6 weeks) -->
+    <!-- Volume × Intensity (last 12 weeks) -->
     <div style="margin-bottom:14px">
       <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;padding:0 4px">
-        <div style="font-family:var(--head);font-size:14px;font-weight:700;color:var(--text);letter-spacing:-0.02em">Training load · last 6 weeks</div>
+        <div style="font-family:var(--head);font-size:14px;font-weight:700;color:var(--text);letter-spacing:-0.02em">Training load · last 12 weeks</div>
         <div id="vlNote" style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em"></div>
       </div>
-      <div class="grid-3">
+      <div class="grid-4">
         <div class="card">
           <div class="card-head">
             <div class="card-title">Volume</div>
@@ -308,6 +368,13 @@
             <span class="card-link" id="loadNote">sRPE = RPE × min</span>
           </div>
           <div class="chart-body"><canvas id="loadChart" height="130"></canvas></div>
+        </div>
+        <div class="card" id="acwrCard">
+          <div class="card-head">
+            <div class="card-title">ACWR</div>
+            <span class="card-link">Injury risk</span>
+          </div>
+          <div id="acwrBody" style="padding:18px 20px"></div>
         </div>
       </div>
     </div>
@@ -353,6 +420,20 @@
         </div>
         <div id="insightsList"></div>
       </div>
+    </div>
+
+    <!-- LLM Commentary -->
+    <div class="card" style="margin-bottom:14px;background:linear-gradient(135deg,#0E1117 0%,#1a1f2e 100%);color:#fff;border:none">
+      <div class="card-head" style="border-color:rgba(255,255,255,0.08)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:28px;height:28px;border-radius:7px;background:var(--blue-grad);display:flex;align-items:center;justify-content:center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <div style="font-family:var(--head);font-size:14px;font-weight:700;color:#fff">Coach's note from MILO</div>
+        </div>
+        <span class="card-link" id="commentaryNote" style="color:rgba(255,255,255,0.5)">Generating…</span>
+      </div>
+      <div id="commentaryBody" style="padding:18px 22px;font-family:var(--body);font-size:13px;line-height:1.7;color:rgba(255,255,255,0.88);white-space:pre-wrap"></div>
     </div>
 
     <div class="grid-3" style="margin-top:14px">
@@ -546,6 +627,85 @@ function renderClient(c) {
 
   // RPE CHART
   renderRpeChart(recent);
+
+  // LLM COMMENTARY
+  fetchCommentary(c, taggedWorkouts);
+}
+
+async function fetchCommentary(c, taggedWorkouts) {
+  const M = window.MILO;
+  const CLF = window.MILO_CLASSIFIER;
+  const body = document.getElementById('commentaryBody');
+  const note = document.getElementById('commentaryNote');
+
+  const buckets = weeklyBuckets(c.recentWorkouts || [], 12);
+  const acwr = computeACWR(buckets);
+  const pp = CLF.pushPullRatio(taggedWorkouts);
+  const planes = CLF.planesDistribution(taggedWorkouts);
+  const region = CLF.regionDistribution(taggedWorkouts);
+  const primary = M.primaryProgram(c);
+  const active = M.activePrograms(c);
+
+  const payload = {
+    client: {
+      name: c.name,
+      age: c.age,
+      weightKg: c.weightKg,
+      activePrograms: active.length,
+      primaryProgram: primary ? primary.name : null,
+    },
+    buckets: buckets.map(b => ({
+      week: b.label,
+      sessions: b.sessions,
+      totalMin: b.totalMin,
+      avgRpe: b.avgRpe ? Math.round(b.avgRpe * 10) / 10 : null,
+      sRPE: b.sRPE,
+    })),
+    acwr: { ratio: acwr.ratio, zone: acwr.zone, acute: acwr.acute, chronic: acwr.chronic },
+    movement: {
+      pushPullRatio: `${pp.push}:${pp.pull}`,
+      planesPct: { sagittal: planes.sagittalPct, frontal: planes.frontalPct, transverse: planes.transversePct },
+      regionCounts: region.counts,
+    },
+  };
+
+  try {
+    const r = await fetch('/api/commentary', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await r.json();
+    if (data.setupNeeded) {
+      body.innerHTML = `<div style="opacity:0.8">${escapeHtml(data.message)}</div>
+        <div style="margin-top:12px;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.55);line-height:1.6">
+          <b>Quick setup:</b><br>
+          1. Get an API key at <span style="color:#6BA8FF">console.anthropic.com</span><br>
+          2. In your Vercel project → Settings → Environment Variables<br>
+          3. Add <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px">ANTHROPIC_API_KEY</code> with your key<br>
+          4. Redeploy
+        </div>`;
+      note.textContent = 'Setup needed';
+      note.style.color = '#F59E0B';
+      return;
+    }
+    if (data.error) {
+      body.textContent = `Couldn't generate commentary: ${data.detail || data.error}`;
+      note.textContent = 'Error';
+      note.style.color = '#EF4444';
+      return;
+    }
+    body.textContent = data.commentary || 'No commentary returned.';
+    note.textContent = data.model ? data.model.replace('claude-', '') : 'Live';
+    note.style.color = 'rgba(255,255,255,0.6)';
+  } catch (e) {
+    body.innerHTML = `<div style="opacity:0.7">Commentary API unavailable.</div>
+      <div style="margin-top:10px;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.5)">
+        If you're previewing locally, this will work after deploying to Vercel with ANTHROPIC_API_KEY set.
+      </div>`;
+    note.textContent = 'Offline';
+    note.style.color = '#94A3B8';
+  }
 }
 
 function generateInsights(c, ctx) {
@@ -673,14 +833,13 @@ function weeklyBuckets(workouts, weeksBack = 6, todayStr = '2026-05-11') {
 }
 
 function renderVolumeIntensity(workouts) {
-  const buckets = weeklyBuckets(workouts, 6);
+  const buckets = weeklyBuckets(workouts, 12);
   const labels = buckets.map(b => b.label);
 
   // Note line: tell coach how much data we actually have
   const filledWeeks = buckets.filter(b => b.sessions > 0).length;
-  const earliest = workouts.map(w => w.date).filter(Boolean).sort()[0];
-  const note = filledWeeks < 6
-    ? `${filledWeeks}/6 weeks with data — re-sync Bridge with longer range to backfill`
+  const note = filledWeeks < 12
+    ? `${filledWeeks}/12 weeks with data — re-sync Bridge to backfill older weeks`
     : `${workouts.length} sessions tracked`;
   document.getElementById('vlNote').textContent = note;
 
@@ -772,27 +931,104 @@ function renderVolumeIntensity(workouts) {
     }
   });
 
-  // Update card subtitles with this week's snapshot
+  // Update card subtitles with % deltas
   const cur = buckets[buckets.length - 1];
   const prev = buckets[buckets.length - 2];
-  const dSessions = prev && prev.sessions ? cur.sessions - prev.sessions : null;
-  const dRpe = prev?.avgRpe !== null && cur.avgRpe !== null && prev?.avgRpe !== undefined ? cur.avgRpe - prev.avgRpe : null;
-  const dLoad = prev?.sRPE ? cur.sRPE - prev.sRPE : null;
 
-  document.getElementById('volNote').textContent =
+  const pctDelta = (a, b) => {
+    if (b === null || b === undefined || b === 0) return null;
+    return Math.round(((a - b) / b) * 100);
+  };
+  const fmtPct = (p) => p === null ? '' : ` (${p >= 0 ? '+' : ''}${p}%)`;
+  const colorPct = (p) => p === null ? 'delta-flat' : p > 0 ? 'delta-up' : p < 0 ? 'delta-dn' : 'delta-flat';
+
+  // VOLUME
+  const dSessPct = pctDelta(cur.sessions, prev?.sessions);
+  document.getElementById('volNote').innerHTML =
     cur.sessions === 0 ? 'No sessions this week'
-    : dSessions === null ? `${cur.sessions} sessions this week`
-    : `${cur.sessions} this week (${dSessions >= 0 ? '+' : ''}${dSessions} vs last)`;
+    : `${cur.sessions} this week <span class="${colorPct(dSessPct)}">${fmtPct(dSessPct).trim() || '(new)'}</span>`;
 
-  document.getElementById('intNote').textContent =
-    cur.avgRpe === null ? 'No RPE data this week'
-    : dRpe === null ? `Avg RPE ${cur.avgRpe.toFixed(1)} this week`
-    : `Avg ${cur.avgRpe.toFixed(1)} (${dRpe >= 0 ? '+' : ''}${dRpe.toFixed(1)} vs last)`;
+  // INTENSITY
+  const dRpePct = pctDelta(cur.avgRpe, prev?.avgRpe);
+  document.getElementById('intNote').innerHTML =
+    cur.avgRpe === null ? 'No RPE data'
+    : `Avg ${cur.avgRpe.toFixed(1)} <span class="${colorPct(dRpePct)}">${fmtPct(dRpePct).trim() || '(new)'}</span>`;
 
-  document.getElementById('loadNote').textContent =
+  // LOAD
+  const dLoadPct = pctDelta(cur.sRPE, prev?.sRPE);
+  document.getElementById('loadNote').innerHTML =
     cur.sRPE === 0 ? 'No load this week'
-    : dLoad === null ? `${cur.sRPE.toLocaleString()} this week`
-    : `${cur.sRPE.toLocaleString()} (${dLoad >= 0 ? '+' : ''}${dLoad.toLocaleString()} vs last)`;
+    : `${cur.sRPE.toLocaleString()} <span class="${colorPct(dLoadPct)}">${fmtPct(dLoadPct).trim() || '(new)'}</span>`;
+
+  // ACWR — Acute:Chronic Workload Ratio
+  renderACWR(buckets);
+}
+
+/**
+ * ACWR = current week sRPE / mean of last 4 weeks sRPE (including current).
+ * Bands (Gabbett 2016):
+ *   < 0.8    : undertrained (load dropping)
+ *   0.8-1.3  : sweet spot (safe, productive)
+ *   1.3-1.5  : caution (elevated injury risk)
+ *   > 1.5    : danger (significantly elevated risk)
+ *
+ * Need ≥ 2 non-zero recent weeks for a meaningful ratio. Otherwise show "—".
+ */
+function computeACWR(buckets) {
+  const last4 = buckets.slice(-4);
+  const acute = last4[last4.length - 1].sRPE;
+  const loads = last4.map(b => b.sRPE);
+  const nonZero = loads.filter(v => v > 0);
+  if (nonZero.length < 2) return { ratio: null, acute, chronic: null, zone: 'insufficient' };
+  const chronic = loads.reduce((s, v) => s + v, 0) / last4.length;
+  if (chronic === 0) return { ratio: null, acute, chronic: 0, zone: 'insufficient' };
+  const ratio = acute / chronic;
+  let zone;
+  if (ratio < 0.5) zone = 'undertrained';
+  else if (ratio < 0.8) zone = 'caution-low';
+  else if (ratio <= 1.3) zone = 'sweet';
+  else if (ratio <= 1.5) zone = 'caution-high';
+  else zone = 'danger';
+  return { ratio, acute, chronic, zone };
+}
+
+function renderACWR(buckets) {
+  const { ratio, acute, chronic, zone } = computeACWR(buckets);
+
+  if (ratio === null) {
+    document.getElementById('acwrBody').innerHTML = `
+      <div class="acwr-val" style="color:var(--muted2)">—</div>
+      <div class="acwr-zone-wrap">
+        <div class="acwr-zone" style="background:var(--surface2);color:var(--muted)">Insufficient data</div>
+      </div>
+      <div class="acwr-explain">Needs at least 2 weeks of training to compute. Re-sync Bridge or wait for next session.</div>
+    `;
+    return;
+  }
+
+  const zoneInfo = {
+    'undertrained':  { lbl: 'Undertrained',   color: '#C0202A', bg: 'rgba(192,32,42,0.10)', adv: 'Load has dropped sharply — risk of detraining' },
+    'caution-low':   { lbl: 'Caution (low)',  color: '#8A5A00', bg: 'rgba(138,90,0,0.12)',  adv: 'Below sweet spot — gradual ramp recommended' },
+    'sweet':         { lbl: 'Sweet spot',     color: '#0D7A4E', bg: 'rgba(13,122,78,0.12)', adv: 'Safe, productive load. Continue progression.' },
+    'caution-high':  { lbl: 'Caution (high)', color: '#8A5A00', bg: 'rgba(138,90,0,0.12)',  adv: 'Elevated injury risk — consider deload soon' },
+    'danger':        { lbl: 'High risk',      color: '#C0202A', bg: 'rgba(192,32,42,0.10)', adv: 'Significant overreach — deload this week' },
+  }[zone];
+
+  // Position on meter: 0 → 2.0 mapped to 0% → 100%
+  const meterPct = Math.min(100, Math.max(0, (ratio / 2.0) * 100));
+
+  document.getElementById('acwrBody').innerHTML = `
+    <div class="acwr-val" style="color:${zoneInfo.color}">${ratio.toFixed(2)}</div>
+    <div class="acwr-zone-wrap">
+      <span class="acwr-zone" style="background:${zoneInfo.bg};color:${zoneInfo.color}">${zoneInfo.lbl}</span>
+    </div>
+    <div class="acwr-meter"><div class="acwr-pin" style="left:${meterPct}%"></div></div>
+    <div class="acwr-labels"><span>0</span><span>0.8</span><span>1.3</span><span>1.5</span><span>2.0+</span></div>
+    <div class="acwr-explain">
+      Acute (this wk): ${Math.round(acute).toLocaleString()} · Chronic (4wk avg): ${Math.round(chronic).toLocaleString()}<br>
+      <span style="color:${zoneInfo.color};font-weight:600">${zoneInfo.adv}</span>
+    </div>
+  `;
 }
 
 function renderMovementProfile(taggedWorkouts) {
