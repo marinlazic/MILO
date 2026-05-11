@@ -554,13 +554,14 @@
           <div class="card-title">Client roster</div>
           <span class="card-link">View all →</span>
         </div>
-        <div class="tbl-head">
+        <div class="tbl-head" style="grid-template-columns:38px 1fr 64px 80px 64px 80px 80px">
           <div></div>
           <div class="th">Client</div>
-          <div class="th" style="text-align:center">Sessions 4wk</div>
+          <div class="th" style="text-align:center">Sessions</div>
           <div class="th">Last RPE</div>
           <div class="th" style="text-align:center">Avg RPE</div>
-          <div class="th" style="text-align:center">Last activity</div>
+          <div class="th" style="text-align:center">Trend</div>
+          <div class="th" style="text-align:center">Last</div>
         </div>
 
         <div id="rosterBody"></div>
@@ -715,11 +716,13 @@
 </div>
 
 <script src="clients.js"></script>
+<script src="classifier.js"></script>
 <script>
 /* ── Render roster from Bridge data ─────────────────── */
 (function renderRoster() {
   const M = window.MILO;
-  if (!M) return;
+  const CLF = window.MILO_CLASSIFIER;
+  if (!M || !CLF) return;
   const all = M.getAllClients();
   const today = new Date('2026-05-11');
 
@@ -757,8 +760,11 @@
     const sessionBarPct = Math.min(100, (sessions / 8) * 100);
     const sessionColor = sessions >= 3 ? 'var(--green)' : sessions >= 1 ? '#F59E0B' : '#EF4444';
 
+    const trends = CLF.patternWeeklyTrends(c.recentWorkouts || [], 12);
+    const overall = CLF.overallProgression(trends);
+
     return `
-      <a class="tbl-row" href="client.html?id=${c.id}">
+      <a class="tbl-row" href="client.html?id=${c.id}" style="grid-template-columns:38px 1fr 64px 80px 64px 80px 80px">
         <div class="av">${c.initials || ''}</div>
         <div>
           <div class="cl-name">${escapeHtml(c.name)}</div>
@@ -773,6 +779,10 @@
         </div>
         <div style="text-align:center">
           <span class="pill ${rpeCls(avgR)}">${avgR ?? '—'}</span>
+        </div>
+        <div style="text-align:center" title="${overall.adapting} adapting · ${overall.stable} stable · ${overall.regressing} regressing">
+          <span style="font-family:var(--head);font-size:18px;font-weight:800;color:${overall.color};line-height:1">${overall.arrow}</span>
+          <div style="font-family:var(--mono);font-size:8px;color:${overall.color};letter-spacing:0.04em;margin-top:2px;text-transform:uppercase">${overall.label}</div>
         </div>
         <div style="text-align:center">
           <span class="tag ${stale ? 't-miss' : daysSince <= 2 ? 't-done' : 't-due'}">${humanDate(M.lastWorkoutDate(c))}</span>

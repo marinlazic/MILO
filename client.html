@@ -223,6 +223,23 @@
   .region-val{font-family:var(--head);font-size:20px;font-weight:800;color:var(--text);letter-spacing:-0.03em}
   .region-lbl{font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px}
 
+  /* STRENGTH PROGRESSION */
+  .prog-pattern-row{display:grid;grid-template-columns:90px 1fr 90px 80px;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+  .prog-pattern-row:last-child{border-bottom:none}
+  .prog-pattern-name{font-family:var(--head);font-size:13px;font-weight:700;color:var(--text);text-transform:capitalize}
+  .prog-spark{height:36px;display:flex;align-items:flex-end;gap:2px}
+  .prog-spark-bar{flex:1;min-width:4px;background:var(--blue);border-radius:2px 2px 0 0;position:relative;cursor:default}
+  .prog-spark-bar.empty{background:#E4E8EE;height:2px!important}
+  .prog-spark-bar:hover{opacity:0.85}
+  .prog-detail{font-family:var(--mono);font-size:10px;color:var(--muted);text-align:right;line-height:1.5}
+  .prog-arrow{font-family:var(--head);font-size:22px;font-weight:800;text-align:center;line-height:1}
+  .prog-label{font-family:var(--mono);font-size:9px;text-align:center;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px}
+
+  @media (max-width: 600px) {
+    .prog-pattern-row{grid-template-columns:64px 1fr 70px;gap:8px}
+    .prog-detail{display:none}
+  }
+
   /* WORKOUT EXPANDED */
   .wo-row{cursor:pointer}
   .wo-row:hover{background:var(--surface2)}
@@ -404,6 +421,18 @@
       </div>
     </div>
 
+    <!-- Strength Progression -->
+    <div class="card" style="margin-bottom:14px" id="progressCard">
+      <div class="card-head">
+        <div style="display:flex;align-items:baseline;gap:12px">
+          <div class="card-title">Strength progression</div>
+          <span id="progressOverall" style="font-family:var(--mono);font-size:11px;letter-spacing:0.04em"></span>
+        </div>
+        <span class="card-link">Last 12 weeks · per pattern</span>
+      </div>
+      <div id="progressBody" style="padding:16px 20px"></div>
+    </div>
+
     <div class="grid-2">
       <div class="card">
         <div class="card-head">
@@ -544,6 +573,9 @@ function renderClient(c) {
 
   // MOVEMENT PROFILE WIDGETS
   renderMovementProfile(taggedWorkouts);
+
+  // STRENGTH PROGRESSION — per-pattern adaptation trends
+  renderStrengthProgress(c.recentWorkouts || []);
 
   // ACTIVE PROGRAMS
   document.getElementById('progCount').textContent = `${active.length} active`;
@@ -1082,6 +1114,87 @@ function renderMovementProfile(taggedWorkouts) {
       Upper : Lower = ${r.upper}:${r.lower}${r.upper > 0 && r.lower > 0 && Math.abs(r.upper - r.lower) > Math.max(r.upper, r.lower) * 0.5 ? ' · ⚠ imbalanced' : ''}
     </div>
   `;
+}
+
+function renderStrengthProgress(workouts) {
+  const CLF = window.MILO_CLASSIFIER;
+  const trends = CLF.patternWeeklyTrends(workouts, 12);
+  const overall = CLF.overallProgression(trends);
+
+  // Header pill — overall read
+  document.getElementById('progressOverall').innerHTML = `
+    <span style="background:${overall.color}22;color:${overall.color};padding:3px 10px;border-radius:20px;font-weight:700">
+      ${overall.arrow} ${overall.label}
+    </span>
+  `;
+
+  // Per-pattern rows
+  const patterns = Object.keys(trends).filter(p => trends[p].totalSessions > 0);
+  if (patterns.length === 0) {
+    document.getElementById('progressBody').innerHTML = `
+      <div style="text-align:center;color:var(--muted);font-family:var(--mono);font-size:11px;padding:20px">
+        No movement-pattern data in the last 12 weeks.<br>
+        Re-sync Bridge or wait for new sessions.
+      </div>`;
+    return;
+  }
+
+  const rows = patterns.map(p => {
+    const t = trends[p];
+    const sig = t.signal;
+    const maxSessions = Math.max(...t.weeks.map(w => w.sessions), 1);
+
+    // Sparkline bars — one per week
+    const bars = t.weeks.map(w => {
+      const h = w.sessions === 0 ? 2 : Math.max(4, (w.sessions / maxSessions) * 32);
+      const tooltip = `${w.label}: ${w.sessions} session${w.sessions === 1 ? '' : 's'}${w.avgRpe ? ' · RPE ' + w.avgRpe.toFixed(1) : ''}`;
+      const bgColor = w.sessions === 0 ? '#E4E8EE' : w.avgRpe === null ? '#A0ABBE' : rpeColorFn(w.avgRpe);
+      return `<div class="prog-spark-bar ${w.sessions === 0 ? 'empty' : ''}" style="height:${h}px;background:${bgColor}" title="${tooltip}"></div>`;
+    }).join('');
+
+    const lastWithRpe = [...t.weeks].reverse().find(w => w.avgRpe !== null);
+    const detail = sig.detail
+      || (lastWithRpe ? `Last RPE ${lastWithRpe.avgRpe.toFixed(1)}` : `${t.totalSessions} sessions`);
+
+    return `
+      <div class="prog-pattern-row">
+        <div>
+          <div class="prog-pattern-name">${p}</div>
+          <div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:2px">${t.totalSessions} session${t.totalSessions === 1 ? '' : 's'}</div>
+        </div>
+        <div class="prog-spark">${bars}</div>
+        <div class="prog-detail">${detail}</div>
+        <div>
+          <div class="prog-arrow" style="color:${sig.color}">${sig.arrow}</div>
+          <div class="prog-label" style="color:${sig.color}">${sig.label}</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  // Patterns with no data — show as "Not trained"
+  const empty = Object.keys(trends).filter(p => trends[p].totalSessions === 0);
+  const emptyRow = empty.length > 0
+    ? `<div style="padding:10px 0 0;font-family:var(--mono);font-size:10px;color:var(--muted);text-align:center">
+         Not trained in 12 weeks: ${empty.join(', ')}
+       </div>`
+    : '';
+
+  // Legend
+  const legend = `
+    <div style="display:flex;justify-content:flex-end;gap:14px;margin-bottom:8px;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.04em">
+      <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;background:#0D7A4E;border-radius:2px"></span>RPE&lt;4 (productive)</span>
+      <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;background:#F59E0B;border-radius:2px"></span>4-7 (moderate)</span>
+      <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;background:#EF4444;border-radius:2px"></span>&gt;7 (hard)</span>
+    </div>`;
+
+  document.getElementById('progressBody').innerHTML = legend + rows + emptyRow;
+}
+
+function rpeColorFn(rpe) {
+  if (rpe === null) return '#A0ABBE';
+  if (rpe < 4) return '#0D7A4E';
+  if (rpe < 7) return '#F59E0B';
+  return '#EF4444';
 }
 
 function planeRow(name, n, pct, color) {

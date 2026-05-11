@@ -193,6 +193,127 @@ function patternFrequency(workouts) {
 }
 
 /* ============================================================
+   Strength Progression / Adaptation trends
+   ============================================================
+   For each movement pattern, compute weekly:
+     - frequency (sessions that include this pattern)
+     - avg RPE for those sessions
+   Then read the trend over the last N weeks:
+     - RPE dropping w/ stable or rising frequency → adapting / getting stronger
+     - RPE rising w/ stable freq → either harder load OR fatigue
+     - Frequency dropping → not being trained
+   ============================================================ */
+
+function patternWeeklyTrends(workouts, weeksBack = 12, todayStr = '2026-05-11') {
+  const [yy, mm, dd] = todayStr.split('-').map(Number);
+  const todayUTC = Date.UTC(yy, mm - 1, dd);
+  const dayMs = 86400000;
+  const fmt = (ms) => new Date(ms).toISOString().slice(0, 10);
+  const monthDay = (ms) => new Date(ms).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+
+  // Pre-tag every workout
+  const tagged = (workouts || []).map(w => ({ ...w, _tags: w._tags || classifyName(w.name) }));
+
+  const PATTERNS = ['push', 'pull', 'squat', 'hinge', 'lunge', 'carry', 'rotation'];
+  const out = {};
+  for (const p of PATTERNS) out[p] = { weeks: [], totalSessions: 0 };
+
+  for (let i = weeksBack - 1; i >= 0; i--) {
+    const endMs = todayUTC - (i * 7 * dayMs);
+    const startMs = endMs - (6 * dayMs);
+    const startStr = fmt(startMs);
+    const endStr = fmt(endMs);
+    const inWeek = tagged.filter(w => w.date && w.date >= startStr && w.date <= endStr);
+
+    for (const p of PATTERNS) {
+      const matching = inWeek.filter(w => w._tags?.pattern?.includes(p));
+      const rpes = matching.map(w => w.rpe).filter(r => r !== null && r !== undefined);
+      const avgRpe = rpes.length ? rpes.reduce((s, r) => s + r, 0) / rpes.length : null;
+      out[p].weeks.push({
+        label: monthDay(endMs),
+        sessions: matching.length,
+        avgRpe,
+      });
+      out[p].totalSessions += matching.length;
+    }
+  }
+
+  // Compute adaptation signal per pattern
+  for (const p of PATTERNS) {
+    out[p].signal = adaptationSignal(out[p].weeks);
+  }
+
+  return out;
+}
+
+/**
+ * Read a pattern's weekly history and return an arrow + label:
+ *   ↗ adapting   — RPE trending down with non-trivial frequency
+ *   → stable     — both flat (or insufficient data to call it)
+ *   ↘ regressing — RPE rising or frequency dropping
+ *   −  untrained — no sessions of this pattern at all
+ */
+function adaptationSignal(weeks) {
+  const nonEmpty = weeks.filter(w => w.sessions > 0);
+  if (nonEmpty.length === 0) return { arrow: '−', label: 'Not trained', color: '#A0ABBE', confidence: 'none' };
+  if (nonEmpty.length === 1) return { arrow: '→', label: 'Baseline', color: '#7A8499', confidence: 'low' };
+
+  // Split into first half vs second half of populated weeks
+  const half = Math.floor(nonEmpty.length / 2);
+  const early = nonEmpty.slice(0, half);
+  const late = nonEmpty.slice(-half);
+
+  const earlyRpe = avg(early.map(w => w.avgRpe).filter(v => v !== null));
+  const lateRpe  = avg(late.map(w => w.avgRpe).filter(v => v !== null));
+  const earlyFreq = avg(early.map(w => w.sessions)) || 0;
+  const lateFreq  = avg(late.map(w => w.sessions)) || 0;
+
+  const haveRpe = earlyRpe !== null && lateRpe !== null;
+  const rpeDelta = haveRpe ? lateRpe - earlyRpe : 0;
+  const freqDelta = lateFreq - earlyFreq;
+  const confidence = nonEmpty.length >= 4 ? 'high' : 'med';
+
+  // Adapting: RPE dropping by ≥0.5, frequency not collapsing
+  if (haveRpe && rpeDelta <= -0.5 && freqDelta >= -0.5) {
+    return { arrow: '↗', label: 'Adapting', color: '#0D7A4E', confidence,
+      detail: `RPE ${earlyRpe.toFixed(1)} → ${lateRpe.toFixed(1)}` };
+  }
+  // Regressing: RPE climbing notably OR frequency dropping while RPE flat
+  if ((haveRpe && rpeDelta >= 0.5) || freqDelta <= -0.7) {
+    const harder = haveRpe && rpeDelta >= 0.5;
+    return { arrow: '↘', label: harder ? 'Harder/regressing' : 'Frequency dropping', color: '#C0202A', confidence,
+      detail: harder ? `RPE ${earlyRpe.toFixed(1)} → ${lateRpe.toFixed(1)}` : `${earlyFreq.toFixed(1)}x → ${lateFreq.toFixed(1)}x/wk` };
+  }
+  return { arrow: '→', label: 'Stable', color: '#7A8499', confidence,
+    detail: haveRpe ? `RPE ~${((earlyRpe + lateRpe) / 2).toFixed(1)}` : `${nonEmpty.length} weeks tracked` };
+}
+
+function avg(arr) { return arr.length ? arr.reduce((a,b)=>a+b,0) / arr.length : null; }
+
+/**
+ * Overall progression read across all patterns.
+ * Returns { arrow, label, color, score } — e.g. "↗ Adapting" if more
+ * patterns are adapting than regressing.
+ */
+function overallProgression(trends) {
+  let adapting = 0, regressing = 0, stable = 0;
+  for (const p of Object.keys(trends)) {
+    const sig = trends[p].signal;
+    if (sig.arrow === '↗') adapting++;
+    else if (sig.arrow === '↘') regressing++;
+    else if (sig.arrow === '→') stable++;
+  }
+  const score = adapting - regressing;
+  if (adapting === 0 && regressing === 0 && stable === 0)
+    return { arrow: '−', label: 'No data', color: '#A0ABBE', adapting, regressing, stable };
+  if (score >= 2)  return { arrow: '↗', label: 'Adapting',    color: '#0D7A4E', adapting, regressing, stable };
+  if (score >= 1)  return { arrow: '↗', label: 'Improving',   color: '#0D7A4E', adapting, regressing, stable };
+  if (score <= -2) return { arrow: '↘', label: 'Regressing',  color: '#C0202A', adapting, regressing, stable };
+  if (score <= -1) return { arrow: '↘', label: 'Slipping',    color: '#C0202A', adapting, regressing, stable };
+  return { arrow: '→', label: 'Stable', color: '#7A8499', adapting, regressing, stable };
+}
+
+/* ============================================================
    Expose globally
    ============================================================ */
 if (typeof window !== 'undefined') {
@@ -202,6 +323,9 @@ if (typeof window !== 'undefined') {
     planesDistribution,
     regionDistribution,
     patternFrequency,
+    patternWeeklyTrends,
+    adaptationSignal,
+    overallProgression,
     KEYWORDS,
   };
 }
