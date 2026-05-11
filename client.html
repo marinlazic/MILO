@@ -149,6 +149,42 @@
 
   .chart-body{padding:14px 20px}
 
+  /* MOVEMENT WIDGETS */
+  .pp-row{display:flex;gap:6px;margin-bottom:14px;height:32px;border-radius:8px;overflow:hidden;background:var(--surface2);border:1px solid var(--border)}
+  .pp-seg{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;transition:width 0.4s}
+  .pp-seg.push{background:linear-gradient(135deg,#1A6BF5,#3D85F7)}
+  .pp-seg.pull{background:linear-gradient(135deg,#0D7A4E,#10B981)}
+  .pp-legend{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:10px}
+  .pp-balance{font-family:var(--head);font-size:24px;font-weight:800;text-align:center;margin-bottom:4px;letter-spacing:-0.04em}
+  .pp-balance-lbl{font-family:var(--mono);font-size:9px;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px}
+
+  .plane-item{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .plane-bar{flex:1;height:8px;background:var(--surface2);border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+  .plane-bar-fill{height:100%;border-radius:4px;transition:width 0.4s}
+  .plane-label{font-family:var(--mono);font-size:10px;color:var(--text2);min-width:80px}
+  .plane-pct{font-family:var(--mono);font-size:11px;color:var(--text);font-weight:600;min-width:36px;text-align:right}
+
+  .region-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .region-cell{padding:10px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;text-align:center}
+  .region-val{font-family:var(--head);font-size:20px;font-weight:800;color:var(--text);letter-spacing:-0.03em}
+  .region-lbl{font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px}
+
+  /* WORKOUT EXPANDED */
+  .wo-row{cursor:pointer}
+  .wo-row:hover{background:var(--surface2)}
+  .wo-tags{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
+  .wo-tag{font-family:var(--mono);font-size:9px;padding:1px 6px;border-radius:4px;background:var(--blue-light);color:var(--blue-dark);font-weight:600;letter-spacing:0.04em}
+  .wo-tag.region{background:#E0E7FF;color:#3730A3}
+  .wo-tag.pattern{background:var(--green-bg);color:var(--green)}
+  .wo-tag.plane{background:var(--amber-bg);color:var(--amber)}
+  .wo-detail{display:none;grid-column:1/-1;padding:12px 20px;background:var(--surface2);border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--text2);line-height:1.6}
+  .wo-detail.open{display:block}
+  .wo-detail-row{display:flex;gap:8px;margin-bottom:4px}
+  .wo-detail-k{color:var(--muted);min-width:80px;text-transform:uppercase;letter-spacing:0.06em;font-size:9px;padding-top:1px}
+  .wo-detail-v{flex:1;color:var(--text)}
+  .wo-detail-link{display:inline-block;margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--blue);text-decoration:none}
+  .wo-detail-link:hover{text-decoration:underline}
+
   ::-webkit-scrollbar{width:4px}
   ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 </style>
@@ -245,6 +281,31 @@
 
     <div class="stats-row" id="statRow"></div>
 
+    <!-- Movement Profile -->
+    <div class="grid-3" style="margin-bottom:14px">
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Push / Pull ratio</div>
+          <span class="card-link" id="ppNote">Recent sessions</span>
+        </div>
+        <div style="padding:18px 20px" id="pushPullBody"></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Planes of motion</div>
+          <span class="card-link">Distribution</span>
+        </div>
+        <div style="padding:18px 20px" id="planesBody"></div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Body region balance</div>
+          <span class="card-link">Upper / Lower / Total</span>
+        </div>
+        <div style="padding:18px 20px" id="regionBody"></div>
+      </div>
+    </div>
+
     <div class="grid-2">
       <div class="card">
         <div class="card-head">
@@ -293,6 +354,7 @@
 </div>
 
 <script src="clients.js"></script>
+<script src="classifier.js"></script>
 <script>
 const params = new URLSearchParams(location.search);
 const clientId = params.get('id') || 'craig-blair';
@@ -311,12 +373,20 @@ if (!c) {
 
 function renderClient(c) {
   const M = window.MILO;
+  const CLF = window.MILO_CLASSIFIER;
   const active = M.activePrograms(c);
   const completed = M.completedPrograms(c);
   const primary = M.primaryProgram(c);
   const avgR = M.avgRpe(c, 4);
   const sessions = M.sessionsThisRange(c);
   const daysSince = M.daysSinceLastWorkout(c, new Date('2026-05-11'));
+
+  // Pre-classify all workouts so subsequent renders can reuse the tags
+  const taggedWorkouts = (c.recentWorkouts || []).map(w => ({
+    ...w,
+    _tags: CLF.classifyName(w.name)
+  }));
+  c._taggedWorkouts = taggedWorkouts;
 
   document.getElementById('crumbName').textContent = c.name;
   document.title = `${c.name} — MILO`;
@@ -357,6 +427,9 @@ function renderClient(c) {
     </div>
   `;
 
+  // MOVEMENT PROFILE WIDGETS
+  renderMovementProfile(taggedWorkouts);
+
   // ACTIVE PROGRAMS
   document.getElementById('progCount').textContent = `${active.length} active`;
   document.getElementById('progList').innerHTML = active.map((p, i) => `
@@ -387,16 +460,23 @@ function renderClient(c) {
     document.getElementById('miloText').textContent = top.body;
   }
 
-  // RECENT WORKOUTS
-  const recent = c.recentWorkouts || [];
+  // RECENT WORKOUTS — clickable, shows classification tags + Bridge link
+  const recent = taggedWorkouts;
   document.getElementById('recentCount').textContent = `${recent.length} sessions`;
-  document.getElementById('recentList').innerHTML = recent.map(w => {
+  document.getElementById('recentList').innerHTML = recent.map((w, i) => {
     const d = w.date ? new Date(w.date) : null;
     const day = d ? d.getDate() : '—';
     const mon = d ? d.toLocaleDateString('en-US', { month: 'short' }) : '';
     const rpeCls = w.rpe === null ? '' : w.rpe < 4 ? 'rpe-low' : w.rpe < 7 ? 'rpe-mid' : 'rpe-hi';
+    const tags = w._tags || {};
+    const tagBadges = [
+      ...(tags.region || []).map(r => `<span class="wo-tag region">${r}</span>`),
+      ...(tags.pattern || []).map(p => `<span class="wo-tag pattern">${p}</span>`),
+      ...(tags.plane || []).map(p => `<span class="wo-tag plane">${p}</span>`),
+    ].join('');
+    const bridgeUrl = `https://bridgeathletic.com/user/274266/organizations/19791/teams/37345/roster/${c.bridgeId}`;
     return `
-      <div class="wo-row">
+      <div class="wo-row" onclick="toggleDetail(${i})" data-wo-idx="${i}">
         <div>
           <div class="wo-date-d">${day}</div>
           <div class="wo-date-m">${mon}</div>
@@ -404,9 +484,20 @@ function renderClient(c) {
         <div>
           <div class="wo-name">${escapeHtml(w.name || '—')}</div>
           <div class="wo-sub">${escapeHtml(w.program || '')}</div>
+          ${tagBadges ? `<div class="wo-tags">${tagBadges}</div>` : ''}
         </div>
         <div class="wo-dur">${w.duration ?? '—'}m</div>
         <div class="wo-rpe ${rpeCls}">${w.rpe ?? '—'}</div>
+      </div>
+      <div class="wo-detail" id="wo-detail-${i}">
+        <div class="wo-detail-row"><div class="wo-detail-k">Program</div><div class="wo-detail-v">${escapeHtml(w.program || '—')}</div></div>
+        <div class="wo-detail-row"><div class="wo-detail-k">Duration</div><div class="wo-detail-v">${w.duration ?? '—'} min · RPE ${w.rpe ?? '—'}</div></div>
+        <div class="wo-detail-row"><div class="wo-detail-k">Region</div><div class="wo-detail-v">${(tags.region || []).join(', ') || '—'}</div></div>
+        <div class="wo-detail-row"><div class="wo-detail-k">Patterns</div><div class="wo-detail-v">${(tags.pattern || []).join(', ') || '—'}</div></div>
+        <div class="wo-detail-row"><div class="wo-detail-k">Plane</div><div class="wo-detail-v">${(tags.plane || []).join(', ') || '—'}</div></div>
+        ${tags.orientation && tags.orientation.length ? `<div class="wo-detail-row"><div class="wo-detail-k">Orientation</div><div class="wo-detail-v">${tags.orientation.join(', ')}</div></div>` : ''}
+        ${tags.lateral && tags.lateral.length ? `<div class="wo-detail-row"><div class="wo-detail-k">Laterality</div><div class="wo-detail-v">${tags.lateral.join(', ')}</div></div>` : ''}
+        <a class="wo-detail-link" href="${bridgeUrl}" target="_blank">View full workout in Bridge ↗</a>
       </div>`;
   }).join('') || '<div style="padding:20px;color:var(--muted);font-size:12px">No recent activity.</div>';
 
@@ -503,6 +594,73 @@ function humanDate(d) {
 
 function escapeHtml(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+}
+
+function toggleDetail(i) {
+  const el = document.getElementById('wo-detail-' + i);
+  if (el) el.classList.toggle('open');
+}
+
+function renderMovementProfile(taggedWorkouts) {
+  const CLF = window.MILO_CLASSIFIER;
+  const pp = CLF.pushPullRatio(taggedWorkouts);
+  const planes = CLF.planesDistribution(taggedWorkouts);
+  const region = CLF.regionDistribution(taggedWorkouts);
+
+  // ── PUSH / PULL ─────────────────────────────
+  const balanced = pp.total > 0
+    ? (Math.abs(pp.pushPct - 50) < 15 ? 'Balanced ✓' : pp.push > pp.pull ? 'Push-dominant' : 'Pull-dominant')
+    : 'No data';
+  const ratioText = pp.total === 0 ? '—'
+    : pp.ratio === null ? `${pp.push} : 0`
+    : `${pp.push} : ${pp.pull}`;
+
+  document.getElementById('pushPullBody').innerHTML = `
+    <div class="pp-balance">${ratioText}</div>
+    <div class="pp-balance-lbl">push : pull ratio · ${balanced}</div>
+    <div class="pp-row">
+      <div class="pp-seg push" style="width:${pp.pushPct}%">${pp.pushPct > 12 ? pp.pushPct + '%' : ''}</div>
+      <div class="pp-seg pull" style="width:${pp.pullPct}%">${pp.pullPct > 12 ? pp.pullPct + '%' : ''}</div>
+    </div>
+    <div class="pp-legend">
+      <span>● Push (${pp.push})</span>
+      <span>Pull (${pp.pull}) ●</span>
+    </div>
+  `;
+
+  // ── PLANES OF MOTION ────────────────────────
+  document.getElementById('planesBody').innerHTML = `
+    ${planeRow('Sagittal', planes.sagittal, planes.sagittalPct, '#1A6BF5')}
+    ${planeRow('Frontal',  planes.frontal,  planes.frontalPct,  '#F59E0B')}
+    ${planeRow('Transverse', planes.transverse, planes.transversePct, '#A855F7')}
+    <div style="margin-top:8px;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.06em">
+      ${planes.total} tagged movements${planes.transversePct < 5 && planes.total > 3 ? ' · ⚠ rotation underrepresented' : ''}
+    </div>
+  `;
+
+  // ── BODY REGION ─────────────────────────────
+  const r = region.counts;
+  document.getElementById('regionBody').innerHTML = `
+    <div class="region-grid">
+      <div class="region-cell"><div class="region-val" style="color:var(--blue)">${r.upper}</div><div class="region-lbl">Upper</div></div>
+      <div class="region-cell"><div class="region-val" style="color:var(--green)">${r.lower}</div><div class="region-lbl">Lower</div></div>
+      <div class="region-cell"><div class="region-val" style="color:#A855F7">${r.total}</div><div class="region-lbl">Total body</div></div>
+      <div class="region-cell"><div class="region-val" style="color:var(--amber)">${r.core}</div><div class="region-lbl">Core</div></div>
+    </div>
+    ${r.cardio > 0 ? `<div style="margin-top:10px;padding:8px 10px;background:var(--blue-light);border-radius:6px;font-family:var(--mono);font-size:10px;color:var(--blue-dark);text-align:center">+ ${r.cardio} aerobic / Zone sessions</div>` : ''}
+    <div style="margin-top:8px;font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.06em;text-align:center">
+      Upper : Lower = ${r.upper}:${r.lower}${r.upper > 0 && r.lower > 0 && Math.abs(r.upper - r.lower) > Math.max(r.upper, r.lower) * 0.5 ? ' · ⚠ imbalanced' : ''}
+    </div>
+  `;
+}
+
+function planeRow(name, n, pct, color) {
+  return `
+    <div class="plane-item">
+      <div class="plane-label">${name}</div>
+      <div class="plane-bar"><div class="plane-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+      <div class="plane-pct">${pct}%</div>
+    </div>`;
 }
 </script>
 </body>
