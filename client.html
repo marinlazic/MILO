@@ -284,7 +284,7 @@
         <svg class="nav-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
         Dashboard
       </a>
-      <a class="nav-item active" href="#">
+      <a class="nav-item active" href="clients.html">
         <svg class="nav-ic" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
         Clients
         <span class="nav-badge" style="margin-left:auto">19</span>
@@ -328,7 +328,7 @@
     <div class="crumb">
       <a href="index.html">Dashboard</a>
       <span class="sep">›</span>
-      <a href="index.html">Clients</a>
+      <a href="clients.html">Clients</a>
       <span class="sep">›</span>
       <span class="here" id="crumbName">Loading…</span>
     </div>
@@ -636,14 +636,14 @@ function renderClient(c) {
         <div class="wo-dur">${w.duration ?? '—'}m</div>
         <div class="wo-rpe ${rpeCls}">${w.rpe ?? '—'}</div>
       </div>
-      <div class="wo-detail" id="wo-detail-${i}">
-        <div class="wo-detail-row"><div class="wo-detail-k">Program</div><div class="wo-detail-v">${escapeHtml(w.program || '—')}</div></div>
-        <div class="wo-detail-row"><div class="wo-detail-k">Duration</div><div class="wo-detail-v">${w.duration ?? '—'} min · RPE ${w.rpe ?? '—'}</div></div>
-        <div class="wo-detail-row"><div class="wo-detail-k">Region</div><div class="wo-detail-v">${(tags.region || []).join(', ') || '—'}</div></div>
-        <div class="wo-detail-row"><div class="wo-detail-k">Patterns</div><div class="wo-detail-v">${(tags.pattern || []).join(', ') || '—'}</div></div>
-        <div class="wo-detail-row"><div class="wo-detail-k">Plane</div><div class="wo-detail-v">${(tags.plane || []).join(', ') || '—'}</div></div>
-        ${tags.orientation && tags.orientation.length ? `<div class="wo-detail-row"><div class="wo-detail-k">Orientation</div><div class="wo-detail-v">${tags.orientation.join(', ')}</div></div>` : ''}
-        ${tags.lateral && tags.lateral.length ? `<div class="wo-detail-row"><div class="wo-detail-k">Laterality</div><div class="wo-detail-v">${tags.lateral.join(', ')}</div></div>` : ''}
+      <div class="wo-detail" id="wo-detail-${i}" data-workout-id="${w.workoutId || ''}">
+        <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+          <span style="font-family:var(--mono);font-size:10px;color:var(--text2);background:var(--surface);padding:3px 9px;border-radius:5px;border:1px solid var(--border)">${w.duration ?? '—'} min · RPE ${w.rpe ?? '—'}</span>
+          ${(tags.region || []).map(r => `<span class="wo-tag region">${r}</span>`).join('')}
+          ${(tags.pattern || []).map(p => `<span class="wo-tag pattern">${p}</span>`).join('')}
+          ${(tags.plane || []).map(p => `<span class="wo-tag plane">${p}</span>`).join('')}
+        </div>
+        <div class="wo-exercises" style="margin:8px 0;"></div>
         <a class="wo-detail-link" href="${bridgeUrl}" target="_blank">View full workout in Bridge ↗</a>
       </div>`;
   }).join('') || '<div style="padding:20px;color:var(--muted);font-size:12px">No recent activity.</div>';
@@ -822,9 +822,76 @@ function escapeHtml(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
 }
 
-function toggleDetail(i) {
+async function toggleDetail(i) {
   const el = document.getElementById('wo-detail-' + i);
-  if (el) el.classList.toggle('open');
+  if (!el) return;
+  el.classList.toggle('open');
+  // Lazy-load exercise content the first time the row is expanded
+  if (el.classList.contains('open') && !el.dataset.exLoaded) {
+    el.dataset.exLoaded = '1';
+    const workoutId = el.dataset.workoutId;
+    const exBox = el.querySelector('.wo-exercises');
+    if (!workoutId || !exBox) return;
+    exBox.innerHTML = '<div style="opacity:0.6;font-family:var(--mono);font-size:10px">Loading exercises…</div>';
+    const content = await window.MILO.getWorkoutContent(workoutId);
+    exBox.innerHTML = renderWorkoutContent(content);
+  }
+}
+
+function renderWorkoutContent(content) {
+  if (!content) {
+    return '<div style="font-family:var(--mono);font-size:10px;color:var(--muted)">Exercise content not in cache. Re-sync Bridge to backfill.</div>';
+  }
+  const fmtSet = (s) => {
+    const parts = [];
+    // Support both full schema (reps/weight/distance) and compact (r/w/d)
+    const reps = s.reps ?? s.r;
+    const weight = s.weight ?? s.w;
+    const weightUnit = s.weightUnit ?? s.wu ?? 'lbs';
+    const distance = s.distance ?? s.d;
+    const distanceUnit = s.distanceUnit ?? s.du ?? 'm';
+    const rpe = s.rpe;
+    const rest = s.rest;
+    if (reps !== null && reps !== undefined && reps !== '') parts.push(`${typeof reps === 'object' ? (reps.value ?? '-') : reps} reps`);
+    if (weight !== null && weight !== undefined) parts.push(`${Math.round(weight / 1000)} ${weightUnit}`);
+    if (distance !== null && distance !== undefined) parts.push(`${Math.round(distance / 1000)}${distanceUnit}`);
+    if (rpe !== null && rpe !== undefined && rpe !== '') parts.push(`RPE ${typeof rpe === 'object' ? rpe.value : rpe}`);
+    if (rest) parts.push(`rest ${rest}s`);
+    return parts.join(' · ') || '—';
+  };
+  const blocks = content.blocks || content.b || [];
+  return blocks.map(blk => {
+    const blockName = blk.name || blk.n;
+    const blockMin = blk.minutes ?? blk.m;
+    const isCircuit = blk.isCircuit ?? blk.c;
+    const blockRounds = blk.rounds ?? blk.r;
+    const exercises = blk.exercises || blk.e || [];
+    return `
+      <div style="margin-bottom:14px;border-left:3px solid var(--blue);padding-left:12px">
+        <div style="font-family:var(--head);font-size:12px;font-weight:700;color:var(--text);margin-bottom:2px">
+          ${escapeHtml(blockName || 'Block')}
+          ${isCircuit ? '<span style="font-family:var(--mono);font-size:9px;color:var(--blue);margin-left:6px;background:var(--blue-light);padding:1px 6px;border-radius:8px">CIRCUIT</span>' : ''}
+        </div>
+        <div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:8px">
+          ${blockRounds ? `${blockRounds} rounds` : ''}${blockRounds && blockMin ? ' · ' : ''}${blockMin ? `${blockMin} min` : ''}${exercises.length ? ` · ${exercises.length} exercise${exercises.length === 1 ? '' : 's'}` : ''}
+        </div>
+        ${exercises.map(ex => {
+          const exName = ex.name || ex.n;
+          const sets = ex.sets || ex.s || [];
+          return `
+            <div style="padding:6px 0;border-bottom:1px dashed var(--border);font-family:var(--body);font-size:11px;color:var(--text2);display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start">
+              <div>
+                <div style="font-weight:600;color:var(--text)">${escapeHtml(exName || '—')}</div>
+                ${sets.length > 1 ? `<div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:1px">${sets.length} sets</div>` : ''}
+              </div>
+              <div style="font-family:var(--mono);font-size:10px;color:var(--text2);text-align:right;line-height:1.5">
+                ${sets.slice(0, 4).map(s => fmtSet(s)).join('<br>')}
+                ${sets.length > 4 ? `<div style="color:var(--muted)">+ ${sets.length - 4} more</div>` : ''}
+              </div>
+            </div>`;
+        }).join('')}
+      </div>`;
+  }).join('') + (blocks.length === 0 ? '<div style="font-family:var(--mono);font-size:10px;color:var(--muted)">No blocks found for this workout.</div>' : '');
 }
 
 function weeklyBuckets(workouts, weeksBack = 6, todayStr = '2026-05-11') {

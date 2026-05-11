@@ -1,14 +1,8 @@
 /* ============================================================
    MILO — Client Data Layer
    ============================================================
-
    Auto-populated from Bridge Athletic via bridge-sync.js.
-   Last synced: 2026-05-11T01:36:22Z
-
-   This file is the SINGLE SOURCE OF TRUTH for client data in MILO.
-   To refresh, open Bridge in Chrome (logged in) and run
-   bridgeSync.run() from the console, OR ask Claude to run the
-   live sync via Chrome MCP.
+   Last synced: 2026-05-11T04:49:31Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -148,6 +142,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-11",
         "name": "4.2",
+        "workoutId": 35263435,
+        "workoutHistoryId": 64705733,
         "duration": 86,
         "rpe": 10,
         "program": "ARM FARM (no above head)",
@@ -156,6 +152,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-06",
         "name": "4.1",
+        "workoutId": -35263434,
+        "workoutHistoryId": 64599301,
         "duration": 73,
         "rpe": 10,
         "program": "ARM FARM (no above head)",
@@ -164,6 +162,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-05",
         "name": "4.4",
+        "workoutId": -35263437,
+        "workoutHistoryId": 64513200,
         "duration": 100,
         "rpe": 10,
         "program": "ARM FARM (no above head)",
@@ -172,14 +172,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-01",
         "name": "4.3",
+        "workoutId": -35263436,
+        "workoutHistoryId": 64312368,
         "duration": 101,
+        "rpe": 10,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-29",
+        "name": "4.2",
+        "workoutId": 35263435,
+        "workoutHistoryId": 64229150,
+        "duration": 79,
+        "rpe": 10,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-24",
+        "name": "4.1",
+        "workoutId": 35263434,
+        "workoutHistoryId": 64057781,
+        "duration": 83,
+        "rpe": 9,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-22",
+        "name": "4.4",
+        "workoutId": -35263437,
+        "workoutHistoryId": 64006767,
+        "duration": 90,
+        "rpe": 10,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-20",
+        "name": "4.3",
+        "workoutId": -35263436,
+        "workoutHistoryId": 63906405,
+        "duration": 96,
+        "rpe": 10,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-16",
+        "name": "4.2",
+        "workoutId": -35263435,
+        "workoutHistoryId": 63851498,
+        "duration": 75,
+        "rpe": 9,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-15",
+        "name": "4.1",
+        "workoutId": 35263434,
+        "workoutHistoryId": 63766440,
+        "duration": 65,
+        "rpe": 10,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-12",
+        "name": "4.4",
+        "workoutId": -35263437,
+        "workoutHistoryId": 63667565,
+        "duration": 81,
+        "rpe": 10,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-09",
+        "name": "4.3",
+        "workoutId": -35263436,
+        "workoutHistoryId": 63618697,
+        "duration": 78,
         "rpe": 10,
         "program": "ARM FARM (no above head)",
         "status": "completed"
       }
     ],
     "programCount": 15,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "samantha-van-gelder": {
     "id": "samantha-van-gelder",
@@ -357,6 +439,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-11",
         "name": "Lower Power + Frontal Plane",
+        "workoutId": 37116531,
+        "workoutHistoryId": 64705270,
         "duration": 55,
         "rpe": 6,
         "program": "Hypertrophy & Impulse Integration",
@@ -365,6 +449,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-10",
         "name": "Hinge + Horizontal Push/Pull",
+        "workoutId": 36482644,
+        "workoutHistoryId": 64683510,
         "duration": 73,
         "rpe": 9,
         "program": "2025 -  SAM",
@@ -373,6 +459,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-07",
         "name": "Lower Power + Horizontal Push/Pull",
+        "workoutId": -36482642,
+        "workoutHistoryId": 64597730,
         "duration": 49,
         "rpe": 9,
         "program": "2025 -  SAM",
@@ -381,14 +469,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-05",
         "name": "Vertical Pull + Lower Unilateral",
+        "workoutId": 36482643,
+        "workoutHistoryId": 64512822,
         "duration": 58,
         "rpe": 10,
+        "program": "2025 -  SAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-04",
+        "name": "Hinge + Horizontal Push/Pull",
+        "workoutId": 36482644,
+        "workoutHistoryId": 64396764,
+        "duration": 52,
+        "rpe": 9,
+        "program": "2025 -  SAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-01",
+        "name": "Vertical Press + Lower Unilateral",
+        "workoutId": 36482645,
+        "workoutHistoryId": 64311374,
+        "duration": 51,
+        "rpe": 9,
+        "program": "2025 -  SAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-30",
+        "name": "Vertical Pull + Lower Unilateral",
+        "workoutId": 36482639,
+        "workoutHistoryId": 64271603,
+        "duration": 55,
+        "rpe": 9,
+        "program": "2025 -  SAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-29",
+        "name": "Lower Power + Horizontal Push/Pull",
+        "workoutId": 36482638,
+        "workoutHistoryId": 64227399,
+        "duration": 56,
+        "rpe": 8,
+        "program": "2025 -  SAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-28",
+        "name": "Vertical Press + Lower Unilateral",
+        "workoutId": 36482641,
+        "workoutHistoryId": 64190086,
+        "duration": 48,
+        "rpe": 7,
+        "program": "2025 -  SAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-27",
+        "name": "Hinge + Horizontal Push/Pull",
+        "workoutId": 36482640,
+        "workoutHistoryId": 64127830,
+        "duration": 60,
+        "rpe": 9,
+        "program": "2025 -  SAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-23",
+        "name": "Vertical Pull + Lower Unilateral",
+        "workoutId": 36482635,
+        "workoutHistoryId": 64031271,
+        "duration": 58,
+        "rpe": 9,
+        "program": "2025 -  SAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-21",
+        "name": "Lower Power + Horizontal Push/Pull",
+        "workoutId": -36482634,
+        "workoutHistoryId": 63972577,
+        "duration": 57,
+        "rpe": 8,
         "program": "2025 -  SAM",
         "status": "completed"
       }
     ],
     "programCount": 20,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "craig-blair": {
     "id": "craig-blair",
@@ -534,6 +704,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-11",
         "name": "Hinge, Carry, Core",
+        "workoutId": 36959917,
+        "workoutHistoryId": 64705391,
         "duration": 49,
         "rpe": 3,
         "program": "Road to LA28- Craig",
@@ -542,6 +714,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-06",
         "name": "Zone 2 Aerobic Base",
+        "workoutId": 36959914,
+        "workoutHistoryId": 64597734,
         "duration": 44,
         "rpe": 5,
         "program": "Road to LA28- Craig",
@@ -550,6 +724,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-05",
         "name": "Pull, Posterior Shoulder, Hip",
+        "workoutId": 36959915,
+        "workoutHistoryId": 64517178,
         "duration": 56,
         "rpe": 5,
         "program": "Road to LA28- Craig",
@@ -558,14 +734,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-04",
         "name": "Push, Glute, Hip",
+        "workoutId": 36959913,
+        "workoutHistoryId": 64396947,
         "duration": 52,
+        "rpe": 3,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-02",
+        "name": "Par 5(3)",
+        "workoutId": 35831017,
+        "workoutHistoryId": 64361127,
+        "duration": 42,
+        "rpe": 3,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-30",
+        "name": "Par 5(3)",
+        "workoutId": 35831020,
+        "workoutHistoryId": 64272973,
+        "duration": null,
+        "rpe": null,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-28",
+        "name": "Par 3(3)",
+        "workoutId": 35831018,
+        "workoutHistoryId": 64188139,
+        "duration": 56,
+        "rpe": 3,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-22",
+        "name": "Par 4 (3)",
+        "workoutId": 35831019,
+        "workoutHistoryId": 64034157,
+        "duration": 65,
+        "rpe": 3,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-17",
+        "name": "Par 5(3)",
+        "workoutId": 35831020,
+        "workoutHistoryId": 63865303,
+        "duration": null,
+        "rpe": null,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-16",
+        "name": "Par 4 (3)",
+        "workoutId": 35831019,
+        "workoutHistoryId": 63833269,
+        "duration": 58,
+        "rpe": 3,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-15",
+        "name": "Par 3(3)",
+        "workoutId": 35831018,
+        "workoutHistoryId": 63766830,
+        "duration": 61,
+        "rpe": 3,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-14",
+        "name": "Par 5(3)",
+        "workoutId": 35831017,
+        "workoutHistoryId": 63726757,
+        "duration": 60,
         "rpe": 3,
         "program": "Road to LA28- Craig",
         "status": "completed"
       }
     ],
     "programCount": 16,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "charlie-lanchester": {
     "id": "charlie-lanchester",
@@ -735,6 +993,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-21",
         "name": "3.1",
+        "workoutId": 35281312,
+        "workoutHistoryId": 63976748,
         "duration": 47,
         "rpe": 5,
         "program": "ARM FARM Charlie",
@@ -743,6 +1003,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-03-24",
         "name": "2.4",
+        "workoutId": 35281311,
+        "workoutHistoryId": 63082726,
         "duration": 43,
         "rpe": 6,
         "program": "ARM FARM Charlie",
@@ -751,6 +1013,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-03-18",
         "name": "2.3",
+        "workoutId": 35281310,
+        "workoutHistoryId": 62879341,
         "duration": 93,
         "rpe": 5,
         "program": "ARM FARM Charlie",
@@ -759,14 +1023,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-03-16",
         "name": "2.2",
+        "workoutId": 35281309,
+        "workoutHistoryId": 62792003,
         "duration": null,
         "rpe": null,
         "program": "ARM FARM Charlie",
         "status": "completed"
+      },
+      {
+        "date": "2026-03-05",
+        "name": "2.1",
+        "workoutId": 35281308,
+        "workoutHistoryId": 62479467,
+        "duration": null,
+        "rpe": null,
+        "program": "ARM FARM Charlie",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-03",
+        "name": "1.4",
+        "workoutId": 35281307,
+        "workoutHistoryId": 62411998,
+        "duration": null,
+        "rpe": null,
+        "program": "ARM FARM Charlie",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-23",
+        "name": "1.3",
+        "workoutId": 35281306,
+        "workoutHistoryId": 62114805,
+        "duration": null,
+        "rpe": null,
+        "program": "ARM FARM Charlie",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-16",
+        "name": "1.2",
+        "workoutId": 35281305,
+        "workoutHistoryId": 61911855,
+        "duration": null,
+        "rpe": null,
+        "program": "ARM FARM Charlie",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-12",
+        "name": "1.1",
+        "workoutId": 35281304,
+        "workoutHistoryId": 61839395,
+        "duration": null,
+        "rpe": null,
+        "program": "ARM FARM Charlie",
+        "status": "completed"
+      },
+      {
+        "date": "2025-10-13",
+        "name": "Upper Push / Lower Pull",
+        "workoutId": 32076724,
+        "workoutHistoryId": 57555589,
+        "duration": 60,
+        "rpe": null,
+        "program": "Two Day Full Body Health and Performance  Charlie",
+        "status": "completed"
+      },
+      {
+        "date": "2025-10-06",
+        "name": "Lower Push / Upper Pull",
+        "workoutId": 32076723,
+        "workoutHistoryId": 57356377,
+        "duration": 60,
+        "rpe": null,
+        "program": "Two Day Full Body Health and Performance  Charlie",
+        "status": "completed"
+      },
+      {
+        "date": "2025-09-23",
+        "name": "Upper Push / Lower Pull",
+        "workoutId": 32076722,
+        "workoutHistoryId": 56911591,
+        "duration": 60,
+        "rpe": null,
+        "program": "Two Day Full Body Health and Performance  Charlie",
+        "status": "completed"
       }
     ],
     "programCount": 19,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "mark-oreilly": {
     "id": "mark-oreilly",
@@ -912,6 +1258,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-08",
         "name": "Hinge + Vertical Pull Focus",
+        "workoutId": -36881024,
+        "workoutHistoryId": 64636045,
         "duration": 44,
         "rpe": 7,
         "program": "Mark -SLEEP BETTER PROGRAM",
@@ -920,6 +1268,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-05",
         "name": "Power + Multi-Planar + Vertical Pull Repeat",
+        "workoutId": 36881023,
+        "workoutHistoryId": 64514480,
         "duration": 43,
         "rpe": 5,
         "program": "Mark -SLEEP BETTER PROGRAM",
@@ -928,6 +1278,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-01",
         "name": "Squat + Vertical Push + Horizontal Pull",
+        "workoutId": 36881022,
+        "workoutHistoryId": 64312809,
         "duration": 45,
         "rpe": 6,
         "program": "Mark -SLEEP BETTER PROGRAM",
@@ -936,14 +1288,106 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-29",
         "name": "Hinge + Vertical Pull Focus",
+        "workoutId": 36881021,
+        "workoutHistoryId": 64230415,
         "duration": 43,
         "rpe": 6,
         "program": "Mark -SLEEP BETTER PROGRAM",
         "status": "completed"
+      },
+      {
+        "date": "2026-04-09",
+        "name": "Workout A",
+        "workoutId": 35013585,
+        "workoutHistoryId": 63595366,
+        "duration": 40,
+        "rpe": 5,
+        "program": "Mark 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-27",
+        "name": "Workout B",
+        "workoutId": 35013596,
+        "workoutHistoryId": 63152298,
+        "duration": 60,
+        "rpe": 5,
+        "program": "Mark 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-25",
+        "name": "Workout A",
+        "workoutId": 35013595,
+        "workoutHistoryId": 63110263,
+        "duration": 60,
+        "rpe": 5,
+        "program": "Mark 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-20",
+        "name": "Workout A",
+        "workoutId": 35013595,
+        "workoutHistoryId": 62937099,
+        "duration": 60,
+        "rpe": 7,
+        "program": "Mark 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-18",
+        "name": "Workout B",
+        "workoutId": 35013596,
+        "workoutHistoryId": 62879895,
+        "duration": null,
+        "rpe": null,
+        "program": "Mark 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-18",
+        "name": "Workout B",
+        "workoutId": -35013596,
+        "workoutHistoryId": 62879971,
+        "duration": 60,
+        "rpe": 6,
+        "program": "Mark 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-06",
+        "name": "Workout A",
+        "workoutId": 35013595,
+        "workoutHistoryId": 62516549,
+        "duration": null,
+        "rpe": null,
+        "program": "Mark 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-04",
+        "name": "Workout B",
+        "workoutId": 35013594,
+        "workoutHistoryId": 62453395,
+        "duration": null,
+        "rpe": null,
+        "program": "Mark 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-25",
+        "name": "Workout A",
+        "workoutId": 35013593,
+        "workoutHistoryId": 62203703,
+        "duration": null,
+        "rpe": null,
+        "program": "Mark 2026 Health and Performance Program",
+        "status": "completed"
       }
     ],
     "programCount": 16,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 13
   },
   "nathan-parris": {
     "id": "nathan-parris",
@@ -1041,6 +1485,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-05",
         "name": "Pull and Row - Core Dynamic Stability",
+        "workoutId": 36854090,
+        "workoutHistoryId": 64519879,
         "duration": 57,
         "rpe": 5,
         "program": "Nathan 2026 Health and Performance Program",
@@ -1049,6 +1495,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-01",
         "name": "Impulse and Power Day - Core Stability",
+        "workoutId": 36854089,
+        "workoutHistoryId": 64313951,
         "duration": 51,
         "rpe": 6,
         "program": "Nathan 2026 Health and Performance Program",
@@ -1057,6 +1505,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-29",
         "name": "Push with Pull Tax - Core Dynamic Stability",
+        "workoutId": 36854088,
+        "workoutHistoryId": 64230423,
         "duration": 51,
         "rpe": 7,
         "program": "Nathan 2026 Health and Performance Program",
@@ -1065,14 +1515,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-28",
         "name": "Pull and Deadlift - Core Stability",
+        "workoutId": 36854087,
+        "workoutHistoryId": 64190650,
         "duration": 52,
         "rpe": 8,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-20",
+        "name": "Workout A11",
+        "workoutId": 34988589,
+        "workoutHistoryId": 62939027,
+        "duration": 60,
+        "rpe": 5,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-18",
+        "name": "Workout B12",
+        "workoutId": 34988590,
+        "workoutHistoryId": 62880014,
+        "duration": 60,
+        "rpe": 5,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-25",
+        "name": "Workout A11",
+        "workoutId": 34988589,
+        "workoutHistoryId": 62203939,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-24",
+        "name": "Workout B10",
+        "workoutId": 34988588,
+        "workoutHistoryId": 62166560,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-18",
+        "name": "Workout A9",
+        "workoutId": 34988587,
+        "workoutHistoryId": 61987964,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-17",
+        "name": "Workout B8",
+        "workoutId": 34988586,
+        "workoutHistoryId": 61953590,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-10",
+        "name": "Workout A7",
+        "workoutId": 34988585,
+        "workoutHistoryId": 61775674,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-06",
+        "name": "Workout B6",
+        "workoutId": 34988584,
+        "workoutHistoryId": 61642338,
+        "duration": null,
+        "rpe": null,
         "program": "Nathan 2026 Health and Performance Program",
         "status": "completed"
       }
     ],
     "programCount": 10,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "steve-turner": {
     "id": "steve-turner",
@@ -1130,6 +1662,8 @@ const BRIDGE_DATA = {
       {
         "date": "2025-07-02",
         "name": "1.Upper Body Push // Lower Body Pull",
+        "workoutId": 30254648,
+        "workoutHistoryId": 54272161,
         "duration": null,
         "rpe": null,
         "program": "Steve Turner 2025",
@@ -1138,6 +1672,8 @@ const BRIDGE_DATA = {
       {
         "date": "2024-01-01",
         "name": "Upper",
+        "workoutId": 20275830,
+        "workoutHistoryId": 37928261,
         "duration": 60,
         "rpe": null,
         "program": "STEVE - NOVEMBER ",
@@ -1146,6 +1682,8 @@ const BRIDGE_DATA = {
       {
         "date": "2024-01-01",
         "name": "Lower",
+        "workoutId": 20275835,
+        "workoutHistoryId": 37928148,
         "duration": 60,
         "rpe": null,
         "program": "STEVE - NOVEMBER ",
@@ -1154,6 +1692,8 @@ const BRIDGE_DATA = {
       {
         "date": "2024-01-01",
         "name": "Total Body",
+        "workoutId": 20275839,
+        "workoutHistoryId": 37928158,
         "duration": 60,
         "rpe": null,
         "program": "STEVE - NOVEMBER ",
@@ -1162,6 +1702,8 @@ const BRIDGE_DATA = {
       {
         "date": "2023-12-09",
         "name": "Lower",
+        "workoutId": 20275835,
+        "workoutHistoryId": 37456691,
         "duration": 72,
         "rpe": 5,
         "program": "STEVE - NOVEMBER ",
@@ -1170,6 +1712,8 @@ const BRIDGE_DATA = {
       {
         "date": "2023-12-03",
         "name": "Lower",
+        "workoutId": 20275835,
+        "workoutHistoryId": 37317886,
         "duration": 60,
         "rpe": null,
         "program": "STEVE - NOVEMBER ",
@@ -1178,14 +1722,96 @@ const BRIDGE_DATA = {
       {
         "date": "2023-12-03",
         "name": "Upper",
+        "workoutId": 20275833,
+        "workoutHistoryId": 37317889,
         "duration": 58,
         "rpe": 3,
         "program": "STEVE - NOVEMBER ",
         "status": "completed"
+      },
+      {
+        "date": "2023-12-02",
+        "name": "Total Body",
+        "workoutId": 20275838,
+        "workoutHistoryId": 37299709,
+        "duration": 70,
+        "rpe": 5,
+        "program": "STEVE - NOVEMBER ",
+        "status": "completed"
+      },
+      {
+        "date": "2023-11-23",
+        "name": "Upper",
+        "workoutId": 20275832,
+        "workoutHistoryId": 37108130,
+        "duration": 61,
+        "rpe": 5,
+        "program": "STEVE - NOVEMBER ",
+        "status": "completed"
+      },
+      {
+        "date": "2023-11-22",
+        "name": "Lower",
+        "workoutId": 20275834,
+        "workoutHistoryId": 37067510,
+        "duration": 52,
+        "rpe": 4,
+        "program": "STEVE - NOVEMBER ",
+        "status": "completed"
+      },
+      {
+        "date": "2023-11-18",
+        "name": "Upper",
+        "workoutId": 20275831,
+        "workoutHistoryId": 36965753,
+        "duration": 64,
+        "rpe": 5,
+        "program": "STEVE - NOVEMBER ",
+        "status": "completed"
+      },
+      {
+        "date": "2023-11-15",
+        "name": "Total Body",
+        "workoutId": 20275840,
+        "workoutHistoryId": 36903500,
+        "duration": 63,
+        "rpe": 6,
+        "program": "STEVE - NOVEMBER ",
+        "status": "completed"
+      },
+      {
+        "date": "2023-11-03",
+        "name": "Lower",
+        "workoutId": -20275836,
+        "workoutHistoryId": 36596272,
+        "duration": 66,
+        "rpe": 4,
+        "program": "STEVE - NOVEMBER ",
+        "status": "completed"
+      },
+      {
+        "date": "2023-10-31",
+        "name": "Upper",
+        "workoutId": 20275830,
+        "workoutHistoryId": 36531290,
+        "duration": 74,
+        "rpe": 5,
+        "program": "STEVE - NOVEMBER ",
+        "status": "completed"
+      },
+      {
+        "date": "2023-10-24",
+        "name": "Upper Push / Lower Pull",
+        "workoutId": 19730917,
+        "workoutHistoryId": 36371906,
+        "duration": 30,
+        "rpe": null,
+        "program": "Steve Turner - Fundations ",
+        "status": "completed"
       }
     ],
     "programCount": 5,
-    "totalCompletedThisRange": 7
+    "totalCompletedThisRange": 15
   },
   "melanie-caffrey": {
     "id": "melanie-caffrey",
@@ -1235,6 +1861,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-11",
         "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 64710751,
         "duration": 34,
         "rpe": 3,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
@@ -1243,6 +1871,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-29",
         "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 64232312,
         "duration": null,
         "rpe": null,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
@@ -1251,6 +1881,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-27",
         "name": "Workout B",
+        "workoutId": 34391443,
+        "workoutHistoryId": 64126869,
         "duration": 27,
         "rpe": 3,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
@@ -1259,6 +1891,118 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-21",
         "name": "Workout A",
+        "workoutId": 34391442,
+        "workoutHistoryId": 63981496,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-17",
+        "name": "Workout B",
+        "workoutId": 34391440,
+        "workoutHistoryId": 63855436,
+        "duration": 33,
+        "rpe": 5,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-13",
+        "name": "Workout B",
+        "workoutId": 34391434,
+        "workoutHistoryId": 63668456,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-13",
+        "name": "Workout B",
+        "workoutId": 34391434,
+        "workoutHistoryId": 63668802,
+        "duration": 15,
+        "rpe": 3,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-08",
+        "name": "Workout B",
+        "workoutId": 34391434,
+        "workoutHistoryId": 63564351,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-08",
+        "name": "Workout B",
+        "workoutId": 34391434,
+        "workoutHistoryId": 63564359,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-03",
+        "name": "Workout B",
+        "workoutId": 34391445,
+        "workoutHistoryId": 63389616,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-03",
+        "name": "Workout B",
+        "workoutId": 34391445,
+        "workoutHistoryId": 63390092,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-24",
+        "name": "Workout A",
+        "workoutId": 34391438,
+        "workoutHistoryId": 63069937,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-01-13",
+        "name": "Workout A",
+        "workoutId": 34391438,
+        "workoutHistoryId": 60816417,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-01-08",
+        "name": "Workout B",
+        "workoutId": 34390348,
+        "workoutHistoryId": 60624953,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-01-02",
+        "name": "Workout A",
+        "workoutId": 34388369,
+        "workoutHistoryId": 60301374,
         "duration": null,
         "rpe": null,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
@@ -1266,7 +2010,7 @@ const BRIDGE_DATA = {
       }
     ],
     "programCount": 4,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 15
   },
   "stephanie-belton": {
     "id": "stephanie-belton",
@@ -1316,6 +2060,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-09",
         "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 64669626,
         "duration": 49,
         "rpe": 4,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
@@ -1324,6 +2070,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-05",
         "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 64512607,
         "duration": null,
         "rpe": null,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
@@ -1332,6 +2080,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-25",
         "name": "Workout B",
+        "workoutId": 34391445,
+        "workoutHistoryId": 64094998,
         "duration": 53,
         "rpe": 4,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
@@ -1340,14 +2090,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-21",
         "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 63972504,
         "duration": 44,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-18",
+        "name": "Workout B",
+        "workoutId": 34391443,
+        "workoutHistoryId": 63871508,
+        "duration": 51,
+        "rpe": 2,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-14",
+        "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 63725116,
+        "duration": 56,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-11",
+        "name": "Workout B",
+        "workoutId": 34390348,
+        "workoutHistoryId": 63639724,
+        "duration": 50,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-03",
+        "name": "Workout B",
+        "workoutId": 34391445,
+        "workoutHistoryId": 63390096,
+        "duration": 52,
+        "rpe": 3,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-31",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 63303840,
+        "duration": 57,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-28",
+        "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 63185302,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-14",
+        "name": "Workout B",
+        "workoutId": 34391445,
+        "workoutHistoryId": 62759514,
+        "duration": 49,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-11",
+        "name": "Workout A",
+        "workoutId": 34391444,
+        "workoutHistoryId": 62672905,
+        "duration": 52,
         "rpe": 4,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "completed"
       }
     ],
     "programCount": 4,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "linda-gregory": {
     "id": "linda-gregory",
@@ -1405,6 +2237,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-11",
         "name": "Deadlift and Military Press - Core Dynamic Stability",
+        "workoutId": 37048365,
+        "workoutHistoryId": 64707558,
         "duration": 92,
         "rpe": 2,
         "program": "2025 - Linda",
@@ -1413,6 +2247,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-08",
         "name": "Squat and Bench - Core Stability",
+        "workoutId": 37048364,
+        "workoutHistoryId": 64642497,
         "duration": 58,
         "rpe": 2,
         "program": "2025 - Linda",
@@ -1421,6 +2257,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-04",
         "name": "1",
+        "workoutId": 29888236,
+        "workoutHistoryId": 64399903,
         "duration": null,
         "rpe": null,
         "program": "2025 - Linda",
@@ -1429,14 +2267,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-01",
         "name": "1",
+        "workoutId": 29888236,
+        "workoutHistoryId": 64313453,
         "duration": null,
         "rpe": null,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-29",
+        "name": "1",
+        "workoutId": 29888236,
+        "workoutHistoryId": 64230435,
+        "duration": null,
+        "rpe": null,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-26",
+        "name": "1",
+        "workoutId": 29888236,
+        "workoutHistoryId": 64106967,
+        "duration": 69,
+        "rpe": 2,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-24",
+        "name": null,
+        "workoutId": 35877695,
+        "workoutHistoryId": 64059966,
+        "duration": 21,
+        "rpe": 1,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-22",
+        "name": null,
+        "workoutId": 35877694,
+        "workoutHistoryId": 64009696,
+        "duration": 39,
+        "rpe": 2,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-20",
+        "name": "1",
+        "workoutId": 29888236,
+        "workoutHistoryId": 63913650,
+        "duration": 47,
+        "rpe": 3,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-17",
+        "name": "3",
+        "workoutId": 29888238,
+        "workoutHistoryId": 63854963,
+        "duration": null,
+        "rpe": null,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-13",
+        "name": "1",
+        "workoutId": 29888236,
+        "workoutHistoryId": 63668455,
+        "duration": 50,
+        "rpe": 3,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-07",
+        "name": null,
+        "workoutId": 35877701,
+        "workoutHistoryId": 63524496,
+        "duration": 26,
+        "rpe": 2,
         "program": "2025 - Linda",
         "status": "completed"
       }
     ],
     "programCount": 5,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "alana-saphin": {
     "id": "alana-saphin",
@@ -1470,6 +2390,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-09",
         "name": "Upper",
+        "workoutId": 35576323,
+        "workoutHistoryId": 64673638,
         "duration": 33,
         "rpe": 4,
         "program": "Alana 2026 Health and Performance Program ",
@@ -1478,6 +2400,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-07",
         "name": "Lower",
+        "workoutId": 35576322,
+        "workoutHistoryId": 64602643,
         "duration": 60,
         "rpe": null,
         "program": "Alana 2026 Health and Performance Program ",
@@ -1486,6 +2410,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-05",
         "name": "Upper",
+        "workoutId": 35576321,
+        "workoutHistoryId": 64521750,
         "duration": 48,
         "rpe": 4,
         "program": "Alana 2026 Health and Performance Program ",
@@ -1494,14 +2420,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-04",
         "name": "Lower",
+        "workoutId": 35576324,
+        "workoutHistoryId": 64436530,
         "duration": 43,
         "rpe": 4,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-28",
+        "name": "Upper",
+        "workoutId": 35576323,
+        "workoutHistoryId": 64195680,
+        "duration": 45,
+        "rpe": 3,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-25",
+        "name": "Lower",
+        "workoutId": 35576322,
+        "workoutHistoryId": 64096339,
+        "duration": 32,
+        "rpe": 3,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-23",
+        "name": "Upper",
+        "workoutId": 35576321,
+        "workoutHistoryId": 64034039,
+        "duration": 60,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-20",
+        "name": "Lower",
+        "workoutId": 35576324,
+        "workoutHistoryId": 63919458,
+        "duration": 60,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-15",
+        "name": "Upper",
+        "workoutId": 35576323,
+        "workoutHistoryId": 63777289,
+        "duration": 32,
+        "rpe": 3,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-13",
+        "name": "Lower",
+        "workoutId": 35576322,
+        "workoutHistoryId": 63669865,
+        "duration": 76,
+        "rpe": 5,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-12",
+        "name": "Upper",
+        "workoutId": 35576321,
+        "workoutHistoryId": 63653161,
+        "duration": 52,
+        "rpe": 6,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-08",
+        "name": "Lower",
+        "workoutId": 35576324,
+        "workoutHistoryId": 63564717,
+        "duration": 45,
+        "rpe": 5,
         "program": "Alana 2026 Health and Performance Program ",
         "status": "completed"
       }
     ],
     "programCount": 2,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "craig-saphin": {
     "id": "craig-saphin",
@@ -1527,6 +2535,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-27",
         "name": "5 x 5 reps B",
+        "workoutId": 36528257,
+        "workoutHistoryId": 64127114,
         "duration": 67,
         "rpe": 6,
         "program": "2025 - Craig Saphin",
@@ -1535,6 +2545,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-22",
         "name": "5 x 5 reps A",
+        "workoutId": 36528253,
+        "workoutHistoryId": 64010165,
         "duration": 73,
         "rpe": 6,
         "program": "2025 - Craig Saphin",
@@ -1543,6 +2555,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-20",
         "name": "5 x 5 reps B",
+        "workoutId": 36528254,
+        "workoutHistoryId": 63925201,
         "duration": 74,
         "rpe": 6,
         "program": "2025 - Craig Saphin",
@@ -1551,14 +2565,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-17",
         "name": "5 x 5 reps A",
+        "workoutId": 36528255,
+        "workoutHistoryId": 63856943,
         "duration": 61,
         "rpe": 6,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-08",
+        "name": "5 x 5 reps B",
+        "workoutId": 35119277,
+        "workoutHistoryId": 63564391,
+        "duration": 59,
+        "rpe": 6,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-05",
+        "name": "5 x 5 reps A",
+        "workoutId": 35119276,
+        "workoutHistoryId": 63443161,
+        "duration": 58,
+        "rpe": 4,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-03",
+        "name": "5 x 5 reps B",
+        "workoutId": 35119275,
+        "workoutHistoryId": 63393837,
+        "duration": 60,
+        "rpe": 5,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-29",
+        "name": "5 x 5 reps A",
+        "workoutId": 35119254,
+        "workoutHistoryId": 63197272,
+        "duration": 62,
+        "rpe": 5,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-19",
+        "name": "5 x 5 reps B",
+        "workoutId": 35119253,
+        "workoutHistoryId": 62912789,
+        "duration": 53,
+        "rpe": 4,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-17",
+        "name": "5 x 5 reps A",
+        "workoutId": 35119252,
+        "workoutHistoryId": 62861618,
+        "duration": 49,
+        "rpe": 4,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-13",
+        "name": "5 x 5 reps B",
+        "workoutId": 35119251,
+        "workoutHistoryId": 62735418,
+        "duration": 57,
+        "rpe": 4,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-09",
+        "name": "5 x 5 reps A",
+        "workoutId": 35119248,
+        "workoutHistoryId": 62580706,
+        "duration": null,
+        "rpe": null,
         "program": "2025 - Craig Saphin",
         "status": "completed"
       }
     ],
     "programCount": 1,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "maria-goddard": {
     "id": "maria-goddard",
@@ -1584,6 +2680,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-03-03",
         "name": "2",
+        "workoutId": 33811593,
+        "workoutHistoryId": 62430900,
         "duration": null,
         "rpe": null,
         "program": "Health and Performance _Maria",
@@ -1592,6 +2690,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-02-26",
         "name": "1",
+        "workoutId": 33811592,
+        "workoutHistoryId": 62236759,
         "duration": null,
         "rpe": null,
         "program": "Health and Performance _Maria",
@@ -1600,6 +2700,8 @@ const BRIDGE_DATA = {
       {
         "date": "2025-12-21",
         "name": "3",
+        "workoutId": 33811594,
+        "workoutHistoryId": 60064091,
         "duration": null,
         "rpe": null,
         "program": "Health and Performance _Maria",
@@ -1608,6 +2710,88 @@ const BRIDGE_DATA = {
       {
         "date": "2025-12-12",
         "name": "2",
+        "workoutId": 33811593,
+        "workoutHistoryId": 59810025,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-10",
+        "name": "1",
+        "workoutId": 33811592,
+        "workoutHistoryId": 59745199,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-07-30",
+        "name": null,
+        "workoutId": 29611862,
+        "workoutHistoryId": 55127472,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-07-29",
+        "name": null,
+        "workoutId": 29611861,
+        "workoutHistoryId": 55088080,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-06-12",
+        "name": null,
+        "workoutId": 29611860,
+        "workoutHistoryId": 53618063,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-28",
+        "name": null,
+        "workoutId": 29611859,
+        "workoutHistoryId": 53045094,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-21",
+        "name": null,
+        "workoutId": 29611858,
+        "workoutHistoryId": 52819909,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-18",
+        "name": null,
+        "workoutId": 29611858,
+        "workoutHistoryId": 52817560,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-13",
+        "name": null,
+        "workoutId": 29611857,
+        "workoutHistoryId": 52541367,
         "duration": null,
         "rpe": null,
         "program": "Health and Performance _Maria",
@@ -1615,7 +2799,7 @@ const BRIDGE_DATA = {
       }
     ],
     "programCount": 1,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "katherine-freire": {
     "id": "katherine-freire",
@@ -1641,6 +2825,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-04",
         "name": "Workout A",
+        "workoutId": 36802200,
+        "workoutHistoryId": 64437567,
         "duration": 75,
         "rpe": 4,
         "program": "Health & Performance ",
@@ -1649,6 +2835,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-02",
         "name": "Workout B",
+        "workoutId": 36802143,
+        "workoutHistoryId": 64364432,
         "duration": 51,
         "rpe": 4,
         "program": "Health & Performance ",
@@ -1657,6 +2845,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-30",
         "name": "Workout A",
+        "workoutId": 36802142,
+        "workoutHistoryId": 64282890,
         "duration": 76,
         "rpe": 3,
         "program": "Health & Performance ",
@@ -1665,14 +2855,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-28",
         "name": "Workout B",
+        "workoutId": 36802141,
+        "workoutHistoryId": 64198075,
         "duration": 80,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-26",
+        "name": "Workout A",
+        "workoutId": 36802140,
+        "workoutHistoryId": 64116023,
+        "duration": 70,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-24",
+        "name": "Workout B",
+        "workoutId": 35877231,
+        "workoutHistoryId": 64063577,
+        "duration": 60,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-22",
+        "name": "Workout A",
+        "workoutId": 35877230,
+        "workoutHistoryId": 64013688,
+        "duration": 60,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-20",
+        "name": "Workout B",
+        "workoutId": 35877229,
+        "workoutHistoryId": 63932448,
+        "duration": 75,
+        "rpe": 4,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-18",
+        "name": "Workout A",
+        "workoutId": 35877228,
+        "workoutHistoryId": 63880636,
+        "duration": 60,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-15",
+        "name": "Workout B",
+        "workoutId": 35877227,
+        "workoutHistoryId": 63782397,
+        "duration": 75,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-13",
+        "name": "Workout A",
+        "workoutId": 35877226,
+        "workoutHistoryId": 63688613,
+        "duration": 75,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-11",
+        "name": "Workout B",
+        "workoutId": 35877241,
+        "workoutHistoryId": 63645444,
+        "duration": 60,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
       }
     ],
     "programCount": 1,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "david-shein": {
     "id": "david-shein",
@@ -1698,6 +2970,8 @@ const BRIDGE_DATA = {
       {
         "date": "2025-10-10",
         "name": "2",
+        "workoutId": 31897691,
+        "workoutHistoryId": 57499224,
         "duration": null,
         "rpe": null,
         "program": "Road to LA - David",
@@ -1706,6 +2980,8 @@ const BRIDGE_DATA = {
       {
         "date": "2025-10-10",
         "name": "2",
+        "workoutId": 31897691,
+        "workoutHistoryId": 57499724,
         "duration": null,
         "rpe": null,
         "program": "Road to LA - David",
@@ -1714,6 +2990,8 @@ const BRIDGE_DATA = {
       {
         "date": "2025-10-06",
         "name": "2",
+        "workoutId": 31897691,
+        "workoutHistoryId": 57344396,
         "duration": null,
         "rpe": null,
         "program": "Road to LA - David",
@@ -1722,6 +3000,8 @@ const BRIDGE_DATA = {
       {
         "date": "2025-09-02",
         "name": "1",
+        "workoutId": 31897690,
+        "workoutHistoryId": 56179752,
         "duration": null,
         "rpe": null,
         "program": "Road to LA - David",
@@ -1771,6 +3051,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-23",
         "name": "Athletic Max Effort Lower Sumo Deadlift 1 Rep",
+        "workoutId": 34140389,
+        "workoutHistoryId": 64038261,
         "duration": 61,
         "rpe": 5,
         "program": "Ruthless",
@@ -1779,6 +3061,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-20",
         "name": "Athletic Max Effort Upper Comp Bench Press - Bands 1 Rep",
+        "workoutId": 34140461,
+        "workoutHistoryId": 63926940,
         "duration": 78,
         "rpe": 5,
         "program": "Ruthless",
@@ -1787,6 +3071,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-18",
         "name": "Workout A1",
+        "workoutId": 32509863,
+        "workoutHistoryId": 63880310,
         "duration": 60,
         "rpe": null,
         "program": "Road to Slam",
@@ -1795,6 +3081,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-18",
         "name": "Athletic Max Effort Lower Front Squat 1 Rep",
+        "workoutId": 34140460,
+        "workoutHistoryId": 63880314,
         "duration": null,
         "rpe": null,
         "program": "Ruthless",
@@ -1803,14 +3091,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-13",
         "name": "Athletic Combined Dynamic Effort Box Squat/Power Clean 75%",
+        "workoutId": 34140394,
+        "workoutHistoryId": 63686239,
         "duration": 87,
         "rpe": 5,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-26",
+        "name": "Athletic Max Effort Lower Sumo Deadlift 1 Rep",
+        "workoutId": 34140389,
+        "workoutHistoryId": 63157073,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-13",
+        "name": "Athletic Max Effort Upper Comp Bench Press - Bands 1 Rep",
+        "workoutId": 34140393,
+        "workoutHistoryId": 62763430,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-10",
+        "name": "Athletic Max Effort Lower Front Squat 1 Rep",
+        "workoutId": 34140392,
+        "workoutHistoryId": 62680838,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-04",
+        "name": "Athletic Combined Dynamic Effort Box Squat/Power Cleans 70%",
+        "workoutId": 34140391,
+        "workoutHistoryId": 62486295,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-22",
+        "name": "Athletic Max Effort Upper Close-Grip Bench 3 Rep",
+        "workoutId": 34140390,
+        "workoutHistoryId": 62124258,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-01-13",
+        "name": "Athletic Combined Dynamic Effort Box Squat/Power Clean 65%",
+        "workoutId": 34140388,
+        "workoutHistoryId": 60820116,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-29",
+        "name": "Athletic Max Effort Upper Close-Grip Bench 3 Rep",
+        "workoutId": 34140390,
+        "workoutHistoryId": 60251948,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-17",
+        "name": "Athletic Max Effort Upper Barbell Bench 1 Rep",
+        "workoutId": 34140387,
+        "workoutHistoryId": 59998338,
+        "duration": null,
+        "rpe": null,
         "program": "Ruthless",
         "status": "completed"
       }
     ],
     "programCount": 3,
-    "totalCompletedThisRange": 5
+    "totalCompletedThisRange": 13
   },
   "sondra-hamill": {
     "id": "sondra-hamill",
@@ -1844,6 +3214,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-02-01",
         "name": "11",
+        "workoutId": 33956264,
+        "workoutHistoryId": 61452135,
         "duration": null,
         "rpe": null,
         "program": "Sondra Hamill Health and Performance ",
@@ -1852,6 +3224,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-01-28",
         "name": "10",
+        "workoutId": 33956263,
+        "workoutHistoryId": 61337162,
         "duration": null,
         "rpe": null,
         "program": "Sondra Hamill Health and Performance ",
@@ -1860,6 +3234,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-01-24",
         "name": "12",
+        "workoutId": 33956213,
+        "workoutHistoryId": 61207604,
         "duration": null,
         "rpe": null,
         "program": "Sondra Hamill Health and Performance ",
@@ -1868,6 +3244,88 @@ const BRIDGE_DATA = {
       {
         "date": "2026-01-20",
         "name": "11",
+        "workoutId": 33956212,
+        "workoutHistoryId": 61056795,
+        "duration": null,
+        "rpe": null,
+        "program": "Sondra Hamill Health and Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-01-14",
+        "name": "10",
+        "workoutId": 33956211,
+        "workoutHistoryId": 60849517,
+        "duration": null,
+        "rpe": null,
+        "program": "Sondra Hamill Health and Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-01-13",
+        "name": "9",
+        "workoutId": 33956210,
+        "workoutHistoryId": 60808120,
+        "duration": null,
+        "rpe": null,
+        "program": "Sondra Hamill Health and Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-30",
+        "name": "8",
+        "workoutId": 33956209,
+        "workoutHistoryId": 60242047,
+        "duration": null,
+        "rpe": null,
+        "program": "Sondra Hamill Health and Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-23",
+        "name": "7",
+        "workoutId": 33956208,
+        "workoutHistoryId": 60112708,
+        "duration": null,
+        "rpe": null,
+        "program": "Sondra Hamill Health and Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-21",
+        "name": "6",
+        "workoutId": 33956207,
+        "workoutHistoryId": 60061023,
+        "duration": null,
+        "rpe": null,
+        "program": "Sondra Hamill Health and Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-19",
+        "name": "5",
+        "workoutId": 33956206,
+        "workoutHistoryId": 60022290,
+        "duration": null,
+        "rpe": null,
+        "program": "Sondra Hamill Health and Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-16",
+        "name": "4",
+        "workoutId": 33956205,
+        "workoutHistoryId": 59916627,
+        "duration": null,
+        "rpe": null,
+        "program": "Sondra Hamill Health and Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-13",
+        "name": "3",
+        "workoutId": 33956204,
+        "workoutHistoryId": 59834150,
         "duration": null,
         "rpe": null,
         "program": "Sondra Hamill Health and Performance ",
@@ -1875,7 +3333,7 @@ const BRIDGE_DATA = {
       }
     ],
     "programCount": 2,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "renee-lodens": {
     "id": "renee-lodens",
@@ -1901,6 +3359,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-05-06",
         "name": "Lower Assessment",
+        "workoutId": 36959781,
+        "workoutHistoryId": 64572452,
         "duration": 45,
         "rpe": 5,
         "program": "2026 Program - Renee Lodens (Kettlebells)",
@@ -1909,6 +3369,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-29",
         "name": "Workout B",
+        "workoutId": 36039428,
+        "workoutHistoryId": 64230471,
         "duration": 38,
         "rpe": 3,
         "program": "2026 Program - Renee Lodens (Kettlebells)",
@@ -1917,6 +3379,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-27",
         "name": "Workout A",
+        "workoutId": 36039427,
+        "workoutHistoryId": 64126699,
         "duration": 38,
         "rpe": 3,
         "program": "2026 Program - Renee Lodens (Kettlebells)",
@@ -1925,14 +3389,96 @@ const BRIDGE_DATA = {
       {
         "date": "2026-04-24",
         "name": "Workout B",
+        "workoutId": 36039426,
+        "workoutHistoryId": 64058738,
         "duration": 25,
         "rpe": 2,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-19",
+        "name": "Workout A",
+        "workoutId": 36039425,
+        "workoutHistoryId": 63887015,
+        "duration": 33,
+        "rpe": 3,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-17",
+        "name": "Workout B",
+        "workoutId": 36039424,
+        "workoutHistoryId": 63852686,
+        "duration": 38,
+        "rpe": 3,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-14",
+        "name": "Workout A",
+        "workoutId": 36039423,
+        "workoutHistoryId": 63725117,
+        "duration": 39,
+        "rpe": 3,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-12",
+        "name": "Workout B",
+        "workoutId": 36039422,
+        "workoutHistoryId": 63652945,
+        "duration": 40,
+        "rpe": 3,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-10",
+        "name": "Workout A",
+        "workoutId": 36039421,
+        "workoutHistoryId": 63618879,
+        "duration": 40,
+        "rpe": 3,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-08",
+        "name": "Workout B",
+        "workoutId": 36039420,
+        "workoutHistoryId": 63563619,
+        "duration": 34,
+        "rpe": 3,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-06",
+        "name": "Workout A",
+        "workoutId": 36039419,
+        "workoutHistoryId": 63466555,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-05",
+        "name": "Workout B",
+        "workoutId": 36039418,
+        "workoutHistoryId": 63443506,
+        "duration": 35,
+        "rpe": 3,
         "program": "2026 Program - Renee Lodens (Kettlebells)",
         "status": "completed"
       }
     ],
     "programCount": 1,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   },
   "michael-james": {
     "id": "michael-james",
@@ -1958,6 +3504,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-03-31",
         "name": "2.4.4",
+        "workoutId": 35831513,
+        "workoutHistoryId": 63308681,
         "duration": 29,
         "rpe": 3,
         "program": "ARM FARM MJ",
@@ -1966,6 +3514,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-03-30",
         "name": "2.4.3",
+        "workoutId": 35831512,
+        "workoutHistoryId": 63238451,
         "duration": 36,
         "rpe": 5,
         "program": "ARM FARM MJ",
@@ -1974,6 +3524,8 @@ const BRIDGE_DATA = {
       {
         "date": "2026-03-29",
         "name": "2.4.2",
+        "workoutId": 35831511,
+        "workoutHistoryId": 63195696,
         "duration": 50,
         "rpe": 5,
         "program": "ARM FARM MJ",
@@ -1982,58 +3534,135 @@ const BRIDGE_DATA = {
       {
         "date": "2026-03-27",
         "name": "2..4.1",
+        "workoutId": 35831510,
+        "workoutHistoryId": 63157736,
         "duration": 40,
         "rpe": 3,
+        "program": "ARM FARM MJ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-26",
+        "name": "2.3.4",
+        "workoutId": 35831509,
+        "workoutHistoryId": 63134797,
+        "duration": 48,
+        "rpe": 4,
+        "program": "ARM FARM MJ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-24",
+        "name": "2.3.3",
+        "workoutId": 35831508,
+        "workoutHistoryId": 63081290,
+        "duration": 40,
+        "rpe": 2,
+        "program": "ARM FARM MJ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-23",
+        "name": "2.3.2",
+        "workoutId": 35831507,
+        "workoutHistoryId": 63011243,
+        "duration": 49,
+        "rpe": 5,
+        "program": "ARM FARM MJ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-22",
+        "name": "2.3.1",
+        "workoutId": 35831506,
+        "workoutHistoryId": 62983030,
+        "duration": 44,
+        "rpe": 4,
+        "program": "ARM FARM MJ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-20",
+        "name": "2.2.4",
+        "workoutId": 35831505,
+        "workoutHistoryId": 62942270,
+        "duration": 41,
+        "rpe": 3,
+        "program": "ARM FARM MJ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-19",
+        "name": "2.2.3",
+        "workoutId": 35831504,
+        "workoutHistoryId": 62913258,
+        "duration": 45,
+        "rpe": 5,
+        "program": "ARM FARM MJ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-16",
+        "name": "2.2.2",
+        "workoutId": 35831503,
+        "workoutHistoryId": 62791463,
+        "duration": 44,
+        "rpe": 5,
+        "program": "ARM FARM MJ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-15",
+        "name": "2.2.1",
+        "workoutId": 35831502,
+        "workoutHistoryId": 62771995,
+        "duration": 41,
+        "rpe": 4,
         "program": "ARM FARM MJ",
         "status": "completed"
       }
     ],
     "programCount": 1,
-    "totalCompletedThisRange": 4
+    "totalCompletedThisRange": 12
   }
 };
 
-/* ============================================================
-   Helpers (called by client.html / index.html)
-   ============================================================ */
-
+/* Helpers (same API as before, used by client.html / index.html / clients.html) */
 function getClient(id) { return BRIDGE_DATA[id] || null; }
 function getAllClients() { return Object.values(BRIDGE_DATA); }
-
 function activePrograms(c) {
   return (c.programs || []).filter(p => p.status === "started")
     .sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""));
 }
-
 function completedPrograms(c) {
   return (c.programs || []).filter(p => p.status === "completed")
     .sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""));
 }
-
-function primaryProgram(c) {
-  const a = activePrograms(c);
-  return a[0] || null;
-}
-
+function primaryProgram(c) { const a = activePrograms(c); return a[0] || null; }
 function avgRpe(c, n = 4) {
   const r = (c.recentWorkouts || []).slice(0, n);
   if (!r.length) return null;
   return Math.round(r.reduce((s, w) => s + (w.rpe || 0), 0) / r.length * 10) / 10;
 }
-
-function sessionsThisRange(c) {
-  return (c.recentWorkouts || []).filter(w => w.status === "completed").length;
-}
-
-function lastWorkoutDate(c) {
-  const r = c.recentWorkouts || [];
-  return r.length ? r[0].date : null;
-}
-
+function sessionsThisRange(c) { return (c.recentWorkouts || []).filter(w => w.status === "completed").length; }
+function lastWorkoutDate(c) { const r = c.recentWorkouts || []; return r.length ? r[0].date : null; }
 function daysSinceLastWorkout(c, today = new Date()) {
   const d = lastWorkoutDate(c);
   if (!d) return null;
-  return Math.round((today - new Date(d)) / (1000 * 60 * 60 * 24));
+  return Math.round((today - new Date(d)) / (86400000));
+}
+
+/* Workout content lazy loader — fetches /bridge-workouts.json on first call */
+let _workoutCache = null;
+async function getWorkoutContent(workoutId) {
+  if (!workoutId) return null;
+  if (!_workoutCache) {
+    try {
+      const r = await fetch('bridge-workouts.json');
+      _workoutCache = await r.json();
+    } catch (e) { _workoutCache = {}; }
+  }
+  return _workoutCache[workoutId] || null;
 }
 
 if (typeof window !== "undefined") {
@@ -2042,5 +3671,6 @@ if (typeof window !== "undefined") {
     getClient, getAllClients,
     activePrograms, completedPrograms, primaryProgram,
     avgRpe, sessionsThisRange, lastWorkoutDate, daysSinceLastWorkout,
+    getWorkoutContent,
   };
 }

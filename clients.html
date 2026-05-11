@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MILO — All Clients</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F0F2F5; --surface:#FFFFFF; --surface2:#F7F8FA;
+    --border:#E4E8EE; --border2:#D0D6E0;
+    --blue:#1A6BF5; --blue-mid:#3D85F7; --blue-light:#E8F0FE; --blue-dark:#0D47C4;
+    --blue-grad:linear-gradient(135deg,#1A6BF5 0%,#6BA8FF 100%);
+    --text:#0E1117; --text2:#3A4156; --muted:#7A8499; --muted2:#A0ABBE;
+    --green:#0D7A4E; --green-bg:#E6F7F0;
+    --amber:#8A5A00; --amber-bg:#FEF3CC;
+    --red:#C0202A; --red-bg:#FDEAEA;
+    --mono:'DM Mono',monospace; --head:'DM Sans',sans-serif; --body:'Inter',sans-serif;
+    --r:14px; --r-sm:9px;
+    --sh:0 1px 2px rgba(0,0,0,0.05),0 4px 20px rgba(0,0,0,0.06);
+    --sh2:0 2px 8px rgba(26,107,245,0.18);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:var(--body);font-size:13px;color:var(--text);-webkit-font-smoothing:antialiased}
+
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+
+  /* SIDEBAR (same as other pages) */
+  .sidebar{background:var(--text);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden}
+  .sidebar-top{padding:26px 24px 22px;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .logo{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+  .logo-word{font-family:var(--head);font-size:26px;font-weight:800;letter-spacing:-0.05em;color:#fff}
+  .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);margin-bottom:4px}
+  .logo-sub{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:2px}
+  .sidebar-nav{flex:1;padding:16px 0;overflow-y:auto}
+  .nav-sec{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:14px 24px 5px}
+  .nav-item{display:flex;align-items:center;gap:11px;padding:8px 24px;font-family:var(--body);font-size:13px;font-weight:500;color:rgba(255,255,255,0.42);cursor:pointer;transition:all 0.15s;position:relative;text-decoration:none}
+  .nav-item:hover{color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.04)}
+  .nav-item.active{color:#fff;background:rgba(26,107,245,0.18)}
+  .nav-item.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--blue);border-radius:0 3px 3px 0}
+  .nav-ic{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;opacity:0.8}
+  .nav-badge{margin-left:auto;background:var(--red);color:#fff;font-family:var(--mono);font-size:9px;padding:1px 6px;border-radius:20px}
+  .sidebar-bottom{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.06)}
+  .profile-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.05);border-radius:var(--r-sm)}
+  .profile-av{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--head);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .profile-name{font-family:var(--head);font-size:13px;font-weight:600;color:#fff}
+  .profile-role{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.06em}
+
+  /* MAIN */
+  .main{padding:30px 30px 50px;overflow-y:auto}
+  .topbar{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px;flex-wrap:wrap;gap:14px}
+  .page-heading{font-family:var(--head);font-size:24px;font-weight:800;letter-spacing:-0.04em}
+  .page-sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase}
+
+  /* FILTERS */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  .filter-pill{padding:6px 14px;border-radius:20px;font-family:var(--mono);font-size:11px;font-weight:500;border:1px solid var(--border2);background:var(--surface);color:var(--text2);cursor:pointer;letter-spacing:0.04em;transition:all 0.15s}
+  .filter-pill:hover{border-color:var(--blue);color:var(--blue)}
+  .filter-pill.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .filter-pill .count{margin-left:6px;opacity:0.7;font-size:10px}
+
+  /* GRID */
+  .clients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px}
+
+  /* CLIENT CARD */
+  .cc{
+    background:var(--surface);border-radius:var(--r);border:1px solid var(--border);
+    box-shadow:var(--sh);overflow:hidden;text-decoration:none;color:inherit;
+    transition:transform 0.15s, box-shadow 0.15s;
+    display:flex;flex-direction:column;
+    animation:up 0.4s ease both;
+  }
+  .cc:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08), 0 12px 30px rgba(0,0,0,0.08)}
+  @keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+  .cc-head{padding:14px 16px;display:flex;align-items:flex-start;gap:11px;border-bottom:1px solid var(--border)}
+  .cc-av{width:40px;height:40px;border-radius:50%;background:var(--blue-grad);color:#fff;font-family:var(--head);font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .cc-name{font-family:var(--head);font-size:15px;font-weight:700;color:var(--text);letter-spacing:-0.02em;margin-bottom:2px}
+  .cc-prog{font-family:var(--mono);font-size:10px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px}
+  .cc-trend{margin-left:auto;text-align:center}
+  .cc-trend-arrow{font-family:var(--head);font-size:22px;font-weight:800;line-height:1}
+  .cc-trend-lbl{font-family:var(--mono);font-size:8px;text-transform:uppercase;letter-spacing:0.06em;margin-top:1px}
+
+  .cc-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:12px}
+
+  .cc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .cc-stat{text-align:center;padding:8px 4px;background:var(--surface2);border-radius:7px;border:1px solid var(--border)}
+  .cc-stat-v{font-family:var(--head);font-size:16px;font-weight:800;color:var(--text);letter-spacing:-0.03em;line-height:1}
+  .cc-stat-l{font-family:var(--mono);font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:3px}
+  .cc-stat-v.bad{color:var(--red)} .cc-stat-v.warn{color:#8A5A00} .cc-stat-v.good{color:var(--green)} .cc-stat-v.muted{color:var(--muted2)}
+
+  .cc-spark{height:32px;display:flex;align-items:flex-end;gap:2px}
+  .cc-spark-bar{flex:1;min-width:3px;background:var(--blue);border-radius:2px 2px 0 0;opacity:0.85}
+  .cc-spark-bar.empty{background:#E4E8EE;opacity:1;height:2px!important}
+  .cc-spark-label{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.04em;margin-top:4px;display:flex;justify-content:space-between}
+
+  .cc-pp{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--surface2);border:1px solid var(--border)}
+  .cc-pp-seg{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;font-weight:700;color:#fff;letter-spacing:0.04em}
+  .cc-pp-seg.push{background:linear-gradient(135deg,#1A6BF5,#3D85F7)}
+  .cc-pp-seg.pull{background:linear-gradient(135deg,#0D7A4E,#10B981)}
+  .cc-pp-seg.empty{background:var(--border)}
+
+  .cc-flags{display:flex;gap:6px;flex-wrap:wrap;min-height:18px}
+  .cc-flag{font-family:var(--mono);font-size:9px;padding:2px 8px;border-radius:10px;letter-spacing:0.04em;font-weight:600}
+  .cc-flag.alert{background:var(--red-bg);color:var(--red)}
+  .cc-flag.warn{background:var(--amber-bg);color:var(--amber)}
+  .cc-flag.good{background:var(--green-bg);color:var(--green)}
+  .cc-flag.info{background:var(--blue-light);color:var(--blue-dark)}
+
+  .cc-foot{padding:10px 16px;border-top:1px solid var(--border);background:var(--surface2);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .cc-foot-cta{color:var(--blue);font-weight:600}
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .shell{grid-template-columns:1fr}
+    .sidebar{position:fixed;left:-260px;top:0;height:100vh;width:230px;z-index:100;transition:left 0.25s ease;box-shadow:8px 0 30px rgba(0,0,0,0.25)}
+    .sidebar.open{left:0}
+    .sidebar-toggle{position:fixed;top:14px;left:14px;z-index:101;width:38px;height:38px;background:var(--text);color:#fff;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--sh2)}
+    .sidebar-toggle svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+    .main{padding:56px 14px 30px}
+    .clients-grid{grid-template-columns:1fr;gap:10px}
+    .cc-stats{grid-template-columns:repeat(4,1fr);gap:6px}
+  }
+</style>
+</head>
+<body>
+<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" style="display:none">
+  <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<style>@media (max-width: 900px) { .sidebar-toggle { display: flex !important; } }</style>
+
+<div class="shell">
+
+  <nav class="sidebar">
+    <div class="sidebar-top">
+      <div class="logo">
+        <a href="index.html" style="text-decoration:none;display:flex;align-items:baseline;gap:8px">
+          <span class="logo-word">MILO</span><div class="logo-dot"></div>
+        </a>
+      </div>
+      <div class="logo-sub">Otion Performance OS</div>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-sec">Main</div>
+      <a class="nav-item" href="index.html">
+        <svg class="nav-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item active" href="clients.html">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        Clients
+        <span class="nav-badge" style="margin-left:auto" id="navCount">19</span>
+      </a>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Programs
+      </a>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Check-ins
+      </a>
+      <div class="nav-sec">Analytics</div>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Load Trends
+      </a>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Recovery
+      </a>
+      <div class="nav-sec">MILO AI</div>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Ask MILO
+      </a>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="profile-row">
+        <div class="profile-av">ML</div>
+        <div>
+          <div class="profile-name">Marin Lazic</div>
+          <div class="profile-role">Head Coach · Otion</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main">
+
+    <div class="topbar">
+      <div>
+        <div class="page-heading">All clients</div>
+        <div class="page-sub" id="pageSub">Loading…</div>
+      </div>
+    </div>
+
+    <div class="filters" id="filters"></div>
+
+    <div class="clients-grid" id="grid"></div>
+
+  </div>
+</div>
+
+<script src="clients.js"></script>
+<script src="classifier.js"></script>
+<script>
+const M = window.MILO;
+const CLF = window.MILO_CLASSIFIER;
+const TODAY = new Date('2026-05-11');
+
+const all = M.getAllClients();
+document.getElementById('navCount').textContent = all.length;
+document.getElementById('pageSub').textContent = `${all.length} active clients · ${TODAY.toDateString()}`;
+
+// Pre-compute aggregates per client
+const enriched = all.map(c => {
+  const tagged = (c.recentWorkouts || []).map(w => ({ ...w, _tags: CLF.classifyName(w.name) }));
+  const trends = CLF.patternWeeklyTrends(c.recentWorkouts || [], 12);
+  const overall = CLF.overallProgression(trends);
+  const buckets = weeklyBuckets(c.recentWorkouts || [], 12);
+  const acwr = computeACWR(buckets);
+  const pp = CLF.pushPullRatio(tagged);
+  const planes = CLF.planesDistribution(tagged);
+  const region = CLF.regionDistribution(tagged);
+  const primary = M.primaryProgram(c);
+  const lastDate = M.lastWorkoutDate(c);
+  const daysSince = M.daysSinceLastWorkout(c, TODAY);
+  const sessions = M.sessionsThisRange(c);
+  const avgR = M.avgRpe(c, 4);
+
+  // Flag categories
+  const flags = [];
+  if (daysSince === null) flags.push({ t: 'no activity', cls: 'alert' });
+  else if (daysSince > 14) flags.push({ t: `${daysSince}d inactive`, cls: 'alert' });
+  if (overall.arrow === '↘') flags.push({ t: overall.label.toLowerCase(), cls: 'alert' });
+  if (overall.arrow === '↗') flags.push({ t: overall.label.toLowerCase(), cls: 'good' });
+  if (acwr.zone === 'danger') flags.push({ t: 'ACWR high risk', cls: 'alert' });
+  if (acwr.zone === 'caution-high') flags.push({ t: 'ACWR caution', cls: 'warn' });
+  if (M.activePrograms(c).length >= 4) flags.push({ t: `${M.activePrograms(c).length} programs`, cls: 'warn' });
+  if (M.activePrograms(c).length === 0 && M.completedPrograms(c).length > 0) flags.push({ t: 'needs new block', cls: 'warn' });
+  if (planes.transversePct < 10 && planes.total >= 3) flags.push({ t: 'no rotation', cls: 'warn' });
+  const upper = region.counts.upper, lower = region.counts.lower;
+  if (upper > 0 && lower > 0 && Math.abs(upper - lower) > Math.max(upper, lower) * 0.5) {
+    flags.push({ t: `${upper}:${lower} U:L`, cls: 'warn' });
+  }
+
+  return { c, tagged, trends, overall, buckets, acwr, pp, planes, region, primary, lastDate, daysSince, sessions, avgR, flags };
+});
+
+/* ── FILTERS ────────────────────────────── */
+const FILTERS = [
+  { id: 'all', label: 'All', test: () => true },
+  { id: 'adapting', label: 'Adapting ↗', test: e => e.overall.arrow === '↗' },
+  { id: 'stable', label: 'Stable →', test: e => e.overall.arrow === '→' },
+  { id: 'slipping', label: 'Regressing ↘', test: e => e.overall.arrow === '↘' },
+  { id: 'inactive', label: 'Inactive >14d', test: e => e.daysSince === null || e.daysSince > 14 },
+  { id: 'flagged', label: 'Has flags', test: e => e.flags.length > 0 },
+  { id: 'program-done', label: 'Program complete', test: e => M.activePrograms(e.c).length === 0 && M.completedPrograms(e.c).length > 0 },
+];
+
+let activeFilter = 'all';
+function renderFilters() {
+  document.getElementById('filters').innerHTML = FILTERS.map(f => {
+    const count = enriched.filter(f.test).length;
+    return `<button class="filter-pill ${f.id === activeFilter ? 'active' : ''}" onclick="setFilter('${f.id}')">${f.label}<span class="count">${count}</span></button>`;
+  }).join('');
+}
+window.setFilter = (id) => { activeFilter = id; renderFilters(); renderGrid(); };
+
+/* ── GRID RENDER ────────────────────────── */
+function renderGrid() {
+  const filtered = enriched.filter(FILTERS.find(f => f.id === activeFilter).test);
+  // Sort: by most recent activity, then by name
+  filtered.sort((a, b) => (b.lastDate || '').localeCompare(a.lastDate || '') || a.c.name.localeCompare(b.c.name));
+
+  document.getElementById('grid').innerHTML = filtered.map(e => cardHtml(e)).join('') ||
+    `<div style="grid-column:1/-1;padding:50px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px">No clients match this filter.</div>`;
+}
+
+function cardHtml(e) {
+  const { c, overall, buckets, acwr, pp, primary, lastDate, daysSince, sessions, avgR, flags } = e;
+
+  // Sparkline = weekly sRPE bars
+  const maxLoad = Math.max(...buckets.map(b => b.sRPE), 1);
+  const sparkBars = buckets.map(b => {
+    const h = b.sRPE === 0 ? 2 : Math.max(4, (b.sRPE / maxLoad) * 28);
+    const color = b.sRPE === 0 ? '#E4E8EE' : (b.avgRpe ? rpeColor(b.avgRpe) : 'var(--blue)');
+    return `<div class="cc-spark-bar ${b.sRPE === 0 ? 'empty' : ''}" style="height:${h}px;background:${color}" title="${b.label}: ${b.sessions} sessions · sRPE ${b.sRPE}"></div>`;
+  }).join('');
+
+  // Push/Pull mini-bar
+  const ppTotal = pp.push + pp.pull;
+  const ppHtml = ppTotal === 0
+    ? `<div class="cc-pp"><div class="cc-pp-seg empty" style="flex:1">—</div></div>`
+    : `<div class="cc-pp">
+         ${pp.push > 0 ? `<div class="cc-pp-seg push" style="flex:${pp.push}">${pp.push}</div>` : ''}
+         ${pp.pull > 0 ? `<div class="cc-pp-seg pull" style="flex:${pp.pull}">${pp.pull}</div>` : ''}
+       </div>`;
+
+  // Stats classes
+  const sessClass = sessions >= 3 ? 'good' : sessions >= 1 ? 'warn' : 'bad';
+  const rpeClass = avgR === null ? 'muted' : avgR < 4 ? 'good' : avgR < 7 ? 'warn' : 'bad';
+  const acwrClass = acwr.zone === 'sweet' ? 'good'
+                  : acwr.zone === 'caution-high' || acwr.zone === 'caution-low' ? 'warn'
+                  : acwr.zone === 'danger' || acwr.zone === 'undertrained' ? 'bad'
+                  : 'muted';
+  const acwrText = acwr.ratio === null ? '—' : acwr.ratio.toFixed(2);
+  const lastText = daysSince === null ? '—' : daysSince === 0 ? 'Today' : daysSince === 1 ? '1d' : daysSince < 30 ? `${daysSince}d` : `${Math.round(daysSince/30)}mo`;
+
+  const flagHtml = flags.slice(0, 3).map(f => `<span class="cc-flag ${f.cls}">${escapeHtml(f.t)}</span>`).join('') +
+    (flags.length > 3 ? `<span class="cc-flag info">+${flags.length - 3}</span>` : '');
+
+  return `
+    <a class="cc" href="client.html?id=${c.id}">
+      <div class="cc-head">
+        <div class="cc-av">${c.initials || ''}</div>
+        <div style="flex:1;min-width:0">
+          <div class="cc-name">${escapeHtml(c.name)}</div>
+          <div class="cc-prog" title="${escapeHtml(primary?.name || 'No active program')}">${escapeHtml(primary?.name || 'No active program')}</div>
+        </div>
+        <div class="cc-trend" style="color:${overall.color}">
+          <div class="cc-trend-arrow">${overall.arrow}</div>
+          <div class="cc-trend-lbl">${overall.label}</div>
+        </div>
+      </div>
+      <div class="cc-body">
+        <div class="cc-stats">
+          <div class="cc-stat"><div class="cc-stat-v ${sessClass}">${sessions}</div><div class="cc-stat-l">Sess 4wk</div></div>
+          <div class="cc-stat"><div class="cc-stat-v ${rpeClass}">${avgR ?? '—'}</div><div class="cc-stat-l">Avg RPE</div></div>
+          <div class="cc-stat"><div class="cc-stat-v ${acwrClass}">${acwrText}</div><div class="cc-stat-l">ACWR</div></div>
+          <div class="cc-stat"><div class="cc-stat-v">${lastText}</div><div class="cc-stat-l">Last</div></div>
+        </div>
+        <div>
+          <div class="cc-spark">${sparkBars}</div>
+          <div class="cc-spark-label"><span>${buckets[0].label}</span><span>Training load · 12 weeks</span><span>${buckets[buckets.length-1].label}</span></div>
+        </div>
+        ${ppHtml}
+        <div class="cc-flags">${flagHtml || '<span style="font-family:var(--mono);font-size:9px;color:var(--muted2)">No flags</span>'}</div>
+      </div>
+      <div class="cc-foot">
+        <span>${escapeHtml(c.email || '')}</span>
+        <span class="cc-foot-cta">Open detail →</span>
+      </div>
+    </a>`;
+}
+
+/* ── HELPERS ─────────────────────────── */
+function weeklyBuckets(workouts, weeksBack = 12, todayStr = '2026-05-11') {
+  const [yy, mm, dd] = todayStr.split('-').map(Number);
+  const todayUTC = Date.UTC(yy, mm - 1, dd);
+  const dayMs = 86400000;
+  const fmt = (ms) => new Date(ms).toISOString().slice(0, 10);
+  const monthDay = (ms) => new Date(ms).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+  const buckets = [];
+  for (let i = weeksBack - 1; i >= 0; i--) {
+    const endMs = todayUTC - (i * 7 * dayMs);
+    const startMs = endMs - (6 * dayMs);
+    const inWeek = (workouts || []).filter(w => w.date && w.date >= fmt(startMs) && w.date <= fmt(endMs));
+    const totalMin = inWeek.reduce((s, w) => s + (w.duration || 0), 0);
+    const rpes = inWeek.map(w => w.rpe).filter(r => r !== null && r !== undefined);
+    const avgRpe = rpes.length ? rpes.reduce((s, r) => s + r, 0) / rpes.length : null;
+    const sRPE = inWeek.reduce((s, w) => s + ((w.rpe || 0) * (w.duration || 0)), 0);
+    buckets.push({ label: monthDay(endMs), sessions: inWeek.length, totalMin, avgRpe, sRPE });
+  }
+  return buckets;
+}
+
+function computeACWR(buckets) {
+  const last4 = buckets.slice(-4);
+  const acute = last4[last4.length - 1].sRPE;
+  const loads = last4.map(b => b.sRPE);
+  if (loads.filter(v => v > 0).length < 2) return { ratio: null, acute, chronic: null, zone: 'insufficient' };
+  const chronic = loads.reduce((s, v) => s + v, 0) / last4.length;
+  if (chronic === 0) return { ratio: null, acute, chronic: 0, zone: 'insufficient' };
+  const ratio = acute / chronic;
+  let zone;
+  if (ratio < 0.5) zone = 'undertrained';
+  else if (ratio < 0.8) zone = 'caution-low';
+  else if (ratio <= 1.3) zone = 'sweet';
+  else if (ratio <= 1.5) zone = 'caution-high';
+  else zone = 'danger';
+  return { ratio, acute, chronic, zone };
+}
+
+function rpeColor(rpe) {
+  if (rpe === null) return '#A0ABBE';
+  if (rpe < 4) return '#0D7A4E';
+  if (rpe < 7) return '#F59E0B';
+  return '#EF4444';
+}
+
+function escapeHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// Initial render
+renderFilters();
+renderGrid();
+</script>
+</body>
+</html>
