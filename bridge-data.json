@@ -1,17 +1,4 @@
-/* ============================================================
-   MILO — Client Data Layer
-   ============================================================
-
-   Auto-populated from Bridge Athletic via bridge-sync.js.
-   Last synced: 2026-05-11T01:36:22Z
-
-   This file is the SINGLE SOURCE OF TRUTH for client data in MILO.
-   To refresh, open Bridge in Chrome (logged in) and run
-   bridgeSync.run() from the console, OR ask Claude to run the
-   live sync via Chrome MCP.
-   ============================================================ */
-
-const BRIDGE_DATA = {
+{
   "reini-otter": {
     "id": "reini-otter",
     "bridgeId": 281140,
@@ -1991,56 +1978,4 @@ const BRIDGE_DATA = {
     "programCount": 1,
     "totalCompletedThisRange": 4
   }
-};
-
-/* ============================================================
-   Helpers (called by client.html / index.html)
-   ============================================================ */
-
-function getClient(id) { return BRIDGE_DATA[id] || null; }
-function getAllClients() { return Object.values(BRIDGE_DATA); }
-
-function activePrograms(c) {
-  return (c.programs || []).filter(p => p.status === "started")
-    .sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""));
-}
-
-function completedPrograms(c) {
-  return (c.programs || []).filter(p => p.status === "completed")
-    .sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""));
-}
-
-function primaryProgram(c) {
-  const a = activePrograms(c);
-  return a[0] || null;
-}
-
-function avgRpe(c, n = 4) {
-  const r = (c.recentWorkouts || []).slice(0, n);
-  if (!r.length) return null;
-  return Math.round(r.reduce((s, w) => s + (w.rpe || 0), 0) / r.length * 10) / 10;
-}
-
-function sessionsThisRange(c) {
-  return (c.recentWorkouts || []).filter(w => w.status === "completed").length;
-}
-
-function lastWorkoutDate(c) {
-  const r = c.recentWorkouts || [];
-  return r.length ? r[0].date : null;
-}
-
-function daysSinceLastWorkout(c, today = new Date()) {
-  const d = lastWorkoutDate(c);
-  if (!d) return null;
-  return Math.round((today - new Date(d)) / (1000 * 60 * 60 * 24));
-}
-
-if (typeof window !== "undefined") {
-  window.MILO = {
-    BRIDGE_DATA,
-    getClient, getAllClients,
-    activePrograms, completedPrograms, primaryProgram,
-    avgRpe, sessionsThisRange, lastWorkoutDate, daysSinceLastWorkout,
-  };
 }

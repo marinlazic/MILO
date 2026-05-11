@@ -513,74 +513,13 @@
         <div class="tbl-head">
           <div></div>
           <div class="th">Client</div>
-          <div class="th" style="text-align:center">Readiness</div>
-          <div class="th">Load</div>
-          <div class="th" style="text-align:center">Recovery</div>
-          <div class="th" style="text-align:center">Check-in</div>
+          <div class="th" style="text-align:center">Sessions 4wk</div>
+          <div class="th">Last RPE</div>
+          <div class="th" style="text-align:center">Avg RPE</div>
+          <div class="th" style="text-align:center">Last activity</div>
         </div>
 
-        <a class="tbl-row" href="client.html?id=craig-blair">
-          <div class="av">CB</div>
-          <div><div class="cl-name">Craig Blair</div><div class="cl-role">Road to LA28 · 84%</div></div>
-          <div style="text-align:center"><span class="pill p-hi">—</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:84%;background:var(--green)"></div></div><div class="load-n">84</div></div>
-          <div style="text-align:center"><span class="pill p-hi">—</span></div>
-          <div style="text-align:center"><span class="tag t-done">Done</span></div>
-        </a>
-
-        <a class="tbl-row" href="client.html?id=sondra-hamill">
-          <div class="av" style="background:var(--red-bg);color:var(--red)">SH</div>
-          <div><div class="cl-name">Sondra Hamill</div><div class="cl-role">12 Week Home · 50%</div></div>
-          <div style="text-align:center"><span class="pill p-lo">—</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:50%;background:#EF4444"></div></div><div class="load-n">50</div></div>
-          <div style="text-align:center"><span class="pill p-lo">—</span></div>
-          <div style="text-align:center"><span class="tag t-miss">Flagged</span></div>
-        </a>
-
-        <a class="tbl-row" href="client.html?id=renee-lodens">
-          <div class="av" style="background:var(--green-bg);color:var(--green)">RL</div>
-          <div><div class="cl-name">Renee Lodens</div><div class="cl-role">Kettlebells · 100%</div></div>
-          <div style="text-align:center"><span class="pill p-hi">—</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:100%;background:var(--green)"></div></div><div class="load-n">16</div></div>
-          <div style="text-align:center"><span class="pill p-hi">—</span></div>
-          <div style="text-align:center"><span class="tag t-done">Complete</span></div>
-        </a>
-
-        <a class="tbl-row" href="client.html?id=charlie-lanchester">
-          <div class="av">CL</div>
-          <div><div class="cl-name">Charlie Lanchester</div><div class="cl-role">ARM FARM · 56%</div></div>
-          <div style="text-align:center"><span class="pill p-mid">—</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:56%;background:var(--green)"></div></div><div class="load-n">56</div></div>
-          <div style="text-align:center"><span class="pill p-mid">—</span></div>
-          <div style="text-align:center"><span class="tag t-due">Due today</span></div>
-        </a>
-
-        <a class="tbl-row" href="client.html?id=nathan-parris">
-          <div class="av" style="background:var(--amber-bg);color:var(--amber)">NP</div>
-          <div><div class="cl-name">Nathan Parris</div><div class="cl-role">Health & Performance · 13%</div></div>
-          <div style="text-align:center"><span class="pill p-mid">—</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:13%;background:#F59E0B"></div></div><div class="load-n">13</div></div>
-          <div style="text-align:center"><span class="pill p-mid">—</span></div>
-          <div style="text-align:center"><span class="tag t-due">Just started</span></div>
-        </a>
-
-        <a class="tbl-row" href="client.html?id=mark-oreilly">
-          <div class="av">MO</div>
-          <div><div class="cl-name">Mark O'Reilly</div><div class="cl-role">Sleep Better Program · 33%</div></div>
-          <div style="text-align:center"><span class="pill p-mid">—</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:33%;background:#F59E0B"></div></div><div class="load-n">33</div></div>
-          <div style="text-align:center"><span class="pill p-mid">—</span></div>
-          <div style="text-align:center"><span class="tag t-done">Done</span></div>
-        </a>
-
-        <a class="tbl-row" href="client.html?id=david-shein">
-          <div class="av">DS</div>
-          <div><div class="cl-name">David Shein</div><div class="cl-role">Road to LA · 22%</div></div>
-          <div style="text-align:center"><span class="pill p-hi">—</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:22%;background:var(--green)"></div></div><div class="load-n">22</div></div>
-          <div style="text-align:center"><span class="pill p-hi">—</span></div>
-          <div style="text-align:center"><span class="tag t-done">Done</span></div>
-        </a>
+        <div id="rosterBody"></div>
 
       </div>
 
@@ -731,54 +670,124 @@
   </div>
 </div>
 
+<script src="clients.js"></script>
 <script>
-const ctx = document.getElementById('trendChart').getContext('2d');
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
-    datasets: [
-      {
-        label: 'Readiness',
-        data: [68,71,65,69,74,78,74],
-        borderColor: '#1A6BF5',
-        backgroundColor: 'rgba(26,107,245,0.07)',
-        borderWidth: 2.5,
-        pointBackgroundColor: '#1A6BF5',
-        pointRadius: 4, pointHoverRadius: 6,
-        tension: 0.4, fill: true,
-      },
-      {
-        label: 'Avg Load',
-        data: [62,74,80,68,64,55,58],
-        borderColor: '#F59E0B',
-        backgroundColor: 'transparent',
-        borderWidth: 2,
-        borderDash: [5,3],
-        pointBackgroundColor: '#F59E0B',
-        pointRadius: 3, pointHoverRadius: 5,
-        tension: 0.4,
-      }
-    ]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: 'bottom',
-        labels: { font:{family:'DM Mono',size:10}, color:'#7A8499', boxWidth:12, boxHeight:2, padding:14, usePointStyle:true }
-      },
-      tooltip: {
-        backgroundColor:'#0E1117', titleFont:{family:'DM Mono',size:10},
-        bodyFont:{family:'DM Mono',size:11}, padding:10, cornerRadius:8,
-      }
-    },
-    scales: {
-      x: { grid:{display:false}, ticks:{font:{family:'DM Mono',size:10},color:'#7A8499'} },
-      y: { min:40, max:100, grid:{color:'#E4E8EE',drawBorder:false}, ticks:{font:{family:'DM Mono',size:10},color:'#7A8499',stepSize:20} }
-    }
+/* ── Render roster from Bridge data ─────────────────── */
+(function renderRoster() {
+  const M = window.MILO;
+  if (!M) return;
+  const all = M.getAllClients();
+  const today = new Date('2026-05-11');
+
+  // Sort: flagged first, then by most recent activity
+  all.sort((a, b) => {
+    const ad = M.lastWorkoutDate(a);
+    const bd = M.lastWorkoutDate(b);
+    return (bd || '').localeCompare(ad || '');
+  });
+
+  const humanDate = (d) => {
+    if (!d) return '—';
+    const dt = new Date(d);
+    const days = Math.round((today - dt) / (1000 * 60 * 60 * 24));
+    if (days === 0) return 'Today';
+    if (days === 1) return 'Yesterday';
+    if (days < 30) return `${days}d ago`;
+    if (days < 365) return `${Math.round(days/30)}mo ago`;
+    return `${Math.round(days/365)}y ago`;
+  };
+
+  const rpeCls = (r) => r === null || r === undefined ? '' : r < 4 ? 'p-hi' : r < 7 ? 'p-mid' : 'p-lo';
+  const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  const html = all.map(c => {
+    const primary = M.primaryProgram(c);
+    const sessions = M.sessionsThisRange(c);
+    const avgR = M.avgRpe(c, 4);
+    const lastWO = (c.recentWorkouts || [])[0];
+    const lastRpe = lastWO ? lastWO.rpe : null;
+    const daysSince = M.daysSinceLastWorkout(c, today);
+    const stale = daysSince === null || daysSince > 14;
+    const programLbl = primary ? primary.name : 'No active program';
+
+    const sessionBarPct = Math.min(100, (sessions / 8) * 100);
+    const sessionColor = sessions >= 3 ? 'var(--green)' : sessions >= 1 ? '#F59E0B' : '#EF4444';
+
+    return `
+      <a class="tbl-row" href="client.html?id=${c.id}">
+        <div class="av">${c.initials || ''}</div>
+        <div>
+          <div class="cl-name">${escapeHtml(c.name)}</div>
+          <div class="cl-role">${escapeHtml(programLbl)}</div>
+        </div>
+        <div style="text-align:center">
+          <span class="pill ${sessions >= 3 ? 'p-hi' : sessions >= 1 ? 'p-mid' : 'p-lo'}">${sessions}</span>
+        </div>
+        <div class="load-wrap">
+          <div class="load-track"><div class="load-fill" style="width:${sessionBarPct}%;background:${sessionColor}"></div></div>
+          <div class="load-n">${lastRpe ?? '—'}</div>
+        </div>
+        <div style="text-align:center">
+          <span class="pill ${rpeCls(avgR)}">${avgR ?? '—'}</span>
+        </div>
+        <div style="text-align:center">
+          <span class="tag ${stale ? 't-miss' : daysSince <= 2 ? 't-done' : 't-due'}">${humanDate(M.lastWorkoutDate(c))}</span>
+        </div>
+      </a>`;
+  }).join('');
+
+  document.getElementById('rosterBody').innerHTML = html;
+
+  // Update sidebar badge & active-clients stat
+  const activeCount = all.length;
+  document.querySelectorAll('.nav-badge').forEach(el => {
+    if (el.textContent.trim() === '19' || el.textContent.trim() === '11') el.textContent = activeCount;
+  });
+})();
+
+/* ── 7-day RPE trend across whole roster ────────────── */
+(function rosterTrend() {
+  const M = window.MILO;
+  if (!M) return;
+  const all = M.getAllClients();
+  // Build per-day average RPE & total sessions for the last 7 days ending 2026-05-11
+  const dates = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date('2026-05-11');
+    d.setDate(d.getDate() - i);
+    dates.push(d.toISOString().slice(0, 10));
   }
-});
+  const avgRpe = dates.map(date => {
+    const matches = all.flatMap(c => (c.recentWorkouts || []).filter(w => w.date === date));
+    if (!matches.length) return null;
+    return matches.reduce((s, w) => s + (w.rpe || 0), 0) / matches.length;
+  });
+  const sessions = dates.map(date => all.flatMap(c => (c.recentWorkouts || []).filter(w => w.date === date)).length);
+  const labels = dates.map(d => new Date(d).toLocaleDateString('en-US', { weekday: 'short' }));
+
+  new Chart(document.getElementById('trendChart').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Avg RPE', data: avgRpe.map(v => v === null ? null : Math.round(v * 10) / 10), borderColor: '#1A6BF5', backgroundColor: 'rgba(26,107,245,0.07)', borderWidth: 2.5, tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: '#1A6BF5', yAxisID: 'y' },
+        { label: 'Sessions', data: sessions, borderColor: '#F59E0B', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5,3], tension: 0.4, pointRadius: 3, pointBackgroundColor: '#F59E0B', yAxisID: 'y1' },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499', boxWidth: 12, padding: 14, usePointStyle: true } },
+        tooltip: { backgroundColor: '#0E1117', titleFont: { family: 'DM Mono', size: 10 }, bodyFont: { family: 'DM Mono', size: 11 }, padding: 10, cornerRadius: 8 }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499' } },
+        y:  { min: 0, max: 10,  position: 'left',  grid: { color: '#E4E8EE' }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#1A6BF5' } },
+        y1: { min: 0, max: 12,  position: 'right', grid: { display: false }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#F59E0B' } }
+      }
+    }
+  });
+})();
 </script>
 </body>
 </html>
