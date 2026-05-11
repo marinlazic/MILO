@@ -281,6 +281,37 @@
 
     <div class="stats-row" id="statRow"></div>
 
+    <!-- Volume × Intensity (last 6 weeks) -->
+    <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;padding:0 4px">
+        <div style="font-family:var(--head);font-size:14px;font-weight:700;color:var(--text);letter-spacing:-0.02em">Training load · last 6 weeks</div>
+        <div id="vlNote" style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em"></div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Volume</div>
+            <span class="card-link" id="volNote">Sessions / week</span>
+          </div>
+          <div class="chart-body"><canvas id="volChart" height="130"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Intensity</div>
+            <span class="card-link" id="intNote">Avg RPE / week</span>
+          </div>
+          <div class="chart-body"><canvas id="intChart" height="130"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Training load</div>
+            <span class="card-link" id="loadNote">sRPE = RPE × min</span>
+          </div>
+          <div class="chart-body"><canvas id="loadChart" height="130"></canvas></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Movement Profile -->
     <div class="grid-3" style="margin-bottom:14px">
       <div class="card">
@@ -426,6 +457,9 @@ function renderClient(c) {
       <div class="scard-delta up">All-time on Bridge</div>
     </div>
   `;
+
+  // VOLUME × INTENSITY (last 6 weeks)
+  renderVolumeIntensity(c.recentWorkouts || []);
 
   // MOVEMENT PROFILE WIDGETS
   renderMovementProfile(taggedWorkouts);
@@ -599,6 +633,166 @@ function escapeHtml(s) {
 function toggleDetail(i) {
   const el = document.getElementById('wo-detail-' + i);
   if (el) el.classList.toggle('open');
+}
+
+function weeklyBuckets(workouts, weeksBack = 6, todayStr = '2026-05-11') {
+  // Pure UTC date math to avoid local-timezone shifting "today" into yesterday.
+  const [yy, mm, dd] = todayStr.split('-').map(Number);
+  const todayUTC = Date.UTC(yy, mm - 1, dd);
+  const dayMs = 86400000;
+  const fmt = (ms) => new Date(ms).toISOString().slice(0, 10);
+  const monthDay = (ms) => {
+    const dt = new Date(ms);
+    return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+  };
+
+  const buckets = [];
+  for (let i = weeksBack - 1; i >= 0; i--) {
+    const endMs = todayUTC - (i * 7 * dayMs);
+    const startMs = endMs - (6 * dayMs);
+    const startStr = fmt(startMs);
+    const endStr = fmt(endMs);
+    const inWeek = (workouts || []).filter(w => w.date && w.date >= startStr && w.date <= endStr);
+    const totalMin = inWeek.reduce((s, w) => s + (w.duration || 0), 0);
+    const rpes = inWeek.map(w => w.rpe).filter(r => r !== null && r !== undefined);
+    const avgRpe = rpes.length ? rpes.reduce((s, r) => s + r, 0) / rpes.length : null;
+    const peakRpe = rpes.length ? Math.max(...rpes) : null;
+    const sRPE = inWeek.reduce((s, w) => s + ((w.rpe || 0) * (w.duration || 0)), 0);
+    buckets.push({
+      start: startStr,
+      end: endStr,
+      label: monthDay(endMs),
+      sessions: inWeek.length,
+      totalMin,
+      avgRpe,
+      peakRpe,
+      sRPE,
+    });
+  }
+  return buckets;
+}
+
+function renderVolumeIntensity(workouts) {
+  const buckets = weeklyBuckets(workouts, 6);
+  const labels = buckets.map(b => b.label);
+
+  // Note line: tell coach how much data we actually have
+  const filledWeeks = buckets.filter(b => b.sessions > 0).length;
+  const earliest = workouts.map(w => w.date).filter(Boolean).sort()[0];
+  const note = filledWeeks < 6
+    ? `${filledWeeks}/6 weeks with data — re-sync Bridge with longer range to backfill`
+    : `${workouts.length} sessions tracked`;
+  document.getElementById('vlNote').textContent = note;
+
+  const sessions = buckets.map(b => b.sessions);
+  const totalMin = buckets.map(b => b.totalMin);
+  const avgRpe   = buckets.map(b => b.avgRpe === null ? null : Math.round(b.avgRpe * 10) / 10);
+  const sRPE     = buckets.map(b => b.sRPE);
+
+  // ── VOLUME (bars: sessions, line overlay: minutes) ──
+  new Chart(document.getElementById('volChart').getContext('2d'), {
+    data: {
+      labels,
+      datasets: [
+        { type: 'bar', label: 'Sessions', data: sessions, backgroundColor: 'rgba(26,107,245,0.85)', borderRadius: 6, maxBarThickness: 26, yAxisID: 'y' },
+        { type: 'line', label: 'Minutes', data: totalMin, borderColor: '#F59E0B', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5,3], pointRadius: 3, pointBackgroundColor: '#F59E0B', tension: 0.35, yAxisID: 'y1' }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499', boxWidth: 12, padding: 12, usePointStyle: true } },
+        tooltip: { backgroundColor: '#0E1117', titleFont: { family: 'DM Mono', size: 10 }, bodyFont: { family: 'DM Mono', size: 11 }, padding: 10, cornerRadius: 8 }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { family: 'DM Mono', size: 9 }, color: '#7A8499' } },
+        y:  { beginAtZero: true, position: 'left',  grid: { color: '#E4E8EE' }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#1A6BF5', stepSize: 1, precision: 0 } },
+        y1: { beginAtZero: true, position: 'right', grid: { display: false }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#F59E0B' } }
+      }
+    }
+  });
+
+  // ── INTENSITY (avg RPE line, with productive/moderate/hard zones) ──
+  new Chart(document.getElementById('intChart').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Avg RPE', data: avgRpe, borderColor: '#1A6BF5', backgroundColor: 'rgba(26,107,245,0.10)', borderWidth: 2.5, tension: 0.35, fill: true, pointRadius: 4, pointBackgroundColor: '#1A6BF5', spanGaps: true }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499', boxWidth: 12, padding: 12, usePointStyle: true } },
+        tooltip: { backgroundColor: '#0E1117', titleFont: { family: 'DM Mono', size: 10 }, bodyFont: { family: 'DM Mono', size: 11 }, padding: 10, cornerRadius: 8 }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { family: 'DM Mono', size: 9 }, color: '#7A8499' } },
+        y: {
+          min: 0, max: 10,
+          grid: { color: '#E4E8EE' },
+          ticks: {
+            font: { family: 'DM Mono', size: 10 }, color: '#7A8499', stepSize: 2,
+            callback: (v) => v === 3 ? '3 productive' : v === 7 ? '7 hard' : v
+          }
+        }
+      }
+    }
+  });
+
+  // ── TRAINING LOAD (sRPE) — area chart ──
+  // Compute rolling 4-week avg for context (the "chronic" load)
+  const rolling = sRPE.map((_, i, arr) => {
+    const slice = arr.slice(Math.max(0, i - 3), i + 1).filter(v => v > 0);
+    return slice.length ? Math.round(slice.reduce((a, b) => a + b, 0) / slice.length) : null;
+  });
+
+  new Chart(document.getElementById('loadChart').getContext('2d'), {
+    data: {
+      labels,
+      datasets: [
+        { type: 'bar', label: 'Weekly load', data: sRPE, backgroundColor: 'rgba(26,107,245,0.20)', borderColor: '#1A6BF5', borderWidth: 1.5, borderRadius: 6, maxBarThickness: 26 },
+        { type: 'line', label: '4wk avg', data: rolling, borderColor: '#0D7A4E', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5,3], pointRadius: 3, pointBackgroundColor: '#0D7A4E', tension: 0.35, spanGaps: true }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499', boxWidth: 12, padding: 12, usePointStyle: true } },
+        tooltip: {
+          backgroundColor: '#0E1117', titleFont: { family: 'DM Mono', size: 10 }, bodyFont: { family: 'DM Mono', size: 11 }, padding: 10, cornerRadius: 8,
+          callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y?.toLocaleString() ?? '—'}` }
+        }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { family: 'DM Mono', size: 9 }, color: '#7A8499' } },
+        y: { beginAtZero: true, grid: { color: '#E4E8EE' }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499' } }
+      }
+    }
+  });
+
+  // Update card subtitles with this week's snapshot
+  const cur = buckets[buckets.length - 1];
+  const prev = buckets[buckets.length - 2];
+  const dSessions = prev && prev.sessions ? cur.sessions - prev.sessions : null;
+  const dRpe = prev?.avgRpe !== null && cur.avgRpe !== null && prev?.avgRpe !== undefined ? cur.avgRpe - prev.avgRpe : null;
+  const dLoad = prev?.sRPE ? cur.sRPE - prev.sRPE : null;
+
+  document.getElementById('volNote').textContent =
+    cur.sessions === 0 ? 'No sessions this week'
+    : dSessions === null ? `${cur.sessions} sessions this week`
+    : `${cur.sessions} this week (${dSessions >= 0 ? '+' : ''}${dSessions} vs last)`;
+
+  document.getElementById('intNote').textContent =
+    cur.avgRpe === null ? 'No RPE data this week'
+    : dRpe === null ? `Avg RPE ${cur.avgRpe.toFixed(1)} this week`
+    : `Avg ${cur.avgRpe.toFixed(1)} (${dRpe >= 0 ? '+' : ''}${dRpe.toFixed(1)} vs last)`;
+
+  document.getElementById('loadNote').textContent =
+    cur.sRPE === 0 ? 'No load this week'
+    : dLoad === null ? `${cur.sRPE.toLocaleString()} this week`
+    : `${cur.sRPE.toLocaleString()} (${dLoad >= 0 ? '+' : ''}${dLoad.toLocaleString()} vs last)`;
 }
 
 function renderMovementProfile(taggedWorkouts) {
