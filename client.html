@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MILO — Client Detail</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg:          #F0F2F5;
+    --surface:     #FFFFFF;
+    --surface2:    #F7F8FA;
+    --border:      #E4E8EE;
+    --border2:     #D0D6E0;
+    --blue:        #1A6BF5;
+    --blue-mid:    #3D85F7;
+    --blue-light:  #E8F0FE;
+    --blue-dark:   #0D47C4;
+    --blue-grad:   linear-gradient(135deg, #1A6BF5 0%, #6BA8FF 100%);
+    --text:        #0E1117;
+    --text2:       #3A4156;
+    --muted:       #7A8499;
+    --muted2:      #A0ABBE;
+    --green:       #0D7A4E;
+    --green-bg:    #E6F7F0;
+    --amber:       #8A5A00;
+    --amber-bg:    #FEF3CC;
+    --red:         #C0202A;
+    --red-bg:      #FDEAEA;
+    --mono:   'DM Mono', monospace;
+    --head:   'DM Sans', sans-serif;
+    --body:   'Inter', sans-serif;
+    --r:    14px;
+    --r-sm: 9px;
+    --sh:   0 1px 2px rgba(0,0,0,0.05), 0 4px 20px rgba(0,0,0,0.06);
+    --sh2:  0 2px 8px rgba(26,107,245,0.18);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    font-family: var(--body);
+    font-size: 13px;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── LAYOUT ─────────────────────────────────── */
+  .shell { display: grid; grid-template-columns: 230px 1fr; min-height: 100vh; }
+
+  /* ─── SIDEBAR (same as dashboard) ──────────── */
+  .sidebar {
+    background: var(--text);
+    display: flex; flex-direction: column;
+    padding: 0; position: sticky; top: 0; height: 100vh; overflow: hidden;
+  }
+  .sidebar-top { padding: 26px 24px 22px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .logo { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+  .logo-word { font-family: var(--head); font-size: 26px; font-weight: 800; letter-spacing: -0.05em; color: #fff; }
+  .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); margin-bottom: 4px; flex-shrink: 0; }
+  .logo-sub { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-top: 2px; }
+  .sidebar-nav { flex: 1; padding: 16px 0; overflow-y: auto; }
+  .nav-sec { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.2); padding: 14px 24px 5px; }
+  .nav-item {
+    display: flex; align-items: center; gap: 11px;
+    padding: 8px 24px; font-family: var(--body);
+    font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.42); cursor: pointer;
+    transition: all 0.15s; position: relative;
+    text-decoration: none;
+  }
+  .nav-item:hover { color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.04); }
+  .nav-item.active { color: #fff; background: rgba(26,107,245,0.18); }
+  .nav-item.active::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; background: var(--blue); border-radius: 0 3px 3px 0; }
+  .nav-ic { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; opacity: 0.8; }
+  .nav-badge { margin-left: auto; background: var(--red); color: #fff; font-family: var(--mono); font-size: 9px; padding: 1px 6px; border-radius: 20px; }
+  .sidebar-bottom { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .profile-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: rgba(255,255,255,0.05); border-radius: var(--r-sm); cursor: pointer; }
+  .profile-av { width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: #fff; font-family: var(--head); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .profile-name { font-family: var(--head); font-size: 13px; font-weight: 600; color: #fff; }
+  .profile-role { font-family: var(--mono); font-size: 9px; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; }
+
+  /* ─── MAIN ─────────────────────────────────── */
+  .main { padding: 24px 30px 50px; overflow-y: auto; }
+
+  /* ─── BREADCRUMB ──────────────────────────────── */
+  .crumb { display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 10px; color: var(--muted); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .crumb a { color: var(--muted); text-decoration: none; }
+  .crumb a:hover { color: var(--blue); }
+  .crumb .sep { color: var(--border2); }
+  .crumb .here { color: var(--text); }
+
+  /* ─── CLIENT HEADER ───────────────────────────── */
+  .hero {
+    background: var(--text);
+    border-radius: var(--r);
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    color: #fff;
+    box-shadow: var(--sh);
+    animation: up 0.4s ease both;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 22px;
+    align-items: center;
+  }
+  .hero-av {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: var(--blue-grad);
+    color: #fff; font-family: var(--head); font-size: 24px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: var(--sh2);
+  }
+  .hero-name { font-family: var(--head); font-size: 28px; font-weight: 800; letter-spacing: -0.04em; }
+  .hero-email { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 0.02em; }
+  .hero-meta { display: flex; gap: 26px; margin-top: 12px; }
+  .meta-cell { }
+  .meta-lbl { font-family: var(--mono); font-size: 9px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+  .meta-val { font-family: var(--head); font-size: 15px; font-weight: 700; color: #fff; }
+  .hero-actions { display: flex; flex-direction: column; gap: 8px; }
+
+  /* ─── BUTTONS ─────────────────────────────────── */
+  .btn { padding: 9px 18px; border-radius: 8px; font-family: var(--body); font-size: 12px; font-weight: 600; cursor: pointer; border: none; transition: all 0.15s; letter-spacing: -0.01em; }
+  .btn-blue { background: var(--blue-grad); color: #fff; box-shadow: var(--sh2); }
+  .btn-blue:hover { opacity: 0.92; }
+  .btn-outline-light { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid rgba(255,255,255,0.15); }
+  .btn-outline-light:hover { background: rgba(255,255,255,0.12); }
+
+  /* ─── MILO STRIP ─────────────────────────────── */
+  .milo-strip {
+    background: linear-gradient(135deg, rgba(26,107,245,0.07), rgba(26,107,245,0.02));
+    border: 1px solid rgba(26,107,245,0.18);
+    border-radius: var(--r);
+    padding: 16px 22px;
+    margin-bottom: 18px;
+    display: flex; gap: 14px;
+    animation: up 0.4s ease both; animation-delay: 0.05s;
+  }
+  .milo-icon-sm { width: 32px; height: 32px; border-radius: 8px; background: var(--blue-grad); display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+  .milo-strip-head { font-family: var(--head); font-size: 13px; font-weight: 700; color: var(--blue-dark); margin-bottom: 3px; }
+  .milo-strip-text { font-family: var(--body); font-size: 12px; color: var(--text2); line-height: 1.55; }
+
+  /* ─── STAT ROW ───────────────────────────────── */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+  .scard { background: var(--surface); border-radius: var(--r); padding: 16px 20px; border: 1px solid var(--border); box-shadow: var(--sh); animation: up 0.4s ease both; }
+  .scard:nth-child(1){animation-delay:.08s} .scard:nth-child(2){animation-delay:.12s} .scard:nth-child(3){animation-delay:.16s} .scard:nth-child(4){animation-delay:.20s}
+  .scard-label { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 9px; }
+  .scard-val { font-family: var(--head); font-size: 30px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin-bottom: 5px; }
+  .scard-delta { font-family: var(--body); font-size: 11px; font-weight: 500; }
+  .up{color:var(--green)} .warn{color:var(--amber)} .dn{color:var(--red)}
+  .scard-accent { background: var(--blue-grad); border-color: transparent; }
+  .scard-accent .scard-label { color: rgba(255,255,255,0.55); }
+  .scard-accent .scard-val { color: #fff; }
+  .scard-accent .scard-delta { color: rgba(255,255,255,0.8); }
+
+  @keyframes up { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ─── CARD ──────────────────────────────────── */
+  .card {
+    background: var(--surface); border-radius: var(--r);
+    border: 1px solid var(--border); box-shadow: var(--sh);
+    overflow: hidden; animation: up 0.5s ease both; animation-delay: 0.25s;
+  }
+  .card-head { padding: 14px 20px; border-bottom: 1px solid var(--border); display:flex;justify-content:space-between;align-items:center; }
+  .card-title { font-family: var(--head); font-size: 14px; font-weight: 700; letter-spacing: -0.02em; }
+  .card-link { font-family: var(--mono); font-size: 10px; color: var(--blue); cursor: pointer; letter-spacing: 0.03em; }
+
+  /* ─── GRIDS ─────────────────────────────────── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 360px; gap: 14px; margin-bottom: 14px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  /* ─── PROGRAMS ──────────────────────────────── */
+  .prog-list { padding: 6px 0; }
+  .prog-row { padding: 13px 20px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 90px 140px; gap: 14px; align-items: center; }
+  .prog-row:last-child { border-bottom: none; }
+  .prog-row.primary { background: var(--blue-light); }
+  .prog-name { font-family: var(--head); font-size: 13px; font-weight: 600; color: var(--text); }
+  .prog-name .star { color: var(--blue); margin-right: 4px; font-size: 9px; }
+  .prog-stats { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .prog-bar { height: 6px; background: var(--surface2); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; position: relative; }
+  .prog-bar-fill { height: 100%; background: var(--green); border-radius: 3px; transition: width 0.4s; }
+  .prog-pct { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 4px; text-align: right; }
+
+  /* ─── WORKOUT LIST ───────────────────────────── */
+  .wo-list { padding: 6px 0; }
+  .wo-row { padding: 12px 20px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 60px 1fr 60px 50px; gap: 12px; align-items: center; }
+  .wo-row:last-child { border-bottom: none; }
+  .wo-date { font-family: var(--mono); font-size: 10px; color: var(--muted); text-align: center; }
+  .wo-date-d { font-family: var(--head); font-size: 18px; font-weight: 800; color: var(--text); line-height: 1; }
+  .wo-date-m { font-family: var(--mono); font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+  .wo-name { font-family: var(--head); font-size: 13px; font-weight: 600; color: var(--text); }
+  .wo-sub { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 2px; }
+  .wo-dur { font-family: var(--mono); font-size: 11px; color: var(--text2); font-weight: 500; text-align: right; }
+  .wo-rpe { font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 6px; text-align: center; }
+  .rpe-low { background: var(--green-bg); color: var(--green); }
+  .rpe-mid { background: var(--amber-bg); color: var(--amber); }
+  .rpe-hi  { background: var(--red-bg); color: var(--red); }
+
+  /* ─── CALENDAR ────────────────────────────────── */
+  .cal-head { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: var(--surface2); border-bottom: 1px solid var(--border); }
+  .cal-month { font-family: var(--head); font-size: 13px; font-weight: 700; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+  .cal-dow { padding: 8px; text-align: center; font-family: var(--mono); font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--border); }
+  .cal-day { aspect-ratio: 1; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 6px; position: relative; font-family: var(--mono); font-size: 10px; color: var(--text2); }
+  .cal-day:nth-child(7n+7) { border-right: none; }
+  .cal-day.other { color: var(--border2); background: var(--surface2); }
+  .cal-day.today { background: var(--blue-light); }
+  .cal-day.today .cal-day-num { color: var(--blue); font-weight: 800; }
+  .cal-day-num { font-family: var(--head); font-weight: 700; }
+  .cal-dot { width: 6px; height: 6px; border-radius: 50%; position: absolute; bottom: 5px; left: 5px; }
+  .cal-dot.done { background: var(--green); }
+  .cal-dot.sched { background: var(--muted2); }
+
+  /* ─── INSIGHTS ──────────────────────────────── */
+  .insight-item {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 11px;
+  }
+  .insight-item:last-child { border-bottom: none; }
+  .insight-em { font-size: 18px; flex-shrink: 0; }
+  .insight-head { font-family: var(--head); font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .insight-body { font-family: var(--body); font-size: 12px; color: var(--text2); line-height: 1.55; }
+
+  /* ─── FORMS PANEL ────────────────────────────── */
+  .form-row { padding: 11px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .form-row:last-child { border-bottom: none; }
+  .form-name { font-family: var(--head); font-size: 12px; font-weight: 600; }
+  .form-date { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+  .form-stale .form-date { color: var(--red); }
+
+  /* ─── CHART BODY ─────────────────────────────── */
+  .chart-body { padding: 14px 20px; }
+
+  /* ─── SCROLLBAR ─────────────────────────────── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- ── SIDEBAR ─────────────────── -->
+  <nav class="sidebar">
+    <div class="sidebar-top">
+      <div class="logo">
+        <a href="index.html" style="text-decoration:none;display:flex;align-items:baseline;gap:8px"><span class="logo-word">MILO</span><div class="logo-dot"></div></a>
+      </div>
+      <div class="logo-sub">Otion Performance OS</div>
+    </div>
+
+    <div class="sidebar-nav">
+      <div class="nav-sec">Main</div>
+      <a class="nav-item" href="index.html">
+        <svg class="nav-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item active" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Clients
+        <span class="nav-badge" style="margin-left:auto">19</span>
+      </a>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Programs
+      </a>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Check-ins
+      </a>
+
+      <div class="nav-sec">Analytics</div>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Load Trends
+      </a>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Recovery
+      </a>
+
+      <div class="nav-sec">MILO AI</div>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Ask MILO
+      </a>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Build Program
+      </a>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="profile-row">
+        <div class="profile-av">ML</div>
+        <div>
+          <div class="profile-name">Marin Lazic</div>
+          <div class="profile-role">Head Coach · Otion</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ─────────────────── -->
+  <div class="main">
+
+    <!-- Breadcrumb -->
+    <div class="crumb">
+      <a href="index.html">Dashboard</a>
+      <span class="sep">›</span>
+      <a href="index.html">Clients</a>
+      <span class="sep">›</span>
+      <span class="here" id="crumbName">Loading…</span>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero" id="hero">
+      <div class="hero-av" id="heroAv">—</div>
+      <div>
+        <div class="hero-name" id="heroName">Loading…</div>
+        <div class="hero-email" id="heroEmail"></div>
+        <div class="hero-meta" id="heroMeta"></div>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-blue">Assign workout</button>
+        <button class="btn btn-outline-light">Message client</button>
+      </div>
+    </div>
+
+    <!-- MILO insight strip -->
+    <div class="milo-strip">
+      <div class="milo-icon-sm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <div class="milo-strip-head" id="miloHead">MILO is reviewing…</div>
+        <div class="milo-strip-text" id="miloText"></div>
+      </div>
+    </div>
+
+    <!-- Stat row -->
+    <div class="stats-row" id="statRow"></div>
+
+    <!-- Programs + MILO Insights -->
+    <div class="grid-2">
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Active programs</div>
+          <span class="card-link" id="progCount">— assigned</span>
+        </div>
+        <div class="prog-list" id="progList"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">MILO insights</div>
+          <span class="card-link">Refresh</span>
+        </div>
+        <div id="insightsList"></div>
+      </div>
+
+    </div>
+
+    <!-- Calendar + Recent workouts + Forms -->
+    <div class="grid-3" style="margin-top:14px">
+
+      <!-- Calendar -->
+      <div class="card">
+        <div class="cal-head">
+          <div class="cal-month">May 2026</div>
+          <span class="card-link">View full schedule</span>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div style="padding:12px 20px;border-top:1px solid var(--border);display:flex;gap:16px;font-family:var(--mono);font-size:10px;color:var(--muted)">
+          <span style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:var(--green)"></span>Completed</span>
+          <span style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:var(--muted2)"></span>Scheduled</span>
+        </div>
+      </div>
+
+      <!-- Recent workouts -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Recent activity</div>
+          <span class="card-link">See all →</span>
+        </div>
+        <div class="wo-list" id="recentList"></div>
+      </div>
+
+      <!-- Forms + RPE chart -->
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Forms</div>
+          </div>
+          <div id="formsList"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">RPE trend</div>
+            <span class="card-link">Last 6 sessions</span>
+          </div>
+          <div class="chart-body"><canvas id="rpeChart" height="140"></canvas></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── DATA LAYER ─────────────────── -->
+<script src="clients.js"></script>
+
+<!-- ─── PAGE LOGIC ─────────────────── -->
+<script>
+// Read which client to show
+const params = new URLSearchParams(location.search);
+const clientId = params.get('id') || 'craig-blair';
+
+const c = window.MILO.getClient(clientId);
+
+if (!c) {
+  document.querySelector('.main').innerHTML = `
+    <div style="padding:60px;text-align:center">
+      <h2 style="font-family:var(--head);font-size:22px;margin-bottom:10px">Client not found</h2>
+      <p style="color:var(--muted)">No client with id "${clientId}".</p>
+      <a href="index.html" style="color:var(--blue);margin-top:20px;display:inline-block">← Back to dashboard</a>
+    </div>`;
+} else {
+  renderClient(c);
+}
+
+function renderClient(c) {
+  // Breadcrumb + hero
+  document.getElementById('crumbName').textContent = c.name;
+  document.title = `${c.name} — MILO`;
+  document.getElementById('heroAv').textContent = c.initials || c.name.split(' ').map(w=>w[0]).slice(0,2).join('');
+  document.getElementById('heroName').textContent = c.name;
+  document.getElementById('heroEmail').textContent = c.email || '—';
+
+  // Hero meta (only show fields we have)
+  const meta = [];
+  if (c.age) meta.push({ lbl: 'Age', val: c.age });
+  if (c.heightCm) meta.push({ lbl: 'Height', val: c.heightCm + ' cm' });
+  if (c.weightKg) meta.push({ lbl: 'Weight', val: c.weightKg + ' kg' });
+  if (c.hrMax) meta.push({ lbl: 'HR Max', val: c.hrMax + ' bpm' });
+  if (c.status) meta.push({ lbl: 'Status', val: c.status === 'active' ? '● Active' : c.status });
+  document.getElementById('heroMeta').innerHTML = meta.map(m => `
+    <div class="meta-cell">
+      <div class="meta-lbl">${m.lbl}</div>
+      <div class="meta-val">${m.val}</div>
+    </div>`).join('');
+
+  // ─── STATS ──────────────────────────────
+  const primary = (c.programs || []).find(p => p.primary) || (c.programs || [])[0] || { completed: 0, total: 0 };
+  const primaryPct = primary.total ? Math.round(primary.completed / primary.total * 100) : 0;
+  const totalSessions = (c.programs || []).reduce((s, p) => s + p.completed, 0);
+  const avgRpe = (c.recentWorkouts || []).reduce((s, w) => s + w.rpe, 0) / Math.max(1, (c.recentWorkouts || []).length);
+  const readiness = c.miloFields?.readiness ?? null;
+
+  document.getElementById('statRow').innerHTML = `
+    <div class="scard scard-accent">
+      <div class="scard-label">Primary program</div>
+      <div class="scard-val">${primaryPct}%</div>
+      <div class="scard-delta">${primary.completed}/${primary.total} sessions</div>
+    </div>
+    <div class="scard">
+      <div class="scard-label">Total sessions done</div>
+      <div class="scard-val" style="color:var(--blue)">${totalSessions}</div>
+      <div class="scard-delta up">Across ${(c.programs || []).length} programs</div>
+    </div>
+    <div class="scard">
+      <div class="scard-label">Avg RPE (last 3)</div>
+      <div class="scard-val" style="color:${avgRpe < 4 ? 'var(--green)' : avgRpe < 7 ? 'var(--amber)' : 'var(--red)'}">${avgRpe.toFixed(1)}</div>
+      <div class="scard-delta">${avgRpe < 4 ? 'Productive' : avgRpe < 7 ? 'Moderate' : 'Hard'}</div>
+    </div>
+    <div class="scard">
+      <div class="scard-label">MILO readiness</div>
+      <div class="scard-val" style="color:${readiness ? 'var(--blue)' : 'var(--muted2)'}">${readiness ?? '—'}</div>
+      <div class="scard-delta ${readiness ? 'up' : 'warn'}">${readiness ? 'From last check-in' : 'Awaiting check-in'}</div>
+    </div>
+  `;
+
+  // ─── PROGRAMS ──────────────────────────
+  document.getElementById('progCount').textContent = `${(c.programs || []).length} assigned`;
+  document.getElementById('progList').innerHTML = (c.programs || []).map(p => {
+    const pct = p.total ? Math.round(p.completed / p.total * 100) : 0;
+    const color = pct === 100 ? 'var(--green)' : pct > 60 ? 'var(--blue)' : pct > 20 ? 'var(--amber)' : 'var(--muted2)';
+    return `
+      <div class="prog-row ${p.primary ? 'primary' : ''}">
+        <div>
+          <div class="prog-name">${p.primary ? '<span class="star">★</span>' : ''}${p.name}</div>
+        </div>
+        <div class="prog-stats">${p.completed}/${p.total}</div>
+        <div>
+          <div class="prog-bar"><div class="prog-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+          <div class="prog-pct">${pct}%</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  // ─── INSIGHTS ──────────────────────────
+  document.getElementById('insightsList').innerHTML = generateInsights(c).map(i => `
+    <div class="insight-item">
+      <div class="insight-em">${i.emoji}</div>
+      <div>
+        <div class="insight-head">${i.head}</div>
+        <div class="insight-body">${i.body}</div>
+      </div>
+    </div>
+  `).join('');
+  const top = generateInsights(c)[0];
+  if (top) {
+    document.getElementById('miloHead').textContent = top.head;
+    document.getElementById('miloText').textContent = top.body;
+  }
+
+  // ─── CALENDAR (May 2026) ────────────────
+  renderCalendar(c.scheduledWorkouts || []);
+
+  // ─── RECENT ACTIVITY ───────────────────
+  document.getElementById('recentList').innerHTML = (c.recentWorkouts || []).map(w => {
+    const d = new Date(w.date);
+    const day = d.getDate();
+    const month = d.toLocaleDateString('en-US', { month: 'short' });
+    const rpeCls = w.rpe < 4 ? 'rpe-low' : w.rpe < 7 ? 'rpe-mid' : 'rpe-hi';
+    return `
+      <div class="wo-row">
+        <div class="wo-date">
+          <div class="wo-date-d">${day}</div>
+          <div class="wo-date-m">${month}</div>
+        </div>
+        <div>
+          <div class="wo-name">${w.name}</div>
+          <div class="wo-sub">Logged in Bridge</div>
+        </div>
+        <div class="wo-dur">${w.duration}m</div>
+        <div class="wo-rpe ${rpeCls}">${w.rpe}</div>
+      </div>`;
+  }).join('') || '<div style="padding:20px;color:var(--muted);font-size:12px">No recent activity.</div>';
+
+  // ─── FORMS ─────────────────────────────
+  const today = new Date('2026-05-11');
+  document.getElementById('formsList').innerHTML = (c.forms || []).map(f => {
+    const d = new Date(f.lastSubmitted);
+    const days = Math.round((today - d) / (1000 * 60 * 60 * 24));
+    const stale = days > 60;
+    const human = days === 0 ? 'Today' : days === 1 ? 'Yesterday' : days < 30 ? `${days}d ago` : days < 365 ? `${Math.round(days/30)}mo ago` : `${Math.round(days/365)}y ago`;
+    return `
+      <div class="form-row ${stale ? 'form-stale' : ''}">
+        <div class="form-name">${f.name}</div>
+        <div class="form-date">${human}</div>
+      </div>`;
+  }).join('') || '<div style="padding:18px;color:var(--muted);font-size:12px">No forms yet.</div>';
+
+  // ─── RPE CHART ─────────────────────────
+  renderRpeChart(c.recentWorkouts || []);
+}
+
+function generateInsights(c) {
+  const insights = [];
+  const primary = (c.programs || []).find(p => p.primary);
+  if (primary) {
+    const pct = Math.round(primary.completed / primary.total * 100);
+    const remaining = primary.total - primary.completed;
+    insights.push({
+      emoji: '📈',
+      head: `${pct}% through ${primary.name}`,
+      body: `${primary.completed} of ${primary.total} sessions complete. ${remaining} sessions remaining at current cadence.`
+    });
+  }
+  const recent = c.recentWorkouts || [];
+  if (recent.length >= 2) {
+    const trend = recent.map(w => w.rpe).reverse();
+    const direction = trend[trend.length-1] > trend[0] ? 'climbing' : trend[trend.length-1] < trend[0] ? 'easing' : 'steady';
+    insights.push({
+      emoji: '💪',
+      head: `RPE ${direction}: ${trend.join(' → ')}`,
+      body: `Recent intensity is ${direction}. ${direction === 'climbing' ? 'Watch for accumulated fatigue.' : direction === 'easing' ? 'Recovery looks well-managed.' : 'Steady load — good consistency.'}`
+    });
+  }
+  const programCount = (c.programs || []).length;
+  if (programCount >= 4) {
+    insights.push({
+      emoji: '⚠️',
+      head: `${programCount} concurrent programs`,
+      body: `High complexity — consider consolidating. Most coached athletes run 1-2 programs at a time.`
+    });
+  }
+  if (c.forms) {
+    const stale = c.forms.find(f => {
+      const days = (new Date('2026-05-11') - new Date(f.lastSubmitted)) / (1000 * 60 * 60 * 24);
+      return days > 365;
+    });
+    if (stale) {
+      insights.push({
+        emoji: '📋',
+        head: `${stale.name} hasn't been re-submitted`,
+        body: `Last submitted ${stale.lastSubmitted}. Suggest a re-baseline assessment.`
+      });
+    }
+  }
+  // Adherence positive note
+  const dailyForm = (c.forms || []).find(f => f.name === 'Post Workout' || f.name === 'Performance Log');
+  if (dailyForm) {
+    const days = (new Date('2026-05-11') - new Date(dailyForm.lastSubmitted)) / (1000 * 60 * 60 * 24);
+    if (days <= 1) {
+      insights.push({
+        emoji: '✅',
+        head: 'Strong adherence',
+        body: `${dailyForm.name} submitted today. Consistent self-reporting cadence.`
+      });
+    }
+  }
+  if (insights.length === 0) {
+    insights.push({ emoji: '🧠', head: 'Limited data', body: 'Not enough activity yet — once Bridge sync runs and a check-in is submitted, MILO will surface trends.' });
+  }
+  return insights;
+}
+
+function renderCalendar(scheduled) {
+  // May 2026 starts on Friday (May 1, 2026)
+  const days = [];
+  // Pad with April days
+  for (let i = 0; i < 5; i++) days.push({ d: 26 + i, other: true });
+  for (let i = 1; i <= 31; i++) {
+    const dateStr = `2026-05-${String(i).padStart(2,'0')}`;
+    const w = scheduled.find(s => s.date === dateStr);
+    days.push({ d: i, dateStr, status: w?.status, today: dateStr === '2026-05-11' });
+  }
+  // Pad with June
+  while (days.length < 42) days.push({ d: days.length - 35, other: true });
+
+  const dow = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  document.getElementById('calGrid').innerHTML =
+    dow.map(d => `<div class="cal-dow">${d}</div>`).join('') +
+    days.map(day => {
+      const cls = ['cal-day'];
+      if (day.other) cls.push('other');
+      if (day.today) cls.push('today');
+      return `<div class="${cls.join(' ')}">
+        <div class="cal-day-num">${day.d}</div>
+        ${day.status === 'completed' ? '<div class="cal-dot done"></div>' : ''}
+        ${day.status === 'scheduled' ? '<div class="cal-dot sched"></div>' : ''}
+      </div>`;
+    }).join('');
+}
+
+function renderRpeChart(workouts) {
+  if (!workouts.length) return;
+  const sorted = [...workouts].sort((a,b) => new Date(a.date) - new Date(b.date));
+  const labels = sorted.map(w => new Date(w.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+  const rpeData = sorted.map(w => w.rpe);
+  const durData = sorted.map(w => w.duration);
+
+  new Chart(document.getElementById('rpeChart').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'RPE', data: rpeData, borderColor: '#1A6BF5', backgroundColor: 'rgba(26,107,245,0.08)', borderWidth: 2.5, tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: '#1A6BF5', yAxisID: 'y' },
+        { label: 'Duration (min)', data: durData, borderColor: '#F59E0B', backgroundColor: 'transparent', borderWidth: 2, borderDash: [5,3], tension: 0.4, pointRadius: 3, pointBackgroundColor: '#F59E0B', yAxisID: 'y1' }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499', boxWidth: 12, padding: 12, usePointStyle: true } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499' } },
+        y:  { min: 0, max: 10, position: 'left',  grid: { color: '#E4E8EE' }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#1A6BF5', stepSize: 2 } },
+        y1: { min: 0, max: 90, position: 'right', grid: { display: false },   ticks: { font: { family: 'DM Mono', size: 10 }, color: '#F59E0B' } }
+      }
+    }
+  });
+}
+</script>
+</body>
+</html>

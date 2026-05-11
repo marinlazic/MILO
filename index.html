@@ -267,6 +267,7 @@
   }
   .tbl-row:hover { background: var(--surface2); }
   .tbl-row:last-child { border-bottom: none; }
+  a.tbl-row, a.tbl-row:visited { color: inherit; text-decoration: none; }
 
   .av {
     width: 32px; height: 32px; border-radius: 8px;
@@ -392,7 +393,7 @@
       <div class="nav-item">
         <svg class="nav-ic" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         Clients
-        <span class="nav-badge" style="margin-left:auto">11</span>
+        <span class="nav-badge" style="margin-left:auto">19</span>
       </div>
       <div class="nav-item">
         <svg class="nav-ic" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -451,7 +452,7 @@
     <div class="topbar">
       <div>
         <div class="page-heading">Good morning, Marin.</div>
-        <div class="page-sub">Tue 18 Mar 2026 &nbsp;·&nbsp; 11 active clients &nbsp;·&nbsp; Week 11 of 24</div>
+        <div class="page-sub">Mon 11 May 2026 &nbsp;·&nbsp; 19 active clients &nbsp;·&nbsp; Bridge synced 10:30 AM</div>
       </div>
       <div class="btn-row">
         <button class="btn btn-outline">Export week</button>
@@ -466,8 +467,8 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
         <div>
-          <div class="milo-text-head">MILO has 2 flags for you this morning.</div>
-          <div class="milo-text-sub">Anna Lim — readiness 41 &nbsp;·&nbsp; Sarah Reeves — load spike &nbsp;·&nbsp; Ask MILO to build this week's programs</div>
+          <div class="milo-text-head">MILO has 2 flags this morning.</div>
+          <div class="milo-text-sub">Sondra Hamill — program stalled at 50% &nbsp;·&nbsp; 5 clients have completed their program block &nbsp;·&nbsp; Ask MILO to build next blocks</div>
         </div>
       </div>
       <div class="milo-right">
@@ -480,23 +481,23 @@
     <div class="stats-row">
       <div class="scard scard-accent">
         <div class="scard-label">Active clients</div>
-        <div class="scard-val">11</div>
-        <div class="scard-delta" style="color:rgba(255,255,255,0.7)">↑ 2 this month</div>
+        <div class="scard-val">19</div>
+        <div class="scard-delta" style="color:rgba(255,255,255,0.7)">From Bridge Athletic</div>
       </div>
       <div class="scard">
-        <div class="scard-label">Check-ins due</div>
-        <div class="scard-val warn">3</div>
-        <div class="scard-delta warn">Overdue 24h+</div>
+        <div class="scard-label">Programs complete</div>
+        <div class="scard-val up">5</div>
+        <div class="scard-delta up">Need next block</div>
       </div>
       <div class="scard">
-        <div class="scard-label">Avg readiness</div>
-        <div class="scard-val" style="color:var(--blue)">74</div>
-        <div class="scard-delta up">↑ 6 vs last week</div>
+        <div class="scard-label">Sessions this week</div>
+        <div class="scard-val" style="color:var(--blue)">31</div>
+        <div class="scard-delta up">Across all clients</div>
       </div>
       <div class="scard">
         <div class="scard-label">Flags today</div>
-        <div class="scard-val dn">2</div>
-        <div class="scard-delta dn">Needs attention</div>
+        <div class="scard-val dn">1</div>
+        <div class="scard-delta dn">Sondra Hamill</div>
       </div>
     </div>
 
@@ -518,68 +519,68 @@
           <div class="th" style="text-align:center">Check-in</div>
         </div>
 
-        <div class="tbl-row">
-          <div class="av">JC</div>
-          <div><div class="cl-name">James Chen</div><div class="cl-role">CEO · Fintech</div></div>
-          <div style="text-align:center"><span class="pill p-hi">87</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:72%;background:var(--green)"></div></div><div class="load-n">72</div></div>
-          <div style="text-align:center"><span class="pill p-hi">81</span></div>
+        <a class="tbl-row" href="client.html?id=craig-blair">
+          <div class="av">CB</div>
+          <div><div class="cl-name">Craig Blair</div><div class="cl-role">Road to LA28 · 84%</div></div>
+          <div style="text-align:center"><span class="pill p-hi">—</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:84%;background:var(--green)"></div></div><div class="load-n">84</div></div>
+          <div style="text-align:center"><span class="pill p-hi">—</span></div>
           <div style="text-align:center"><span class="tag t-done">Done</span></div>
-        </div>
+        </a>
 
-        <div class="tbl-row">
-          <div class="av" style="background:var(--amber-bg);color:var(--amber)">SR</div>
-          <div><div class="cl-name">Sarah Reeves</div><div class="cl-role">COO · SaaS</div></div>
-          <div style="text-align:center"><span class="pill p-mid">58</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:91%;background:#F59E0B"></div></div><div class="load-n">91</div></div>
-          <div style="text-align:center"><span class="pill p-lo">44</span></div>
+        <a class="tbl-row" href="client.html?id=sondra-hamill">
+          <div class="av" style="background:var(--red-bg);color:var(--red)">SH</div>
+          <div><div class="cl-name">Sondra Hamill</div><div class="cl-role">12 Week Home · 50%</div></div>
+          <div style="text-align:center"><span class="pill p-lo">—</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:50%;background:#EF4444"></div></div><div class="load-n">50</div></div>
+          <div style="text-align:center"><span class="pill p-lo">—</span></div>
+          <div style="text-align:center"><span class="tag t-miss">Flagged</span></div>
+        </a>
+
+        <a class="tbl-row" href="client.html?id=renee-lodens">
+          <div class="av" style="background:var(--green-bg);color:var(--green)">RL</div>
+          <div><div class="cl-name">Renee Lodens</div><div class="cl-role">Kettlebells · 100%</div></div>
+          <div style="text-align:center"><span class="pill p-hi">—</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:100%;background:var(--green)"></div></div><div class="load-n">16</div></div>
+          <div style="text-align:center"><span class="pill p-hi">—</span></div>
+          <div style="text-align:center"><span class="tag t-done">Complete</span></div>
+        </a>
+
+        <a class="tbl-row" href="client.html?id=charlie-lanchester">
+          <div class="av">CL</div>
+          <div><div class="cl-name">Charlie Lanchester</div><div class="cl-role">ARM FARM · 56%</div></div>
+          <div style="text-align:center"><span class="pill p-mid">—</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:56%;background:var(--green)"></div></div><div class="load-n">56</div></div>
+          <div style="text-align:center"><span class="pill p-mid">—</span></div>
           <div style="text-align:center"><span class="tag t-due">Due today</span></div>
-        </div>
+        </a>
 
-        <div class="tbl-row">
-          <div class="av">DM</div>
-          <div><div class="cl-name">David Mills</div><div class="cl-role">Founder · PE</div></div>
-          <div style="text-align:center"><span class="pill p-hi">92</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:55%;background:var(--green)"></div></div><div class="load-n">55</div></div>
-          <div style="text-align:center"><span class="pill p-hi">88</span></div>
+        <a class="tbl-row" href="client.html?id=nathan-parris">
+          <div class="av" style="background:var(--amber-bg);color:var(--amber)">NP</div>
+          <div><div class="cl-name">Nathan Parris</div><div class="cl-role">Health & Performance · 13%</div></div>
+          <div style="text-align:center"><span class="pill p-mid">—</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:13%;background:#F59E0B"></div></div><div class="load-n">13</div></div>
+          <div style="text-align:center"><span class="pill p-mid">—</span></div>
+          <div style="text-align:center"><span class="tag t-due">Just started</span></div>
+        </a>
+
+        <a class="tbl-row" href="client.html?id=mark-oreilly">
+          <div class="av">MO</div>
+          <div><div class="cl-name">Mark O'Reilly</div><div class="cl-role">Sleep Better Program · 33%</div></div>
+          <div style="text-align:center"><span class="pill p-mid">—</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:33%;background:#F59E0B"></div></div><div class="load-n">33</div></div>
+          <div style="text-align:center"><span class="pill p-mid">—</span></div>
           <div style="text-align:center"><span class="tag t-done">Done</span></div>
-        </div>
+        </a>
 
-        <div class="tbl-row">
-          <div class="av" style="background:var(--red-bg);color:var(--red)">AL</div>
-          <div><div class="cl-name">Anna Lim</div><div class="cl-role">MD · Law</div></div>
-          <div style="text-align:center"><span class="pill p-lo">41</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:88%;background:#EF4444"></div></div><div class="load-n">88</div></div>
-          <div style="text-align:center"><span class="pill p-lo">38</span></div>
-          <div style="text-align:center"><span class="tag t-miss">Missed</span></div>
-        </div>
-
-        <div class="tbl-row">
-          <div class="av">TW</div>
-          <div><div class="cl-name">Tom Walsh</div><div class="cl-role">VP · Mining</div></div>
-          <div style="text-align:center"><span class="pill p-mid">69</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:64%;background:var(--green)"></div></div><div class="load-n">64</div></div>
-          <div style="text-align:center"><span class="pill p-mid">71</span></div>
+        <a class="tbl-row" href="client.html?id=david-shein">
+          <div class="av">DS</div>
+          <div><div class="cl-name">David Shein</div><div class="cl-role">Road to LA · 22%</div></div>
+          <div style="text-align:center"><span class="pill p-hi">—</span></div>
+          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:22%;background:var(--green)"></div></div><div class="load-n">22</div></div>
+          <div style="text-align:center"><span class="pill p-hi">—</span></div>
           <div style="text-align:center"><span class="tag t-done">Done</span></div>
-        </div>
-
-        <div class="tbl-row">
-          <div class="av">RK</div>
-          <div><div class="cl-name">Rachel Kim</div><div class="cl-role">CFO · Healthcare</div></div>
-          <div style="text-align:center"><span class="pill p-hi">83</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:60%;background:var(--green)"></div></div><div class="load-n">60</div></div>
-          <div style="text-align:center"><span class="pill p-hi">79</span></div>
-          <div style="text-align:center"><span class="tag t-done">Done</span></div>
-        </div>
-
-        <div class="tbl-row">
-          <div class="av">MB</div>
-          <div><div class="cl-name">Mark Benson</div><div class="cl-role">MD · Investment</div></div>
-          <div style="text-align:center"><span class="pill p-mid">62</span></div>
-          <div class="load-wrap"><div class="load-track"><div class="load-fill" style="width:77%;background:#F59E0B"></div></div><div class="load-n">77</div></div>
-          <div style="text-align:center"><span class="pill p-mid">67</span></div>
-          <div style="text-align:center"><span class="tag t-due">Due today</span></div>
-        </div>
+        </a>
 
       </div>
 
@@ -620,36 +621,36 @@
         <div class="card">
           <div class="card-head">
             <div class="card-title">Flags</div>
-            <span style="background:var(--red-bg);color:var(--red);font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:20px;font-weight:500">2 urgent</span>
+            <span style="background:var(--red-bg);color:var(--red);font-family:var(--mono);font-size:10px;padding:3px 9px;border-radius:20px;font-weight:500">1 urgent</span>
           </div>
-          <div class="alert-item">
+          <a class="alert-item" href="client.html?id=sondra-hamill" style="text-decoration:none;color:inherit">
             <div class="a-dot ad-r"></div>
             <div>
-              <div class="a-text">Anna Lim — readiness 41, load 88. Travel week.</div>
-              <div class="a-time">6:40 AM today</div>
+              <div class="a-text">Sondra Hamill — program stalled at 6/12. Bridge flagged red.</div>
+              <div class="a-time">From last Bridge sync</div>
             </div>
-          </div>
-          <div class="alert-item">
-            <div class="a-dot ad-r"></div>
-            <div>
-              <div class="a-text">Sarah Reeves — 3rd consecutive low recovery.</div>
-              <div class="a-time">7:02 AM today</div>
-            </div>
-          </div>
-          <div class="alert-item">
-            <div class="a-dot ad-a"></div>
-            <div>
-              <div class="a-text">Tom Walsh — check-in streak broken.</div>
-              <div class="a-time">Yesterday 11 PM</div>
-            </div>
-          </div>
-          <div class="alert-item">
+          </a>
+          <a class="alert-item" href="client.html?id=renee-lodens" style="text-decoration:none;color:inherit">
             <div class="a-dot ad-g"></div>
             <div>
-              <div class="a-text">David Mills — best readiness in 6 weeks.</div>
-              <div class="a-time">This morning</div>
+              <div class="a-text">5 clients have completed their program — Renee, Michael, Reini, Alana, Stephanie.</div>
+              <div class="a-time">Needs new block assigned</div>
             </div>
-          </div>
+          </a>
+          <a class="alert-item" href="client.html?id=craig-blair" style="text-decoration:none;color:inherit">
+            <div class="a-dot ad-a"></div>
+            <div>
+              <div class="a-text">Craig Blair — 6 concurrent programs. Consider consolidating.</div>
+              <div class="a-time">MILO insight</div>
+            </div>
+          </a>
+          <a class="alert-item" href="client.html?id=liam-beard" style="text-decoration:none;color:inherit">
+            <div class="a-dot ad-a"></div>
+            <div>
+              <div class="a-text">Liam Beard — 0/30 sessions started. New athlete, no activity yet.</div>
+              <div class="a-time">From Bridge</div>
+            </div>
+          </a>
         </div>
 
       </div>
