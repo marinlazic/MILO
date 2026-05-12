@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-05-12T20:23:20.366Z
+   Last synced: 2026-05-12T22:30:29.896Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -22,7 +22,7 @@ const BRIDGE_DATA = {
         "name": "ARM FARM (no above head)",
         "status": "started",
         "startedAt": "2026-02-08",
-        "updatedAt": "2026-05-10",
+        "updatedAt": "2026-05-12",
         "isPlaylist": true
       },
       {
@@ -140,6 +140,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-05-12",
+        "name": "4.3",
+        "workoutId": -35263436,
+        "workoutHistoryId": 64821125,
+        "duration": 72,
+        "rpe": 10,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-11",
         "name": "4.2",
         "workoutId": 35263435,
@@ -245,16 +255,6 @@ const BRIDGE_DATA = {
         "workoutId": -35263437,
         "workoutHistoryId": 63667565,
         "duration": 81,
-        "rpe": 10,
-        "program": "ARM FARM (no above head)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-09",
-        "name": "4.3",
-        "workoutId": -35263436,
-        "workoutHistoryId": 63618697,
-        "duration": 78,
         "rpe": 10,
         "program": "ARM FARM (no above head)",
         "status": "completed"
@@ -1405,7 +1405,7 @@ const BRIDGE_DATA = {
         "name": "Nathan 2026 Health and Performance Program",
         "status": "started",
         "startedAt": "2026-01-26",
-        "updatedAt": "2026-05-11",
+        "updatedAt": "2026-05-12",
         "isPlaylist": true
       },
       {
@@ -2190,14 +2190,14 @@ const BRIDGE_DATA = {
     "age": 53,
     "birthDate": "1972-10-10",
     "gender": null,
-    "weightKg": 60,
+    "weightKg": 57,
     "programs": [
       {
         "bridgeId": 1536774,
         "name": "2025 - Linda",
         "status": "started",
         "startedAt": "2024-08-25",
-        "updatedAt": "2026-05-10",
+        "updatedAt": "2026-05-12",
         "isPlaylist": true
       },
       {
