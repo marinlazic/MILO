@@ -272,7 +272,7 @@
         "name": "Hypertrophy & Impulse Integration",
         "status": "started",
         "startedAt": "2026-05-10",
-        "updatedAt": "2026-05-11",
+        "updatedAt": "2026-05-12",
         "isPlaylist": true
       },
       {
@@ -2183,7 +2183,7 @@
     "age": 53,
     "birthDate": "1972-10-10",
     "gender": null,
-    "weightKg": 59,
+    "weightKg": 60,
     "programs": [
       {
         "bridgeId": 1536774,
@@ -2381,6 +2381,16 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-05-11",
+        "name": "Lower",
+        "workoutId": 35576324,
+        "workoutHistoryId": 64710084,
+        "duration": 60,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-09",
         "name": "Upper",
         "workoutId": 35576323,
@@ -2487,16 +2497,6 @@
         "workoutHistoryId": 63653161,
         "duration": 52,
         "rpe": 6,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-08",
-        "name": "Lower",
-        "workoutId": 35576324,
-        "workoutHistoryId": 63564717,
-        "duration": 45,
-        "rpe": 5,
         "program": "Alana 2026 Health and Performance Program ",
         "status": "completed"
       }
