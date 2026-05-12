@@ -6,7 +6,7 @@
 
 import Anthropic from '@anthropic-ai/sdk';
 
-export const config = { api: { bodyParser: { sizeLimit: '4mb' } } };
+export const config = { api: { bodyParser: { sizeLimit: '12mb' } } };
 
 const SYSTEM_PROMPT = `You are MILO, a senior strength & conditioning coach working with Marin Lazic at Otion Performance. You write training programs for his individual clients (executives, high-performers, sport-specific athletes).
 
@@ -94,7 +94,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { snapshot, blockIntent, durationWeeks, clientId, templateId, frequency, conditioningZone, previousBlock, progressionPreferences, physioNotes, affectedRegions } = req.body || {};
+    const { snapshot, blockIntent, durationWeeks, clientId, templateId, frequency, conditioningZone, previousBlock, progressionPreferences, physioNotes, affectedRegions, physioImages } = req.body || {};
     if (!snapshot) return res.status(400).json({ error: 'Missing snapshot' });
 
     // Load coaching principles + per-athlete notes + template library (best-effort)
@@ -108,8 +108,10 @@ export default async function handler(req, res) {
 
     const contextSections = [];
 
+    const validPhysioImages = Array.isArray(physioImages) ? physioImages.filter(i => i && i.base64 && i.mimeType) : [];
+
     // PHYSIO NOTES go FIRST — highest priority. These are MANDATORY overrides.
-    if ((physioNotes && physioNotes.trim()) || (Array.isArray(affectedRegions) && affectedRegions.length)) {
+    if ((physioNotes && physioNotes.trim()) || (Array.isArray(affectedRegions) && affectedRegions.length) || validPhysioImages.length) {
       const regionLabels = {
         shoulder: 'Shoulder', elbow_wrist: 'Elbow / Wrist',
         lower_back: 'Lower back', upper_back: 'Upper back / Neck',
@@ -130,24 +132,29 @@ export default async function handler(req, res) {
         .map(r => `  • ${regionLabels[r] || r}: ${regionGuidance[r] || '(no defaults — read physio notes carefully)'}`)
         .join('\n');
 
+      const imagesNote = validPhysioImages.length
+        ? `\n\nATTACHED PHYSIO SCREENSHOTS: ${validPhysioImages.length} image(s) have been attached to this message (preceding the text). Read them carefully — they may contain physio exercise prescriptions, return-to-play protocols, ROM diagrams, contraindication lists, or marked-up assessment notes. ANY exercise prescribed in those images MUST be included in this program (placed in the appropriate session block with the prescribed sets/reps). Any restriction in those images is BINDING and supersedes the template.`
+        : '';
+
       contextSections.push(`⚕ PHYSIO NOTES — MANDATORY OVERRIDES (these supersede EVERY other rule, including the template, the coaching system, and the previous-block progression):
 
 Affected regions: ${regionsPretty || '(none flagged)'}
 
 Coach's physio notes (verbatim from the physio or coach's clinical assessment):
 """
-${physioNotes ? physioNotes.trim() : '(no free-text notes — apply standard guidance for the flagged regions)'}
+${physioNotes ? physioNotes.trim() : '(no free-text notes — apply standard guidance for the flagged regions and read attached screenshots)'}
 """
 
-DEFAULT REGION GUIDANCE (apply these unless the physio notes say otherwise):
-${guidance || '  (no regions flagged)'}
+DEFAULT REGION GUIDANCE (apply these unless the physio notes / screenshots say otherwise):
+${guidance || '  (no regions flagged)'}${imagesNote}
 
 HARD RULES:
-1. If a pattern, exercise, or movement is contraindicated by these notes, REMOVE it from the program and substitute a safe alternative — DO NOT include it with a "modify as needed" caveat. The coach is busy; the program must be ready-to-run.
+1. If a pattern, exercise, or movement is contraindicated by these notes OR by anything in the attached screenshots, REMOVE it from the program and substitute a safe alternative — DO NOT include it with a "modify as needed" caveat. The coach is busy; the program must be ready-to-run.
 2. The block's rationale (top-of-program text) must EXPLICITLY mention these physio constraints in the first sentence (e.g. "Adjusted for left shoulder labral repair: removed overhead pressing, substituted neutral-grip horizontal push.").
 3. EVERY exercise that exists in the program because of a substitution must have a "note" field explaining what it replaces and why (e.g. "note: 'Substituted for OHP — shoulder repair, no overhead loading'").
-4. If the physio notes ALLOW certain movements with caveats (e.g. "horizontal pressing OK pain-free"), include those movements but lower the load (cap RPE 7) and put the caveat in the exercise note.
-5. The "notesForCoach" section at the end of the program must include a bullet point summarising the physio-driven adjustments so the coach can audit them at a glance.`);
+4. If the physio notes / screenshots ALLOW certain movements with caveats (e.g. "horizontal pressing OK pain-free"), include those movements but lower the load (cap RPE 7) and put the caveat in the exercise note.
+5. If the screenshots prescribe specific physio exercises (e.g. "Theraband external rotation 3×15, scapular retraction 2×10"), include them VERBATIM in a "Physio Prep" block at the start of every relevant session (or as a 1c slot if it fits the session structure). Reference the screenshot in the exercise note (e.g. "note: 'Prescribed by physio — see screenshot 1'").
+6. The "notesForCoach" section at the end of the program must include a bullet point summarising the physio-driven adjustments AND naming each physio-prescribed exercise included, so the coach can audit them at a glance.`);
     }
 
     if (principles) {
@@ -228,12 +235,24 @@ ${JSON.stringify(snapshot, null, 2)}
 
 Write the program now. Output ONLY the JSON object, no other text.`;
 
+    // Build the user message — multimodal if physio images are attached.
+    // Images go FIRST so the LLM reads them before the text instructions that reference them.
+    const userMessage = validPhysioImages.length
+      ? [
+          ...validPhysioImages.map((img, i) => ([
+            { type: 'text', text: `Physio screenshot ${i + 1} of ${validPhysioImages.length}:` },
+            { type: 'image', source: { type: 'base64', media_type: img.mimeType, data: img.base64 } },
+          ])).flat(),
+          { type: 'text', text: userContent },
+        ]
+      : userContent;
+
     const anthropic = new Anthropic({ apiKey });
     const msg = await anthropic.messages.create({
       model: 'claude-sonnet-4-5',
       max_tokens: 4096,
       system: SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: userContent }],
+      messages: [{ role: 'user', content: userMessage }],
     });
 
     const text = msg.content

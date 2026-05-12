@@ -117,6 +117,17 @@
   .physio-textarea{width:100%;min-height:80px;padding:10px 12px;border:1px solid var(--border2);border-radius:8px;background:var(--surface2);font-family:var(--body);font-size:13px;line-height:1.55;color:var(--text);outline:none;resize:vertical}
   .physio-textarea:focus{border-color:var(--blue)}
   .physio-textarea::placeholder{color:var(--muted2)}
+  .physio-drop{border:1.5px dashed var(--border2);border-radius:8px;padding:14px 12px;text-align:center;cursor:pointer;transition:all 0.12s;background:var(--surface2);margin-top:10px}
+  .physio-drop:hover, .physio-drop.dragover{border-color:var(--red);background:var(--red-bg)}
+  .physio-drop-icon{font-size:18px;margin-bottom:2px;color:var(--muted)}
+  .physio-drop-text{font-family:var(--head);font-weight:700;font-size:12px;color:var(--text2)}
+  .physio-drop-hint{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.04em;margin-top:2px}
+  .physio-thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .physio-thumb{position:relative;border:1px solid var(--border);border-radius:6px;overflow:hidden;width:90px;height:90px;background:var(--surface2)}
+  .physio-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .physio-thumb-x{position:absolute;top:3px;right:3px;background:rgba(0,0,0,0.65);color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;line-height:1;cursor:pointer;padding:0}
+  .physio-thumb-x:hover{background:#000}
+  .physio-thumb-num{position:absolute;bottom:3px;left:3px;background:rgba(0,0,0,0.65);color:#fff;font-family:var(--mono);font-size:9px;padding:1px 5px;border-radius:3px;letter-spacing:0.04em}
   .physio-hint{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin-top:8px;line-height:1.5}
   .physio-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
   .physio-save{font-family:var(--mono);font-size:10px;letter-spacing:0.04em;padding:6px 12px;border-radius:6px;cursor:pointer;border:1px solid var(--border2);background:var(--surface2);color:var(--text2);font-weight:600}
@@ -436,6 +447,7 @@ async function renderPhysio(c) {
     regions: [...regionsBaseline],
     baseline,
     regionsBaseline,
+    images: [],
     dirty: false,
     collapsed: !baseline && regionsBaseline.length === 0,
   };
@@ -470,8 +482,25 @@ function drawPhysio(c) {
         <b style="color:var(--text);text-transform:uppercase;letter-spacing:0.08em;font-size:9px">Physio notes for this block</b>
       </div>
       <textarea class="physio-textarea" id="physioNotes" placeholder="e.g. 'Left shoulder labral repair — no overhead pressing for 4 weeks. Horizontal pressing OK pain-free. Cleared for hinge and squat patterns.'">${escapeHtml(p.notes || '')}</textarea>
+
+      <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin:14px 0 4px;line-height:1.5">
+        <b style="color:var(--text);text-transform:uppercase;letter-spacing:0.08em;font-size:9px">Physio screenshots / exercises</b> — optional. MILO reads the images alongside your notes.
+      </div>
+      <div class="physio-drop" id="physioDrop">
+        <div class="physio-drop-icon">📎</div>
+        <div class="physio-drop-text">Drop physio screenshots / exercise prints here</div>
+        <div class="physio-drop-hint">or click to browse · paste from clipboard works (Cmd+V / Ctrl+V) · these stay local to this build</div>
+      </div>
+      <input id="physioFileInput" type="file" accept="image/*" multiple style="display:none">
+      <div class="physio-thumbs" id="physioThumbs">${(p.images || []).map((img, i) => `
+        <div class="physio-thumb">
+          <img src="${img.dataUrl}" alt="physio ${i+1}">
+          <span class="physio-thumb-num">#${i+1}</span>
+          <button type="button" class="physio-thumb-x" data-idx="${i}" title="Remove">✕</button>
+        </div>`).join('')}</div>
+
       <div class="physio-hint">
-        These notes OVERRIDE the program. MILO will avoid exercises that aggravate the listed regions and pick safe alternatives. Notes that read like a physio's instructions work best.
+        Notes + screenshots OVERRIDE the program. MILO will avoid exercises that aggravate the listed regions, include any physio-prescribed movements verbatim, and pick safe alternatives elsewhere. (Screenshots are sent with each generation, not saved to the athlete record.)
       </div>
       <div class="physio-actions">
         <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em">
@@ -523,16 +552,83 @@ function drawPhysio(c) {
   });
   // Wire save button
   document.getElementById('physioSaveBtn').addEventListener('click', () => savePhysioNotes(c));
+
+  // ── Image upload wiring ──
+  const drop = document.getElementById('physioDrop');
+  const fileIn = document.getElementById('physioFileInput');
+  drop.addEventListener('click', () => fileIn.click());
+  fileIn.addEventListener('change', e => addPhysioImages(c, e.target.files));
+  drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('dragover'); });
+  drop.addEventListener('dragleave', () => drop.classList.remove('dragover'));
+  drop.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('dragover'); addPhysioImages(c, e.dataTransfer.files); });
+  // Remove thumbnails
+  for (const x of document.querySelectorAll('.physio-thumb-x')) {
+    x.addEventListener('click', () => {
+      const i = parseInt(x.dataset.idx, 10);
+      p.images.splice(i, 1);
+      drawPhysio(c);
+    });
+  }
+}
+
+// Track the paste handler globally so it works while the physio panel is open
+if (!window._physioPasteWired) {
+  window._physioPasteWired = true;
+  document.addEventListener('paste', e => {
+    const p = window._physio;
+    if (!p || p.collapsed) return;
+    // Only intercept if the focused element isn't a textarea/input expecting paste
+    const ae = document.activeElement;
+    if (ae && (ae.tagName === 'TEXTAREA' || ae.tagName === 'INPUT')) return;
+    const items = Array.from(e.clipboardData?.items || []);
+    const files = items.filter(it => it.type.startsWith('image/')).map(it => it.getAsFile()).filter(Boolean);
+    if (files.length) {
+      const c = M.getClient(sel.value);
+      addPhysioImages(c, files);
+    }
+  });
+}
+
+async function addPhysioImages(c, files) {
+  const p = window._physio;
+  if (!p.images) p.images = [];
+  for (const f of files || []) {
+    if (!f || !f.type?.startsWith('image/')) continue;
+    if (p.images.length >= 6) {
+      alert('Max 6 physio images per build. Remove one before adding another.');
+      break;
+    }
+    try {
+      const dataUrl = await fileToDataUrl(f);
+      const base64 = dataUrl.split(',')[1];
+      p.images.push({ base64, mimeType: f.type, dataUrl, name: f.name || 'physio.png' });
+    } catch (e) { /* ignore */ }
+  }
+  drawPhysio(c);
+}
+
+function fileToDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
 }
 
 function refreshPhysioStatus(c) {
   const p = window._physio;
   const box = document.getElementById('physioPanel');
   const headStatus = box.querySelector('.physio-title-status');
-  const hasContent = (p.notes || '').trim().length > 0 || p.regions.length > 0;
+  const imgCount = (p.images || []).length;
+  const hasContent = (p.notes || '').trim().length > 0 || p.regions.length > 0 || imgCount > 0;
   if (headStatus) {
     headStatus.classList.toggle('has-notes', hasContent);
-    headStatus.textContent = hasContent ? `${p.regions.length} region${p.regions.length===1?'':'s'} · adjustments active` : 'No active injuries';
+    const bits = [];
+    if (p.regions.length) bits.push(`${p.regions.length} region${p.regions.length===1?'':'s'}`);
+    if (imgCount) bits.push(`${imgCount} image${imgCount===1?'':'s'}`);
+    if (bits.length === 0 && p.notes?.trim()) bits.push('notes');
+    headStatus.textContent = hasContent ? `${bits.join(' · ')} · adjustments active` : 'No active injuries';
   }
   const saveBtn = document.getElementById('physioSaveBtn');
   if (saveBtn) saveBtn.disabled = !p.dirty;
@@ -928,6 +1024,7 @@ document.getElementById('genBtn').addEventListener('click', async () => {
         progressionPreferences: window._progressionPrefs || {},
         physioNotes: (window._physio?.notes || '').trim() || null,
         affectedRegions: window._physio?.regions || [],
+        physioImages: (window._physio?.images || []).map(img => ({ base64: img.base64, mimeType: img.mimeType })),
       }),
     });
     const data = await r.json();
