@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MILO — Build Program</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F0F2F5; --surface:#FFFFFF; --surface2:#F7F8FA;
+    --border:#E4E8EE; --border2:#D0D6E0;
+    --blue:#1A6BF5; --blue-dark:#0D47C4; --blue-light:#E8F0FE;
+    --blue-grad:linear-gradient(135deg,#1A6BF5 0%,#6BA8FF 100%);
+    --text:#0E1117; --text2:#3A4156; --muted:#7A8499; --muted2:#A0ABBE;
+    --green:#0D7A4E; --green-bg:#E6F7F0;
+    --amber:#8A5A00; --amber-bg:#FEF3CC;
+    --red:#C0202A; --red-bg:#FDEAEA;
+    --purple:#A855F7; --purple-bg:#F3E8FF;
+    --mono:'DM Mono',monospace; --head:'DM Sans',sans-serif; --body:'Inter',sans-serif;
+    --r:14px; --sh:0 1px 2px rgba(0,0,0,0.05),0 4px 20px rgba(0,0,0,0.06);
+    --sh2:0 2px 8px rgba(26,107,245,0.18);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:var(--body);font-size:13px;color:var(--text);-webkit-font-smoothing:antialiased}
+
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+
+  /* SIDEBAR */
+  .sidebar{background:var(--text);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden}
+  .sidebar-top{padding:26px 24px 22px;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .logo{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+  .logo-word{font-family:var(--head);font-size:26px;font-weight:800;letter-spacing:-0.05em;color:#fff}
+  .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);margin-bottom:4px}
+  .logo-sub{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:2px}
+  .sidebar-nav{flex:1;padding:16px 0;overflow-y:auto}
+  .nav-sec{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:14px 24px 5px}
+  .nav-item{display:flex;align-items:center;gap:11px;padding:8px 24px;font-family:var(--body);font-size:13px;font-weight:500;color:rgba(255,255,255,0.42);cursor:pointer;transition:all 0.15s;position:relative;text-decoration:none}
+  .nav-item:hover{color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.04)}
+  .nav-item.active{color:#fff;background:rgba(26,107,245,0.18)}
+  .nav-item.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--blue);border-radius:0 3px 3px 0}
+  .nav-ic{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;opacity:0.8}
+  .nav-badge{margin-left:auto;background:var(--red);color:#fff;font-family:var(--mono);font-size:9px;padding:1px 6px;border-radius:20px}
+  .sidebar-bottom{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.06)}
+  .profile-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.05);border-radius:9px}
+  .profile-av{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--head);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .profile-name{font-family:var(--head);font-size:13px;font-weight:600;color:#fff}
+  .profile-role{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.06em}
+
+  .main{padding:30px 30px 50px;overflow-y:auto}
+  .topbar{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px;flex-wrap:wrap;gap:14px}
+  .page-heading{font-family:var(--head);font-size:24px;font-weight:800;letter-spacing:-0.04em}
+  .page-sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase}
+  .crumb{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:18px;text-transform:uppercase;letter-spacing:0.06em}
+  .crumb a{color:var(--muted);text-decoration:none}
+  .crumb a:hover{color:var(--blue)}
+
+  /* Builder form */
+  .builder-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px;box-shadow:var(--sh);margin-bottom:18px}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:14px;align-items:end}
+  .field label{display:block;font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;font-weight:600}
+  .field select,.field input{width:100%;padding:10px 12px;background:var(--surface2);border:1px solid var(--border2);border-radius:8px;font-family:var(--body);font-size:13px;color:var(--text);outline:none}
+  .field select:focus,.field input:focus{border-color:var(--blue)}
+  .btn{padding:11px 20px;border-radius:8px;font-family:var(--body);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all 0.15s}
+  .btn-blue{background:var(--blue-grad);color:#fff;box-shadow:var(--sh2)}
+  .btn-blue:hover{opacity:0.92}
+  .btn-blue:disabled{opacity:0.5;cursor:not-allowed}
+  .btn-outline{background:var(--surface);border:1px solid var(--border2);color:var(--text2)}
+  .btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+
+  /* Loading / progress */
+  .loading-card{background:linear-gradient(135deg,#0E1117,#1a1f2e);color:#fff;border-radius:var(--r);padding:36px;text-align:center;border:none}
+  .loading-spinner{display:inline-block;width:32px;height:32px;border:3px solid rgba(255,255,255,0.15);border-top-color:#6BA8FF;border-radius:50%;animation:spin 0.8s linear infinite;margin-bottom:14px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .loading-card .step{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.04em}
+  .loading-card .step b{color:#fff;display:block;font-size:14px;font-family:var(--head);font-weight:700;margin-bottom:4px}
+
+  /* Snapshot tile */
+  .snap{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:18px}
+  .snap-cell{background:var(--surface);border:1px solid var(--border);padding:12px 14px;border-radius:10px;box-shadow:var(--sh)}
+  .snap-lbl{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px}
+  .snap-val{font-family:var(--head);font-size:18px;font-weight:800;letter-spacing:-0.03em;color:var(--text)}
+  .snap-val.good{color:var(--green)} .snap-val.warn{color:var(--amber)} .snap-val.bad{color:var(--red)} .snap-val.muted{color:var(--muted2)}
+
+  /* Generated program */
+  .program-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);margin-bottom:14px;animation:up 0.4s ease both}
+  @keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  .program-head{padding:20px 24px;background:linear-gradient(135deg,#0E1117,#1a1f2e);color:#fff}
+  .program-head .block-name{font-family:var(--head);font-size:22px;font-weight:800;letter-spacing:-0.04em;margin-bottom:4px}
+  .program-head .block-phase{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55)}
+  .program-head .block-rationale{font-family:var(--body);font-size:13px;line-height:1.65;color:rgba(255,255,255,0.85);margin-top:14px}
+  .program-meta{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.55);letter-spacing:0.04em}
+  .program-meta b{color:#fff;font-weight:700}
+  .program-actions{padding:14px 20px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+
+  .week-card{padding:20px 24px;border-bottom:1px solid var(--border)}
+  .week-card:last-child{border-bottom:none}
+  .week-head{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
+  .week-num{font-family:var(--head);font-size:18px;font-weight:800;letter-spacing:-0.03em}
+  .week-theme{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;background:var(--surface2);padding:3px 10px;border-radius:10px;border:1px solid var(--border)}
+  .session{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:8px}
+  .session-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+  .session-name{font-family:var(--head);font-size:14px;font-weight:700;letter-spacing:-0.02em}
+  .session-min{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em}
+  .session-block{padding:8px 0;border-top:1px dashed var(--border)}
+  .session-block:first-of-type{border-top:none}
+  .session-block-head{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+  .session-block-name{font-family:var(--head);font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.06em}
+  .session-block-min{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.04em}
+  .ex-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:5px 0;align-items:start;font-size:12px}
+  .ex-name{font-family:var(--body);font-weight:600;color:var(--text)}
+  .ex-note{font-family:var(--body);font-size:10px;color:var(--muted);margin-top:2px;line-height:1.4}
+  .ex-prescription{font-family:var(--mono);font-size:11px;color:var(--text2);text-align:right;white-space:nowrap;line-height:1.5}
+  .ex-prescription b{color:var(--text);font-weight:700}
+
+  .coach-notes{padding:16px 24px;background:var(--amber-bg);border-top:1px solid #F5D58C;font-family:var(--body);font-size:12px;color:#5C3D00;line-height:1.65}
+  .coach-notes-label{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:6px;color:#8A5A00}
+  .coach-notes ul{padding-left:18px;margin:0}
+  .coach-notes li{margin-bottom:4px}
+
+  .setup-card{background:#FEF3CC;border:1px solid #F5D58C;border-radius:var(--r);padding:24px;color:#5C3D00;line-height:1.65}
+  .setup-card h3{font-family:var(--head);font-size:15px;font-weight:700;margin-bottom:8px;color:#8A5A00}
+  .setup-card code{font-family:var(--mono);background:#fff;padding:1px 6px;border-radius:4px;font-size:11px;border:1px solid #E5BD5B}
+
+  .error-card{background:var(--red-bg);border:1px solid #F8B0B5;border-radius:var(--r);padding:18px 22px;color:var(--red);font-family:var(--mono);font-size:12px;line-height:1.5}
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .shell{grid-template-columns:1fr}
+    .sidebar{position:fixed;left:-260px;top:0;height:100vh;width:230px;z-index:100;transition:left 0.25s ease;box-shadow:8px 0 30px rgba(0,0,0,0.25)}
+    .sidebar.open{left:0}
+    .sidebar-toggle{position:fixed;top:14px;left:14px;z-index:101;width:38px;height:38px;background:var(--text);color:#fff;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--sh2)}
+    .sidebar-toggle svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+    .main{padding:56px 14px 30px}
+    .form-grid{grid-template-columns:1fr;gap:12px}
+    .program-head .block-name{font-size:18px}
+    .ex-row{grid-template-columns:1fr;gap:2px}
+    .ex-prescription{text-align:left}
+  }
+</style>
+</head>
+<body>
+<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" style="display:none">
+  <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<style>@media (max-width: 900px) { .sidebar-toggle { display: flex !important; } }</style>
+
+<div class="shell">
+
+  <nav class="sidebar">
+    <div class="sidebar-top">
+      <div class="logo">
+        <a href="index.html" style="text-decoration:none;display:flex;align-items:baseline;gap:8px"><span class="logo-word">MILO</span><div class="logo-dot"></div></a>
+      </div>
+      <div class="logo-sub">Otion Performance OS</div>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-sec">Main</div>
+      <a class="nav-item" href="index.html">
+        <svg class="nav-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-item" href="clients.html">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        Clients
+        <span class="nav-badge" style="margin-left:auto">19</span>
+      </a>
+      <a class="nav-item active" href="build.html">
+        <svg class="nav-ic" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Build Program
+      </a>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Check-ins
+      </a>
+      <div class="nav-sec">MILO AI</div>
+      <a class="nav-item" href="#">
+        <svg class="nav-ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Ask MILO
+      </a>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="profile-row">
+        <div class="profile-av">ML</div>
+        <div>
+          <div class="profile-name">Marin Lazic</div>
+          <div class="profile-role">Head Coach · Otion</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main">
+
+    <div class="crumb">
+      <a href="index.html">Dashboard</a> · <a href="clients.html">Clients</a> · Build Program
+    </div>
+
+    <div class="topbar">
+      <div>
+        <div class="page-heading">Build a program block</div>
+        <div class="page-sub">MILO generates a draft based on the athlete's current state · Edit and push to Bridge yourself</div>
+      </div>
+    </div>
+
+    <!-- Builder form -->
+    <div class="builder-card">
+      <div class="form-grid">
+        <div class="field">
+          <label>Athlete</label>
+          <select id="athleteSel"></select>
+        </div>
+        <div class="field">
+          <label>Block intent</label>
+          <select id="intentSel">
+            <option value="strength">Strength</option>
+            <option value="hypertrophy">Hypertrophy</option>
+            <option value="power">Power</option>
+            <option value="general progression (mixed)">General progression (mixed)</option>
+            <option value="GPP / off-season">GPP / off-season</option>
+            <option value="deload">Deload</option>
+            <option value="return to training">Return to training</option>
+            <option value="sport-specific (water polo)">Sport-specific (water polo)</option>
+            <option value="travel / hotel gym">Travel / hotel gym</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Duration</label>
+          <select id="weeksSel">
+            <option value="3">3 weeks</option>
+            <option value="4" selected>4 weeks</option>
+            <option value="6">6 weeks</option>
+          </select>
+        </div>
+        <button class="btn btn-blue" id="genBtn">⚡ Generate program</button>
+      </div>
+    </div>
+
+    <!-- Snapshot of athlete's current state (live, updates with athlete change) -->
+    <div class="snap" id="snap"></div>
+
+    <!-- Output area -->
+    <div id="output"></div>
+
+  </div>
+</div>
+
+<script src="clients.js"></script>
+<script src="classifier.js"></script>
+<script>
+const M = window.MILO;
+const CLF = window.MILO_CLASSIFIER;
+const TODAY = new Date();
+
+// Populate athlete dropdown
+const sel = document.getElementById('athleteSel');
+const params = new URLSearchParams(location.search);
+const initialId = params.get('id') || 'craig-blair';
+const all = M.getAllClients().sort((a,b) => a.name.localeCompare(b.name));
+for (const c of all) {
+  const opt = document.createElement('option');
+  opt.value = c.id;
+  opt.textContent = c.name;
+  if (c.id === initialId) opt.selected = true;
+  sel.appendChild(opt);
+}
+
+function renderSnap(c) {
+  const tagged = (c.recentWorkouts || []).map(w => ({ ...w, _tags: CLF.classifyName(w.name) }));
+  const sessions = M.sessionsThisRange(c);
+  const avgR = M.avgRpe(c, 4);
+  const trends = CLF.patternWeeklyTrends(c.recentWorkouts || [], 12);
+  const overall = CLF.overallProgression(trends);
+  const buckets = weeklyBuckets(c.recentWorkouts || [], 12);
+  const acwr = computeACWR(buckets);
+  const planes = CLF.planesDistribution(tagged);
+  const region = CLF.regionDistribution(tagged);
+  const pp = CLF.pushPullRatio(tagged);
+
+  const rpeClass = avgR === null ? 'muted' : avgR < 4 ? 'good' : avgR < 7 ? 'warn' : 'bad';
+  const acwrClass = !acwr.ratio ? 'muted' : acwr.zone === 'sweet' ? 'good' : acwr.zone === 'danger' || acwr.zone === 'undertrained' ? 'bad' : 'warn';
+
+  document.getElementById('snap').innerHTML = `
+    <div class="snap-cell"><div class="snap-lbl">Sessions (4wk)</div><div class="snap-val">${sessions}</div></div>
+    <div class="snap-cell"><div class="snap-lbl">Avg RPE</div><div class="snap-val ${rpeClass}">${avgR ?? '—'}</div></div>
+    <div class="snap-cell"><div class="snap-lbl">ACWR</div><div class="snap-val ${acwrClass}">${acwr.ratio?.toFixed(2) ?? '—'}</div></div>
+    <div class="snap-cell"><div class="snap-lbl">Trend</div><div class="snap-val" style="color:${overall.color}">${overall.arrow} ${overall.label}</div></div>
+    <div class="snap-cell"><div class="snap-lbl">Push:Pull</div><div class="snap-val">${pp.push}:${pp.pull}</div></div>
+    <div class="snap-cell"><div class="snap-lbl">Frontal/Transverse</div><div class="snap-val ${planes.transversePct + planes.frontalPct === 0 ? 'bad' : ''}">${planes.frontalPct + planes.transversePct}%</div></div>
+  `;
+}
+
+renderSnap(M.getClient(sel.value));
+sel.addEventListener('change', () => renderSnap(M.getClient(sel.value)));
+
+// ── Helper functions (mirror those used elsewhere) ──
+function weeklyBuckets(workouts, weeksBack = 12, todayStr = new Date().toISOString().slice(0,10)) {
+  const [yy, mm, dd] = todayStr.split('-').map(Number);
+  const todayUTC = Date.UTC(yy, mm-1, dd);
+  const dayMs = 86400000;
+  const fmt = (ms) => new Date(ms).toISOString().slice(0,10);
+  const monthDay = (ms) => new Date(ms).toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+  const buckets = [];
+  for (let i = weeksBack - 1; i >= 0; i--) {
+    const endMs = todayUTC - (i * 7 * dayMs);
+    const startMs = endMs - (6 * dayMs);
+    const inWeek = (workouts || []).filter(w => w.date && w.date >= fmt(startMs) && w.date <= fmt(endMs));
+    const totalMin = inWeek.reduce((s, w) => s + (w.duration || 0), 0);
+    const rpes = inWeek.map(w => w.rpe).filter(r => r !== null && r !== undefined);
+    const avgRpe = rpes.length ? rpes.reduce((s, r) => s + r, 0) / rpes.length : null;
+    const sRPE = inWeek.reduce((s, w) => s + ((w.rpe || 0) * (w.duration || 0)), 0);
+    buckets.push({ label: monthDay(endMs), sessions: inWeek.length, totalMin, avgRpe, sRPE });
+  }
+  return buckets;
+}
+function computeACWR(buckets) {
+  const last4 = buckets.slice(-4);
+  const acute = last4[last4.length - 1].sRPE;
+  const loads = last4.map(b => b.sRPE);
+  if (loads.filter(v => v > 0).length < 2) return { ratio: null, acute, chronic: null, zone: 'insufficient' };
+  const chronic = loads.reduce((s, v) => s + v, 0) / last4.length;
+  if (chronic === 0) return { ratio: null, acute, chronic: 0, zone: 'insufficient' };
+  const ratio = acute / chronic;
+  let zone;
+  if (ratio < 0.5) zone = 'undertrained';
+  else if (ratio < 0.8) zone = 'caution-low';
+  else if (ratio <= 1.3) zone = 'sweet';
+  else if (ratio <= 1.5) zone = 'caution-high';
+  else zone = 'danger';
+  return { ratio, acute, chronic, zone };
+}
+
+// ── Build the snapshot we send to Claude ──
+async function buildSnapshot(c) {
+  const tagged = (c.recentWorkouts || []).map(w => ({ ...w, _tags: CLF.classifyName(w.name) }));
+  const buckets = weeklyBuckets(c.recentWorkouts || [], 12);
+  const acwr = computeACWR(buckets);
+  const trends = CLF.patternWeeklyTrends(c.recentWorkouts || [], 12);
+  const exProg = await M.getExerciseProgression(c);
+  // Compress exProg: name -> { sessions, firstE1rm, lastE1rm }
+  const exProgSummary = {};
+  for (const [name, pts] of Object.entries(exProg)) {
+    if (!pts.length) continue;
+    exProgSummary[name] = {
+      sessions: pts.length,
+      firstE1rm_kg: Math.round(pts[0].e1rm),
+      lastE1rm_kg: Math.round(pts[pts.length - 1].e1rm),
+      lastDate: pts[pts.length - 1].date,
+    };
+  }
+  const pp = CLF.pushPullRatio(tagged);
+  const planes = CLF.planesDistribution(tagged);
+  const region = CLF.regionDistribution(tagged);
+  const active = M.activePrograms(c);
+
+  return {
+    name: c.name,
+    age: c.age,
+    weightKg: c.weightKg,
+    activeProgramNames: active.map(p => p.name),
+    weeklyBuckets: buckets.map(b => ({
+      week: b.label,
+      sessions: b.sessions,
+      totalMin: b.totalMin,
+      avgRpe: b.avgRpe ? Math.round(b.avgRpe * 10) / 10 : null,
+      sRPE: b.sRPE,
+    })),
+    acwr: { ratio: acwr.ratio?.toFixed(2), zone: acwr.zone, acuteSRPE: acwr.acute, chronicSRPE: Math.round(acwr.chronic || 0) },
+    pushPullRatio: `${pp.push}:${pp.pull}`,
+    planesOfMotionPct: { sagittal: planes.sagittalPct, frontal: planes.frontalPct, transverse: planes.transversePct },
+    regionDistribution: region.counts,
+    patternTrends: Object.fromEntries(Object.entries(trends).map(([p, t]) => [p, {
+      totalSessions: t.totalSessions,
+      signal: t.signal?.label || 'none',
+      detail: t.signal?.detail,
+    }])),
+    strengthProgression: exProgSummary,
+    recentWorkouts: (c.recentWorkouts || []).slice(0, 8).map(w => ({
+      date: w.date, name: w.name, duration: w.duration, rpe: w.rpe,
+    })),
+  };
+}
+
+// ── Generate ──
+document.getElementById('genBtn').addEventListener('click', async () => {
+  const c = M.getClient(sel.value);
+  const intent = document.getElementById('intentSel').value;
+  const weeks = parseInt(document.getElementById('weeksSel').value, 10);
+
+  const out = document.getElementById('output');
+  out.innerHTML = `
+    <div class="program-card loading-card">
+      <div class="loading-spinner"></div>
+      <div class="step"><b>MILO is writing ${c.name}'s ${weeks}-week ${intent} block…</b>
+      Compiling 12 weeks of data → reasoning about gaps → drafting sessions. This takes ~20-40 seconds.</div>
+    </div>`;
+
+  const snapshot = await buildSnapshot(c);
+
+  try {
+    const r = await fetch('/api/program', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ snapshot, blockIntent: intent, durationWeeks: weeks }),
+    });
+    const data = await r.json();
+
+    if (data.setupNeeded) {
+      out.innerHTML = `
+        <div class="setup-card">
+          <h3>⚙ Anthropic API key needed</h3>
+          <p>To generate programs, add your Anthropic API key to Vercel:</p>
+          <ol style="padding-left:20px;margin-top:10px">
+            <li>Go to <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com → API Keys</a> and create one</li>
+            <li>In Vercel → MILO → Settings → Environment Variables, add <code>ANTHROPIC_API_KEY</code> with that key</li>
+            <li>Apply to all 3 environments and redeploy</li>
+          </ol>
+          <p style="margin-top:10px"><b>Cost:</b> ~$0.02-0.05 per program generation (Claude Sonnet 4.5).</p>
+        </div>`;
+      return;
+    }
+
+    if (data.error) {
+      out.innerHTML = `
+        <div class="error-card">
+          <b>✗ Generation failed:</b> ${data.error}
+          ${data.detail ? '<br>' + data.detail : ''}
+          ${data.raw ? '<details style="margin-top:10px"><summary style="cursor:pointer">Show raw output</summary><pre style="white-space:pre-wrap;font-size:10px;margin-top:8px">' + escapeHtml(data.raw) + '</pre></details>' : ''}
+        </div>`;
+      return;
+    }
+
+    renderProgram(data.program, c, intent, weeks);
+  } catch (e) {
+    out.innerHTML = `<div class="error-card"><b>✗ Network error:</b> ${e.message}</div>`;
+  }
+});
+
+function escapeHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderProgram(p, c, intent, weeks) {
+  const out = document.getElementById('output');
+
+  const weeksHtml = (p.weeks || []).map(wk => `
+    <div class="week-card">
+      <div class="week-head">
+        <div class="week-num">Week ${wk.weekNumber}</div>
+        ${wk.theme ? `<div class="week-theme">${escapeHtml(wk.theme)}</div>` : ''}
+      </div>
+      ${(wk.sessions || []).map(s => `
+        <div class="session">
+          <div class="session-head">
+            <div class="session-name">${escapeHtml(s.name)}</div>
+            <div class="session-min">${s.estimatedMinutes ? s.estimatedMinutes + ' min' : ''}</div>
+          </div>
+          ${(s.blocks || []).map(b => `
+            <div class="session-block">
+              <div class="session-block-head">
+                <div class="session-block-name">${escapeHtml(b.name)}</div>
+                ${b.minutes ? `<div class="session-block-min">· ${b.minutes} min</div>` : ''}
+              </div>
+              ${(b.exercises || []).map(ex => `
+                <div class="ex-row">
+                  <div>
+                    <div class="ex-name">${escapeHtml(ex.name)}</div>
+                    ${ex.note ? `<div class="ex-note">${escapeHtml(ex.note)}</div>` : ''}
+                  </div>
+                  <div class="ex-prescription">
+                    <b>${ex.sets ?? '—'} × ${ex.reps ?? '—'}</b><br>
+                    ${ex.loadCue ? escapeHtml(ex.loadCue) : ''}${ex.rest ? '<br>rest ' + escapeHtml(ex.rest) : ''}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `).join('')}
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+
+  out.innerHTML = `
+    <div class="program-card">
+      <div class="program-head">
+        <div class="block-name">${escapeHtml(p.blockName || 'New Program')}</div>
+        <div class="block-phase">${escapeHtml(p.phase || intent)} · ${weeks} weeks · ${c.name}</div>
+        ${p.rationale ? `<div class="block-rationale">${escapeHtml(p.rationale)}</div>` : ''}
+        <div class="program-meta">
+          <span><b>${p.sessionsPerWeek ?? '—'}</b> sessions/week</span>
+          <span><b>${p.estimatedMinutesPerSession ?? '—'}</b> min/session</span>
+          <span><b>${(p.weeks || []).length}</b> weeks</span>
+        </div>
+      </div>
+      <div class="program-actions">
+        <button class="btn btn-outline" id="copyBtn">📋 Copy as text</button>
+        <button class="btn btn-blue" onclick="window.print()">🖨 Print</button>
+      </div>
+      ${weeksHtml}
+      ${p.notesForCoach ? `
+        <div class="coach-notes">
+          <div class="coach-notes-label">Notes for the coach</div>
+          ${typeof p.notesForCoach === 'string'
+            ? `<p>${escapeHtml(p.notesForCoach)}</p>`
+            : '<ul>' + p.notesForCoach.map(n => `<li>${escapeHtml(n)}</li>`).join('') + '</ul>'}
+        </div>
+      ` : ''}
+    </div>
+  `;
+
+  document.getElementById('copyBtn').addEventListener('click', () => {
+    const txt = programAsText(p, c);
+    navigator.clipboard.writeText(txt);
+    document.getElementById('copyBtn').textContent = '✓ Copied';
+    setTimeout(() => document.getElementById('copyBtn').textContent = '📋 Copy as text', 2000);
+  });
+}
+
+function programAsText(p, c) {
+  let s = `${p.blockName}\n${c.name} · ${p.phase} · ${(p.weeks || []).length} weeks\n\n`;
+  if (p.rationale) s += `Rationale: ${p.rationale}\n\n`;
+  for (const wk of p.weeks || []) {
+    s += `\n═══ WEEK ${wk.weekNumber}${wk.theme ? ' · ' + wk.theme : ''} ═══\n`;
+    for (const sn of wk.sessions || []) {
+      s += `\n${sn.name}${sn.estimatedMinutes ? ' (' + sn.estimatedMinutes + ' min)' : ''}\n`;
+      for (const b of sn.blocks || []) {
+        s += `  ${b.name}${b.minutes ? ' (' + b.minutes + ' min)' : ''}\n`;
+        for (const ex of b.exercises || []) {
+          s += `    ${ex.name}: ${ex.sets} × ${ex.reps}${ex.loadCue ? ' @ ' + ex.loadCue : ''}${ex.rest ? ' (rest ' + ex.rest + ')' : ''}\n`;
+          if (ex.note) s += `      → ${ex.note}\n`;
+        }
+      }
+    }
+  }
+  if (p.notesForCoach) {
+    s += '\n\nCOACH NOTES:\n';
+    s += typeof p.notesForCoach === 'string' ? p.notesForCoach : p.notesForCoach.map(n => '• ' + n).join('\n');
+  }
+  return s;
+}
+</script>
+</body>
+</html>

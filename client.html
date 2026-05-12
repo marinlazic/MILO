@@ -354,7 +354,7 @@
         <div class="hero-meta" id="heroMeta"></div>
       </div>
       <div class="hero-actions">
-        <button class="btn btn-blue">Assign workout</button>
+        <a class="btn btn-blue" id="buildProgramLink" style="text-decoration:none;text-align:center">⚡ Build next block</a>
         <button class="btn btn-outline-light">Message client</button>
       </div>
     </div>
@@ -556,6 +556,8 @@ function renderClient(c) {
 
   document.getElementById('crumbName').textContent = c.name;
   document.title = `${c.name} — MILO`;
+  const buildLink = document.getElementById('buildProgramLink');
+  if (buildLink) buildLink.href = `build.html?id=${c.id}`;
   document.getElementById('heroAv').textContent = c.initials || c.name.split(' ').map(w=>w[0]).slice(0,2).join('');
   document.getElementById('heroName').textContent = c.name;
   document.getElementById('heroEmail').textContent = c.email || '—';
