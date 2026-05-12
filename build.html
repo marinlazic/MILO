@@ -233,6 +233,13 @@
         </div>
         <button class="btn btn-blue" id="genBtn">⚡ Generate program</button>
       </div>
+      <div style="margin-top:12px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:end">
+        <div class="field" style="margin-bottom:0">
+          <label>Start from a template <span style="color:var(--muted);text-transform:none;letter-spacing:0">(optional — uses pattern blueprint as scaffold)</span></label>
+          <select id="templateSel"><option value="">— None (free-form generation) —</option></select>
+        </div>
+        <a href="templates.html" class="btn btn-outline" style="text-decoration:none">📚 Browse templates</a>
+      </div>
     </div>
 
     <!-- Snapshot of athlete's current state (live, updates with athlete change) -->
@@ -291,6 +298,25 @@ function renderSnap(c) {
 
 renderSnap(M.getClient(sel.value));
 sel.addEventListener('change', () => renderSnap(M.getClient(sel.value)));
+
+// Populate templates dropdown
+(async () => {
+  try {
+    const r = await fetch('program-templates.json?t=' + Date.now());
+    const tfile = await r.json();
+    const templates = tfile.templates || {};
+    const sel = document.getElementById('templateSel');
+    const preselect = params.get('template');
+    for (const [id, t] of Object.entries(templates)) {
+      if (id.startsWith('_')) continue;
+      const opt = document.createElement('option');
+      opt.value = id;
+      opt.textContent = t.name || id;
+      if (id === preselect) opt.selected = true;
+      sel.appendChild(opt);
+    }
+  } catch (e) { /* no templates yet */ }
+})();
 
 // ── Helper functions (mirror those used elsewhere) ──
 function weeklyBuckets(workouts, weeksBack = 12, todayStr = new Date().toISOString().slice(0,10)) {
@@ -396,11 +422,12 @@ document.getElementById('genBtn').addEventListener('click', async () => {
 
   const snapshot = await buildSnapshot(c);
 
+  const templateId = document.getElementById('templateSel').value || null;
   try {
     const r = await fetch('/api/program', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ snapshot, blockIntent: intent, durationWeeks: weeks }),
+      body: JSON.stringify({ snapshot, blockIntent: intent, durationWeeks: weeks, clientId: c.id, templateId }),
     });
     const data = await r.json();
 

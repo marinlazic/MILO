@@ -9,6 +9,17 @@
 
   "session_structure": "How I structure every session. e.g.: Every session opens with Mobility Prep (3-5 min, low-key). Then 1 primary compound pattern (Hinge, Squat, Push, or Pull) at the heaviest. Accessory work paired with the primary. Carry or core finisher closes most sessions.",
 
+  "default_mobility_prep": {
+    "_docs": "MILO automatically adds this block to the start of EVERY generated session (templates don't include it). Edit the exercise list to change your standard warm-up.",
+    "block_name": "Mobility Prep",
+    "minutes": 5,
+    "categories_to_cover": ["ankle", "hip", "t-spine"],
+    "ankle": ["Ankle Rocks - Half Kneeling", "Banded Ankle Distraction"],
+    "hip": ["90/90 Hip Switches", "World's Greatest Stretch", "Half-Kneeling Hip Flexor Stretch"],
+    "t_spine": ["Cat-Cow", "Thoracic Spine Windmill", "Quadruped T-Spine Rotation"],
+    "selection_rule": "Pick 1 from each category, or coach's choice. Vary across sessions to keep it fresh."
+  },
+
   "weekly_template": "How I think about week structure. e.g.: 3 strength sessions/week is the default for most H&P clients. Avoid heavy hinge + heavy squat consecutive days. Frontal/transverse plane work at least 1x/week.",
 
   "preferred_exercises": {

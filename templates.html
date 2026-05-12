@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MILO — Program Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F0F2F5; --surface:#FFFFFF; --surface2:#F7F8FA;
+    --border:#E4E8EE; --border2:#D0D6E0;
+    --blue:#1A6BF5; --blue-dark:#0D47C4; --blue-light:#E8F0FE;
+    --blue-grad:linear-gradient(135deg,#1A6BF5 0%,#6BA8FF 100%);
+    --text:#0E1117; --text2:#3A4156; --muted:#7A8499; --muted2:#A0ABBE;
+    --green:#0D7A4E; --green-bg:#E6F7F0;
+    --amber:#8A5A00; --amber-bg:#FEF3CC;
+    --red:#C0202A; --red-bg:#FDEAEA;
+    --purple:#A855F7; --purple-bg:#F3E8FF;
+    --mono:'DM Mono',monospace; --head:'DM Sans',sans-serif; --body:'Inter',sans-serif;
+    --r:14px; --sh:0 1px 2px rgba(0,0,0,0.05),0 4px 20px rgba(0,0,0,0.06);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:var(--body);font-size:13px;color:var(--text);-webkit-font-smoothing:antialiased}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+
+  .sidebar{background:var(--text);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden}
+  .sidebar-top{padding:26px 24px 22px;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .logo-word{font-family:var(--head);font-size:26px;font-weight:800;letter-spacing:-0.05em;color:#fff}
+  .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);margin-bottom:4px;display:inline-block;margin-left:8px}
+  .logo-sub{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:2px}
+  .sidebar-nav{flex:1;padding:16px 0;overflow-y:auto}
+  .nav-sec{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:14px 24px 5px}
+  .nav-item{display:flex;align-items:center;gap:11px;padding:8px 24px;font-family:var(--body);font-size:13px;font-weight:500;color:rgba(255,255,255,0.42);cursor:pointer;text-decoration:none;position:relative}
+  .nav-item:hover{color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.04)}
+  .nav-item.active{color:#fff;background:rgba(26,107,245,0.18)}
+  .nav-item.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--blue);border-radius:0 3px 3px 0}
+  .nav-ic{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;opacity:0.8}
+  .nav-badge{margin-left:auto;background:var(--red);color:#fff;font-family:var(--mono);font-size:9px;padding:1px 6px;border-radius:20px}
+  .sidebar-bottom{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.06)}
+  .profile-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.05);border-radius:9px}
+  .profile-av{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--head);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .profile-name{font-family:var(--head);font-size:13px;font-weight:600;color:#fff}
+  .profile-role{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.3)}
+
+  .main{padding:30px 30px 80px;overflow-y:auto}
+  .topbar{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px;flex-wrap:wrap;gap:14px}
+  .page-heading{font-family:var(--head);font-size:24px;font-weight:800;letter-spacing:-0.04em}
+  .page-sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase}
+
+  .intro{background:var(--blue-light);border:1px solid rgba(26,107,245,0.2);border-radius:var(--r);padding:16px 20px;margin:16px 0 22px;font-size:13px;line-height:1.6;color:var(--blue-dark)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin-bottom:24px}
+  .tcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;box-shadow:var(--sh);transition:transform 0.15s,box-shadow 0.15s;cursor:pointer}
+  .tcard:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+  .tcard-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}
+  .tcard-name{font-family:var(--head);font-size:15px;font-weight:700;letter-spacing:-0.02em}
+  .tcard-actions{display:flex;gap:4px;opacity:0;transition:opacity 0.15s}
+  .tcard:hover .tcard-actions{opacity:1}
+  .tcard-action{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font-family:var(--mono);font-size:10px;color:var(--text2);cursor:pointer;text-decoration:none}
+  .tcard-action:hover{border-color:var(--blue);color:var(--blue)}
+  .tcard-action.danger:hover{border-color:var(--red);color:var(--red)}
+  .tcard-desc{font-size:12px;color:var(--text2);line-height:1.55;margin-bottom:12px}
+  .tcard-meta{display:flex;gap:12px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin-bottom:8px}
+  .tcard-meta b{color:var(--text)}
+  .tcard-tags{display:flex;flex-wrap:wrap;gap:4px}
+  .ttag{font-family:var(--mono);font-size:9px;padding:2px 8px;border-radius:10px;background:var(--blue-light);color:var(--blue-dark);font-weight:600;letter-spacing:0.04em}
+
+  .empty{background:var(--surface);border:1px dashed var(--border2);border-radius:var(--r);padding:40px 20px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;line-height:1.6}
+  .empty b{display:block;color:var(--text);font-family:var(--head);font-size:14px;font-weight:700;margin-bottom:8px;letter-spacing:-0.02em}
+
+  /* Detail view */
+  .detail-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:14px;box-shadow:var(--sh)}
+  .detail-head{padding:24px 28px;background:linear-gradient(135deg,#0E1117,#1a1f2e);color:#fff}
+  .detail-head h1{font-family:var(--head);font-size:22px;font-weight:800;letter-spacing:-0.04em;margin-bottom:6px}
+  .detail-head .desc{font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;margin-top:8px}
+  .detail-meta{display:flex;gap:18px;margin-top:12px;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.04em;flex-wrap:wrap}
+  .detail-meta b{color:#fff}
+
+  .session{padding:20px 28px;border-bottom:1px solid var(--border)}
+  .session:last-child{border-bottom:none}
+  .session-h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;gap:10px}
+  .session-name{font-family:var(--head);font-size:16px;font-weight:700;letter-spacing:-0.02em}
+  .session-bcount{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em}
+  .mob-block{padding:10px 14px;background:var(--green-bg);border:1px solid #C7EBD5;border-radius:8px;font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .block-row{display:grid;grid-template-columns:120px 100px 1fr 80px;gap:14px;padding:10px 14px;border-bottom:1px dashed var(--border);align-items:center}
+  .block-row:last-child{border-bottom:none}
+  .block-pattern{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--text);letter-spacing:0.02em}
+  .block-intensity{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-align:center}
+  .block-intensity.primary{background:#1A6BF522;color:var(--blue-dark)}
+  .block-intensity.secondary{background:#A855F722;color:var(--purple)}
+  .block-intensity.accessory{background:#F59E0B22;color:var(--amber)}
+  .block-intensity.finisher{background:#0D7A4E22;color:var(--green)}
+  .block-srep{font-family:var(--mono);font-size:11px;color:var(--text2)}
+  .block-srep b{color:var(--text);font-weight:700}
+  .block-note{font-family:var(--body);font-size:11px;color:var(--muted);font-style:italic}
+
+  .btn{padding:10px 18px;border-radius:8px;font-family:var(--body);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all 0.15s;text-decoration:none;display:inline-block}
+  .btn-blue{background:var(--blue-grad);color:#fff;box-shadow:0 2px 8px rgba(26,107,245,0.3)}
+  .btn-blue:hover{opacity:0.92}
+  .btn-outline{background:var(--surface);color:var(--text2);border:1px solid var(--border2)}
+  .btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+
+  .actions{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+
+  @media (max-width: 900px) {
+    .shell{grid-template-columns:1fr}
+    .sidebar{position:fixed;left:-260px;top:0;height:100vh;width:230px;z-index:100;transition:left 0.25s ease;box-shadow:8px 0 30px rgba(0,0,0,0.25)}
+    .sidebar.open{left:0}
+    .sidebar-toggle{position:fixed;top:14px;left:14px;z-index:101;width:38px;height:38px;background:var(--text);color:#fff;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+    .sidebar-toggle svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+    .main{padding:56px 14px 80px}
+    .grid{grid-template-columns:1fr}
+    .block-row{grid-template-columns:1fr;gap:4px}
+    .session{padding:14px}
+  }
+</style>
+</head>
+<body>
+<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" style="display:none">
+  <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<style>@media (max-width: 900px) { .sidebar-toggle { display: flex !important; } }</style>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="sidebar-top">
+      <a href="index.html" style="text-decoration:none"><span class="logo-word">MILO</span><span class="logo-dot"></span></a>
+      <div class="logo-sub">Otion Performance OS</div>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-sec">Main</div>
+      <a class="nav-item" href="index.html"><svg class="nav-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Dashboard</a>
+      <a class="nav-item" href="clients.html"><svg class="nav-ic" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Clients<span class="nav-badge" style="margin-left:auto">19</span></a>
+      <a class="nav-item" href="build.html"><svg class="nav-ic" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Build Program</a>
+      <a class="nav-item active" href="templates.html"><svg class="nav-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Templates</a>
+      <a class="nav-item" href="principles.html"><svg class="nav-ic" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Coaching Principles</a>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="profile-row">
+        <div class="profile-av">ML</div>
+        <div><div class="profile-name">Marin Lazic</div><div class="profile-role">Head Coach · Otion</div></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <div class="page-heading" id="pageHeading">Program templates</div>
+        <div class="page-sub" id="pageSub">Movement-pattern blueprints · Mobility prep auto-added</div>
+      </div>
+      <a href="build.html" class="btn btn-blue">⚡ Build from a template</a>
+    </div>
+
+    <div class="intro">
+      Templates are <b>structural blueprints</b> — they specify movement patterns (squat, hinge, push…) and set/rep schemes, NOT specific exercises. When you generate a program from a template, MILO fills in actual exercises using your <a href="principles.html" style="color:var(--blue);font-weight:600">Coaching Principles</a> and the athlete's <i>Considerations</i>. Mobility prep (ankle/hip/t-spine) is added automatically to every session.
+    </div>
+
+    <div id="listView">
+      <div class="actions">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.04em" id="countLine">Loading…</div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+
+    <div id="detailView" style="display:none">
+      <a href="#" onclick="showList(); return false" style="font-family:var(--mono);font-size:10px;color:var(--blue);text-decoration:none;letter-spacing:0.04em;display:inline-block;margin-bottom:14px">← Back to all templates</a>
+      <div id="detailContent"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let templates = {};
+let mobilityCfg = null;
+
+async function load() {
+  try {
+    const [r1, r2] = await Promise.all([
+      fetch('program-templates.json?t=' + Date.now()),
+      fetch('coaching-principles.json?t=' + Date.now()),
+    ]);
+    const tfile = await r1.json();
+    const pfile = await r2.json();
+    templates = tfile.templates || {};
+    mobilityCfg = pfile.default_mobility_prep || null;
+  } catch (e) { templates = {}; }
+  renderList();
+
+  // If ?id= in URL, jump to detail
+  const params = new URLSearchParams(location.search);
+  const tid = params.get('id');
+  if (tid && templates[tid]) showDetail(tid);
+}
+
+function renderList() {
+  const grid = document.getElementById('grid');
+  const visibleEntries = Object.entries(templates).filter(([id]) => !id.startsWith('_'));
+  document.getElementById('countLine').textContent = `${visibleEntries.length} template${visibleEntries.length === 1 ? '' : 's'}`;
+
+  if (visibleEntries.length === 0) {
+    grid.innerHTML = `
+      <div class="empty" style="grid-column:1/-1">
+        <b>No templates yet</b>
+        Send your first template to me in chat — paste it however you have it (typed list, screenshot, PDF).<br>
+        I'll structure it and save it here.<br><br>
+        You can also delete the example template if it's still in the file.
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = visibleEntries.map(([id, t]) => {
+    const tags = (t.tags || []).map(tag => `<span class="ttag">${escapeHtml(tag)}</span>`).join('');
+    return `
+      <div class="tcard" onclick="showDetail('${id}')">
+        <div class="tcard-head">
+          <div class="tcard-name">${escapeHtml(t.name || id)}</div>
+          <div class="tcard-actions" onclick="event.stopPropagation()">
+            <a class="tcard-action" href="build.html?template=${encodeURIComponent(id)}">Use →</a>
+            <a class="tcard-action danger" href="#" onclick="del('${id}'); return false">×</a>
+          </div>
+        </div>
+        ${t.description ? `<div class="tcard-desc">${escapeHtml(t.description)}</div>` : ''}
+        <div class="tcard-meta">
+          <span><b>${(t.sessions || []).length}</b> sessions</span>
+          ${t.weeks ? `<span><b>${t.weeks}</b> weeks</span>` : ''}
+          <span><b>${countBlocks(t)}</b> blocks</span>
+        </div>
+        ${tags ? `<div class="tcard-tags">${tags}</div>` : ''}
+      </div>`;
+  }).join('');
+}
+
+function countBlocks(t) {
+  return (t.sessions || []).reduce((sum, s) => sum + ((s.blocks || []).length), 0);
+}
+
+function showDetail(id) {
+  const t = templates[id];
+  if (!t) return;
+  document.getElementById('listView').style.display = 'none';
+  document.getElementById('detailView').style.display = 'block';
+
+  const sessionsHtml = (t.sessions || []).map((s, i) => `
+    <div class="session">
+      <div class="session-h">
+        <div class="session-name">${escapeHtml(s.name || `Session ${i+1}`)}</div>
+        <div class="session-bcount">${(s.blocks || []).length} blocks</div>
+      </div>
+      ${mobilityCfg ? `<div class="mob-block">+ Mobility Prep (${(mobilityCfg.categories_to_cover || []).join(', ')}) · auto-added · ${mobilityCfg.minutes || '5'} min</div>` : ''}
+      ${(s.blocks || []).map(b => `
+        <div class="block-row">
+          <div class="block-pattern">${escapeHtml(b.pattern || '—')}</div>
+          <div class="block-intensity ${b.intensity || ''}">${escapeHtml(b.intensity || '—')}</div>
+          <div class="block-srep"><b>${b.sets ?? '—'}</b> × <b>${b.reps ?? '—'}</b>${b.note ? ` · <span class="block-note">${escapeHtml(b.note)}</span>` : ''}</div>
+          <div></div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+
+  const tags = (t.tags || []).map(tag => `<span class="ttag" style="background:rgba(255,255,255,0.15);color:#fff">${escapeHtml(tag)}</span>`).join('');
+
+  document.getElementById('detailContent').innerHTML = `
+    <div class="actions">
+      <div></div>
+      <div style="display:flex;gap:8px">
+        <a class="btn btn-outline" href="#" onclick="del('${id}'); return false">Delete</a>
+        <a class="btn btn-blue" href="build.html?template=${encodeURIComponent(id)}">⚡ Use this template</a>
+      </div>
+    </div>
+    <div class="detail-card">
+      <div class="detail-head">
+        <h1>${escapeHtml(t.name || id)}</h1>
+        ${tags ? `<div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap">${tags}</div>` : ''}
+        ${t.description ? `<div class="desc">${escapeHtml(t.description)}</div>` : ''}
+        <div class="detail-meta">
+          <span><b>${(t.sessions || []).length}</b> sessions/week</span>
+          ${t.weeks ? `<span><b>${t.weeks}</b> weeks</span>` : ''}
+          <span><b>${countBlocks(t)}</b> total blocks</span>
+        </div>
+      </div>
+      ${sessionsHtml}
+      ${t.notes ? `<div style="padding:18px 28px;background:var(--amber-bg);border-top:1px solid #F5D58C;color:#5C3D00;font-size:12px;line-height:1.6"><b style="font-family:var(--mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:#8A5A00">Notes</b><br>${escapeHtml(t.notes)}</div>` : ''}
+    </div>`;
+}
+
+function showList() {
+  document.getElementById('listView').style.display = 'block';
+  document.getElementById('detailView').style.display = 'none';
+  history.replaceState(null, '', location.pathname);
+}
+
+async function del(id) {
+  if (!confirm(`Delete template "${templates[id]?.name || id}"?`)) return;
+  let secret = localStorage.getItem('miloSyncSecret');
+  if (!secret) {
+    secret = prompt('Paste your SYNC_SECRET.');
+    if (!secret) return;
+    localStorage.setItem('miloSyncSecret', secret);
+  }
+  try {
+    const r = await fetch('/api/save-context', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Sync-Secret': secret },
+      body: JSON.stringify({ type: 'deleteTemplate', templateId: id }),
+    });
+    const body = await r.json();
+    if (!r.ok) throw new Error(body.error || 'Failed');
+    alert('Deleted. Vercel redeploying — reload in 60s to see updated list.');
+    showList();
+  } catch (e) {
+    alert('Delete failed: ' + e.message);
+  }
+}
+
+function escapeHtml(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+load();
+</script>
+</body>
+</html>

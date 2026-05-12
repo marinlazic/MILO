@@ -40,6 +40,40 @@ export default async function handler(req, res) {
       return res.status(200).json({ ok: true, ts, commit });
     }
 
+    if (type === 'template') {
+      const { templateId, template } = req.body;
+      if (!templateId) return res.status(400).json({ error: 'Missing templateId' });
+      if (!template || typeof template !== 'object') return res.status(400).json({ error: 'Missing template object' });
+      const existing = await fetchJson(ghToken, 'program-templates.json');
+      const current = existing.json || { _meta: { version: 1 }, templates: {} };
+      if (!current.templates) current.templates = {};
+      current.templates[templateId] = { ...template, id: templateId, updatedAt: ts };
+      current._meta = { ...(current._meta || {}), lastEdited: ts, lastEditedTemplate: templateId };
+      const commit = await upsertFile(
+        ghToken, 'program-templates.json',
+        JSON.stringify(current, null, 2),
+        `chore(templates): save '${templateId}' · ${ts}`,
+        existing.sha,
+      );
+      return res.status(200).json({ ok: true, ts, templateId, commit });
+    }
+
+    if (type === 'deleteTemplate') {
+      const { templateId } = req.body;
+      if (!templateId) return res.status(400).json({ error: 'Missing templateId' });
+      const existing = await fetchJson(ghToken, 'program-templates.json');
+      const current = existing.json || { _meta: { version: 1 }, templates: {} };
+      if (current.templates) delete current.templates[templateId];
+      current._meta = { ...(current._meta || {}), lastEdited: ts };
+      const commit = await upsertFile(
+        ghToken, 'program-templates.json',
+        JSON.stringify(current, null, 2),
+        `chore(templates): delete '${templateId}' · ${ts}`,
+        existing.sha,
+      );
+      return res.status(200).json({ ok: true, ts, templateId, commit });
+    }
+
     if (type === 'athleteNotes') {
       if (!clientId) return res.status(400).json({ error: 'Missing clientId' });
       if (!notes || typeof notes !== 'object') return res.status(400).json({ error: 'Missing notes object' });

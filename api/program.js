@@ -94,15 +94,17 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { snapshot, blockIntent, durationWeeks, clientId } = req.body || {};
+    const { snapshot, blockIntent, durationWeeks, clientId, templateId } = req.body || {};
     if (!snapshot) return res.status(400).json({ error: 'Missing snapshot' });
 
-    // Load coaching principles + per-athlete notes (best-effort, never block on miss)
-    const [principles, allNotes] = await Promise.all([
+    // Load coaching principles + per-athlete notes + template library (best-effort)
+    const [principles, allNotes, templatesFile] = await Promise.all([
       fetchJsonFile('coaching-principles.json'),
       fetchJsonFile('athlete-notes.json'),
+      fetchJsonFile('program-templates.json'),
     ]);
     const athleteNotes = (allNotes && clientId) ? allNotes[clientId] : null;
+    const chosenTemplate = (templateId && templatesFile?.templates) ? templatesFile.templates[templateId] : null;
 
     const contextSections = [];
     if (principles) {
@@ -112,6 +114,14 @@ ${JSON.stringify(stripMeta(principles), null, 2)}`);
     if (athleteNotes && Object.values(athleteNotes).some(v => v && String(v).trim())) {
       contextSections.push(`ATHLETE-SPECIFIC CONSIDERATIONS (these override generic programming — work around injuries, respect equipment, honour the stated goals):
 ${JSON.stringify(athleteNotes, null, 2)}`);
+    }
+    if (chosenTemplate) {
+      contextSections.push(`SCAFFOLD TEMPLATE (the coach has selected this movement-pattern blueprint — use it as the STRUCTURAL skeleton for the program. Fill in specific exercises from the athlete's preferred-exercise pool, but keep the session count, block count, intensity levels, set/rep schemes, and pattern distribution from the template. The mobility prep block is added separately):
+${JSON.stringify(chosenTemplate, null, 2)}`);
+    }
+    if (principles?.default_mobility_prep) {
+      contextSections.push(`MOBILITY PREP REQUIREMENT (add as the FIRST block of EVERY session — pick 1 exercise from each category, vary across sessions):
+${JSON.stringify(principles.default_mobility_prep, null, 2)}`);
     }
 
     const userContent = `BLOCK PARAMETERS
@@ -160,6 +170,7 @@ Write the program now. Output ONLY the JSON object, no other text.`;
       contextUsed: {
         principles: !!principles,
         athleteNotes: !!athleteNotes && Object.values(athleteNotes || {}).some(v => v && String(v).trim()),
+        template: chosenTemplate ? chosenTemplate.name : null,
       },
     });
   } catch (err) {

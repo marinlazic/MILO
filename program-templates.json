@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "lastEdited": null,
+    "version": 1,
+    "_docs": "Program-block templates organised by MOVEMENT PATTERN (not specific exercises). MILO uses these as the structural scaffold when generating a program: it picks one (or you pick one), then fills in actual exercises based on the athlete's coaching principles + considerations. Mobility prep (ankle / hip / t-spine) is added automatically on top of every session — it does NOT need to be in the template."
+  },
+
+  "_patternVocabulary": [
+    "squat",
+    "squat_unilateral",
+    "hinge",
+    "hinge_unilateral",
+    "lunge",
+    "horizontal_push",
+    "horizontal_push_unilateral",
+    "vertical_push",
+    "horizontal_pull",
+    "horizontal_pull_unilateral",
+    "vertical_pull",
+    "carry",
+    "rotation",
+    "anti_rotation",
+    "anti_extension",
+    "anti_lateral_flexion",
+    "frontal_plane",
+    "transverse_plane",
+    "power_lower",
+    "power_upper",
+    "explosive_carry",
+    "conditioning_zone_2",
+    "conditioning_zone_5",
+    "core_finisher"
+  ],
+
+  "_intensityLevels": ["primary", "secondary", "accessory", "finisher"],
+
+  "templates": {
+    "_example_3day_strength": {
+      "id": "_example_3day_strength",
+      "name": "3-Day Foundational Strength (EXAMPLE — delete me)",
+      "description": "Classic 3-session split: lower hinge-dominant, upper push/pull, lower squat-dominant. Good for first 4-6 weeks with a new client or a strength rebuild block.",
+      "tags": ["strength", "foundational", "3x/week"],
+      "weeks": 4,
+      "sessions": [
+        {
+          "name": "Hinge + Posterior",
+          "blocks": [
+            { "pattern": "hinge", "intensity": "primary", "sets": 4, "reps": "5", "note": "Top set RPE 7" },
+            { "pattern": "horizontal_pull", "intensity": "secondary", "sets": 3, "reps": "8-10" },
+            { "pattern": "hinge_unilateral", "intensity": "accessory", "sets": 3, "reps": "8 each side" },
+            { "pattern": "carry", "intensity": "finisher", "sets": 3, "reps": "20m" }
+          ]
+        },
+        {
+          "name": "Push + Pull",
+          "blocks": [
+            { "pattern": "horizontal_push", "intensity": "primary", "sets": 4, "reps": "5" },
+            { "pattern": "vertical_pull", "intensity": "primary", "sets": 4, "reps": "5" },
+            { "pattern": "horizontal_push_unilateral", "intensity": "accessory", "sets": 3, "reps": "10 each" },
+            { "pattern": "anti_rotation", "intensity": "finisher", "sets": 3, "reps": "10 each side" }
+          ]
+        },
+        {
+          "name": "Squat + Core",
+          "blocks": [
+            { "pattern": "squat", "intensity": "primary", "sets": 4, "reps": "5" },
+            { "pattern": "lunge", "intensity": "secondary", "sets": 3, "reps": "8 each leg" },
+            { "pattern": "core_finisher", "intensity": "finisher", "sets": 3, "reps": "as prescribed" }
+          ]
+        }
+      ],
+      "notes": "Mobility prep is added automatically. Use this template for athletes establishing baseline strength. Pairs well with deload week 4 dropping volume by 40%."
+    }
+  }
+}
