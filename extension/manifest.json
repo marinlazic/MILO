@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "MILO Sync",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "One-click daily sync from Bridge Athletic to your MILO dashboard.",
   "permissions": ["scripting", "storage", "activeTab"],
   "host_permissions": [

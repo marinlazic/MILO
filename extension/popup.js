@@ -57,7 +57,9 @@ btn.addEventListener('click', async () => {
   try {
     const [r] = await chrome.scripting.executeScript({
       target: { tabId: tab.id },
-      world: 'MAIN',          // run in page's JS context so cookies/credentials work
+      // Default 'ISOLATED' world — extension scripts get to bypass the page's CSP,
+      // while fetches with credentials:'include' still attach the user's cookies
+      // for the origin (so Bridge API calls work and POST to MILO is allowed).
       args: [secret],
       func: syncFromBridge,
     });
@@ -101,13 +103,16 @@ async function syncFromBridge(secret) {
   const ageFrom = (bd) => bd ? Math.floor((Date.now() - new Date(bd)) / (365.25 * 86400000)) : null;
   const initials = (n) => n.split(/\s+/).filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
 
+  let phase = 'init';
   try {
+    phase = 'members';
     // 1. Members
     const members = await get(`/api/v1/organizations/${ORG_ID}/teams/${TEAM_ID}/members`);
     const userMap = Object.fromEntries(members.users.map(u => [u.id, u]));
     const wtMap   = Object.fromEntries(members.teammemberships.map(m => [m.userId, m.bodyWeight]));
     const athleteIds = members.teammemberships.filter(m => m.accessRole === 'athlete').map(m => m.userId);
 
+    phase = 'activities';
     // 2. Per-athlete activities + assignments (parallel pairs)
     const bridgeData = {};
     const allWorkoutIds = new Set();
@@ -145,6 +150,7 @@ async function syncFromBridge(secret) {
       } catch (e) { /* skip individual failures */ }
     }
 
+    phase = 'workouts';
     // 3. Workout content per unique workoutId (parallel batches of 25)
     const workoutContent = {};
     const extract = async (wid) => {
@@ -190,6 +196,7 @@ async function syncFromBridge(secret) {
       batch.forEach((id, idx) => { if (results[idx]) workoutContent[id] = results[idx]; });
     }
 
+    phase = 'setHistory';
     // 4. Set history (logged sets)
     const allSets = {};
     const exerciseNames = {};
@@ -212,6 +219,7 @@ async function syncFromBridge(secret) {
     }
     const setHistory = { sets: allSets, exerciseNames };
 
+    phase = 'post';
     // 5. POST to MILO
     const r = await fetch(ENDPOINT, {
       method: 'POST',
@@ -229,6 +237,6 @@ async function syncFromBridge(secret) {
       setCount: totalSets,
     };
   } catch (e) {
-    return { error: e.message || String(e) };
+    return { error: `[${phase}] ${e.message || String(e)}` };
   }
 }
