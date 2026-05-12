@@ -272,7 +272,7 @@
         "name": "Hypertrophy & Impulse Integration",
         "status": "started",
         "startedAt": "2026-05-10",
-        "updatedAt": "2026-05-10",
+        "updatedAt": "2026-05-11",
         "isPlaylist": true
       },
       {
@@ -430,6 +430,16 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-05-12",
+        "name": "Upper Horizontal Pull",
+        "workoutId": 37116532,
+        "workoutHistoryId": 64781312,
+        "duration": 57,
+        "rpe": 6,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-11",
         "name": "Lower Power + Frontal Plane",
         "workoutId": 37116531,
@@ -538,16 +548,6 @@
         "rpe": 9,
         "program": "2025 -  SAM",
         "status": "completed"
-      },
-      {
-        "date": "2026-04-21",
-        "name": "Lower Power + Horizontal Push/Pull",
-        "workoutId": -36482634,
-        "workoutHistoryId": 63972577,
-        "duration": 57,
-        "rpe": 8,
-        "program": "2025 -  SAM",
-        "status": "completed"
       }
     ],
     "programCount": 20,
@@ -569,7 +569,7 @@
         "name": "Road to LA28- Craig",
         "status": "started",
         "startedAt": "2024-05-21",
-        "updatedAt": "2026-05-10",
+        "updatedAt": "2026-05-11",
         "isPlaylist": true
       },
       {
@@ -695,6 +695,16 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-05-12",
+        "name": "Zone 5 Maximum Aerobic Speed",
+        "workoutId": 36959916,
+        "workoutHistoryId": 64787004,
+        "duration": 48,
+        "rpe": 7,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-11",
         "name": "Hinge, Carry, Core",
         "workoutId": 36959917,
@@ -800,16 +810,6 @@
         "workoutId": 35831018,
         "workoutHistoryId": 63766830,
         "duration": 61,
-        "rpe": 3,
-        "program": "Road to LA28- Craig",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-14",
-        "name": "Par 5(3)",
-        "workoutId": 35831017,
-        "workoutHistoryId": 63726757,
-        "duration": 60,
         "rpe": 3,
         "program": "Road to LA28- Craig",
         "status": "completed"
@@ -1398,7 +1398,7 @@
         "name": "Nathan 2026 Health and Performance Program",
         "status": "started",
         "startedAt": "2026-01-26",
-        "updatedAt": "2026-05-04",
+        "updatedAt": "2026-05-11",
         "isPlaylist": true
       },
       {
@@ -1475,6 +1475,16 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-05-12",
+        "name": "Lower Body Squat Focus - Core Stability",
+        "workoutId": 36854091,
+        "workoutHistoryId": 64786712,
+        "duration": 42,
+        "rpe": 6,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
       {
         "date": "2026-05-05",
         "name": "Pull and Row - Core Dynamic Stability",
@@ -1580,16 +1590,6 @@
         "name": "Workout A7",
         "workoutId": 34988585,
         "workoutHistoryId": 61775674,
-        "duration": null,
-        "rpe": null,
-        "program": "Nathan 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-02-06",
-        "name": "Workout B6",
-        "workoutId": 34988584,
-        "workoutHistoryId": 61642338,
         "duration": null,
         "rpe": null,
         "program": "Nathan 2026 Health and Performance Program",
@@ -2810,11 +2810,21 @@
         "name": "Health & Performance ",
         "status": "started",
         "startedAt": "2025-09-07",
-        "updatedAt": "2026-05-04",
+        "updatedAt": "2026-05-11",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-05-11",
+        "name": "Workout B",
+        "workoutId": 36802201,
+        "workoutHistoryId": 64735792,
+        "duration": 62,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
       {
         "date": "2026-05-04",
         "name": "Workout A",
@@ -2921,16 +2931,6 @@
         "workoutId": 35877226,
         "workoutHistoryId": 63688613,
         "duration": 75,
-        "rpe": 3,
-        "program": "Health & Performance ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-11",
-        "name": "Workout B",
-        "workoutId": 35877241,
-        "workoutHistoryId": 63645444,
-        "duration": 60,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"

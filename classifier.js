@@ -204,7 +204,7 @@ function patternFrequency(workouts) {
      - Frequency dropping → not being trained
    ============================================================ */
 
-function patternWeeklyTrends(workouts, weeksBack = 12, todayStr = '2026-05-11') {
+function patternWeeklyTrends(workouts, weeksBack = 12, todayStr = new Date().toISOString().slice(0,10)) {
   const [yy, mm, dd] = todayStr.split('-').map(Number);
   const todayUTC = Date.UTC(yy, mm - 1, dd);
   const dayMs = 86400000;

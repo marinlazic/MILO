@@ -370,6 +370,28 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
 
+  /* ─── RECENTLY TRAINED ──────────────────────── */
+  .rt-section{padding:14px 20px;border-bottom:1px solid var(--border)}
+  .rt-section:last-child{border-bottom:none}
+  .rt-header{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px}
+  .rt-header .rt-dot{width:8px;height:8px;border-radius:50%}
+  .rt-header .rt-dot.today{background:var(--green);box-shadow:0 0 0 3px rgba(13,122,78,0.18)}
+  .rt-header .rt-dot.yest{background:#F59E0B}
+  .rt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+  .rt-row{
+    display:grid;grid-template-columns:34px 1fr auto auto;gap:10px;align-items:center;
+    padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--surface);
+    text-decoration:none;color:inherit;transition:all 0.15s;
+  }
+  .rt-row:hover{border-color:var(--blue);transform:translateY(-1px);box-shadow:var(--sh2)}
+  .rt-av{width:34px;height:34px;border-radius:50%;background:var(--blue-light);color:var(--blue-dark);font-family:var(--head);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .rt-name{font-family:var(--head);font-size:13px;font-weight:700;color:var(--text);line-height:1.2}
+  .rt-wo{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:160px}
+  .rt-mini{font-family:var(--mono);font-size:10px;color:var(--text2);text-align:right;line-height:1.4}
+  .rt-mini b{color:var(--text);font-weight:700}
+  .rt-trend{font-family:var(--head);font-size:18px;font-weight:800;line-height:1;text-align:center;min-width:26px}
+  .rt-empty{padding:10px;text-align:center;font-family:var(--mono);font-size:10px;color:var(--muted2)}
+
   /* ─── MOBILE ──────────────────────────────────── */
   @media (max-width: 900px) {
     .shell { grid-template-columns: 1fr; }
@@ -496,7 +518,7 @@
     <div class="topbar">
       <div>
         <div class="page-heading">Good morning, Marin.</div>
-        <div class="page-sub">Mon 11 May 2026 &nbsp;·&nbsp; 19 active clients &nbsp;·&nbsp; Bridge synced 10:30 AM</div>
+        <div class="page-sub" id="dashSubtitle">19 active clients</div>
       </div>
       <div class="btn-row">
         <button class="btn btn-outline">Export week</button>
@@ -543,6 +565,18 @@
         <div class="scard-val dn">1</div>
         <div class="scard-delta dn">Sondra Hamill</div>
       </div>
+    </div>
+
+    <!-- Recently Trained (today + yesterday) -->
+    <div class="card" style="margin-bottom:18px" id="recentTrainedCard">
+      <div class="card-head">
+        <div style="display:flex;align-items:baseline;gap:12px">
+          <div class="card-title">Recently trained</div>
+          <span id="recentTrainedTally" style="font-family:var(--mono);font-size:11px;letter-spacing:0.04em"></span>
+        </div>
+        <span class="card-link" id="recentSyncStamp">Live from Bridge</span>
+      </div>
+      <div id="recentTrainedBody"></div>
     </div>
 
     <!-- Main grid -->
@@ -718,13 +752,96 @@
 <script src="clients.js"></script>
 <script src="classifier.js"></script>
 <script>
+/* ── Dashboard subtitle (live date) ────────────────── */
+(function updateSubtitle() {
+  const el = document.getElementById('dashSubtitle');
+  if (!el || !window.MILO) return;
+  const all = window.MILO.getAllClients();
+  const nowFmt = new Date().toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+  el.innerHTML = `${nowFmt} &nbsp;·&nbsp; ${all.length} active clients &nbsp;·&nbsp; Live from Bridge`;
+})();
+
+/* ── Recently trained (today + yesterday) ────────────── */
+(function renderRecentlyTrained() {
+  const M = window.MILO;
+  const CLF = window.MILO_CLASSIFIER;
+  if (!M || !CLF) return;
+
+  const now = new Date();
+  const toIsoLocal = (d) => {
+    // Local-date YYYY-MM-DD to match Bridge's date strings
+    const y = d.getFullYear(), mo = String(d.getMonth()+1).padStart(2,'0'), da = String(d.getDate()).padStart(2,'0');
+    return `${y}-${mo}-${da}`;
+  };
+  const todayStr = toIsoLocal(now);
+  const yest = new Date(now); yest.setDate(yest.getDate() - 1);
+  const yestStr = toIsoLocal(yest);
+  document.getElementById('recentSyncStamp').textContent = now.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' });
+
+  const all = M.getAllClients();
+  const findOn = (dateStr) => {
+    const hits = [];
+    for (const c of all) {
+      const w = (c.recentWorkouts || []).find(x => x.date === dateStr);
+      if (w) hits.push({ c, w });
+    }
+    return hits;
+  };
+  const todayHits = findOn(todayStr);
+  const yestHits = findOn(yestStr);
+
+  const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const rpeCls = (r) => r === null || r === undefined ? 'muted2' : r < 4 ? 'green' : r < 7 ? 'amber' : 'red';
+
+  const rowHtml = ({ c, w }) => {
+    const trends = CLF.patternWeeklyTrends(c.recentWorkouts || [], 12);
+    const overall = CLF.overallProgression(trends);
+    const tags = CLF.classifyName(w.name);
+    const tagList = [...(tags?.region || []), ...(tags?.pattern || [])].slice(0, 2).join(' · ');
+    return `
+      <a class="rt-row" href="client.html?id=${c.id}">
+        <div class="rt-av">${c.initials || ''}</div>
+        <div style="min-width:0">
+          <div class="rt-name">${escapeHtml(c.name)}</div>
+          <div class="rt-wo" title="${escapeHtml(w.name)}">${escapeHtml(w.name)}${tagList ? ' · ' + tagList : ''}</div>
+        </div>
+        <div class="rt-mini">
+          <div><b>${w.duration ?? '—'}</b> min</div>
+          <div style="color:var(--${rpeCls(w.rpe)});font-weight:700">RPE ${w.rpe ?? '—'}</div>
+        </div>
+        <div class="rt-trend" style="color:${overall.color}" title="${overall.label}">${overall.arrow}</div>
+      </a>`;
+  };
+
+  // Header tally
+  document.getElementById('recentTrainedTally').innerHTML = `
+    <span style="background:rgba(13,122,78,0.12);color:var(--green);padding:2px 9px;border-radius:10px;font-weight:700">${todayHits.length} today</span>
+    <span style="background:rgba(245,158,11,0.15);color:#8A5A00;padding:2px 9px;border-radius:10px;font-weight:700;margin-left:4px">${yestHits.length} yesterday</span>
+    <span style="color:var(--muted);margin-left:6px">of ${all.length}</span>`;
+
+  const body = document.getElementById('recentTrainedBody');
+  body.innerHTML = `
+    <div class="rt-section">
+      <div class="rt-header"><span class="rt-dot today"></span>Today · ${todayStr}</div>
+      ${todayHits.length
+        ? `<div class="rt-grid">${todayHits.map(rowHtml).join('')}</div>`
+        : '<div class="rt-empty">No-one has trained today yet.</div>'}
+    </div>
+    <div class="rt-section">
+      <div class="rt-header"><span class="rt-dot yest"></span>Yesterday · ${yestStr}</div>
+      ${yestHits.length
+        ? `<div class="rt-grid">${yestHits.map(rowHtml).join('')}</div>`
+        : '<div class="rt-empty">No-one trained yesterday.</div>'}
+    </div>`;
+})();
+
 /* ── Render roster from Bridge data ─────────────────── */
 (function renderRoster() {
   const M = window.MILO;
   const CLF = window.MILO_CLASSIFIER;
   if (!M || !CLF) return;
   const all = M.getAllClients();
-  const today = new Date('2026-05-11');
+  const today = new Date();
 
   // Sort: flagged first, then by most recent activity
   all.sort((a, b) => {
@@ -807,7 +924,7 @@
   // Build per-day average RPE & total sessions for the last 7 days ending 2026-05-11
   const dates = [];
   for (let i = 6; i >= 0; i--) {
-    const d = new Date('2026-05-11');
+    const d = new Date();
     d.setDate(d.getDate() - i);
     dates.push(d.toISOString().slice(0, 10));
   }

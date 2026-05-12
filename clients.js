@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-populated from Bridge Athletic via bridge-sync.js.
-   Last synced: 2026-05-11T04:49:31Z
+   Last synced: 2026-05-12T00:41:56Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -279,7 +279,7 @@ const BRIDGE_DATA = {
         "name": "Hypertrophy & Impulse Integration",
         "status": "started",
         "startedAt": "2026-05-10",
-        "updatedAt": "2026-05-10",
+        "updatedAt": "2026-05-11",
         "isPlaylist": true
       },
       {
@@ -437,6 +437,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-05-12",
+        "name": "Upper Horizontal Pull",
+        "workoutId": 37116532,
+        "workoutHistoryId": 64781312,
+        "duration": 57,
+        "rpe": 6,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-11",
         "name": "Lower Power + Frontal Plane",
         "workoutId": 37116531,
@@ -545,16 +555,6 @@ const BRIDGE_DATA = {
         "rpe": 9,
         "program": "2025 -  SAM",
         "status": "completed"
-      },
-      {
-        "date": "2026-04-21",
-        "name": "Lower Power + Horizontal Push/Pull",
-        "workoutId": -36482634,
-        "workoutHistoryId": 63972577,
-        "duration": 57,
-        "rpe": 8,
-        "program": "2025 -  SAM",
-        "status": "completed"
       }
     ],
     "programCount": 20,
@@ -576,7 +576,7 @@ const BRIDGE_DATA = {
         "name": "Road to LA28- Craig",
         "status": "started",
         "startedAt": "2024-05-21",
-        "updatedAt": "2026-05-10",
+        "updatedAt": "2026-05-11",
         "isPlaylist": true
       },
       {
@@ -702,6 +702,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-05-12",
+        "name": "Zone 5 Maximum Aerobic Speed",
+        "workoutId": 36959916,
+        "workoutHistoryId": 64787004,
+        "duration": 48,
+        "rpe": 7,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-11",
         "name": "Hinge, Carry, Core",
         "workoutId": 36959917,
@@ -807,16 +817,6 @@ const BRIDGE_DATA = {
         "workoutId": 35831018,
         "workoutHistoryId": 63766830,
         "duration": 61,
-        "rpe": 3,
-        "program": "Road to LA28- Craig",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-14",
-        "name": "Par 5(3)",
-        "workoutId": 35831017,
-        "workoutHistoryId": 63726757,
-        "duration": 60,
         "rpe": 3,
         "program": "Road to LA28- Craig",
         "status": "completed"
@@ -1405,7 +1405,7 @@ const BRIDGE_DATA = {
         "name": "Nathan 2026 Health and Performance Program",
         "status": "started",
         "startedAt": "2026-01-26",
-        "updatedAt": "2026-05-04",
+        "updatedAt": "2026-05-11",
         "isPlaylist": true
       },
       {
@@ -1482,6 +1482,16 @@ const BRIDGE_DATA = {
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-05-12",
+        "name": "Lower Body Squat Focus - Core Stability",
+        "workoutId": 36854091,
+        "workoutHistoryId": 64786712,
+        "duration": 42,
+        "rpe": 6,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
       {
         "date": "2026-05-05",
         "name": "Pull and Row - Core Dynamic Stability",
@@ -1587,16 +1597,6 @@ const BRIDGE_DATA = {
         "name": "Workout A7",
         "workoutId": 34988585,
         "workoutHistoryId": 61775674,
-        "duration": null,
-        "rpe": null,
-        "program": "Nathan 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-02-06",
-        "name": "Workout B6",
-        "workoutId": 34988584,
-        "workoutHistoryId": 61642338,
         "duration": null,
         "rpe": null,
         "program": "Nathan 2026 Health and Performance Program",
@@ -2817,11 +2817,21 @@ const BRIDGE_DATA = {
         "name": "Health & Performance ",
         "status": "started",
         "startedAt": "2025-09-07",
-        "updatedAt": "2026-05-04",
+        "updatedAt": "2026-05-11",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-05-11",
+        "name": "Workout B",
+        "workoutId": 36802201,
+        "workoutHistoryId": 64735792,
+        "duration": 62,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
       {
         "date": "2026-05-04",
         "name": "Workout A",
@@ -2928,16 +2938,6 @@ const BRIDGE_DATA = {
         "workoutId": 35877226,
         "workoutHistoryId": 63688613,
         "duration": 75,
-        "rpe": 3,
-        "program": "Health & Performance ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-11",
-        "name": "Workout B",
-        "workoutId": 35877241,
-        "workoutHistoryId": 63645444,
-        "duration": 60,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
@@ -3627,7 +3627,6 @@ const BRIDGE_DATA = {
   }
 };
 
-/* Helpers (same API as before, used by client.html / index.html / clients.html) */
 function getClient(id) { return BRIDGE_DATA[id] || null; }
 function getAllClients() { return Object.values(BRIDGE_DATA); }
 function activePrograms(c) {
@@ -3652,67 +3651,49 @@ function daysSinceLastWorkout(c, today = new Date()) {
   return Math.round((today - new Date(d)) / (86400000));
 }
 
-/* Workout content lazy loader — fetches /bridge-workouts.json on first call */
+/* Workout content lazy loader */
 let _workoutCache = null;
 async function getWorkoutContent(workoutId) {
   if (!workoutId) return null;
   if (!_workoutCache) {
-    try {
-      const r = await fetch('bridge-workouts.json');
-      _workoutCache = await r.json();
-    } catch (e) { _workoutCache = {}; }
+    try { const r = await fetch('bridge-workouts.json'); _workoutCache = await r.json(); }
+    catch (e) { _workoutCache = {}; }
   }
   return _workoutCache[workoutId] || null;
 }
 
-/* Logged set history — actual weights/reps an athlete recorded in Bridge.
-   Currently ~6 of 19 athletes log data (Reini, Melanie, Stephanie, Linda,
-   Alana, Liam). The others just mark workouts complete. */
 let _setHistoryCache = null;
 async function getSetHistory() {
   if (!_setHistoryCache) {
-    try {
-      const r = await fetch('bridge-set-history.json');
-      _setHistoryCache = await r.json();
-    } catch (e) { _setHistoryCache = { sets: {}, exerciseNames: {} }; }
+    try { const r = await fetch('bridge-set-history.json'); _setHistoryCache = await r.json(); }
+    catch (e) { _setHistoryCache = { sets: {}, exerciseNames: {} }; }
   }
   return _setHistoryCache;
 }
 
-/**
- * Per-exercise estimated-1RM time series for this client, using
- * Epley's formula on ACTUAL logged weights (resultWeight / 1,000,000 = kg).
- * Returns { exerciseName -> [{ date, e1rm, weight, reps }] sorted oldest→newest }
- */
 async function getExerciseProgression(client) {
   const { sets, exerciseNames } = await getSetHistory();
   const userSets = sets[client.bridgeId] || [];
   if (!userSets.length) return {};
-
-  // Best e1RM per (date, exercise)
   const bySessionEx = {};
   for (const s of userSets) {
     if (!s.rw || !s.rr) continue;
-    const weight = s.rw / 1000000;         // mg → kg
+    const weight = s.rw / 1000000;
     const reps = parseInt(s.rr, 10);
     if (!weight || !reps || reps < 1) continue;
-    const e1rm = weight * (1 + reps / 30); // Epley
+    const e1rm = weight * (1 + reps / 30);
     const key = `${s.d}|${s.ex}`;
     if (!bySessionEx[key] || e1rm > bySessionEx[key].e1rm) {
       bySessionEx[key] = { e1rm, weight, reps, date: s.d, exId: s.ex };
     }
   }
-
-  // Group by exercise name
   const out = {};
   for (const v of Object.values(bySessionEx)) {
     const name = exerciseNames[v.exId] || `Exercise #${v.exId}`;
     if (!out[name]) out[name] = [];
     out[name].push({ date: v.date, e1rm: v.e1rm, weight: v.weight, reps: v.reps });
   }
-  for (const name of Object.keys(out)) {
-    out[name].sort((a, b) => a.date.localeCompare(b.date));
-  }
+  for (const name of Object.keys(out)) out[name].sort((a, b) => a.date.localeCompare(b.date));
   return out;
 }
 

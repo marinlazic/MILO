@@ -206,7 +206,7 @@
 <script>
 const M = window.MILO;
 const CLF = window.MILO_CLASSIFIER;
-const TODAY = new Date('2026-05-11');
+const TODAY = new Date();
 
 const all = M.getAllClients();
 document.getElementById('navCount').textContent = all.length;
@@ -345,7 +345,7 @@ function cardHtml(e) {
 }
 
 /* ── HELPERS ─────────────────────────── */
-function weeklyBuckets(workouts, weeksBack = 12, todayStr = '2026-05-11') {
+function weeklyBuckets(workouts, weeksBack = 12, todayStr = new Date().toISOString().slice(0,10)) {
   const [yy, mm, dd] = todayStr.split('-').map(Number);
   const todayUTC = Date.UTC(yy, mm - 1, dd);
   const dayMs = 86400000;

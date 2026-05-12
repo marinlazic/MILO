@@ -545,7 +545,7 @@ function renderClient(c) {
   const primary = M.primaryProgram(c);
   const avgR = M.avgRpe(c, 4);
   const sessions = M.sessionsThisRange(c);
-  const daysSince = M.daysSinceLastWorkout(c, new Date('2026-05-11'));
+  const daysSince = M.daysSinceLastWorkout(c, new Date());
 
   // Pre-classify all workouts so subsequent renders can reuse the tags
   const taggedWorkouts = (c.recentWorkouts || []).map(w => ({
@@ -837,7 +837,7 @@ function humanDate(d) {
   if (!d) return '—';
   const dt = new Date(d);
   if (isNaN(dt)) return '—';
-  const today = new Date('2026-05-11');
+  const today = new Date();
   const days = Math.round((today - dt) / (1000 * 60 * 60 * 24));
   if (days === 0) return 'today';
   if (days === 1) return 'yesterday';
@@ -921,7 +921,7 @@ function renderWorkoutContent(content) {
   }).join('') + (blocks.length === 0 ? '<div style="font-family:var(--mono);font-size:10px;color:var(--muted)">No blocks found for this workout.</div>' : '');
 }
 
-function weeklyBuckets(workouts, weeksBack = 6, todayStr = '2026-05-11') {
+function weeklyBuckets(workouts, weeksBack = 6, todayStr = new Date().toISOString().slice(0,10)) {
   // Pure UTC date math to avoid local-timezone shifting "today" into yesterday.
   const [yy, mm, dd] = todayStr.split('-').map(Number);
   const todayUTC = Date.UTC(yy, mm - 1, dd);
