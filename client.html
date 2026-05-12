@@ -156,6 +156,7 @@
     .stats-row{grid-template-columns:1fr 1fr;gap:8px}
     .scard{padding:14px 14px}
     .scard-val{font-size:24px}
+    .wo-ex-grid{grid-template-columns:1fr !important}
     .hero{padding:14px;gap:12px}
     .hero-name{font-size:18px}
     .hero-meta{gap:10px}
@@ -972,24 +973,34 @@ function renderWorkoutContent(content, athleteSets, exNames) {
           const sets = ex.sets || ex.s || [];
           const isBW = isBodyweightName(exName);
           const logged = loggedByName[(exName || '').trim().toLowerCase()] || [];
+          const prescribedRows = sets.slice(0, 6).map(s => fmtPrescribedSet(s, isBW));
+          const loggedRows = logged.slice(0, 6).map(l => fmtLoggedSet(l));
+          const maxRows = Math.max(prescribedRows.length, loggedRows.length, 1);
+          const statusBadge = logged.length
+            ? `<span style="color:#0D7A4E;background:#E6F7F0;font-weight:700;padding:1px 7px;border-radius:8px;font-size:9px">✓ ${logged.length} logged</span>`
+            : `<span style="color:#8A5A00;background:#FEF3CC;font-weight:700;padding:1px 7px;border-radius:8px;font-size:9px">⚠ Not logged</span>`;
           return `
-            <div style="padding:6px 0;border-bottom:1px dashed var(--border);font-family:var(--body);font-size:11px;color:var(--text2);display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start">
-              <div>
-                <div style="font-weight:600;color:var(--text)">${escapeHtml(exName || '—')}</div>
-                <div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:1px">
-                  ${sets.length} ${sets.length === 1 ? 'set' : 'sets'}${isBW ? ' · bodyweight' : ''}${logged.length ? ` · <span style="color:var(--green)">${logged.length} logged</span>` : ''}
-                </div>
+            <div class="wo-ex" style="padding:8px 0;border-bottom:1px dashed var(--border)">
+              <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px">
+                <span style="font-family:var(--body);font-weight:600;color:var(--text);font-size:12px">${escapeHtml(exName || '—')}</span>
+                <span style="font-family:var(--mono);font-size:9px;color:var(--muted)">${sets.length} ${sets.length === 1 ? 'set' : 'sets'}${isBW ? ' · BW' : ''}</span>
+                ${statusBadge}
               </div>
-              <div style="font-family:var(--mono);font-size:10px;color:var(--text2);text-align:right;line-height:1.5">
-                ${logged.length ? `
-                  <div style="font-size:8px;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:2px">Logged</div>
-                  ${logged.slice(0, 4).map(l => `<div style="color:var(--text);font-weight:600">${fmtLoggedSet(l)}</div>`).join('')}
-                  ${logged.length > 4 ? `<div style="color:var(--muted)">+ ${logged.length - 4} more</div>` : ''}
-                ` : `
-                  <div style="font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:2px">Prescribed</div>
-                  ${sets.slice(0, 4).map(s => fmtPrescribedSet(s, isBW)).join('<br>')}
-                  ${sets.length > 4 ? `<div style="color:var(--muted)">+ ${sets.length - 4} more</div>` : ''}
-                `}
+              <div class="wo-ex-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-family:var(--mono);font-size:10px;line-height:1.6">
+                <div style="background:#F7F8FA;border-radius:6px;padding:6px 9px">
+                  <div style="font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:3px">Prescribed</div>
+                  ${prescribedRows.length
+                    ? prescribedRows.map(r => `<div style="color:var(--text2)">${r}</div>`).join('')
+                    : '<div style="color:var(--muted2)">—</div>'}
+                  ${sets.length > 6 ? `<div style="color:var(--muted);font-size:9px">+ ${sets.length - 6} more</div>` : ''}
+                </div>
+                <div style="background:${logged.length ? '#E6F7F0' : '#FEF3CC'};border-radius:6px;padding:6px 9px;border:1px solid ${logged.length ? '#B7E4C8' : '#F5D58C'}">
+                  <div style="font-size:8px;color:${logged.length ? '#0D7A4E' : '#8A5A00'};text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:3px">Logged</div>
+                  ${loggedRows.length
+                    ? loggedRows.map(r => `<div style="color:var(--text);font-weight:600">${r}</div>`).join('')
+                    : '<div style="color:#8A5A00;font-size:9px;line-height:1.4">Athlete didn\\'t enter weights in Bridge</div>'}
+                  ${logged.length > 6 ? `<div style="color:var(--muted);font-size:9px">+ ${logged.length - 6} more</div>` : ''}
+                </div>
               </div>
             </div>`;
         }).join('')}

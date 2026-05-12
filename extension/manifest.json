@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "MILO Sync",
-  "version": "1.1.0",
-  "description": "Auto-sync Bridge Athletic to MILO dashboard daily at 8:30 AM & 10:00 AM.",
+  "version": "1.2.0",
+  "description": "Auto-sync Bridge Athletic to MILO dashboard daily at 8:30 AM & 10:00 AM. v1.2: widened set-history filter to catch all log formats.",
   "permissions": ["scripting", "storage", "activeTab", "alarms", "notifications"],
   "host_permissions": [
     "https://bridgeathletic.com/*",

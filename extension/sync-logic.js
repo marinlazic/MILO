@@ -118,16 +118,22 @@ export async function syncFromBridge(secret) {
       try {
         const url = `/api/v1/organizations/${ORG_ID}/teams/${TEAM_ID}/users/${id}/activities?timeRange=12&objectTypes=blockSetHistory%7CTracked&objectTypes=blockSetHistory%7CRequired&include=workoutHistories&dataLimit=500`;
         const data = await get(url);
-        const records = (data.data || []).filter(r => r.type === 'Tracked' && (r.resultWeight || r.resultReps));
+        // Widened filter: accept ANY record that has a non-zero result weight OR reps, regardless
+        // of `type`. Older Bridge data uses type 'Tracked'; newer logs may come back as 'Required'
+        // with the result fields populated, or another tag entirely. Keying off the result data
+        // itself is the reliable signal that a set was actually logged.
+        const hasResult = (r) => (r.resultWeight && r.resultWeight > 0) || (r.resultReps != null && r.resultReps !== '');
+        const records = (data.data || []).filter(hasResult);
         const exObj = data.linked?.exercises || {};
         const exArr = Array.isArray(exObj) ? exObj : Object.values(exObj);
         for (const e of exArr) if (e.exerciseId) exerciseNames[e.exerciseId] = e.name;
         allSets[id] = records.map(r => ({
-          d: r.date || r.dateTime?.slice(0,10),
+          d: r.date || r.dateTime?.slice(0,10) || r.completedAt?.slice(0,10),
           ex: r.exerciseId || r.blockExerciseId,
           rw: r.resultWeight, rr: r.resultReps,
           rrpe: r.resultRPE?.value ?? r.resultRPE,
           whId: r.workoutHistoryId,
+          t: r.type,  // keep the record type for debugging
         })).filter(s => s.d && s.ex && (s.rw || s.rr));
       } catch (e) { allSets[id] = []; }
     }
