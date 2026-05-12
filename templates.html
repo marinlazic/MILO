@@ -88,6 +88,44 @@
   .empty{background:var(--surface);border:1px dashed var(--border2);border-radius:var(--r);padding:40px 20px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;line-height:1.6}
   .empty b{display:block;color:var(--text);font-family:var(--head);font-size:14px;font-weight:700;margin-bottom:8px;letter-spacing:-0.02em}
 
+  /* Upload modal */
+  .modal-bg{position:fixed;inset:0;background:rgba(14,17,23,0.6);backdrop-filter:blur(4px);z-index:100;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 16px}
+  .modal-bg.open{display:flex}
+  .modal{background:var(--surface);border-radius:var(--r);max-width:880px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden;max-height:90vh;display:flex;flex-direction:column}
+  .modal-head{padding:18px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .modal-head h2{font-family:var(--head);font-size:18px;font-weight:800;letter-spacing:-0.03em}
+  .modal-head .sub{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin-top:2px}
+  .modal-body{padding:22px 24px;overflow-y:auto;flex:1}
+  .modal-foot{padding:14px 24px;border-top:1px solid var(--border);background:var(--surface2);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .modal-close{background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer;line-height:1;padding:0 6px}
+  .modal-close:hover{color:var(--text)}
+
+  .drop-zone{border:2px dashed var(--border2);border-radius:12px;padding:32px 20px;text-align:center;cursor:pointer;transition:all 0.15s;background:var(--surface2)}
+  .drop-zone:hover, .drop-zone.dragover{border-color:var(--blue);background:var(--blue-light)}
+  .drop-zone-icon{font-size:32px;margin-bottom:8px;color:var(--muted)}
+  .drop-zone-text{font-family:var(--head);font-weight:700;font-size:14px;margin-bottom:4px}
+  .drop-zone-hint{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em}
+
+  .uploaded-images{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .upimg{position:relative;border:1px solid var(--border);border-radius:8px;overflow:hidden;width:120px;height:120px}
+  .upimg img{width:100%;height:100%;object-fit:cover}
+  .upimg-x{position:absolute;top:4px;right:4px;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:22px;height:22px;font-size:14px;line-height:1;cursor:pointer}
+
+  .hint-input{width:100%;padding:10px 12px;border:1px solid var(--border2);border-radius:8px;background:var(--surface2);font-family:var(--body);font-size:13px;margin-top:12px;outline:none}
+  .hint-input:focus{border-color:var(--blue)}
+
+  .parsed-block{margin-top:14px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+  .parsed-head{padding:12px 16px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .parsed-name-input{flex:1;padding:8px 10px;border:1px solid var(--border2);border-radius:6px;font-family:var(--head);font-size:14px;font-weight:700}
+  .parsed-id-input{padding:8px 10px;border:1px solid var(--border2);border-radius:6px;font-family:var(--mono);font-size:11px;width:200px}
+  .parsed-json{background:#0E1117;color:#e8eaed;font-family:var(--mono);font-size:11px;line-height:1.55;padding:14px 16px;overflow:auto;max-height:380px;white-space:pre;border:none;outline:none;width:100%;resize:vertical;min-height:200px}
+
+  .parse-status{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.04em}
+  .parse-status.ok{color:var(--green)}
+  .parse-status.err{color:var(--red)}
+  .parse-spin{display:inline-block;width:12px;height:12px;border:2px solid var(--border2);border-top-color:var(--blue);border-radius:50%;animation:spin 0.8s linear infinite;vertical-align:middle;margin-right:6px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
   /* Detail view */
   .detail-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:14px;box-shadow:var(--sh)}
   .detail-head{padding:24px 28px;background:linear-gradient(135deg,#0E1117,#1a1f2e);color:#fff}
@@ -172,7 +210,10 @@
         <div class="page-heading" id="pageHeading">Program templates</div>
         <div class="page-sub" id="pageSub">Movement-pattern blueprints · Mobility prep auto-added</div>
       </div>
-      <a href="build.html" class="btn btn-blue">⚡ Build from a template</a>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button onclick="openUploadModal()" class="btn btn-outline">＋ Upload template (screenshot)</button>
+        <a href="build.html" class="btn btn-blue">⚡ Build from a template</a>
+      </div>
     </div>
 
     <div class="intro">
@@ -194,10 +235,231 @@
   </div>
 </div>
 
+<!-- Upload Template Modal -->
+<div class="modal-bg" id="uploadModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h2>Upload template from screenshot</h2>
+        <div class="sub">Claude Sonnet 4.5 vision · paste 1–3 images of a program template</div>
+      </div>
+      <button class="modal-close" onclick="closeUploadModal()">✕</button>
+    </div>
+    <div class="modal-body" id="uploadBody">
+
+      <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+        <div class="drop-zone-icon">⬆</div>
+        <div class="drop-zone-text">Drop images here or click to browse</div>
+        <div class="drop-zone-hint">PNG / JPG · paste from clipboard works too (Cmd+V / Ctrl+V)</div>
+      </div>
+      <input id="fileInput" type="file" accept="image/*" multiple style="display:none">
+      <div class="uploaded-images" id="uploadedImages"></div>
+
+      <input class="hint-input" id="hintInput" placeholder="Optional coach hint — e.g. 'name it Strength Wave 2, 4 days/week, peaking block'">
+
+      <div id="parseStatus" class="parse-status" style="margin-top:14px"></div>
+      <div id="parsedSection" style="display:none"></div>
+
+    </div>
+    <div class="modal-foot">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em">Cost: ~$0.01–0.03 per template · review before saving</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-outline" id="parseBtn" onclick="parseTemplate()" disabled>Parse with AI</button>
+        <button class="btn btn-blue" id="saveBtn" onclick="saveParsedTemplate()" disabled>Save to library</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="classifier.js"></script>
 <script>
 let templates = {};
 let mobilityCfg = null;
+let uploadedImages = [];   // [{ base64, mimeType, dataUrl }]
+let parsedTemplate = null;
+
+// ── Upload modal ──
+function openUploadModal() {
+  uploadedImages = [];
+  parsedTemplate = null;
+  document.getElementById('hintInput').value = '';
+  document.getElementById('parseStatus').textContent = '';
+  document.getElementById('parseStatus').className = 'parse-status';
+  document.getElementById('parsedSection').style.display = 'none';
+  document.getElementById('uploadedImages').innerHTML = '';
+  document.getElementById('saveBtn').disabled = true;
+  document.getElementById('parseBtn').disabled = true;
+  document.getElementById('uploadModal').classList.add('open');
+}
+function closeUploadModal() {
+  document.getElementById('uploadModal').classList.remove('open');
+}
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeUploadModal();
+});
+
+// File input
+document.addEventListener('DOMContentLoaded', () => {
+  const fileInput = document.getElementById('fileInput');
+  const dropZone = document.getElementById('dropZone');
+  if (fileInput) fileInput.addEventListener('change', e => handleFiles(e.target.files));
+  if (dropZone) {
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
+  }
+});
+// Paste from clipboard
+document.addEventListener('paste', e => {
+  if (!document.getElementById('uploadModal').classList.contains('open')) return;
+  const items = Array.from(e.clipboardData?.items || []);
+  const files = items.filter(it => it.type.startsWith('image/')).map(it => it.getAsFile()).filter(Boolean);
+  if (files.length) handleFiles(files);
+});
+
+async function handleFiles(files) {
+  for (const f of files) {
+    if (!f || !f.type?.startsWith('image/')) continue;
+    const dataUrl = await fileToDataUrl(f);
+    const base64 = dataUrl.split(',')[1];
+    uploadedImages.push({ base64, mimeType: f.type, dataUrl });
+  }
+  renderUploadedImages();
+  document.getElementById('parseBtn').disabled = uploadedImages.length === 0;
+}
+function fileToDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
+}
+function renderUploadedImages() {
+  const wrap = document.getElementById('uploadedImages');
+  wrap.innerHTML = uploadedImages.map((img, i) =>
+    `<div class="upimg"><img src="${img.dataUrl}"><button class="upimg-x" onclick="removeUploadedImage(${i})">✕</button></div>`
+  ).join('');
+}
+function removeUploadedImage(i) {
+  uploadedImages.splice(i, 1);
+  renderUploadedImages();
+  document.getElementById('parseBtn').disabled = uploadedImages.length === 0;
+}
+
+async function parseTemplate() {
+  const status = document.getElementById('parseStatus');
+  const hint = document.getElementById('hintInput').value.trim();
+  status.innerHTML = '<span class="parse-spin"></span> Sending to Claude vision…';
+  status.className = 'parse-status';
+  document.getElementById('parseBtn').disabled = true;
+  try {
+    const r = await fetch('/api/parse-template', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ images: uploadedImages.map(i => ({ base64: i.base64, mimeType: i.mimeType })), hint: hint || null }),
+    });
+    const data = await r.json();
+    if (data.setupNeeded) { status.textContent = data.message; status.className = 'parse-status err'; return; }
+    if (data.error) { status.textContent = 'Error: ' + data.error + (data.raw ? ` — ${data.raw.slice(0,200)}` : ''); status.className = 'parse-status err'; return; }
+    if (!data.template) { status.textContent = 'No template returned'; status.className = 'parse-status err'; return; }
+
+    parsedTemplate = data.template;
+    // Pick a good default id and progressionOrder
+    if (!parsedTemplate.id) parsedTemplate.id = slugify(parsedTemplate.name || 'untitled');
+    if (parsedTemplate.progressionOrder == null || parsedTemplate.progressionOrder >= 99) {
+      const maxOrder = Math.max(0, ...Object.values(templates).map(t => t.progressionOrder || 0));
+      parsedTemplate.progressionOrder = maxOrder + 1;
+    }
+    renderParsed();
+    status.textContent = `Parsed · ${data.usage?.input_tokens || '?'} input + ${data.usage?.output_tokens || '?'} output tokens · review below`;
+    status.className = 'parse-status ok';
+    document.getElementById('saveBtn').disabled = false;
+  } catch (e) {
+    status.textContent = 'Network error: ' + e.message;
+    status.className = 'parse-status err';
+  } finally {
+    document.getElementById('parseBtn').disabled = uploadedImages.length === 0;
+  }
+}
+
+function slugify(s) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+}
+
+function renderParsed() {
+  const sec = document.getElementById('parsedSection');
+  sec.style.display = 'block';
+  const sessionsCount = (parsedTemplate.sessions || []).length;
+  const blocksCount = (parsedTemplate.sessions || []).reduce((s, x) => s + (x.blocks || []).length, 0);
+  sec.innerHTML = `
+    <div class="parsed-block">
+      <div class="parsed-head">
+        <input class="parsed-name-input" id="parsedName" value="${escapeAttr(parsedTemplate.name || '')}" placeholder="Template name">
+        <input class="parsed-id-input" id="parsedId" value="${escapeAttr(parsedTemplate.id || '')}" placeholder="id">
+      </div>
+      <div style="padding:8px 16px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;background:var(--surface2);border-bottom:1px solid var(--border)">
+        ${sessionsCount} session${sessionsCount === 1 ? '' : 's'} · ${blocksCount} blocks · order ${parsedTemplate.progressionOrder} · ${parsedTemplate.weeks || '?'} weeks · default freq ${parsedTemplate.defaultFrequency || '?'}×/wk
+      </div>
+      <textarea class="parsed-json" id="parsedJsonText" spellcheck="false">${escapeHtml(JSON.stringify(parsedTemplate, null, 2))}</textarea>
+    </div>`;
+}
+
+async function saveParsedTemplate() {
+  if (!parsedTemplate) return;
+  const status = document.getElementById('parseStatus');
+  // Pull edits from the textarea
+  let edited;
+  try {
+    edited = JSON.parse(document.getElementById('parsedJsonText').value);
+  } catch (e) {
+    status.textContent = 'JSON invalid: ' + e.message;
+    status.className = 'parse-status err';
+    return;
+  }
+  const nameOverride = document.getElementById('parsedName').value.trim();
+  const idOverride = document.getElementById('parsedId').value.trim();
+  if (nameOverride) edited.name = nameOverride;
+  if (idOverride) edited.id = idOverride;
+  if (!edited.id) edited.id = slugify(edited.name || 'untitled');
+
+  // Ask for the sync secret if not stored
+  let secret = localStorage.getItem('milo_sync_secret') || '';
+  if (!secret) {
+    secret = prompt('Enter your MILO sync secret (same one used by the Chrome extension):') || '';
+    if (!secret) return;
+    localStorage.setItem('milo_sync_secret', secret);
+  }
+
+  status.innerHTML = '<span class="parse-spin"></span> Committing to GitHub…';
+  status.className = 'parse-status';
+  document.getElementById('saveBtn').disabled = true;
+  try {
+    const r = await fetch('/api/save-context', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Sync-Secret': secret },
+      body: JSON.stringify({ type: 'template', templateId: edited.id, template: edited }),
+    });
+    const data = await r.json();
+    if (!r.ok) {
+      status.textContent = 'Save failed: ' + (data.error || r.status);
+      status.className = 'parse-status err';
+      if (r.status === 401) localStorage.removeItem('milo_sync_secret');
+      document.getElementById('saveBtn').disabled = false;
+      return;
+    }
+    status.textContent = `Saved · commit ${data.commit?.slice(0,7) || '?'} · refreshing in 3s…`;
+    status.className = 'parse-status ok';
+    setTimeout(() => { closeUploadModal(); location.reload(); }, 2500);
+  } catch (e) {
+    status.textContent = 'Network error: ' + e.message;
+    status.className = 'parse-status err';
+    document.getElementById('saveBtn').disabled = false;
+  }
+}
+
+function escapeAttr(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+
 
 async function load() {
   try {

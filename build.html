@@ -100,6 +100,31 @@
   .snap-val{font-family:var(--head);font-size:18px;font-weight:800;letter-spacing:-0.03em;color:var(--text)}
   .snap-val.good{color:var(--green)} .snap-val.warn{color:var(--amber)} .snap-val.bad{color:var(--red)} .snap-val.muted{color:var(--muted2)}
 
+  /* Previous block panel */
+  .prevblock{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);margin-bottom:18px}
+  .prevblock-head{padding:14px 20px;background:linear-gradient(135deg,#0E1117,#1a1f2e);color:#fff;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+  .prevblock-title{font-family:var(--head);font-size:14px;font-weight:700;letter-spacing:-0.02em}
+  .prevblock-meta{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.55);letter-spacing:0.04em;margin-top:4px}
+  .prevblock-empty{padding:18px 20px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.04em;background:var(--surface2)}
+  .prevblock-body{padding:14px 20px}
+  .prevblock-intro{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin-bottom:10px;line-height:1.5}
+  .prev-pattern{display:grid;grid-template-columns:130px 1fr auto;gap:12px;align-items:center;padding:8px 10px;border-radius:8px;margin-bottom:4px;background:var(--surface2);border:1px solid var(--border)}
+  .prev-pattern:hover{border-color:var(--border2)}
+  .prev-pat-label{font-family:var(--head);font-size:11px;font-weight:700;color:var(--text);text-transform:capitalize}
+  .prev-pat-sublabel{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.04em;margin-top:2px}
+  .prev-exercises{font-family:var(--body);font-size:12px;color:var(--text2);line-height:1.5}
+  .prev-ex{display:inline-block;margin-right:8px;color:var(--text)}
+  .prev-ex b{font-weight:600}
+  .prev-ex .load{font-family:var(--mono);font-size:10px;color:var(--blue-dark);background:var(--blue-light);padding:1px 6px;border-radius:5px;margin-left:4px}
+  .prog-pills{display:flex;gap:4px;flex-shrink:0}
+  .prog-pill{font-family:var(--mono);font-size:10px;font-weight:600;padding:4px 10px;border-radius:5px;border:1px solid var(--border2);background:var(--surface);color:var(--text2);cursor:pointer;transition:all 0.12s;letter-spacing:0.02em}
+  .prog-pill:hover{border-color:var(--blue);color:var(--blue)}
+  .prog-pill.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 1px 4px rgba(26,107,245,0.3)}
+  @media (max-width: 700px) {
+    .prev-pattern{grid-template-columns:1fr;gap:6px}
+    .prog-pills{justify-content:flex-start}
+  }
+
   /* Generated program */
   .program-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);margin-bottom:14px;animation:up 0.4s ease both}
   @keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
@@ -279,6 +304,9 @@
     <!-- Snapshot of athlete's current state (live, updates with athlete change) -->
     <div class="snap" id="snap"></div>
 
+    <!-- Previous block panel — what they're doing now, with progression choices per pattern -->
+    <div id="prevBlock"></div>
+
     <!-- Template preview (visible when a template is selected) -->
     <div id="templatePreview"></div>
 
@@ -334,7 +362,123 @@ function renderSnap(c) {
 }
 
 renderSnap(M.getClient(sel.value));
-sel.addEventListener('change', () => renderSnap(M.getClient(sel.value)));
+renderPrevBlock(M.getClient(sel.value));
+sel.addEventListener('change', () => {
+  renderSnap(M.getClient(sel.value));
+  renderPrevBlock(M.getClient(sel.value));
+});
+
+// ── Previous block panel ──
+// Pulls the athlete's most recent block's exercises per movement pattern.
+// Coach picks per-pattern progression: keep / adjacent / new modality.
+// Selections are kept in window._progressionPrefs and passed to /api/program.
+window._progressionPrefs = {};
+window._prevBlockData = null;
+
+async function renderPrevBlock(c) {
+  const box = document.getElementById('prevBlock');
+  if (!c) { box.innerHTML = ''; return; }
+  // Reset prefs when athlete changes
+  window._progressionPrefs = {};
+  box.innerHTML = `
+    <div class="prevblock">
+      <div class="prevblock-head">
+        <div>
+          <div class="prevblock-title">Previous block — progression choices</div>
+          <div class="prevblock-meta">Loading ${c.name}'s last workouts…</div>
+        </div>
+      </div>
+      <div class="prevblock-empty">Reading workout content…</div>
+    </div>`;
+  let prev;
+  try {
+    prev = await M.extractPreviousBlock(c, { limit: 10 });
+  } catch (e) {
+    box.innerHTML = `<div class="prevblock"><div class="prevblock-empty">Couldn't read previous block: ${e.message}</div></div>`;
+    return;
+  }
+  window._prevBlockData = prev;
+  if (!prev || !Object.keys(prev.byPattern || {}).length) {
+    box.innerHTML = `
+      <div class="prevblock">
+        <div class="prevblock-head">
+          <div>
+            <div class="prevblock-title">Previous block — progression choices</div>
+            <div class="prevblock-meta">No recent workouts on file for ${c.name}.</div>
+          </div>
+        </div>
+        <div class="prevblock-empty">Sync from Bridge and try again, or pick a different athlete.</div>
+      </div>`;
+    return;
+  }
+
+  // Order patterns by training importance (strength patterns first)
+  const PATTERN_ORDER = ['squat','hinge','hinge_unilateral','single_leg','lunge',
+                          'horizontal_push','horizontal_push_unilateral','vertical_push',
+                          'horizontal_pull','horizontal_pull_unilateral','vertical_pull',
+                          'carry','power_lower','power_upper','combination_total_body',
+                          'rotation','anti_rotation','anti_extension','anti_lateral_flexion',
+                          'locomotion','core_finisher'];
+  const patterns = Object.keys(prev.byPattern).sort((a, b) => {
+    const ai = PATTERN_ORDER.indexOf(a); const bi = PATTERN_ORDER.indexOf(b);
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+  });
+
+  const rows = patterns.map(pat => {
+    const exs = prev.byPattern[pat] || [];
+    const top = exs[0];
+    if (!top) return '';
+    const exHtml = exs.slice(0, 3).map(e => {
+      const load = e.lastE1rm_kg
+        ? `<span class="load">e1RM ${e.lastE1rm_kg} kg</span>`
+        : (e.sessions > 1 ? `<span class="load" style="background:transparent;color:var(--muted);border:1px dashed var(--border2)">×${e.sessions}</span>` : '');
+      return `<span class="prev-ex"><b>${escapeHtml(e.exercise)}</b>${load}</span>`;
+    }).join('');
+    const labelText = pat.replace(/_/g, ' ');
+    return `
+      <div class="prev-pattern" data-pattern="${pat}">
+        <div>
+          <div class="prev-pat-label">${labelText}</div>
+          <div class="prev-pat-sublabel">${exs.length} exercise${exs.length===1?'':'s'} · ${exs.reduce((s,e)=>s+e.sessions,0)} session${exs.reduce((s,e)=>s+e.sessions,0)===1?'':'s'}</div>
+        </div>
+        <div class="prev-exercises">${exHtml}</div>
+        <div class="prog-pills" data-pattern="${pat}">
+          <button class="prog-pill" data-choice="keep" title="Keep same exercise + progress load/reps">Keep</button>
+          <button class="prog-pill active" data-choice="adjacent" title="Same family, different variation (e.g. back squat → front squat)">Adjacent</button>
+          <button class="prog-pill" data-choice="new" title="New modality (e.g. barbell → KB → bodyweight)">New</button>
+        </div>
+      </div>`;
+  }).join('');
+
+  // Default every pattern to 'adjacent' (the common case: progress, vary slightly)
+  for (const pat of patterns) window._progressionPrefs[pat] = 'adjacent';
+
+  box.innerHTML = `
+    <div class="prevblock">
+      <div class="prevblock-head">
+        <div>
+          <div class="prevblock-title">Previous block · ${escapeHtml(prev.program || 'Recent training')}</div>
+          <div class="prevblock-meta">${prev.workoutsAnalysed} workout${prev.workoutsAnalysed===1?'':'s'} analysed · ${prev.dateRange || '—'} · ${patterns.length} pattern${patterns.length===1?'':'s'}</div>
+        </div>
+      </div>
+      <div class="prevblock-body">
+        <div class="prevblock-intro">For each pattern, pick how this block should progress: <b>Keep</b> = same exercise + more load/reps · <b>Adjacent</b> = same family, different variant · <b>New</b> = new modality.</div>
+        ${rows}
+      </div>
+    </div>`;
+
+  // Wire pill clicks
+  for (const pillsBox of box.querySelectorAll('.prog-pills')) {
+    const pat = pillsBox.dataset.pattern;
+    for (const pill of pillsBox.querySelectorAll('.prog-pill')) {
+      pill.addEventListener('click', () => {
+        pillsBox.querySelectorAll('.prog-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        window._progressionPrefs[pat] = pill.dataset.choice;
+      });
+    }
+  }
+}
 
 // Populate templates dropdown + render preview when one is selected
 let _templates = {};
@@ -545,7 +689,12 @@ document.getElementById('genBtn').addEventListener('click', async () => {
     const r = await fetch('/api/program', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ snapshot, blockIntent: intent, durationWeeks: weeks, clientId: c.id, templateId, frequency, conditioningZone }),
+      body: JSON.stringify({
+        snapshot, blockIntent: intent, durationWeeks: weeks, clientId: c.id,
+        templateId, frequency, conditioningZone,
+        previousBlock: window._prevBlockData || null,
+        progressionPreferences: window._progressionPrefs || {},
+      }),
     });
     const data = await r.json();
 

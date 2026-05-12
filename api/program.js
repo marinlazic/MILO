@@ -61,7 +61,7 @@ DESIGN RULES — STRICT:
 
 1. **Match Marin's coaching style.** Look at the workouts the athlete has done recently (names like "Hinge, Carry, Core" / "Vertical Pull + Lower Unilateral" / "Pull, Posterior Shoulder, Hip"). Use this same naming pattern for sessions. He does compound multi-pattern sessions, not bodybuilder splits.
 
-2. **Use exercises the athlete has actually done before** where possible — pull names from their strength progression and recent workouts. If you need to introduce a new exercise, make it adjacent (same pattern family) and explain why in the exercise note.
+2. **Honour the PREVIOUS BLOCK CONTEXT block in the prompt if it's present.** The coach has marked a "keep / adjacent / new" choice per movement pattern — those are NOT suggestions, they are rules. "keep" = same exercise + progress load. "adjacent" = same family, different variant. "new" = new modality entirely. Every primary/secondary block exercise note MUST reference what the athlete did before (e.g. "Progression from Trap Bar Deadlift — same pattern, switched to conventional"). Never silently repeat the same exercise from the previous block; that defeats the point of a new block.
 
 3. **Address the gaps the data shows.** If push:pull is 8:11 (pull-heavy), add a push session. If frontal/transverse plane is 0%, add lateral or rotation work. If a body region hasn't been trained, include it.
 
@@ -94,7 +94,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { snapshot, blockIntent, durationWeeks, clientId, templateId, frequency, conditioningZone } = req.body || {};
+    const { snapshot, blockIntent, durationWeeks, clientId, templateId, frequency, conditioningZone, previousBlock, progressionPreferences } = req.body || {};
     if (!snapshot) return res.status(400).json({ error: 'Missing snapshot' });
 
     // Load coaching principles + per-athlete notes + template library (best-effort)
@@ -140,6 +140,27 @@ ${JSON.stringify(chosenTemplate, null, 2)}`);
     if (principles?.mobility_pools) {
       contextSections.push(`MOBILITY EXERCISE POOLS (use these when filling in a mobility block — pick 1 exercise from the matching category, vary across sessions for the same athlete):
 ${JSON.stringify(principles.mobility_pools, null, 2)}`);
+    }
+    if (previousBlock && previousBlock.byPattern && Object.keys(previousBlock.byPattern).length) {
+      const prefsList = Object.entries(progressionPreferences || {})
+        .map(([pat, choice]) => `  ${pat}: ${choice}`)
+        .join('\n');
+      contextSections.push(`PREVIOUS BLOCK CONTEXT (the athlete just finished this — DO NOT repeat the same exercises verbatim; PROGRESS instead).
+
+Program: ${previousBlock.program || '(unnamed)'} · ${previousBlock.workoutsAnalysed || 0} sessions analysed · ${previousBlock.dateRange || ''}.
+
+What they did, per movement pattern (exercise name · sessions performed · last logged e1RM if available):
+${JSON.stringify(previousBlock.byPattern, null, 2)}
+
+COACH'S PROGRESSION CHOICES (apply these EXACTLY to the new block):
+${prefsList || '(no preferences set — default to "adjacent" for every pattern)'}
+
+PROGRESSION RULES — STRICT:
+- "keep"     → use the SAME exercise the athlete already did. Add load (~2.5-5%) or reps (+1-2) based on RPE trend. Reference the last e1RM in the exercise note (e.g. "Last logged 159 kg e1RM — work up to 162 kg top set").
+- "adjacent" → SAME family, DIFFERENT variant. Examples: barbell back squat → barbell front squat, trap bar deadlift → conventional deadlift, bench press → DB bench press, weighted chin-up → neutral-grip chin-up. The pattern stays identical; modality/grip/stance shifts. Anchor load at ~90-95% of the previous exercise's e1RM since the new variant is less practised.
+- "new"      → NEW MODALITY entirely. Move across modality categories: barbell → kettlebell → bodyweight → unilateral → tempo-loaded. Examples: barbell back squat → double KB front-rack squat, conventional deadlift → KB swing, bench press → push-up variation, weighted chin-up → ring row. Don't pick something the athlete has already done — look at the previous-block list and avoid those names. Start load conservatively (RPE 6-7) since technique is new.
+
+ALWAYS reference the previous exercise in the new exercise's "note" field so the coach can see the lineage (e.g. "Progression from Trap Bar Deadlift — same pattern, more loading bar height variation").`);
     }
     if (principles?.session_balance_rules && chosenTemplate) {
       contextSections.push(`SESSION BALANCE RULES (apply alongside the template):
