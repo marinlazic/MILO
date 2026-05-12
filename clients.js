@@ -1,8 +1,8 @@
 /* ============================================================
    MILO — Client Data Layer
    ============================================================
-   Auto-populated from Bridge Athletic via bridge-sync.js.
-   Last synced: 2026-05-12T00:41:56Z
+   Auto-synced from Bridge Athletic via /api/sync.
+   Last synced: 2026-05-12T04:51:37.157Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -3651,7 +3651,6 @@ function daysSinceLastWorkout(c, today = new Date()) {
   return Math.round((today - new Date(d)) / (86400000));
 }
 
-/* Workout content lazy loader */
 let _workoutCache = null;
 async function getWorkoutContent(workoutId) {
   if (!workoutId) return null;
