@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-05-12T20:00:08.806Z
+   Last synced: 2026-05-12T20:19:47.819Z
    ============================================================ */
 
 const BRIDGE_DATA = {
