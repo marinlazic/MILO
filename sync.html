@@ -97,15 +97,18 @@
     <p style="margin-top:14px">Apply to all 3 environments (Production / Preview / Development). Then <b>redeploy</b> (Deployments → latest → ⋯ → Redeploy).</p>
   </div>
 
-  <!-- STEP 3: Bookmarklet -->
+  <!-- STEP 3: Install the Chrome extension -->
   <div class="step">
-    <span class="step-num">3</span><h2>Drag this button to your bookmarks bar</h2>
-    <p>This installs the <b>MILO Sync</b> bookmark. Show your bookmarks bar first: <code>Cmd+Shift+B</code> in Chrome.</p>
-    <div class="bookmarklet-box">
-      <a class="bookmarklet" id="bookmarklet" href="javascript:void(0)" draggable="true">⬇ MILO Sync</a>
-      <div class="bookmark-hint">↑ Drag this button into your bookmarks bar</div>
-    </div>
-    <div class="note"><b>If dragging doesn't work:</b> right-click the button → "Bookmark this link" / "Add to bookmarks".</div>
+    <span class="step-num">3</span><h2>Install the MILO Sync Chrome extension</h2>
+    <div class="note"><b>Why an extension and not a bookmarklet?</b> Bridge's Content Security Policy blocks bookmarklets from contacting external sites. Chrome extensions get explicit cross-origin permission, which bypasses CSP cleanly.</div>
+    <ol>
+      <li>Download or clone this repo, OR open the <code>extension/</code> folder in <a class="ext" href="https://github.com/marinlazic/MILO/tree/main/extension" target="_blank">github.com/marinlazic/MILO/extension</a></li>
+      <li>If you're on your Mac: the folder is at <code>~/Documents/GitHub/MILO/extension</code></li>
+      <li>Open Chrome → navigate to <code>chrome://extensions</code></li>
+      <li>Toggle <b>Developer mode</b> ON (top right of that page)</li>
+      <li>Click <b>Load unpacked</b> → select the <code>extension/</code> folder</li>
+      <li>The MILO Sync icon appears in your extensions list. Pin it to the toolbar: click the puzzle-piece icon → click the pin next to "MILO Sync"</li>
+    </ol>
   </div>
 
   <!-- STEP 4: Daily usage -->
@@ -113,10 +116,10 @@
     <span class="step-num">4</span><h2>Use it daily</h2>
     <ol>
       <li>Open Bridge Athletic and log in (<a class="ext" href="https://bridgeathletic.com" target="_blank">bridgeathletic.com</a>)</li>
-      <li>Click the <b>MILO Sync</b> bookmark in your bookmark bar</li>
-      <li>First time only: it'll prompt you for the <code>SYNC_SECRET</code> you set in Step 2 — paste it, choose "save to localStorage" so you never have to enter it again on this device</li>
-      <li>Watch the dark toast at top-right: it'll cycle through "Pulling roster… → templates… → set history… → Posting…"</li>
-      <li>~30 seconds later: ✓ Synced. ~60-90s after that, the live MILO site is fresh.</li>
+      <li>Click the <b>MILO Sync</b> icon in your Chrome toolbar</li>
+      <li>First time only: paste your <code>SYNC_SECRET</code> in the popup (it saves locally — you only do this once per device)</li>
+      <li>Click <b>Sync now</b></li>
+      <li>~30-60s later: ✓ Synced. ~60-90s after that, milo-cyan.vercel.app shows fresh data.</li>
     </ol>
   </div>
 

@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "MILO Sync",
+  "version": "1.0.0",
+  "description": "One-click daily sync from Bridge Athletic to your MILO dashboard.",
+  "permissions": ["scripting", "storage", "activeTab"],
+  "host_permissions": [
+    "https://bridgeathletic.com/*",
+    "https://milo-cyan.vercel.app/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MILO Sync"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

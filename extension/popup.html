@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --bg:#0E1117; --surface:#1a1f2e; --text:#fff; --muted:rgba(255,255,255,0.55);
+    --border:rgba(255,255,255,0.10);
+    --blue:#1A6BF5; --blue-grad:linear-gradient(135deg,#1A6BF5,#6BA8FF);
+    --green:#0D7A4E; --green-light:#7BE0A8;
+    --amber:#F59E0B; --red:#EF4444;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font:13px/1.5 -apple-system,BlinkMacSystemFont,system-ui,sans-serif;width:320px;background:var(--bg);color:var(--text);padding:18px}
+  h1{font-size:15px;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:9px;margin-bottom:4px}
+  .badge{display:inline-flex;width:24px;height:24px;border-radius:6px;background:var(--blue-grad);align-items:center;justify-content:center;font-weight:800;font-size:12px}
+  .sub{font-size:11px;color:var(--muted);margin-bottom:16px;font-family:'SF Mono',Menlo,monospace;letter-spacing:0.02em}
+  label{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;font-weight:600}
+  input[type=password],input[type=text]{width:100%;padding:8px 10px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'SF Mono',Menlo,monospace;font-size:11px;outline:none}
+  input:focus{border-color:var(--blue)}
+  .row{margin-bottom:12px}
+  button{width:100%;padding:11px;background:var(--blue-grad);color:#fff;border:none;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer;letter-spacing:-0.01em;transition:opacity 0.15s}
+  button:hover{opacity:0.9}
+  button:disabled{opacity:0.5;cursor:not-allowed}
+  #status{margin-top:14px;padding:10px 12px;border-radius:7px;background:var(--surface);border:1px solid var(--border);font-size:11px;line-height:1.55;min-height:36px}
+  #status .ok{color:var(--green-light)}
+  #status .err{color:#FF8888}
+  #status .progress{color:var(--muted)}
+  .last-sync{font-size:10px;color:var(--muted);margin-top:10px;font-family:'SF Mono',Menlo,monospace;text-align:center;letter-spacing:0.04em}
+  a.linky{color:#6BA8FF;text-decoration:none;font-size:10px;font-family:'SF Mono',Menlo,monospace;letter-spacing:0.04em}
+  a.linky:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+  <h1><span class="badge">M</span> MILO Sync</h1>
+  <div class="sub">Bridge → MILO · one click daily</div>
+
+  <div class="row">
+    <label>Sync secret</label>
+    <input id="secret" type="password" placeholder="paste from Vercel env vars" autocomplete="off" />
+  </div>
+
+  <button id="syncBtn">Sync now</button>
+
+  <div id="status">Loading…</div>
+
+  <div class="last-sync" id="lastSync"></div>
+
+  <div style="text-align:center;margin-top:12px">
+    <a class="linky" href="https://milo-cyan.vercel.app" target="_blank">Open MILO dashboard ↗</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
