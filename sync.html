@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MILO — Bridge Sync Setup</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F0F2F5; --surface:#FFFFFF; --surface2:#F7F8FA;
+    --border:#E4E8EE; --border2:#D0D6E0;
+    --blue:#1A6BF5; --blue-dark:#0D47C4; --blue-light:#E8F0FE;
+    --blue-grad:linear-gradient(135deg,#1A6BF5 0%,#6BA8FF 100%);
+    --text:#0E1117; --text2:#3A4156; --muted:#7A8499;
+    --green:#0D7A4E; --green-bg:#E6F7F0;
+    --amber:#8A5A00; --amber-bg:#FEF3CC;
+    --red:#C0202A; --red-bg:#FDEAEA;
+    --mono:'DM Mono',monospace; --head:'DM Sans',sans-serif; --body:'Inter',sans-serif;
+    --r:14px; --sh:0 1px 2px rgba(0,0,0,0.05),0 4px 20px rgba(0,0,0,0.06);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:var(--body);font-size:14px;color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6;padding:40px 24px}
+  .wrap{max-width:780px;margin:0 auto}
+  h1{font-family:var(--head);font-size:32px;font-weight:800;letter-spacing:-0.04em;margin-bottom:8px}
+  .lead{color:var(--text2);font-size:15px;margin-bottom:32px}
+  .back-link{font-family:var(--mono);font-size:11px;color:var(--blue);text-decoration:none;letter-spacing:0.04em;display:inline-block;margin-bottom:16px}
+  .back-link:hover{text-decoration:underline}
+
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:24px 28px;margin-bottom:18px;box-shadow:var(--sh)}
+  .step-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--blue-grad);color:#fff;font-family:var(--head);font-weight:800;font-size:14px;align-items:center;justify-content:center;margin-right:10px;vertical-align:middle}
+  .step h2{font-family:var(--head);font-size:18px;font-weight:700;letter-spacing:-0.02em;display:inline-block;vertical-align:middle;margin-bottom:14px}
+  .step p{color:var(--text2);margin-bottom:12px}
+  .step ol,.step ul{padding-left:22px;color:var(--text2)}
+  .step li{margin-bottom:6px}
+  code{font-family:var(--mono);font-size:12px;background:var(--surface2);padding:2px 7px;border-radius:5px;border:1px solid var(--border);color:var(--text)}
+  .code-block{background:var(--text);color:#E0E6F0;font-family:var(--mono);font-size:12px;padding:14px 18px;border-radius:8px;overflow-x:auto;margin:10px 0;white-space:pre-wrap;word-break:break-all}
+
+  .bookmarklet-box{background:var(--blue-light);border:2px dashed var(--blue);border-radius:12px;padding:22px;text-align:center;margin:14px 0}
+  .bookmarklet{display:inline-block;background:var(--blue-grad);color:#fff!important;padding:14px 28px;border-radius:10px;font-family:var(--head);font-weight:700;font-size:15px;text-decoration:none;cursor:grab;box-shadow:0 4px 14px rgba(26,107,245,0.4);transition:transform 0.15s}
+  .bookmarklet:active{cursor:grabbing}
+  .bookmarklet:hover{transform:translateY(-2px)}
+  .bookmark-hint{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:10px;letter-spacing:0.06em;text-transform:uppercase}
+
+  a.ext{color:var(--blue);font-weight:500}
+  a.ext:hover{text-decoration:underline}
+
+  .pill{display:inline-block;padding:3px 10px;border-radius:20px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase}
+  .pill.warn{background:var(--amber-bg);color:var(--amber)}
+  .pill.info{background:var(--blue-light);color:var(--blue-dark)}
+
+  .note{background:var(--amber-bg);border-left:3px solid var(--amber);padding:12px 16px;border-radius:0 8px 8px 0;color:var(--text2);font-size:13px;margin:10px 0}
+  .note b{color:var(--text)}
+
+  .secret-input{font-family:var(--mono);font-size:12px;padding:8px 12px;border:1px solid var(--border2);border-radius:6px;width:100%;max-width:400px;margin-top:6px}
+  .secret-btn{margin-left:8px;padding:8px 16px;background:var(--blue);color:#fff;border:none;border-radius:6px;font-family:var(--body);font-size:12px;font-weight:600;cursor:pointer}
+  .secret-btn:hover{opacity:0.9}
+  .test-btn{margin-top:14px;padding:10px 20px;background:var(--green);color:#fff;border:none;border-radius:8px;font-family:var(--body);font-size:13px;font-weight:600;cursor:pointer}
+  .test-btn:hover{opacity:0.92}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="index.html" class="back-link">← Back to Dashboard</a>
+
+  <h1>Daily Bridge Sync — Setup</h1>
+  <p class="lead">One-time setup, then daily it's a single click while you're on Bridge.</p>
+
+  <!-- STEP 1: GitHub PAT -->
+  <div class="step">
+    <span class="step-num">1</span><h2>Create a GitHub fine-grained token</h2>
+    <p>Vercel needs permission to write the synced data files to your repo.</p>
+    <ol>
+      <li>Open <a class="ext" href="https://github.com/settings/personal-access-tokens/new" target="_blank">github.com/settings/personal-access-tokens/new</a></li>
+      <li>Token name: <code>MILO Sync</code></li>
+      <li>Expiration: pick whatever (12 months is fine)</li>
+      <li>Resource owner: <code>marinlazic</code></li>
+      <li>Repository access: <b>Only select repositories</b> → choose <code>marinlazic/MILO</code></li>
+      <li>Repository permissions → <b>Contents: Read and write</b></li>
+      <li>Click <b>Generate token</b>, then <b>copy the token</b> (starts with <code>github_pat_…</code>) — you'll only see it once</li>
+    </ol>
+  </div>
+
+  <!-- STEP 2: Vercel env vars -->
+  <div class="step">
+    <span class="step-num">2</span><h2>Add two environment variables to Vercel</h2>
+    <p>Go to <a class="ext" href="https://vercel.com/dashboard" target="_blank">vercel.com/dashboard</a> → your <b>MILO</b> project → <b>Settings</b> → <b>Environment Variables</b>. Add both:</p>
+    <ul>
+      <li><code>GITHUB_TOKEN</code> = the token from Step 1</li>
+      <li><code>SYNC_SECRET</code> = any long random string (this authenticates the bookmarklet — generate one below)</li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px">
+      <input type="text" class="secret-input" id="generatedSecret" readonly>
+      <button class="secret-btn" onclick="genSecret()">Generate random secret</button>
+      <button class="secret-btn" onclick="copySecret()" style="background:var(--text2)">Copy</button>
+    </div>
+    <p style="margin-top:14px">Apply to all 3 environments (Production / Preview / Development). Then <b>redeploy</b> (Deployments → latest → ⋯ → Redeploy).</p>
+  </div>
+
+  <!-- STEP 3: Bookmarklet -->
+  <div class="step">
+    <span class="step-num">3</span><h2>Drag this button to your bookmarks bar</h2>
+    <p>This installs the <b>MILO Sync</b> bookmark. Show your bookmarks bar first: <code>Cmd+Shift+B</code> in Chrome.</p>
+    <div class="bookmarklet-box">
+      <a class="bookmarklet" id="bookmarklet" href="javascript:void(0)" draggable="true">⬇ MILO Sync</a>
+      <div class="bookmark-hint">↑ Drag this button into your bookmarks bar</div>
+    </div>
+    <div class="note"><b>If dragging doesn't work:</b> right-click the button → "Bookmark this link" / "Add to bookmarks".</div>
+  </div>
+
+  <!-- STEP 4: Daily usage -->
+  <div class="step">
+    <span class="step-num">4</span><h2>Use it daily</h2>
+    <ol>
+      <li>Open Bridge Athletic and log in (<a class="ext" href="https://bridgeathletic.com" target="_blank">bridgeathletic.com</a>)</li>
+      <li>Click the <b>MILO Sync</b> bookmark in your bookmark bar</li>
+      <li>First time only: it'll prompt you for the <code>SYNC_SECRET</code> you set in Step 2 — paste it, choose "save to localStorage" so you never have to enter it again on this device</li>
+      <li>Watch the dark toast at top-right: it'll cycle through "Pulling roster… → templates… → set history… → Posting…"</li>
+      <li>~30 seconds later: ✓ Synced. ~60-90s after that, the live MILO site is fresh.</li>
+    </ol>
+  </div>
+
+  <!-- Test -->
+  <div class="step" style="background:var(--blue-light);border-color:var(--blue)">
+    <h2 style="margin-left:0">Quick sanity check</h2>
+    <p>Once Vercel has your env vars set + redeployed, test the API is up:</p>
+    <button class="test-btn" onclick="testApi()">Test /api/sync (without secret — should 401)</button>
+    <div id="testResult" style="margin-top:12px;font-family:var(--mono);font-size:11px"></div>
+  </div>
+
+</div>
+
+<script>
+function genSecret() {
+  const arr = new Uint8Array(32);
+  crypto.getRandomValues(arr);
+  const s = Array.from(arr, b => b.toString(16).padStart(2, '0')).join('');
+  document.getElementById('generatedSecret').value = s;
+}
+function copySecret() {
+  const inp = document.getElementById('generatedSecret');
+  if (!inp.value) genSecret();
+  inp.select();
+  navigator.clipboard.writeText(inp.value);
+  alert('Copied: ' + inp.value);
+}
+async function testApi() {
+  const r = document.getElementById('testResult');
+  r.textContent = '⏳ Calling /api/sync…';
+  try {
+    const res = await fetch('/api/sync', { method: 'POST', headers: {'Content-Type':'application/json'}, body: '{}' });
+    const j = await res.json();
+    r.innerHTML = `<b style="color:${res.status === 401 ? 'var(--green)' : 'var(--amber)'}">${res.status}</b> · ${JSON.stringify(j)}`;
+    if (res.status === 401) r.innerHTML += '<br><span style="color:var(--green)">✓ Good — endpoint is alive and auth is working.</span>';
+    else if (res.status === 500) r.innerHTML += '<br><span style="color:var(--amber)">⚠ Endpoint is live but env vars not set yet. Add them on Vercel and redeploy.</span>';
+  } catch (e) {
+    r.innerHTML = `<span style="color:var(--red)">✗ ${e.message}</span> — endpoint not deployed yet?`;
+  }
+}
+genSecret();
+
+// Build the bookmarklet URI dynamically — points at our hosted loader,
+// stays small so it fits comfortably in bookmark bars.
+const BOOKMARKLET_LOADER = "javascript:(function(){var s=document.createElement('script');s.src='https://milo-cyan.vercel.app/bookmarklet.js?v='+Date.now();document.body.appendChild(s);})();";
+document.getElementById('bookmarklet').href = BOOKMARKLET_LOADER;
+</script>
+</body>
+</html>

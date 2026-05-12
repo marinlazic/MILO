@@ -521,7 +521,10 @@
         <div class="page-sub" id="dashSubtitle">19 active clients</div>
       </div>
       <div class="btn-row">
-        <button class="btn btn-outline">Export week</button>
+        <a class="btn btn-outline" href="sync.html" id="syncStatusBtn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px">
+          <span id="syncDot" style="width:8px;height:8px;border-radius:50%;background:var(--muted2)"></span>
+          <span id="syncStatusText">Sync setup</span>
+        </a>
         <button class="btn btn-blue">+ Add client</button>
       </div>
     </div>
@@ -752,6 +755,29 @@
 <script src="clients.js"></script>
 <script src="classifier.js"></script>
 <script>
+/* ── Sync status indicator ─────────────────────────── */
+(async function syncStatus() {
+  const dot = document.getElementById('syncDot');
+  const text = document.getElementById('syncStatusText');
+  if (!dot || !text) return;
+  try {
+    const r = await fetch('sync-status.json?t=' + Date.now());
+    if (!r.ok) throw 0;
+    const j = await r.json();
+    const ageMs = Date.now() - new Date(j.lastSynced).getTime();
+    const ageHrs = Math.round(ageMs / 3600000);
+    let color = 'var(--green)', label;
+    if (ageHrs < 1) label = 'Synced just now';
+    else if (ageHrs < 24) label = `Synced ${ageHrs}h ago`;
+    else if (ageHrs < 48) { label = `Synced ${Math.round(ageHrs/24)}d ago`; color = 'var(--amber)'; }
+    else { label = `Synced ${Math.round(ageHrs/24)}d ago`; color = 'var(--red)'; }
+    dot.style.background = color;
+    text.textContent = label;
+  } catch (e) {
+    text.textContent = 'Sync setup';
+  }
+})();
+
 /* ── Dashboard subtitle (live date) ────────────────── */
 (function updateSubtitle() {
   const el = document.getElementById('dashSubtitle');
