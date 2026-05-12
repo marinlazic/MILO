@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-05-12T22:30:29.896Z
+   Last synced: 2026-05-12T23:57:10.310Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -3696,6 +3696,8 @@ async function getExerciseProgression(client) {
   return out;
 }
 
+// Extract previous block exercises (per movement pattern, with logged loads if available).
+// Used by /build.html to drive the 'keep / adjacent / new' progression toggles.
 async function extractPreviousBlock(client, opts = {}) {
   if (!client) return null;
   const CLF = (typeof window !== "undefined") ? window.MILO_CLASSIFIER : null;
