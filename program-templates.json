@@ -52,7 +52,8 @@
   "templates": {
     "basic-training-ab": {
       "id": "basic-training-ab",
-      "name": "Basic Training (A/B split)",
+      "name": "Basic 1",
+      "progressionOrder": 1,
       "description": "Foundational A/B split. Day A = horizontal push/pull + hip mobility. Day B = vertical push/pull + t-spine mobility. Ankle mobility caps every session.",
       "tags": ["foundational", "basic", "general health"],
       "weeks": 4,
@@ -97,7 +98,8 @@
 
     "strength-builder-ab": {
       "id": "strength-builder-ab",
-      "name": "Strength Builder (A/B)",
+      "name": "Basic 2",
+      "progressionOrder": 2,
       "description": "Volume bump over Basic Training. 2-4 sets x 10 reps. A includes a Combination slot (total-body multi-joint). B includes a Power slot. Lunge + Hinge in A, Single-leg stance + Squat in B = full lower-body coverage across the cycle.",
       "tags": ["strength", "intermediate", "volume", "general health"],
       "weeks": 4,
@@ -140,7 +142,8 @@
 
     "triplet-density-ab": {
       "id": "triplet-density-ab",
-      "name": "Triplet Density (A/B)",
+      "name": "Basic 3",
+      "progressionOrder": 3,
       "description": "Density progression with triplet supersets (3 exercises back-to-back). 2-3 x 12. Shorter conditioning work:rest ratio (30s/30s). Triplet on the first set, pair on the second.",
       "tags": ["strength", "density", "advanced", "intermediate"],
       "weeks": 4,
@@ -185,7 +188,8 @@
 
     "metabolic-strength-ab": {
       "id": "metabolic-strength-ab",
-      "name": "Metabolic Strength (A/B)",
+      "name": "Basic 4",
+      "progressionOrder": 4,
       "description": "Metabolic finisher replaces intervals. Pick 3 strength exercises + 1 locomotion, run each for 15-20 seconds (no rep counting). Higher volume strength block (3-4 sets) up top. Can be supercharged into a giant set (1a-1b-2a-2b consecutive, no rest).",
       "tags": ["strength", "metabolic", "conditioning", "advanced"],
       "weeks": 4,

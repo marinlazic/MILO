@@ -345,8 +345,10 @@ let _templates = {};
     _templates = tfile.templates || {};
     const tselect = document.getElementById('templateSel');
     const preselect = params.get('template');
-    for (const [id, t] of Object.entries(_templates)) {
-      if (id.startsWith('_')) continue;
+    const sorted = Object.entries(_templates)
+      .filter(([id]) => !id.startsWith('_'))
+      .sort(([, a], [, b]) => (a.progressionOrder ?? 999) - (b.progressionOrder ?? 999));
+    for (const [id, t] of sorted) {
       const opt = document.createElement('option');
       opt.value = id;
       opt.textContent = t.name || id;

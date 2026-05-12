@@ -206,7 +206,14 @@ async function load() {
 
 function renderList() {
   const grid = document.getElementById('grid');
-  const visibleEntries = Object.entries(templates).filter(([id]) => !id.startsWith('_'));
+  const visibleEntries = Object.entries(templates)
+    .filter(([id]) => !id.startsWith('_'))
+    .sort(([, a], [, b]) => {
+      const ao = a.progressionOrder ?? 999;
+      const bo = b.progressionOrder ?? 999;
+      if (ao !== bo) return ao - bo;
+      return (a.name || '').localeCompare(b.name || '');
+    });
   document.getElementById('countLine').textContent = `${visibleEntries.length} template${visibleEntries.length === 1 ? '' : 's'}`;
 
   if (visibleEntries.length === 0) {
