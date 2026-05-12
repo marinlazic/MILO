@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-05-12T04:51:37.157Z
+   Last synced: 2026-05-12T20:00:08.806Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -279,7 +279,7 @@ const BRIDGE_DATA = {
         "name": "Hypertrophy & Impulse Integration",
         "status": "started",
         "startedAt": "2026-05-10",
-        "updatedAt": "2026-05-11",
+        "updatedAt": "2026-05-12",
         "isPlaylist": true
       },
       {
@@ -2190,7 +2190,7 @@ const BRIDGE_DATA = {
     "age": 53,
     "birthDate": "1972-10-10",
     "gender": null,
-    "weightKg": 59,
+    "weightKg": 60,
     "programs": [
       {
         "bridgeId": 1536774,
@@ -2388,6 +2388,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-05-11",
+        "name": "Lower",
+        "workoutId": 35576324,
+        "workoutHistoryId": 64710084,
+        "duration": 60,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-09",
         "name": "Upper",
         "workoutId": 35576323,
@@ -2494,16 +2504,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 63653161,
         "duration": 52,
         "rpe": 6,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-08",
-        "name": "Lower",
-        "workoutId": 35576324,
-        "workoutHistoryId": 63564717,
-        "duration": 45,
-        "rpe": 5,
         "program": "Alana 2026 Health and Performance Program ",
         "status": "completed"
       }
@@ -3696,112 +3696,6 @@ async function getExerciseProgression(client) {
   return out;
 }
 
-// ── Extract previous block: per-pattern exercise + latest e1RM ──
-// Returns a structure like:
-//   {
-//     program: "ARM FARM (no above head)",
-//     dateRange: "2026-04-12 → 2026-05-11",
-//     workoutsAnalysed: 8,
-//     byPattern: {
-//       squat:           [ { exercise: 'Goblet Squat', sessions: 4, lastE1rm_kg: 45, lastReps: 8, lastWeight: 35 } ],
-//       hinge:           [ ... ],
-//       horizontal_push: [ ... ],
-//       ...
-//     }
-//   }
-async function extractPreviousBlock(client, opts = {}) {
-  if (!client) return null;
-  const CLF = (typeof window !== "undefined") ? window.MILO_CLASSIFIER : null;
-  if (!CLF) return null;
-
-  // Pick the workouts to analyse: most recent N completed workouts (default 10)
-  // Optionally filter to a specific program name (current active block).
-  const recents = (client.recentWorkouts || []).filter(w => w.status === "completed");
-  if (!recents.length) return null;
-  const programFilter = opts.program || (recents[0].program || null);
-  const filtered = programFilter
-    ? recents.filter(w => w.program === programFilter)
-    : recents;
-  const sessions = filtered.slice(0, opts.limit || 10);
-
-  // Load workout content for each
-  const workouts = await Promise.all(sessions.map(s => getWorkoutContent(s.workoutId)));
-  // Load set history once to look up actual logged loads
-  const setHistory = await getSetHistory();
-  const setsByUser = (setHistory.sets || {})[client.bridgeId] || [];
-  const exNames = setHistory.exerciseNames || {};
-
-  // Build a lookup: most recent set per exercise (by name) for this athlete
-  // Use the resultWeight (rw) for actual load, rr for reps
-  const lastSetByExName = {}; // exName → { weight_kg, reps, date, e1rm }
-  for (const s of setsByUser) {
-    if (!s.rw || !s.rr) continue;
-    const name = exNames[s.ex];
-    if (!name) continue;
-    const weight = s.rw / 1000000;
-    const reps = parseInt(s.rr, 10);
-    if (!weight || !reps) continue;
-    const e1rm = weight * (1 + reps / 30);
-    const prev = lastSetByExName[name];
-    if (!prev || (s.d || "") > (prev.date || "")) {
-      lastSetByExName[name] = { weight_kg: weight, reps, date: s.d, e1rm_kg: e1rm };
-    }
-  }
-
-  // Walk every block + exercise in every workout, classify by pattern
-  const byPattern = {}; // pattern → Map(exerciseName → { sessions, ... })
-  for (const w of workouts) {
-    if (!w || !w.blocks) continue;
-    for (const blk of w.blocks) {
-      for (const ex of (blk.exercises || [])) {
-        const tags = CLF.classifyName(ex.name);
-        const pattern = tags?.pattern;
-        if (!pattern) continue;
-        if (!byPattern[pattern]) byPattern[pattern] = new Map();
-        const slot = byPattern[pattern].get(ex.name) || {
-          exercise: ex.name,
-          slug: ex.slug || null,
-          sessions: 0,
-          blockNames: new Set(),
-          lastE1rm_kg: null,
-          lastReps: null,
-          lastWeight_kg: null,
-          lastDate: null,
-        };
-        slot.sessions += 1;
-        if (blk.name) slot.blockNames.add(blk.name);
-        const set = lastSetByExName[ex.name];
-        if (set && (!slot.lastDate || set.date > slot.lastDate)) {
-          slot.lastE1rm_kg = Math.round(set.e1rm_kg);
-          slot.lastReps = set.reps;
-          slot.lastWeight_kg = Math.round(set.weight_kg * 10) / 10;
-          slot.lastDate = set.date;
-        }
-        byPattern[pattern].set(ex.name, slot);
-      }
-    }
-  }
-
-  // Flatten Maps + sort each pattern's exercise list by sessions desc
-  const out = {};
-  for (const [pattern, exMap] of Object.entries(byPattern)) {
-    const arr = Array.from(exMap.values()).map(s => ({
-      ...s,
-      blockNames: Array.from(s.blockNames || []).slice(0, 3),
-    }));
-    arr.sort((a, b) => b.sessions - a.sessions);
-    out[pattern] = arr.slice(0, 4); // cap to top 4 exercises per pattern
-  }
-
-  const dates = sessions.map(s => s.date).filter(Boolean).sort();
-  return {
-    program: programFilter,
-    dateRange: dates.length ? `${dates[0]} → ${dates[dates.length - 1]}` : null,
-    workoutsAnalysed: sessions.length,
-    byPattern: out,
-  };
-}
-
 if (typeof window !== "undefined") {
   window.MILO = {
     BRIDGE_DATA,
@@ -3809,6 +3703,5 @@ if (typeof window !== "undefined") {
     activePrograms, completedPrograms, primaryProgram,
     avgRpe, sessionsThisRange, lastWorkoutDate, daysSinceLastWorkout,
     getWorkoutContent, getSetHistory, getExerciseProgression,
-    extractPreviousBlock,
   };
 }
