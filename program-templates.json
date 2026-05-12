@@ -7,7 +7,7 @@
 
   "_patternVocabulary": [
     "squat",
-    "squat_unilateral",
+    "single_leg",
     "hinge",
     "hinge_unilateral",
     "lunge",
@@ -28,11 +28,23 @@
     "power_upper",
     "explosive_carry",
     "combination_total_body",
-    "conditioning_zone_2",
-    "conditioning_zone_5",
+    "conditioning",
     "core_finisher",
     "mobility"
   ],
+
+  "_blockFields": {
+    "_docs": "Reference: every block in a template can carry these optional fields. pattern is required.",
+    "pattern": "from vocabulary above",
+    "intensity": "primary | secondary | accessory | finisher",
+    "sets": "number or string range (e.g. '1-2')",
+    "reps": "number, time ('30 seconds'), distance ('20m'), or range",
+    "pair": "superset label (e.g. '1a', '1b', '1c')",
+    "category": "for mobility blocks: 'ankle' | 'hip' | 't-spine'",
+    "zone": "for conditioning blocks: 1 | 2 | 3 | 4 | 5 (energy-system zone)",
+    "loaded": "true if external resistance, false if bodyweight / mobility / cardio",
+    "note": "free-text coaching note"
+  },
 
   "_intensityLevels": ["primary", "secondary", "accessory", "finisher"],
 
@@ -40,44 +52,46 @@
     "basic-training-ab": {
       "id": "basic-training-ab",
       "name": "Basic Training (A/B split)",
-      "description": "Foundational 2-session split cycled A-B-A-B over 2 weeks. Day 1 (A) emphasises horizontal push/pull + hip mobility. Day 2 (B) emphasises vertical push/pull + t-spine mobility. Ankle mobility caps every session.",
-      "tags": ["foundational", "basic", "2-session split", "general health"],
-      "weeks": 2,
-      "sessionsPerWeek": 2,
-      "totalWorkouts": 4,
+      "description": "Foundational A/B split. Day A = horizontal push/pull + hip mobility. Day B = vertical push/pull + t-spine mobility. Ankle mobility caps every session.",
+      "tags": ["foundational", "basic", "general health"],
+      "weeks": 4,
+      "uniqueSessions": 2,
+      "frequencyOptions": [2, 3, 4],
+      "defaultFrequency": 2,
+      "cyclingNote": "Run A then B (alternate). At 3x/week the 3rd session repeats A. At 4x/week run two full A-B cycles.",
       "sessions": [
         {
           "name": "Workout A",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": "1-2", "reps": "30 seconds", "note": "Core — Stability" },
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": "1-2", "reps": "10", "note": "Core — Dynamic Stability" },
-            { "pattern": "power_lower",      "intensity": "primary",   "sets": 2,     "reps": "5",  "note": "Power slot — coach picks (jumps / KB swing / med ball)" },
-            { "pattern": "squat",            "intensity": "primary",   "sets": "1-2", "reps": "15", "pair": "1a" },
-            { "pattern": "horizontal_pull",  "intensity": "primary",   "sets": "1-2", "reps": "15", "pair": "1b", "note": "Superset with 1a · Day 1 = horizontal pull" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "pair": "1c", "note": "Hip mobility reset after first strength pair" },
-            { "pattern": "squat_unilateral", "intensity": "secondary", "sets": "1-2", "reps": "15", "pair": "2a", "note": "Single-leg stance" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": "1-2", "reps": "15", "pair": "2b", "note": "Superset with 2a · Day 1 = horizontal push" },
-            { "pattern": "conditioning_zone_5", "intensity": "finisher", "sets": "2-4", "reps": "1 min work / 2 min recovery", "note": "Intervals" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher", "sets": 1, "reps": "1-2 min", "note": "Ankle mobility cool-down" }
+            { "pattern": "anti_extension",   "intensity": "primary",   "sets": "1-2", "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
+            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": "1-2", "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
+            { "pattern": "power_lower",      "intensity": "primary",   "sets": 2,     "reps": "5",          "loaded": true,  "note": "Power slot — coach picks (jumps / KB swing / med ball)" },
+            { "pattern": "squat",            "intensity": "primary",   "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "1a" },
+            { "pattern": "horizontal_pull",  "intensity": "primary",   "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 1 = horizontal pull" },
+            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
+            { "pattern": "single_leg",       "intensity": "secondary", "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "2a" },
+            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 1 = horizontal push" },
+            { "pattern": "conditioning",     "zone": 5,                "intensity": "finisher", "sets": "2-4", "reps": "1 min work / 2 min recovery", "loaded": false, "note": "Intervals" },
+            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher", "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
           ]
         },
         {
           "name": "Workout B",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": "1-2", "reps": "30 seconds", "note": "Core — Stability" },
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10", "note": "Core — Dynamic Stability" },
-            { "pattern": "combination_total_body", "intensity": "primary", "sets": 2, "reps": "5-8", "note": "Combination slot — total-body multi-joint (e.g. KB clean+press, thruster, complex)" },
-            { "pattern": "hinge",            "intensity": "primary",   "sets": "1-2", "reps": "15", "pair": "1a" },
-            { "pattern": "vertical_push",    "intensity": "primary",   "sets": "1-2", "reps": "15", "pair": "1b", "note": "Superset with 1a · Day 2 = vertical push" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "pair": "1c", "note": "T-spine mobility reset after first strength pair" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": "1-2", "reps": "15", "pair": "2a" },
-            { "pattern": "vertical_pull",    "intensity": "secondary", "sets": "1-2", "reps": "15", "pair": "2b", "note": "Superset with 2a · Day 2 = vertical pull" },
-            { "pattern": "conditioning_zone_5", "intensity": "finisher", "sets": "2-4", "reps": "1 min work / 2 min recovery", "note": "Intervals" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher", "sets": 1, "reps": "1-2 min", "note": "Ankle mobility cool-down" }
+            { "pattern": "anti_extension",   "intensity": "primary",   "sets": "1-2", "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
+            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
+            { "pattern": "combination_total_body", "intensity": "primary", "sets": 2, "reps": "5-8",        "loaded": true,  "note": "Combination slot — total-body multi-joint (e.g. KB clean+press, thruster, complex)" },
+            { "pattern": "hinge",            "intensity": "primary",   "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "1a" },
+            { "pattern": "vertical_push",    "intensity": "primary",   "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 2 = vertical push" },
+            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
+            { "pattern": "lunge",            "intensity": "secondary", "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "2a" },
+            { "pattern": "vertical_pull",    "intensity": "secondary", "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 2 = vertical pull" },
+            { "pattern": "conditioning",     "zone": 5,                "intensity": "finisher", "sets": "2-4", "reps": "1 min work / 2 min recovery", "loaded": false, "note": "Intervals" },
+            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher", "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
           ]
         }
       ],
-      "notes": "Alternate A and B over 4 sessions (A-B-A-B). Movement balance: Day A = horizontal push & pull, Day B = vertical push & pull. Mobility distribution across the week: A covers hip + ankle, B covers t-spine + ankle — all 3 categories covered across the cycle."
+      "notes": "Movement balance: Day A = horizontal push & pull, Day B = vertical push & pull. Mobility distribution across the cycle: A covers hip + ankle, B covers t-spine + ankle. All 3 mobility categories + both push/pull planes covered across each A-B cycle."
     }
   }
 }

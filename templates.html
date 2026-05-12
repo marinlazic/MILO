@@ -60,9 +60,15 @@
   .tcard-action:hover{border-color:var(--blue);color:var(--blue)}
   .tcard-action.danger:hover{border-color:var(--red);color:var(--red)}
   .tcard-desc{font-size:12px;color:var(--text2);line-height:1.55;margin-bottom:12px}
-  .tcard-meta{display:flex;gap:12px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin-bottom:8px}
+  .tcard-meta{display:flex;gap:12px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin-bottom:8px;flex-wrap:wrap}
   .tcard-meta b{color:var(--text)}
-  .tcard-tags{display:flex;flex-wrap:wrap;gap:4px}
+  .tcard-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+  .tcard-freq{display:flex;gap:6px;margin:10px 0 8px;align-items:center}
+  .tcard-freq-label{font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;font-weight:600}
+  .freq-btn{padding:5px 10px;border-radius:6px;font-family:var(--mono);font-size:11px;font-weight:600;border:1px solid var(--border2);background:var(--surface2);color:var(--text2);cursor:pointer;letter-spacing:0.04em}
+  .freq-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .tcard-vol{font-family:var(--mono);font-size:10px;color:var(--text2);letter-spacing:0.04em;padding:6px 10px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;line-height:1.5}
+  .tcard-vol b{color:var(--text);font-weight:700}
   .ttag{font-family:var(--mono);font-size:9px;padding:2px 8px;border-radius:10px;background:var(--blue-light);color:var(--blue-dark);font-weight:600;letter-spacing:0.04em}
 
   .empty{background:var(--surface);border:1px dashed var(--border2);border-radius:var(--r);padding:40px 20px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;line-height:1.6}
@@ -174,6 +180,7 @@
   </div>
 </div>
 
+<script src="classifier.js"></script>
 <script>
 let templates = {};
 let mobilityCfg = null;
@@ -215,6 +222,8 @@ function renderList() {
 
   grid.innerHTML = visibleEntries.map(([id, t]) => {
     const tags = (t.tags || []).map(tag => `<span class="ttag">${escapeHtml(tag)}</span>`).join('');
+    const freqs = t.frequencyOptions || [t.sessions?.length || 2];
+    const defaultFreq = t.defaultFrequency || freqs[0];
     return `
       <div class="tcard" onclick="showDetail('${id}')">
         <div class="tcard-head">
@@ -226,13 +235,43 @@ function renderList() {
         </div>
         ${t.description ? `<div class="tcard-desc">${escapeHtml(t.description)}</div>` : ''}
         <div class="tcard-meta">
-          <span><b>${(t.sessions || []).length}</b> sessions</span>
+          <span><b>${(t.sessions || []).length}</b> unique sessions</span>
           ${t.weeks ? `<span><b>${t.weeks}</b> weeks</span>` : ''}
-          <span><b>${countBlocks(t)}</b> blocks</span>
         </div>
         ${tags ? `<div class="tcard-tags">${tags}</div>` : ''}
+        <div class="tcard-freq" onclick="event.stopPropagation()">
+          <span class="tcard-freq-label">Frequency</span>
+          ${freqs.map(f => `<button class="freq-btn ${f === defaultFreq ? 'active' : ''}" data-tid="${id}" data-freq="${f}" onclick="changeFreq(event, '${id}', ${f})">${f}×/wk</button>`).join('')}
+        </div>
+        <div class="tcard-vol" id="vol-${id}"></div>
       </div>`;
   }).join('');
+
+  // Render volume for each card
+  for (const [id, t] of visibleEntries) {
+    const f = t.defaultFrequency || (t.frequencyOptions || [t.sessions?.length || 2])[0];
+    renderCardVolume(id, t, f);
+  }
+}
+
+function changeFreq(e, id, freq) {
+  e.stopPropagation();
+  const card = e.target.closest('.tcard');
+  card.querySelectorAll(`.freq-btn[data-tid="${id}"]`).forEach(b => b.classList.toggle('active', parseInt(b.dataset.freq, 10) === freq));
+  renderCardVolume(id, templates[id], freq);
+}
+
+function renderCardVolume(id, t, frequency) {
+  const el = document.getElementById('vol-' + id);
+  if (!el || !window.MILO_CLASSIFIER) return;
+  const v = window.MILO_CLASSIFIER.templateVolume(t, frequency);
+  if (!v) { el.textContent = ''; return; }
+  const w = v.weekly;
+  el.innerHTML = `
+    <b>${w.strengthBlocks}</b> strength · <b>${w.workingSets.min}–${w.workingSets.max}</b> sets · <b>${w.totalReps.min}–${w.totalReps.max}</b> reps/wk
+    <br>
+    <b>${w.loaded}</b> loaded · <b>${w.unloaded}</b> unloaded · <b>${w.pushCount}</b> push : <b>${w.pullCount}</b> pull
+  `;
 }
 
 function countBlocks(t) {
@@ -266,6 +305,9 @@ function showDetail(id) {
 
   const tags = (t.tags || []).map(tag => `<span class="ttag" style="background:rgba(255,255,255,0.15);color:#fff">${escapeHtml(tag)}</span>`).join('');
 
+  const freqs = t.frequencyOptions || [(t.sessions || []).length];
+  const defaultFreq = t.defaultFrequency || freqs[0];
+
   document.getElementById('detailContent').innerHTML = `
     <div class="actions">
       <div></div>
@@ -279,15 +321,55 @@ function showDetail(id) {
         <h1>${escapeHtml(t.name || id)}</h1>
         ${tags ? `<div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap">${tags}</div>` : ''}
         ${t.description ? `<div class="desc">${escapeHtml(t.description)}</div>` : ''}
-        <div class="detail-meta">
-          <span><b>${(t.sessions || []).length}</b> sessions/week</span>
-          ${t.weeks ? `<span><b>${t.weeks}</b> weeks</span>` : ''}
-          <span><b>${countBlocks(t)}</b> total blocks</span>
+        <div style="margin-top:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span style="font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.55);letter-spacing:0.08em;text-transform:uppercase;font-weight:600">Frequency</span>
+          ${freqs.map(f => `<button class="freq-btn ${f === defaultFreq ? 'active' : ''}" data-detail-freq="${f}" onclick="setDetailFreq('${id}', ${f})">${f}×/wk</button>`).join('')}
+          <span style="color:rgba(255,255,255,0.5);font-family:var(--mono);font-size:10px;letter-spacing:0.04em" id="cyclingNote">${t.cyclingNote ? escapeHtml(t.cyclingNote) : ''}</span>
         </div>
+        <div id="detailVolume" style="margin-top:12px"></div>
       </div>
       ${sessionsHtml}
       ${t.notes ? `<div style="padding:18px 28px;background:var(--amber-bg);border-top:1px solid #F5D58C;color:#5C3D00;font-size:12px;line-height:1.6"><b style="font-family:var(--mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:#8A5A00">Notes</b><br>${escapeHtml(t.notes)}</div>` : ''}
     </div>`;
+
+  setDetailFreq(id, defaultFreq);
+}
+
+function setDetailFreq(id, freq) {
+  const t = templates[id]; if (!t) return;
+  document.querySelectorAll('[data-detail-freq]').forEach(b => b.classList.toggle('active', parseInt(b.dataset.detailFreq, 10) === freq));
+  const v = window.MILO_CLASSIFIER?.templateVolume(t, freq);
+  if (!v) return;
+  const w = v.weekly;
+  const total4wk = (n) => n * (t.weeks || 4) / 4 * 4;
+  document.getElementById('detailVolume').innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.7);letter-spacing:0.04em">
+      <div style="padding:8px 12px;background:rgba(255,255,255,0.06);border-radius:6px;border:1px solid rgba(255,255,255,0.1)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6;margin-bottom:3px">Sessions / week</div>
+        <div style="color:#fff;font-family:var(--head);font-size:15px;font-weight:700">${w.sessions}</div>
+      </div>
+      <div style="padding:8px 12px;background:rgba(255,255,255,0.06);border-radius:6px;border:1px solid rgba(255,255,255,0.1)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6;margin-bottom:3px">Strength blocks</div>
+        <div style="color:#fff;font-family:var(--head);font-size:15px;font-weight:700">${w.strengthBlocks}</div>
+      </div>
+      <div style="padding:8px 12px;background:rgba(255,255,255,0.06);border-radius:6px;border:1px solid rgba(255,255,255,0.1)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6;margin-bottom:3px">Working sets / wk</div>
+        <div style="color:#fff;font-family:var(--head);font-size:15px;font-weight:700">${w.workingSets.min}–${w.workingSets.max}</div>
+      </div>
+      <div style="padding:8px 12px;background:rgba(255,255,255,0.06);border-radius:6px;border:1px solid rgba(255,255,255,0.1)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6;margin-bottom:3px">Reps / wk (strength)</div>
+        <div style="color:#fff;font-family:var(--head);font-size:15px;font-weight:700">${w.totalReps.min}–${w.totalReps.max}</div>
+      </div>
+      <div style="padding:8px 12px;background:rgba(255,255,255,0.06);border-radius:6px;border:1px solid rgba(255,255,255,0.1)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6;margin-bottom:3px">Loaded : Unloaded</div>
+        <div style="color:#fff;font-family:var(--head);font-size:15px;font-weight:700">${w.loaded} : ${w.unloaded}</div>
+      </div>
+      <div style="padding:8px 12px;background:rgba(255,255,255,0.06);border-radius:6px;border:1px solid rgba(255,255,255,0.1)">
+        <div style="font-size:9px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.6;margin-bottom:3px">Push : Pull</div>
+        <div style="color:#fff;font-family:var(--head);font-size:15px;font-weight:700">${w.pushCount} : ${w.pullCount}</div>
+      </div>
+    </div>
+  `;
 }
 
 function showList() {

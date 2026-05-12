@@ -314,6 +314,131 @@ function overallProgression(trends) {
 }
 
 /* ============================================================
+   Template volume calculator
+   ============================================================
+   Computes sets x reps + loaded/unloaded counts + push:pull + plane
+   coverage for a template at a given weekly frequency.
+   ============================================================ */
+
+function parseRange(v) {
+  if (v === null || v === undefined) return { min: 0, max: 0, isNumeric: false };
+  if (typeof v === 'number') return { min: v, max: v, isNumeric: true };
+  const str = String(v).trim();
+  const m = str.match(/^(\d+)\s*-\s*(\d+)$/);
+  if (m) return { min: parseInt(m[1], 10), max: parseInt(m[2], 10), isNumeric: true };
+  const n = parseFloat(str);
+  if (!isNaN(n)) return { min: n, max: n, isNumeric: true };
+  return { min: 0, max: 0, isNumeric: false };
+}
+
+function repsFromBlockReps(reps) {
+  if (reps === null || reps === undefined) return { min: 0, max: 0 };
+  if (typeof reps === 'number') return { min: reps, max: reps };
+  const m = String(reps).match(/^(\d+)\s*-\s*(\d+)\s*(reps?|times?)?$/i);
+  if (m) return { min: parseInt(m[1], 10), max: parseInt(m[2], 10) };
+  const n = parseFloat(String(reps));
+  if (!isNaN(n)) return { min: n, max: n };
+  return { min: 0, max: 0 }; // time-based or non-rep
+}
+
+const STRENGTH_PATTERNS = new Set([
+  'squat','single_leg','hinge','hinge_unilateral','lunge',
+  'horizontal_push','horizontal_push_unilateral','vertical_push',
+  'horizontal_pull','horizontal_pull_unilateral','vertical_pull',
+  'carry','rotation','anti_rotation','anti_extension','anti_lateral_flexion',
+  'power_lower','power_upper','combination_total_body','explosive_carry',
+  'core_finisher','frontal_plane','transverse_plane'
+]);
+
+function templateVolume(template, frequency) {
+  const sessions = template.sessions || [];
+  if (!sessions.length) return null;
+
+  // Per-session metrics
+  const perSession = sessions.map(s => {
+    let totalBlocks = 0, strengthBlocks = 0, mobilityBlocks = 0, conditioningBlocks = 0;
+    let workingSetsMin = 0, workingSetsMax = 0;
+    let repsMin = 0, repsMax = 0;
+    let loadedCount = 0, unloadedCount = 0;
+    const planes = { sagittal: 0, frontal: 0, transverse: 0 };
+    let pushCount = 0, pullCount = 0;
+
+    for (const b of (s.blocks || [])) {
+      totalBlocks++;
+      const sets = parseRange(b.sets);
+      const reps = repsFromBlockReps(b.reps);
+
+      if (b.pattern === 'mobility') mobilityBlocks++;
+      else if (b.pattern === 'conditioning') conditioningBlocks++;
+      else if (STRENGTH_PATTERNS.has(b.pattern)) {
+        strengthBlocks++;
+        workingSetsMin += sets.min;
+        workingSetsMax += sets.max;
+        repsMin += sets.min * reps.min;
+        repsMax += sets.max * reps.max;
+      }
+
+      // Loaded counts
+      if (b.loaded === true) loadedCount++;
+      else if (b.loaded === false) unloadedCount++;
+
+      // Push/pull
+      if (b.pattern && (b.pattern.includes('push'))) pushCount++;
+      if (b.pattern && (b.pattern.includes('pull'))) pullCount++;
+
+      // Plane (inferred)
+      const tags = classifyName(b.pattern.replace(/_/g, ' '));
+      for (const p of (tags?.plane || [])) if (planes[p] !== undefined) planes[p]++;
+    }
+
+    return {
+      name: s.name,
+      totalBlocks, strengthBlocks, mobilityBlocks, conditioningBlocks,
+      workingSets: { min: workingSetsMin, max: workingSetsMax },
+      totalReps: { min: repsMin, max: repsMax },
+      loaded: loadedCount,
+      unloaded: unloadedCount,
+      planes,
+      pushCount, pullCount,
+    };
+  });
+
+  // Aggregate at the per-WEEK level given chosen frequency
+  // Strategy: cycle through sessions[] frequency times
+  const freq = frequency || template.defaultFrequency || sessions.length;
+  const weekIdx = [];
+  for (let i = 0; i < freq; i++) weekIdx.push(i % sessions.length);
+
+  const weekly = {
+    sessions: freq,
+    totalBlocks: 0, strengthBlocks: 0, mobilityBlocks: 0, conditioningBlocks: 0,
+    workingSets: { min: 0, max: 0 },
+    totalReps: { min: 0, max: 0 },
+    loaded: 0, unloaded: 0,
+    planes: { sagittal: 0, frontal: 0, transverse: 0 },
+    pushCount: 0, pullCount: 0,
+  };
+  for (const i of weekIdx) {
+    const s = perSession[i];
+    weekly.totalBlocks += s.totalBlocks;
+    weekly.strengthBlocks += s.strengthBlocks;
+    weekly.mobilityBlocks += s.mobilityBlocks;
+    weekly.conditioningBlocks += s.conditioningBlocks;
+    weekly.workingSets.min += s.workingSets.min;
+    weekly.workingSets.max += s.workingSets.max;
+    weekly.totalReps.min += s.totalReps.min;
+    weekly.totalReps.max += s.totalReps.max;
+    weekly.loaded += s.loaded;
+    weekly.unloaded += s.unloaded;
+    for (const p of ['sagittal','frontal','transverse']) weekly.planes[p] += s.planes[p];
+    weekly.pushCount += s.pushCount;
+    weekly.pullCount += s.pullCount;
+  }
+
+  return { perSession, weekly, frequency: freq };
+}
+
+/* ============================================================
    Expose globally
    ============================================================ */
 if (typeof window !== 'undefined') {
@@ -327,5 +452,6 @@ if (typeof window !== 'undefined') {
     adaptationSignal,
     overallProgression,
     KEYWORDS,
+    templateVolume,
   };
 }

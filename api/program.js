@@ -94,7 +94,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { snapshot, blockIntent, durationWeeks, clientId, templateId } = req.body || {};
+    const { snapshot, blockIntent, durationWeeks, clientId, templateId, frequency, conditioningZone } = req.body || {};
     if (!snapshot) return res.status(400).json({ error: 'Missing snapshot' });
 
     // Load coaching principles + per-athlete notes + template library (best-effort)
@@ -116,7 +116,23 @@ ${JSON.stringify(stripMeta(principles), null, 2)}`);
 ${JSON.stringify(athleteNotes, null, 2)}`);
     }
     if (chosenTemplate) {
-      contextSections.push(`SCAFFOLD TEMPLATE (the coach has selected this blueprint — use it as the STRUCTURAL skeleton for the program. Keep the session count, block count, ORDER, intensity levels, set/rep schemes, pair labels, and pattern distribution exactly as specified. Fill in specific exercises from the athlete's preferred-exercise pool. If the template includes "mobility" blocks with a "category" field, render them as their own block in the session using one exercise from the matching mobility pool — DO NOT skip them, they are part of the session flow):
+      const freq = frequency || chosenTemplate.defaultFrequency || (chosenTemplate.sessions || []).length;
+      // Build the actual cycling week (e.g. A-B-A for 3x/week from a 2-session template)
+      const weekCycle = [];
+      const uniqueCount = (chosenTemplate.sessions || []).length;
+      for (let i = 0; i < freq; i++) weekCycle.push((chosenTemplate.sessions || [])[i % uniqueCount]?.name || `Day ${i+1}`);
+      contextSections.push(`SCAFFOLD TEMPLATE (the coach has selected this blueprint — use it as the STRUCTURAL skeleton).
+
+RULES — STRICT:
+- The coach selected ${freq} sessions per week. The week's session order is: ${weekCycle.join(' → ')}.
+- Build ${durationWeeks || 4} weeks at this frequency. Each week uses this same cycle.
+- Keep the block ORDER, intensity levels, set/rep schemes, pair labels, and pattern distribution exactly as in the template.
+- Mobility blocks (pattern: "mobility", with a category) are part of the session flow — render them with their own block name like "Hip Mobility" / "T-Spine Mobility" / "Ankle Mobility", and pick ONE exercise from the matching mobility_pools, varying across sessions and weeks.
+- Conditioning blocks (pattern: "conditioning", with a zone): ${conditioningZone ? `OVERRIDE the template's zone — the coach explicitly selected zone ${conditioningZone}. Use it for all conditioning blocks this build.` : 'Use the zone specified in the template block.'}
+- For each strength block, pick a specific exercise from the athlete's preferred_exercises pool that matches the pattern. Reference their actual e1RM if available.
+- Set/rep ranges in the template (e.g. "1-2 x 15"): pick a specific number for each week within the range, varying across the block (e.g. week 1 = 1 set, week 2 = 1 set, week 3 = 2 sets, week 4 = deload).
+
+TEMPLATE:
 ${JSON.stringify(chosenTemplate, null, 2)}`);
     }
     if (principles?.mobility_pools) {

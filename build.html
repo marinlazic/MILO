@@ -252,12 +252,27 @@
         </div>
         <button class="btn btn-blue" id="genBtn">⚡ Generate program</button>
       </div>
-      <div style="margin-top:12px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:end">
+      <div style="margin-top:12px;display:grid;grid-template-columns:1fr 130px 130px auto;gap:14px;align-items:end">
         <div class="field" style="margin-bottom:0">
-          <label>Start from a template <span style="color:var(--muted);text-transform:none;letter-spacing:0">(optional — uses pattern blueprint as scaffold)</span></label>
-          <select id="templateSel"><option value="">— None (free-form generation) —</option></select>
+          <label>Start from a template <span style="color:var(--muted);text-transform:none;letter-spacing:0">(optional)</span></label>
+          <select id="templateSel"><option value="">— None (free-form) —</option></select>
         </div>
-        <a href="templates.html" class="btn btn-outline" style="text-decoration:none">📚 Browse templates</a>
+        <div class="field" style="margin-bottom:0">
+          <label>Frequency</label>
+          <select id="freqSel"><option value="">—</option></select>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label>Cond. zone</label>
+          <select id="condZoneSel">
+            <option value="">Default</option>
+            <option value="1">Zone 1 (recovery)</option>
+            <option value="2">Zone 2 (aerobic base)</option>
+            <option value="3">Zone 3 (tempo)</option>
+            <option value="4">Zone 4 (threshold)</option>
+            <option value="5">Zone 5 (intervals/sprints)</option>
+          </select>
+        </div>
+        <a href="templates.html" class="btn btn-outline" style="text-decoration:none">📚 Browse</a>
       </div>
     </div>
 
@@ -338,21 +353,51 @@ let _templates = {};
       if (id === preselect) opt.selected = true;
       tselect.appendChild(opt);
     }
-    tselect.addEventListener('change', () => renderTemplatePreview(_templates[tselect.value]));
-    if (tselect.value) renderTemplatePreview(_templates[tselect.value]);
+    tselect.addEventListener('change', () => onTemplateChange(_templates[tselect.value]));
+    if (tselect.value) onTemplateChange(_templates[tselect.value]);
   } catch (e) { /* no templates yet */ }
 })();
 
-function renderTemplatePreview(t) {
+function onTemplateChange(t) {
+  const freqSel = document.getElementById('freqSel');
+  freqSel.innerHTML = '';
+  if (!t) {
+    freqSel.innerHTML = '<option value="">—</option>';
+    renderTemplatePreview(null);
+    return;
+  }
+  const freqs = t.frequencyOptions || [(t.sessions || []).length];
+  const defaultFreq = t.defaultFrequency || freqs[0];
+  for (const f of freqs) {
+    const opt = document.createElement('option');
+    opt.value = String(f);
+    opt.textContent = `${f}×/wk`;
+    if (f === defaultFreq) opt.selected = true;
+    freqSel.appendChild(opt);
+  }
+  renderTemplatePreview(t, defaultFreq);
+  freqSel.onchange = () => renderTemplatePreview(t, parseInt(freqSel.value, 10));
+}
+
+function renderTemplatePreview(t, frequency) {
   const el = document.getElementById('templatePreview');
   if (!t) { el.innerHTML = ''; return; }
   const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const sessionsHtml = (t.sessions || []).map(s => `
+  const sessions = t.sessions || [];
+  const freq = frequency || t.defaultFrequency || sessions.length;
+  // Build the actual week cycle
+  const weekSessions = [];
+  for (let i = 0; i < freq; i++) weekSessions.push(sessions[i % sessions.length]);
+
+  const sessionsHtml = weekSessions.map((s, idx) => `
     <div class="tpl-session">
-      <div class="tpl-session-name">${escapeHtml(s.name)}</div>
+      <div class="tpl-session-name">Day ${idx + 1} · ${escapeHtml(s.name)}</div>
       ${(s.blocks || []).map((b, i) => {
         const isMob = b.pattern === 'mobility';
-        const label = isMob ? `mobility · ${escapeHtml(b.category || '')}` : escapeHtml(b.pattern);
+        const isCond = b.pattern === 'conditioning';
+        const label = isMob ? `mobility · ${escapeHtml(b.category || '')}`
+                    : isCond ? `conditioning${b.zone ? ' · zone ' + b.zone : ''}`
+                    : escapeHtml(b.pattern);
         const meta = `${b.sets ?? '—'} × ${b.reps ?? '—'}${b.pair ? ' · ' + escapeHtml(b.pair) : ''}`;
         return `
           <div class="tpl-block ${isMob ? 'mobility' : ''}">
@@ -363,13 +408,27 @@ function renderTemplatePreview(t) {
       }).join('')}
     </div>
   `).join('');
+
+  // Compute volume
+  const v = window.MILO_CLASSIFIER?.templateVolume(t, freq);
+  const volHtml = v ? `
+    <div style="padding:10px 20px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;color:var(--text2);letter-spacing:0.04em">
+      <span><b style="color:var(--text)">${v.weekly.sessions}</b> sessions/wk</span>
+      <span><b style="color:var(--text)">${v.weekly.strengthBlocks}</b> strength blocks</span>
+      <span><b style="color:var(--text)">${v.weekly.workingSets.min}–${v.weekly.workingSets.max}</b> sets/wk</span>
+      <span><b style="color:var(--text)">${v.weekly.totalReps.min}–${v.weekly.totalReps.max}</b> reps/wk (strength)</span>
+      <span><b style="color:var(--text)">${v.weekly.loaded}</b> loaded · <b style="color:var(--text)">${v.weekly.unloaded}</b> unloaded</span>
+      <span><b style="color:var(--text)">${v.weekly.pushCount}</b> push : <b style="color:var(--text)">${v.weekly.pullCount}</b> pull</span>
+    </div>` : '';
+
   el.innerHTML = `
     <div class="tpl-preview">
       <div class="tpl-preview-head">
-        <div class="tpl-preview-title">Template preview · ${escapeHtml(t.name)}</div>
-        <div class="tpl-preview-hint">${(t.sessions||[]).length} sessions · mobility blocks shown in green · MILO will fill in specific exercises on generate</div>
+        <div class="tpl-preview-title">${escapeHtml(t.name)} · ${freq}×/wk</div>
+        <div class="tpl-preview-hint">${t.cyclingNote ? escapeHtml(t.cyclingNote) : 'Sessions cycle in order'} · mobility green · MILO fills in exercises</div>
       </div>
-      <div class="tpl-sessions">${sessionsHtml}</div>
+      ${volHtml}
+      <div class="tpl-sessions" style="grid-template-columns:repeat(${Math.min(freq, 4)}, 1fr)">${sessionsHtml}</div>
     </div>`;
 }
 
@@ -478,11 +537,13 @@ document.getElementById('genBtn').addEventListener('click', async () => {
   const snapshot = await buildSnapshot(c);
 
   const templateId = document.getElementById('templateSel').value || null;
+  const frequency = parseInt(document.getElementById('freqSel').value, 10) || null;
+  const conditioningZone = document.getElementById('condZoneSel').value ? parseInt(document.getElementById('condZoneSel').value, 10) : null;
   try {
     const r = await fetch('/api/program', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ snapshot, blockIntent: intent, durationWeeks: weeks, clientId: c.id, templateId }),
+      body: JSON.stringify({ snapshot, blockIntent: intent, durationWeeks: weeks, clientId: c.id, templateId, frequency, conditioningZone }),
     });
     const data = await r.json();
 
