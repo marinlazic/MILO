@@ -131,6 +131,7 @@ RULES — STRICT:
 - Conditioning blocks (pattern: "conditioning", with a zone): ${conditioningZone ? `OVERRIDE the template's zone — the coach explicitly selected zone ${conditioningZone}. Use it for all conditioning blocks this build.` : 'Use the zone specified in the template block.'}
 - For each strength block, pick a specific exercise from the athlete's preferred_exercises pool that matches the pattern. Reference their actual e1RM if available.
 - Set/rep ranges in the template (e.g. "1-2 x 15"): pick a specific number for each week within the range, varying across the block (e.g. week 1 = 1 set, week 2 = 1 set, week 3 = 2 sets, week 4 = deload).
+- DAILY UNDULATING PERIODIZATION: if the template has an "undulating" object with "type": "daily" and a "dailyRotation" array, that template uses DUP. Each session in a week uses a DIFFERENT sets×reps scheme from the dailyRotation array — NOT each week. Apply scheme N to the Nth session of the week. At 3x/week with 3 schemes, each session in the week uses a different scheme; the same exercises repeat next week with the same rotation. At 2x/week, drop the last scheme. At 4x/week, repeat from scheme 1 for the 4th session. The exercise template (A/B) alternates separately and independently of the scheme rotation. Apply the dailyRotation's sets and reps ONLY to the strength superset blocks (pairs 1a/1b and 2a/2b); leave core, power, mobility, and finisher blocks at their template defaults.
 
 TEMPLATE:
 ${JSON.stringify(chosenTemplate, null, 2)}`);

@@ -347,7 +347,7 @@ const STRENGTH_PATTERNS = new Set([
   'horizontal_pull','horizontal_pull_unilateral','vertical_pull',
   'carry','rotation','anti_rotation','anti_extension','anti_lateral_flexion',
   'power_lower','power_upper','combination_total_body','explosive_carry',
-  'core_finisher','frontal_plane','transverse_plane'
+  'core_finisher','frontal_plane','transverse_plane','free_zone'
 ]);
 
 function templateVolume(template, frequency) {
