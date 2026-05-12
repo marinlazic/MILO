@@ -94,14 +94,31 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { snapshot, blockIntent, durationWeeks } = req.body || {};
+    const { snapshot, blockIntent, durationWeeks, clientId } = req.body || {};
     if (!snapshot) return res.status(400).json({ error: 'Missing snapshot' });
+
+    // Load coaching principles + per-athlete notes (best-effort, never block on miss)
+    const [principles, allNotes] = await Promise.all([
+      fetchJsonFile('coaching-principles.json'),
+      fetchJsonFile('athlete-notes.json'),
+    ]);
+    const athleteNotes = (allNotes && clientId) ? allNotes[clientId] : null;
+
+    const contextSections = [];
+    if (principles) {
+      contextSections.push(`MARIN'S COACHING SYSTEM (his philosophy, exercise preferences, and rules — match these as if Marin wrote the program himself):
+${JSON.stringify(stripMeta(principles), null, 2)}`);
+    }
+    if (athleteNotes && Object.values(athleteNotes).some(v => v && String(v).trim())) {
+      contextSections.push(`ATHLETE-SPECIFIC CONSIDERATIONS (these override generic programming — work around injuries, respect equipment, honour the stated goals):
+${JSON.stringify(athleteNotes, null, 2)}`);
+    }
 
     const userContent = `BLOCK PARAMETERS
 - Intent: ${blockIntent || 'general progression / strength + balance'}
 - Duration: ${durationWeeks || 4} weeks
 
-ATHLETE SNAPSHOT
+${contextSections.join('\n\n')}${contextSections.length ? '\n\n' : ''}ATHLETE SNAPSHOT (training data)
 ${JSON.stringify(snapshot, null, 2)}
 
 Write the program now. Output ONLY the JSON object, no other text.`;
@@ -140,6 +157,10 @@ Write the program now. Output ONLY the JSON object, no other text.`;
       model: msg.model,
       usage: msg.usage,
       generatedAt: new Date().toISOString(),
+      contextUsed: {
+        principles: !!principles,
+        athleteNotes: !!athleteNotes && Object.values(athleteNotes || {}).some(v => v && String(v).trim()),
+      },
     });
   } catch (err) {
     console.error('Program generation error:', err);
@@ -148,4 +169,21 @@ Write the program now. Output ONLY the JSON object, no other text.`;
       detail: err.message || String(err),
     });
   }
+}
+
+// Fetch a JSON file from the deployed site (sibling files in the same repo)
+async function fetchJsonFile(filename) {
+  try {
+    const host = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://milo-cyan.vercel.app';
+    const r = await fetch(`${host}/${filename}`, { cache: 'no-store' });
+    if (!r.ok) return null;
+    return await r.json();
+  } catch (e) { return null; }
+}
+
+function stripMeta(obj) {
+  if (!obj || typeof obj !== 'object') return obj;
+  const { _meta, ...rest } = obj;
+  // Also strip any _docs subkeys
+  return JSON.parse(JSON.stringify(rest, (k, v) => k === '_docs' ? undefined : v));
 }

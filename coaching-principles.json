@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "lastEdited": null,
+    "version": 1,
+    "_docs": "These are MARIN'S coaching principles. They are fed into MILO's program-builder prompt so generated programs sound like Marin wrote them. Edit on /principles.html, or directly in this JSON."
+  },
+
+  "philosophy": "What I believe matters most in training. Speak in 2-3 sentences as if explaining your approach to a new coach. e.g.: 'I coach for longevity and capability. Strength is built on movement quality. Volume is earned, not assumed.'",
+
+  "session_structure": "How I structure every session. e.g.: Every session opens with Mobility Prep (3-5 min, low-key). Then 1 primary compound pattern (Hinge, Squat, Push, or Pull) at the heaviest. Accessory work paired with the primary. Carry or core finisher closes most sessions.",
+
+  "weekly_template": "How I think about week structure. e.g.: 3 strength sessions/week is the default for most H&P clients. Avoid heavy hinge + heavy squat consecutive days. Frontal/transverse plane work at least 1x/week.",
+
+  "preferred_exercises": {
+    "_docs": "Your go-to exercises for each pattern. MILO will prefer these when generating programs.",
+    "hinge_primary": ["Trap Bar Deadlift", "Romanian Deadlift"],
+    "hinge_accessory": ["Single-Leg RDL", "Kettlebell Swing"],
+    "squat_primary": ["Back Squat", "Front Squat", "Goblet Squat"],
+    "squat_unilateral": ["Reverse Lunge", "Split Squat", "Step-Up"],
+    "horizontal_push": ["Barbell Bench Press", "Dumbbell Bench Press", "Push-Up variations"],
+    "horizontal_pull": ["Barbell Row", "Chest-Supported Row", "Single-Arm DB Row"],
+    "vertical_push": ["Half-Kneeling Landmine Press", "Seated DB Press"],
+    "vertical_pull": ["Chin-Up", "Weighted Chin-Up", "Lat Pulldown"],
+    "carry": ["Suitcase Carry", "Farmer Carry", "Overhead Carry"],
+    "core_rotation": ["Pallof Press", "Med Ball Rotational Throw", "Cable Wood Chop"],
+    "core_anti_extension": ["Dead Bug", "Plank variations"]
+  },
+
+  "exercises_to_avoid": {
+    "_docs": "Exercises I avoid prescribing (for any reason - safety, philosophy, equipment).",
+    "list": ["Conventional deadlift for clients with low-back history", "Behind-the-neck pressing", "Long-duration steady-state running for execs"]
+  },
+
+  "progression_model": "How loads/volume should change from week to week. e.g.: Linear within block — week 1 introduce, week 2 build, week 3 peak, week 4 deload. Primary lifts: add load when RPE drops by 1. Accessories: add reps before load.",
+
+  "rpe_targets_by_phase": {
+    "build_week": "Working sets RPE 6-7",
+    "load_week": "Working sets RPE 7-8",
+    "peak_week": "Working sets RPE 8-9 for 1-2 top sets",
+    "deload_week": "Working sets RPE 4-5, half the volume"
+  },
+
+  "rules_i_follow": [
+    "Always include Mobility Prep at the start",
+    "Pair antagonist patterns where possible (push + pull, hinge + anti-extension core)",
+    "Include unilateral work 1-2x per week",
+    "Carries at least 1x per week",
+    "Frontal/transverse plane at least 1 exercise per week",
+    "Compound multi-pattern sessions, NOT bodybuilder splits"
+  ],
+
+  "things_to_never_do": [
+    "Program more than 4 sessions/week for executive clients (recovery debt)",
+    "Skip mobility prep",
+    "Two heavy bilateral lower sessions in a row",
+    "Pure bicep/tricep isolation days"
+  ],
+
+  "session_naming_style": "How I name my sessions. Look at recent workouts to see the pattern - usually 'PrimaryPattern + Secondary + Finisher' (e.g. 'Hinge, Carry, Core' or 'Push, Glute, Hip')",
+
+  "current_focus": "Anything I'm specifically focused on across the squad right now. Free text — e.g. 'Winter prep — building base strength. Reducing volume slightly to push more recovery quality.'",
+
+  "additional_notes": ""
+}

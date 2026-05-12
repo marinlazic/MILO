@@ -446,6 +446,18 @@
       <div id="exProgBody" style="padding:16px 20px"></div>
     </div>
 
+    <!-- Considerations (per-athlete context for MILO programs) -->
+    <div class="card" style="margin-bottom:14px" id="considerationsCard">
+      <div class="card-head">
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <div class="card-title">Considerations</div>
+          <span style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em">Used when MILO builds programs for this athlete</span>
+        </div>
+        <span class="card-link" id="considerationsStatus">—</span>
+      </div>
+      <div id="considerationsBody" style="padding:16px 20px"></div>
+    </div>
+
     <!-- Strength Progression -->
     <div class="card" style="margin-bottom:14px" id="progressCard">
       <div class="card-head">
@@ -600,6 +612,9 @@ function renderClient(c) {
 
   // MOVEMENT PROFILE WIDGETS
   renderMovementProfile(taggedWorkouts);
+
+  // CONSIDERATIONS — per-athlete context for program builder
+  renderConsiderations(c);
 
   // EXERCISE PROGRESSION — e1RM over 12 weeks
   renderExerciseProgression(c);
@@ -1327,6 +1342,83 @@ function exCardHtml(ex, i) {
       </div>
       <div class="ex-prog-chart"><canvas id="exChart${i}"></canvas></div>
     </div>`;
+}
+
+const CONSIDERATION_FIELDS = [
+  ['current_injuries',    'Current injuries / limitations',  'Anything MILO must work around right now'],
+  ['injury_history',      'Injury history',                  'Past issues to be mindful of'],
+  ['equipment_access',    'Equipment access',                'Full gym? Travel? Home setup?'],
+  ['primary_goal',        'Primary goal',                    'The headline outcome'],
+  ['secondary_goals',     'Secondary goals',                 'Other things they care about'],
+  ['schedule',            'Schedule',                        'Days/time available, frequency'],
+  ['preferences',         'Preferences',                     'What they enjoy / respond well to'],
+  ['things_they_dislike', 'Dislikes',                        'Movements/styles to skip'],
+  ['important_context',   'Important context',               'Anything else MILO should know (travel, life events, deadlines)'],
+];
+
+async function renderConsiderations(c) {
+  const body = document.getElementById('considerationsBody');
+  const statusEl = document.getElementById('considerationsStatus');
+
+  // Load existing notes
+  let allNotes = {};
+  try {
+    const r = await fetch('athlete-notes.json?t=' + Date.now());
+    if (r.ok) allNotes = await r.json();
+  } catch (e) {}
+  const notes = allNotes[c.id] || {};
+
+  const filledCount = Object.entries(notes).filter(([k, v]) => k !== '_meta' && v && String(v).trim()).length;
+  statusEl.textContent = filledCount > 0 ? `${filledCount} field${filledCount===1?'':'s'} filled` : 'Empty';
+  statusEl.style.color = filledCount > 0 ? 'var(--green)' : 'var(--muted)';
+
+  const rows = CONSIDERATION_FIELDS.map(([key, label, help]) => `
+    <div style="margin-bottom:14px">
+      <label style="display:block;font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;font-weight:600">${label}</label>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--muted2);margin-bottom:6px">${help}</div>
+      <textarea data-consid-key="${key}" style="width:100%;padding:9px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;font-family:var(--body);font-size:12px;color:var(--text);outline:none;resize:vertical;min-height:46px;line-height:1.5">${escapeHtml(notes[key] || '')}</textarea>
+    </div>
+  `).join('');
+
+  body.innerHTML = rows + `
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px">
+      <div id="considSaveStatus" style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.04em"></div>
+      <button class="btn btn-blue" id="considSaveBtn" style="padding:10px 20px;background:linear-gradient(135deg,#1A6BF5,#6BA8FF);color:#fff;border:none;border-radius:8px;font-family:var(--body);font-size:12px;font-weight:600;cursor:pointer;box-shadow:0 2px 8px rgba(26,107,245,0.3)">💾 Save considerations</button>
+    </div>
+  `;
+
+  document.getElementById('considSaveBtn').addEventListener('click', async () => {
+    const status = document.getElementById('considSaveStatus');
+    const updated = {};
+    document.querySelectorAll('[data-consid-key]').forEach(t => {
+      updated[t.dataset.considKey] = t.value.trim();
+    });
+    let secret = localStorage.getItem('miloSyncSecret');
+    if (!secret) {
+      secret = prompt('Paste your SYNC_SECRET (same one as the Chrome extension).');
+      if (!secret) return;
+      localStorage.setItem('miloSyncSecret', secret);
+    }
+    status.textContent = '⏳ Saving…';
+    status.style.color = 'var(--muted)';
+    try {
+      const r = await fetch('/api/save-context', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Sync-Secret': secret },
+        body: JSON.stringify({ type: 'athleteNotes', clientId: c.id, notes: updated }),
+      });
+      const body = await r.json();
+      if (!r.ok) throw new Error(body.error || `HTTP ${r.status}`);
+      status.textContent = '✓ Saved. Vercel redeploying — fresh in ~60s.';
+      status.style.color = 'var(--green)';
+      const filled = Object.values(updated).filter(v => v && String(v).trim()).length;
+      statusEl.textContent = filled > 0 ? `${filled} field${filled===1?'':'s'} filled` : 'Empty';
+      statusEl.style.color = filled > 0 ? 'var(--green)' : 'var(--muted)';
+    } catch (e) {
+      status.textContent = '✗ ' + e.message;
+      status.style.color = 'var(--red)';
+    }
+  });
 }
 
 function renderStrengthProgress(workouts) {

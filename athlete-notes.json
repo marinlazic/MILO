@@ -1,0 +1,216 @@
+{
+  "_meta": {
+    "lastEdited": null,
+    "version": 1,
+    "_docs": "Per-athlete context that MILO includes when generating programs. Edit on each athlete's detail page (Considerations card), or directly in this JSON."
+  },
+  "reini-otter": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "samantha-van-gelder": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "craig-blair": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "charlie-lanchester": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "mark-oreilly": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "nathan-parris": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "steve-turner": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "melanie-caffrey": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "stephanie-belton": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "linda-gregory": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "alana-saphin": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "craig-saphin": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "maria-goddard": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "katherine-freire": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "david-shein": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "liam-beard": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "sondra-hamill": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "renee-lodens": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  },
+  "michael-james": {
+    "current_injuries": "",
+    "injury_history": "",
+    "equipment_access": "",
+    "primary_goal": "",
+    "secondary_goals": "",
+    "schedule": "",
+    "preferences": "",
+    "things_they_dislike": "",
+    "important_context": ""
+  }
+}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MILO — Coaching Principles</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F0F2F5; --surface:#FFFFFF; --surface2:#F7F8FA;
+    --border:#E4E8EE; --border2:#D0D6E0;
+    --blue:#1A6BF5; --blue-dark:#0D47C4; --blue-light:#E8F0FE;
+    --blue-grad:linear-gradient(135deg,#1A6BF5 0%,#6BA8FF 100%);
+    --text:#0E1117; --text2:#3A4156; --muted:#7A8499;
+    --green:#0D7A4E; --green-bg:#E6F7F0;
+    --amber:#8A5A00; --amber-bg:#FEF3CC;
+    --red:#C0202A; --red-bg:#FDEAEA;
+    --mono:'DM Mono',monospace; --head:'DM Sans',sans-serif; --body:'Inter',sans-serif;
+    --r:14px; --sh:0 1px 2px rgba(0,0,0,0.05),0 4px 20px rgba(0,0,0,0.06);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);font-family:var(--body);font-size:13px;color:var(--text);-webkit-font-smoothing:antialiased}
+  .shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+
+  .sidebar{background:var(--text);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden}
+  .sidebar-top{padding:26px 24px 22px;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .logo-word{font-family:var(--head);font-size:26px;font-weight:800;letter-spacing:-0.05em;color:#fff}
+  .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);margin-bottom:4px;display:inline-block;margin-left:8px}
+  .logo-sub{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:2px}
+  .sidebar-nav{flex:1;padding:16px 0;overflow-y:auto}
+  .nav-sec{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:14px 24px 5px}
+  .nav-item{display:flex;align-items:center;gap:11px;padding:8px 24px;font-family:var(--body);font-size:13px;font-weight:500;color:rgba(255,255,255,0.42);cursor:pointer;text-decoration:none;position:relative}
+  .nav-item:hover{color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.04)}
+  .nav-item.active{color:#fff;background:rgba(26,107,245,0.18)}
+  .nav-item.active::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--blue);border-radius:0 3px 3px 0}
+  .nav-ic{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;opacity:0.8}
+  .nav-badge{margin-left:auto;background:var(--red);color:#fff;font-family:var(--mono);font-size:9px;padding:1px 6px;border-radius:20px}
+  .sidebar-bottom{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.06)}
+  .profile-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.05);border-radius:9px}
+  .profile-av{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--head);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .profile-name{font-family:var(--head);font-size:13px;font-weight:600;color:#fff}
+  .profile-role{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.3)}
+
+  .main{padding:30px 30px 80px;overflow-y:auto;max-width:920px}
+  .topbar{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px;flex-wrap:wrap;gap:14px}
+  .page-heading{font-family:var(--head);font-size:24px;font-weight:800;letter-spacing:-0.04em}
+  .page-sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase}
+  .meta{font-family:var(--mono);font-size:10px;color:var(--muted);text-align:right;letter-spacing:0.04em}
+
+  .intro{background:var(--blue-light);border:1px solid rgba(26,107,245,0.2);border-radius:var(--r);padding:16px 20px;margin:16px 0 22px;font-size:13px;line-height:1.6;color:var(--blue-dark)}
+  .intro b{font-weight:700}
+
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin-bottom:14px;box-shadow:var(--sh)}
+  .card h3{font-family:var(--head);font-size:14px;font-weight:700;letter-spacing:-0.02em;margin-bottom:4px}
+  .card .help{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.02em;margin-bottom:10px;text-transform:none}
+
+  textarea{width:100%;padding:11px 14px;background:var(--surface2);border:1px solid var(--border2);border-radius:8px;font-family:var(--body);font-size:13px;color:var(--text);outline:none;resize:vertical;min-height:80px;line-height:1.55}
+  textarea:focus{border-color:var(--blue);background:#fff}
+  textarea.tall{min-height:120px}
+
+  .lists{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .lists textarea{min-height:120px;font-family:var(--mono);font-size:11px;line-height:1.7}
+
+  .exgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .exgrid label{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;margin-bottom:4px;display:block}
+  .exgrid input{width:100%;padding:8px 11px;background:var(--surface2);border:1px solid var(--border2);border-radius:6px;font-family:var(--body);font-size:12px;color:var(--text);outline:none}
+  .exgrid input:focus{border-color:var(--blue)}
+
+  .rpe-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .rpe-grid input{padding:8px 11px;background:var(--surface2);border:1px solid var(--border2);border-radius:6px;font-family:var(--mono);font-size:11px;outline:none}
+
+  .save-bar{position:sticky;bottom:0;left:0;right:0;background:linear-gradient(to top,#fff,rgba(255,255,255,0.95) 70%,transparent);padding:18px 0 6px;margin-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;z-index:5}
+  .btn{padding:11px 24px;border-radius:8px;font-family:var(--body);font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all 0.15s}
+  .btn-blue{background:var(--blue-grad);color:#fff;box-shadow:0 2px 8px rgba(26,107,245,0.3)}
+  .btn-blue:hover{opacity:0.92}
+  .btn-blue:disabled{opacity:0.5;cursor:not-allowed}
+  .btn-outline{background:var(--surface);color:var(--text2);border:1px solid var(--border2)}
+  .save-status{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:0.04em}
+  .save-status.ok{color:var(--green)}
+  .save-status.err{color:var(--red)}
+
+  @media (max-width: 900px) {
+    .shell{grid-template-columns:1fr}
+    .sidebar{position:fixed;left:-260px;top:0;height:100vh;width:230px;z-index:100;transition:left 0.25s ease;box-shadow:8px 0 30px rgba(0,0,0,0.25)}
+    .sidebar.open{left:0}
+    .sidebar-toggle{position:fixed;top:14px;left:14px;z-index:101;width:38px;height:38px;background:var(--text);color:#fff;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+    .sidebar-toggle svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+    .main{padding:56px 14px 80px}
+    .lists,.exgrid,.rpe-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" style="display:none">
+  <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+<style>@media (max-width: 900px) { .sidebar-toggle { display: flex !important; } }</style>
+
+<div class="shell">
+  <nav class="sidebar">
+    <div class="sidebar-top">
+      <a href="index.html" style="text-decoration:none"><span class="logo-word">MILO</span><span class="logo-dot"></span></a>
+      <div class="logo-sub">Otion Performance OS</div>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-sec">Main</div>
+      <a class="nav-item" href="index.html"><svg class="nav-ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Dashboard</a>
+      <a class="nav-item" href="clients.html"><svg class="nav-ic" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Clients<span class="nav-badge" style="margin-left:auto">19</span></a>
+      <a class="nav-item" href="build.html"><svg class="nav-ic" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Build Program</a>
+      <a class="nav-item active" href="principles.html"><svg class="nav-ic" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Coaching Principles</a>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="profile-row">
+        <div class="profile-av">ML</div>
+        <div><div class="profile-name">Marin Lazic</div><div class="profile-role">Head Coach · Otion</div></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <div class="page-heading">Your coaching system</div>
+        <div class="page-sub">The principles MILO follows when generating programs</div>
+      </div>
+      <div class="meta" id="lastEdited"></div>
+    </div>
+
+    <div class="intro">
+      <b>What goes here:</b> the rules + philosophy + preferences that make programs sound like <i>you</i> wrote them. MILO reads this every time you click "Build next block" so the generated programs follow your coaching system, not generic AI templates. Edit anything below and hit Save — it commits to your repo and the next program uses the new rules.
+    </div>
+
+    <div class="card">
+      <h3>Coaching philosophy</h3>
+      <div class="help">2-3 sentences. The "why" behind your training approach.</div>
+      <textarea id="philosophy" class="tall"></textarea>
+    </div>
+
+    <div class="card">
+      <h3>Session structure</h3>
+      <div class="help">How you build a single session (warm-up flow, primary work order, finisher).</div>
+      <textarea id="session_structure" class="tall"></textarea>
+    </div>
+
+    <div class="card">
+      <h3>Weekly template</h3>
+      <div class="help">How you structure a typical week (rest days, pattern distribution, frontal/transverse cadence).</div>
+      <textarea id="weekly_template" class="tall"></textarea>
+    </div>
+
+    <div class="card">
+      <h3>Session naming style</h3>
+      <div class="help">How you name sessions. e.g. "Hinge, Carry, Core" vs "Push Day".</div>
+      <textarea id="session_naming_style"></textarea>
+    </div>
+
+    <div class="card">
+      <h3>Preferred exercises by pattern</h3>
+      <div class="help">Your go-to exercises. MILO will pull from these first.</div>
+      <div class="exgrid" id="prefExercises"></div>
+    </div>
+
+    <div class="card">
+      <h3>Exercises to avoid</h3>
+      <div class="help">One per line.</div>
+      <textarea id="exercises_to_avoid" class="tall" style="font-family:var(--mono);font-size:11px"></textarea>
+    </div>
+
+    <div class="card">
+      <h3>Progression model</h3>
+      <div class="help">How loads and volume change week-to-week within a block.</div>
+      <textarea id="progression_model" class="tall"></textarea>
+    </div>
+
+    <div class="card">
+      <h3>RPE targets by phase</h3>
+      <div class="rpe-grid" id="rpeGrid"></div>
+    </div>
+
+    <div class="card">
+      <h3>Rules I always follow</h3>
+      <div class="help">One per line.</div>
+      <textarea id="rules_i_follow" class="tall" style="font-family:var(--mono);font-size:11px"></textarea>
+    </div>
+
+    <div class="card">
+      <h3>Things I never do</h3>
+      <div class="help">One per line. Hard "no"s.</div>
+      <textarea id="things_to_never_do" class="tall" style="font-family:var(--mono);font-size:11px"></textarea>
+    </div>
+
+    <div class="card">
+      <h3>Current focus across the squad</h3>
+      <div class="help">What you're prioritising right now (block/macro theme).</div>
+      <textarea id="current_focus"></textarea>
+    </div>
+
+    <div class="card">
+      <h3>Anything else</h3>
+      <div class="help">Free text — anything else MILO should know.</div>
+      <textarea id="additional_notes" class="tall"></textarea>
+    </div>
+
+    <div class="save-bar">
+      <div class="save-status" id="saveStatus"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-outline" id="reloadBtn">Reload from file</button>
+        <button class="btn btn-blue" id="saveBtn">💾 Save principles</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let principles = null;
+
+const SIMPLE_FIELDS = ['philosophy','session_structure','weekly_template','session_naming_style','progression_model','current_focus','additional_notes'];
+const LIST_FIELDS = {
+  rules_i_follow: 'rules_i_follow',
+  things_to_never_do: 'things_to_never_do',
+  exercises_to_avoid: 'list', // nested under exercises_to_avoid.list
+};
+const EXERCISE_KEYS = [
+  ['hinge_primary','Hinge — primary'], ['hinge_accessory','Hinge — accessory'],
+  ['squat_primary','Squat — primary'], ['squat_unilateral','Squat — unilateral'],
+  ['horizontal_push','Push — horizontal'], ['horizontal_pull','Pull — horizontal'],
+  ['vertical_push','Push — vertical'],   ['vertical_pull','Pull — vertical'],
+  ['carry','Carry'], ['core_rotation','Core — rotation'], ['core_anti_extension','Core — anti-extension'],
+];
+const RPE_KEYS = [
+  ['build_week','Build week'], ['load_week','Load week'],
+  ['peak_week','Peak week'], ['deload_week','Deload week'],
+];
+
+async function load() {
+  try {
+    const r = await fetch('coaching-principles.json?t=' + Date.now());
+    principles = await r.json();
+  } catch (e) { principles = {}; }
+  render();
+}
+
+function render() {
+  for (const k of SIMPLE_FIELDS) {
+    const el = document.getElementById(k);
+    if (el) el.value = principles[k] || '';
+  }
+  // Lists
+  document.getElementById('rules_i_follow').value = (principles.rules_i_follow || []).join('\n');
+  document.getElementById('things_to_never_do').value = (principles.things_to_never_do || []).join('\n');
+  document.getElementById('exercises_to_avoid').value = (principles.exercises_to_avoid?.list || []).join('\n');
+
+  // Preferred exercises grid
+  const pref = principles.preferred_exercises || {};
+  document.getElementById('prefExercises').innerHTML = EXERCISE_KEYS.map(([k, label]) => `
+    <div>
+      <label>${label}</label>
+      <input type="text" data-pref="${k}" value="${escapeAttr((pref[k] || []).join(', '))}" placeholder="comma-separated">
+    </div>
+  `).join('');
+
+  // RPE grid
+  const rpe = principles.rpe_targets_by_phase || {};
+  document.getElementById('rpeGrid').innerHTML = RPE_KEYS.map(([k, label]) => `
+    <div>
+      <label style="font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;margin-bottom:4px;display:block">${label}</label>
+      <input type="text" data-rpe="${k}" value="${escapeAttr(rpe[k] || '')}" placeholder="e.g. RPE 6-7">
+    </div>
+  `).join('');
+
+  const lm = principles._meta?.lastEdited;
+  document.getElementById('lastEdited').textContent = lm ? `Last edited ${new Date(lm).toLocaleString()}` : 'Not yet saved';
+}
+
+function escapeAttr(s) { return String(s ?? '').replace(/"/g, '&quot;'); }
+
+function gather() {
+  const out = { ...principles };
+  for (const k of SIMPLE_FIELDS) out[k] = document.getElementById(k).value.trim();
+  out.rules_i_follow = splitLines(document.getElementById('rules_i_follow').value);
+  out.things_to_never_do = splitLines(document.getElementById('things_to_never_do').value);
+  out.exercises_to_avoid = {
+    ...(out.exercises_to_avoid || {}),
+    list: splitLines(document.getElementById('exercises_to_avoid').value),
+  };
+  const pref = {};
+  document.querySelectorAll('[data-pref]').forEach(inp => {
+    pref[inp.dataset.pref] = inp.value.split(',').map(s => s.trim()).filter(Boolean);
+  });
+  out.preferred_exercises = { ...(out.preferred_exercises || {}), ...pref };
+  const rpe = {};
+  document.querySelectorAll('[data-rpe]').forEach(inp => {
+    rpe[inp.dataset.rpe] = inp.value.trim();
+  });
+  out.rpe_targets_by_phase = rpe;
+  return out;
+}
+
+function splitLines(text) {
+  return text.split('\n').map(s => s.trim()).filter(Boolean);
+}
+
+document.getElementById('saveBtn').addEventListener('click', async () => {
+  const secret = await getSecret();
+  if (!secret) return;
+  const status = document.getElementById('saveStatus');
+  status.textContent = '⏳ Saving…';
+  status.className = 'save-status';
+  try {
+    const r = await fetch('/api/save-context', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Sync-Secret': secret },
+      body: JSON.stringify({ type: 'principles', principles: gather() }),
+    });
+    const body = await r.json();
+    if (!r.ok) throw new Error(body.error || `HTTP ${r.status}`);
+    status.textContent = `✓ Saved. Vercel redeploying — fresh in ~60s.`;
+    status.className = 'save-status ok';
+  } catch (e) {
+    status.textContent = `✗ ${e.message}`;
+    status.className = 'save-status err';
+  }
+});
+
+document.getElementById('reloadBtn').addEventListener('click', () => location.reload());
+
+async function getSecret() {
+  let s = localStorage.getItem('miloSyncSecret');
+  if (!s) {
+    s = prompt('Paste your SYNC_SECRET (same one you used for the Chrome extension).');
+    if (s) localStorage.setItem('miloSyncSecret', s);
+  }
+  return s;
+}
+
+load();
+</script>
+</body>
+</html>
