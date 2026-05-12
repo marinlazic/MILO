@@ -681,7 +681,7 @@ function renderClient(c) {
         <div class="wo-dur">${w.duration ?? '—'}m</div>
         <div class="wo-rpe ${rpeCls}">${w.rpe ?? '—'}</div>
       </div>
-      <div class="wo-detail" id="wo-detail-${i}" data-workout-id="${w.workoutId || ''}">
+      <div class="wo-detail" id="wo-detail-${i}" data-workout-id="${w.workoutId || ''}" data-workout-date="${w.date || ''}">
         <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
           <span style="font-family:var(--mono);font-size:10px;color:var(--text2);background:var(--surface);padding:3px 9px;border-radius:5px;border:1px solid var(--border)">${w.duration ?? '—'} min · RPE ${w.rpe ?? '—'}</span>
           ${(tags.region || []).map(r => `<span class="wo-tag region">${r}</span>`).join('')}
@@ -875,34 +875,82 @@ async function toggleDetail(i) {
   if (el.classList.contains('open') && !el.dataset.exLoaded) {
     el.dataset.exLoaded = '1';
     const workoutId = el.dataset.workoutId;
+    const workoutDate = el.dataset.workoutDate;
     const exBox = el.querySelector('.wo-exercises');
     if (!workoutId || !exBox) return;
     exBox.innerHTML = '<div style="opacity:0.6;font-family:var(--mono);font-size:10px">Loading exercises…</div>';
-    const content = await window.MILO.getWorkoutContent(workoutId);
-    exBox.innerHTML = renderWorkoutContent(content);
+    const [content, setHistory] = await Promise.all([
+      window.MILO.getWorkoutContent(workoutId),
+      window.MILO.getSetHistory(),
+    ]);
+    // Filter set history to THIS athlete + THIS workout date.
+    // Set-history `d` may be an ISO timestamp ("2026-05-11T12:00:00.000Z") while the
+    // workout-list date is "YYYY-MM-DD". Normalise both to date strings before matching.
+    const dayOnly = (d) => (d || '').slice(0, 10);
+    const targetDay = dayOnly(workoutDate);
+    const athleteSets = (setHistory?.sets?.[c.bridgeId] || []).filter(s => dayOnly(s.d) === targetDay);
+    const exNames = setHistory?.exerciseNames || {};
+    exBox.innerHTML = renderWorkoutContent(content, athleteSets, exNames);
   }
 }
 
-function renderWorkoutContent(content) {
+// Names that are intrinsically bodyweight (BW) — suppress any prescribed weight number on these,
+// because Bridge templates often carry inherited weight cruft on bodyweight exercises (e.g. "Push Up 75kg")
+const BW_NAME_PATTERNS = [
+  /push[- ]?up/i, /pull[- ]?up/i, /chin[- ]?up/i, /dip/i, /plank/i, /bridge/i, /clamshell/i,
+  /bird[- ]?dog/i, /dead\s*bug/i, /hollow/i, /pallof/i, /face[- ]?pull/i, /trx/i, /band/i,
+  /bear\s*crawl/i, /crawl/i, /jump/i, /hop/i, /skip/i, /run/i, /sprint/i, /walk/i, /march/i,
+  /mobility/i, /stretch/i, /rotation/i, /trigger\s*point/i, /foam\s*roll/i,
+  /breathing/i, /activation/i, /balance/i, /reach/i, /unloaded/i,
+];
+function isBodyweightName(name) {
+  if (!name) return false;
+  return BW_NAME_PATTERNS.some(re => re.test(name));
+}
+
+function renderWorkoutContent(content, athleteSets, exNames) {
   if (!content) {
     return '<div style="font-family:var(--mono);font-size:10px;color:var(--muted)">Exercise content not in cache. Re-sync Bridge to backfill.</div>';
   }
-  const fmtSet = (s) => {
+  athleteSets = athleteSets || [];
+  exNames = exNames || {};
+  // Build a name-to-loggedSets map for fast matching (we match by exercise NAME because Bridge
+  // exercise IDs in workout content are sometimes the canonical library ID while set history
+  // stores per-instance IDs — name match is the reliable lineage)
+  const loggedByName = {};
+  for (const s of athleteSets) {
+    const n = (exNames[s.ex] || '').trim().toLowerCase();
+    if (!n) continue;
+    if (!loggedByName[n]) loggedByName[n] = [];
+    if (s.rw && s.rr) {
+      const weight_kg = s.rw / 1000000;
+      const reps = parseInt(s.rr, 10);
+      if (weight_kg > 0 && reps > 0) loggedByName[n].push({ kg: weight_kg, reps });
+    }
+  }
+
+  const fmtPrescribedSet = (s, isBW) => {
     const parts = [];
     const reps = s.reps ?? s.r;
     const weight = s.weight ?? s.w;
-    const weightUnit = (s.weightUnit ?? s.wu ?? 'lbs').toLowerCase();
+    const weightUnit = (s.weightUnit ?? s.wu ?? 'kg').toLowerCase();
     const distance = s.distance ?? s.d;
     const distanceUnit = s.distanceUnit ?? s.du ?? 'm';
     if (reps !== null && reps !== undefined && reps !== '') parts.push(`${typeof reps === 'object' ? (reps.value ?? '-') : reps} reps`);
-    if (weight !== null && weight !== undefined) {
-      const raw = weight / 1000;
+    if (!isBW && weight !== null && weight !== undefined && weight > 0) {
+      // Bridge stores prescribed weight as kg × 10000 (logged result is × 1,000,000 — different field).
+      const raw = weight / 10000;
       const kg = weightUnit === 'kg' ? raw : raw * 0.4536;
-      parts.push(`${Math.round(kg)} kg`);
+      // Sanity: drop anything that comes out >300 kg as Bridge template cruft on what's likely a
+      // bodyweight or assistance exercise.
+      if (kg <= 300) parts.push(`${kg % 1 === 0 ? kg : kg.toFixed(1)} kg`);
     }
-    if (distance !== null && distance !== undefined) parts.push(`${Math.round(distance / 1000)}${distanceUnit}`);
+    if (distance !== null && distance !== undefined && distance > 0) parts.push(`${Math.round(distance / 1000)}${distanceUnit}`);
     return parts.join(' · ') || '—';
   };
+
+  const fmtLoggedSet = (l) => `${l.kg % 1 === 0 ? l.kg : l.kg.toFixed(1)} kg × ${l.reps}`;
+
   const blocks = content.blocks || content.b || [];
   return blocks.map(blk => {
     const blockName = blk.name || blk.n;
@@ -922,15 +970,26 @@ function renderWorkoutContent(content) {
         ${exercises.map(ex => {
           const exName = ex.name || ex.n;
           const sets = ex.sets || ex.s || [];
+          const isBW = isBodyweightName(exName);
+          const logged = loggedByName[(exName || '').trim().toLowerCase()] || [];
           return `
             <div style="padding:6px 0;border-bottom:1px dashed var(--border);font-family:var(--body);font-size:11px;color:var(--text2);display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start">
               <div>
                 <div style="font-weight:600;color:var(--text)">${escapeHtml(exName || '—')}</div>
-                ${sets.length > 1 ? `<div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:1px">${sets.length} sets</div>` : ''}
+                <div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:1px">
+                  ${sets.length} ${sets.length === 1 ? 'set' : 'sets'}${isBW ? ' · bodyweight' : ''}${logged.length ? ` · <span style="color:var(--green)">${logged.length} logged</span>` : ''}
+                </div>
               </div>
               <div style="font-family:var(--mono);font-size:10px;color:var(--text2);text-align:right;line-height:1.5">
-                ${sets.slice(0, 4).map(s => fmtSet(s)).join('<br>')}
-                ${sets.length > 4 ? `<div style="color:var(--muted)">+ ${sets.length - 4} more</div>` : ''}
+                ${logged.length ? `
+                  <div style="font-size:8px;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:2px">Logged</div>
+                  ${logged.slice(0, 4).map(l => `<div style="color:var(--text);font-weight:600">${fmtLoggedSet(l)}</div>`).join('')}
+                  ${logged.length > 4 ? `<div style="color:var(--muted)">+ ${logged.length - 4} more</div>` : ''}
+                ` : `
+                  <div style="font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:2px">Prescribed</div>
+                  ${sets.slice(0, 4).map(s => fmtPrescribedSet(s, isBW)).join('<br>')}
+                  ${sets.length > 4 ? `<div style="color:var(--muted)">+ ${sets.length - 4} more</div>` : ''}
+                `}
               </div>
             </div>`;
         }).join('')}
