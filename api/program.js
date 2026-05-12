@@ -94,7 +94,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { snapshot, blockIntent, durationWeeks, clientId, templateId, frequency, conditioningZone, previousBlock, progressionPreferences } = req.body || {};
+    const { snapshot, blockIntent, durationWeeks, clientId, templateId, frequency, conditioningZone, previousBlock, progressionPreferences, physioNotes, affectedRegions } = req.body || {};
     if (!snapshot) return res.status(400).json({ error: 'Missing snapshot' });
 
     // Load coaching principles + per-athlete notes + template library (best-effort)
@@ -107,6 +107,49 @@ export default async function handler(req, res) {
     const chosenTemplate = (templateId && templatesFile?.templates) ? templatesFile.templates[templateId] : null;
 
     const contextSections = [];
+
+    // PHYSIO NOTES go FIRST — highest priority. These are MANDATORY overrides.
+    if ((physioNotes && physioNotes.trim()) || (Array.isArray(affectedRegions) && affectedRegions.length)) {
+      const regionLabels = {
+        shoulder: 'Shoulder', elbow_wrist: 'Elbow / Wrist',
+        lower_back: 'Lower back', upper_back: 'Upper back / Neck',
+        hip: 'Hip', knee: 'Knee', ankle_foot: 'Ankle / Foot', core: 'Core / Abs',
+      };
+      const regionsPretty = (affectedRegions || []).map(r => regionLabels[r] || r).join(', ');
+      const regionGuidance = {
+        shoulder:    'Avoid overhead pressing, behind-the-neck movements, and barbell back squat if shoulder mobility is limited. Substitute: landmine press, neutral-grip DB press, goblet/front-rack squats. Pull patterns: prefer neutral-grip rows; assess overhead pull tolerance before chin-ups.',
+        elbow_wrist: 'Avoid loaded gripping at end-range wrist extension. Substitute: switch barbell for trap bar / strap-equipped DB / KB handles. Push: floor press or push-up at hands instead of fists. Pull: use straps freely.',
+        lower_back:  'Avoid heavy spinal loading (back squat, conventional deadlift, bent-over row). Substitute: goblet squat, trap bar DL, single-arm row, hip thrust, single-leg work. Cap intensity around 70-75% e1RM on hinge/squat patterns.',
+        upper_back:  'Avoid heavy overhead and high-load front-rack positions. Substitute: landmine press, push-ups, chest-supported row. Be cautious with snatch-grip work.',
+        hip:         'Avoid deep range-of-motion squats and high-velocity rotation. Substitute: box squat or partial-range squats, hip-hinge variants (RDL, hip thrust), step-ups, sled push.',
+        knee:        'Avoid deep knee flexion under load (full ROM back squat, jumps with hard landings). Substitute: box squat to comfortable depth, hip thrust, RDL, reverse lunges (less knee strain than forward lunges).',
+        ankle_foot:  'Avoid high-impact jumps, sprints, and unsupported single-leg balance work. Substitute: low-impact conditioning (bike, row, sled), seated/standing work without dynamic ankle dorsiflexion under load.',
+        core:        'Avoid loaded spinal flexion. Substitute: anti-extension (dead bug, plank variants), anti-rotation (Pallof press), carries.',
+      };
+      const guidance = (affectedRegions || [])
+        .map(r => `  • ${regionLabels[r] || r}: ${regionGuidance[r] || '(no defaults — read physio notes carefully)'}`)
+        .join('\n');
+
+      contextSections.push(`⚕ PHYSIO NOTES — MANDATORY OVERRIDES (these supersede EVERY other rule, including the template, the coaching system, and the previous-block progression):
+
+Affected regions: ${regionsPretty || '(none flagged)'}
+
+Coach's physio notes (verbatim from the physio or coach's clinical assessment):
+"""
+${physioNotes ? physioNotes.trim() : '(no free-text notes — apply standard guidance for the flagged regions)'}
+"""
+
+DEFAULT REGION GUIDANCE (apply these unless the physio notes say otherwise):
+${guidance || '  (no regions flagged)'}
+
+HARD RULES:
+1. If a pattern, exercise, or movement is contraindicated by these notes, REMOVE it from the program and substitute a safe alternative — DO NOT include it with a "modify as needed" caveat. The coach is busy; the program must be ready-to-run.
+2. The block's rationale (top-of-program text) must EXPLICITLY mention these physio constraints in the first sentence (e.g. "Adjusted for left shoulder labral repair: removed overhead pressing, substituted neutral-grip horizontal push.").
+3. EVERY exercise that exists in the program because of a substitution must have a "note" field explaining what it replaces and why (e.g. "note: 'Substituted for OHP — shoulder repair, no overhead loading'").
+4. If the physio notes ALLOW certain movements with caveats (e.g. "horizontal pressing OK pain-free"), include those movements but lower the load (cap RPE 7) and put the caveat in the exercise note.
+5. The "notesForCoach" section at the end of the program must include a bullet point summarising the physio-driven adjustments so the coach can audit them at a glance.`);
+    }
+
     if (principles) {
       contextSections.push(`MARIN'S COACHING SYSTEM (his philosophy, exercise preferences, and rules — match these as if Marin wrote the program himself):
 ${JSON.stringify(stripMeta(principles), null, 2)}`);

@@ -100,6 +100,30 @@
   .snap-val{font-family:var(--head);font-size:18px;font-weight:800;letter-spacing:-0.03em;color:var(--text)}
   .snap-val.good{color:var(--green)} .snap-val.warn{color:var(--amber)} .snap-val.bad{color:var(--red)} .snap-val.muted{color:var(--muted2)}
 
+  /* Physio notes panel */
+  .physio{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);margin-bottom:18px}
+  .physio-head{padding:12px 20px;background:linear-gradient(135deg,#7C1D24,#C0202A);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .physio-title{font-family:var(--head);font-size:13px;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px}
+  .physio-title-icon{font-size:14px}
+  .physio-title-status{font-family:var(--mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);padding:2px 8px;background:rgba(255,255,255,0.15);border-radius:10px;font-weight:600}
+  .physio-title-status.has-notes{background:#fff;color:#C0202A}
+  .physio-toggle{background:rgba(255,255,255,0.15);border:none;color:#fff;font-family:var(--mono);font-size:10px;padding:5px 12px;border-radius:6px;cursor:pointer;letter-spacing:0.04em;font-weight:600}
+  .physio-toggle:hover{background:rgba(255,255,255,0.25)}
+  .physio-body{padding:16px 20px}
+  .physio-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .physio-tag{font-family:var(--mono);font-size:10px;font-weight:600;padding:5px 11px;border-radius:14px;border:1px solid var(--border2);background:var(--surface2);color:var(--text2);cursor:pointer;transition:all 0.12s;letter-spacing:0.02em}
+  .physio-tag:hover{border-color:var(--red);color:var(--red)}
+  .physio-tag.active{background:var(--red-bg);border-color:var(--red);color:var(--red);font-weight:700}
+  .physio-textarea{width:100%;min-height:80px;padding:10px 12px;border:1px solid var(--border2);border-radius:8px;background:var(--surface2);font-family:var(--body);font-size:13px;line-height:1.55;color:var(--text);outline:none;resize:vertical}
+  .physio-textarea:focus{border-color:var(--blue)}
+  .physio-textarea::placeholder{color:var(--muted2)}
+  .physio-hint{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin-top:8px;line-height:1.5}
+  .physio-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .physio-save{font-family:var(--mono);font-size:10px;letter-spacing:0.04em;padding:6px 12px;border-radius:6px;cursor:pointer;border:1px solid var(--border2);background:var(--surface2);color:var(--text2);font-weight:600}
+  .physio-save:hover{border-color:var(--blue);color:var(--blue)}
+  .physio-save.saved{border-color:var(--green);color:var(--green);background:var(--green-bg)}
+  .physio-save:disabled{opacity:0.5;cursor:not-allowed}
+
   /* Previous block panel */
   .prevblock{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);margin-bottom:18px}
   .prevblock-head{padding:14px 20px;background:linear-gradient(135deg,#0E1117,#1a1f2e);color:#fff;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
@@ -304,6 +328,9 @@
     <!-- Snapshot of athlete's current state (live, updates with athlete change) -->
     <div class="snap" id="snap"></div>
 
+    <!-- Physio notes — injury constraints that override the program -->
+    <div id="physioPanel"></div>
+
     <!-- Previous block panel — what they're doing now, with progression choices per pattern -->
     <div id="prevBlock"></div>
 
@@ -363,10 +390,215 @@ function renderSnap(c) {
 
 renderSnap(M.getClient(sel.value));
 renderPrevBlock(M.getClient(sel.value));
+renderPhysio(M.getClient(sel.value));
 sel.addEventListener('change', () => {
   renderSnap(M.getClient(sel.value));
   renderPrevBlock(M.getClient(sel.value));
+  renderPhysio(M.getClient(sel.value));
 });
+
+// ── Physio notes panel ──
+// Loads athlete-notes.json on demand, pre-populates the textarea with current_injuries,
+// lets the coach toggle body-region tags and add free-text physio notes for THIS block.
+// Optionally saves edited notes back to athlete-notes.json via /api/save-context.
+window._athleteNotesCache = null;
+window._physio = { notes: '', regions: [], baseline: '', dirty: false, collapsed: false };
+
+const PHYSIO_REGIONS = [
+  { id: 'shoulder',    label: 'Shoulder' },
+  { id: 'elbow_wrist', label: 'Elbow / Wrist' },
+  { id: 'lower_back',  label: 'Lower back' },
+  { id: 'upper_back',  label: 'Upper back / Neck' },
+  { id: 'hip',         label: 'Hip' },
+  { id: 'knee',        label: 'Knee' },
+  { id: 'ankle_foot',  label: 'Ankle / Foot' },
+  { id: 'core',        label: 'Core / Abs' },
+];
+
+async function loadAthleteNotes() {
+  if (window._athleteNotesCache) return window._athleteNotesCache;
+  try {
+    const r = await fetch('athlete-notes.json?t=' + Date.now());
+    window._athleteNotesCache = await r.json();
+  } catch (e) { window._athleteNotesCache = {}; }
+  return window._athleteNotesCache;
+}
+
+async function renderPhysio(c) {
+  const box = document.getElementById('physioPanel');
+  if (!c) { box.innerHTML = ''; return; }
+  const all = await loadAthleteNotes();
+  const ath = (all && all[c.id]) || {};
+  const baseline = (ath.current_injuries || '').trim();
+  const regionsBaseline = Array.isArray(ath.affected_regions) ? ath.affected_regions : [];
+  window._physio = {
+    notes: baseline,
+    regions: [...regionsBaseline],
+    baseline,
+    regionsBaseline,
+    dirty: false,
+    collapsed: !baseline && regionsBaseline.length === 0,
+  };
+  drawPhysio(c);
+}
+
+function drawPhysio(c) {
+  const box = document.getElementById('physioPanel');
+  const p = window._physio;
+  const hasContent = (p.notes || '').trim().length > 0 || p.regions.length > 0;
+  const statusLabel = hasContent ? `${p.regions.length} region${p.regions.length===1?'':'s'} · adjustments active` : 'No active injuries';
+  const tagsHtml = PHYSIO_REGIONS.map(r =>
+    `<button type="button" class="physio-tag ${p.regions.includes(r.id) ? 'active' : ''}" data-region="${r.id}">${escapeHtml(r.label)}</button>`
+  ).join('');
+
+  const collapsedBody = `
+    <div class="physio-body" style="padding:10px 20px;background:var(--surface2);border-top:1px solid var(--border)">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;line-height:1.5">
+        ${hasContent
+          ? `<b style="color:var(--text)">${escapeHtml((p.notes || '').slice(0, 140))}${(p.notes || '').length > 140 ? '…' : ''}</b>${p.regions.length ? ` <span style="margin-left:6px">· ${p.regions.map(id => PHYSIO_REGIONS.find(r=>r.id===id)?.label || id).join(', ')}</span>` : ''}`
+          : 'Add physio constraints for this block, or apply them to the athlete\'s permanent record.'}
+      </div>
+    </div>`;
+
+  const expandedBody = `
+    <div class="physio-body">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin-bottom:10px;line-height:1.5">
+        <b style="color:var(--text);text-transform:uppercase;letter-spacing:0.08em;font-size:9px">Affected regions</b> — tap any that need work-around in this block:
+      </div>
+      <div class="physio-tags">${tagsHtml}</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin:14px 0 6px;line-height:1.5">
+        <b style="color:var(--text);text-transform:uppercase;letter-spacing:0.08em;font-size:9px">Physio notes for this block</b>
+      </div>
+      <textarea class="physio-textarea" id="physioNotes" placeholder="e.g. 'Left shoulder labral repair — no overhead pressing for 4 weeks. Horizontal pressing OK pain-free. Cleared for hinge and squat patterns.'">${escapeHtml(p.notes || '')}</textarea>
+      <div class="physio-hint">
+        These notes OVERRIDE the program. MILO will avoid exercises that aggravate the listed regions and pick safe alternatives. Notes that read like a physio's instructions work best.
+      </div>
+      <div class="physio-actions">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em">
+          ${p.dirty ? '<span style="color:var(--amber)">● Unsaved · will be used for this block</span>' : (p.baseline || p.regionsBaseline?.length ? 'Loaded from athlete record' : '')}
+        </div>
+        <button type="button" class="physio-save" id="physioSaveBtn" ${p.dirty ? '' : 'disabled'}>Save to ${escapeHtml(c.name)}'s record</button>
+      </div>
+    </div>`;
+
+  box.innerHTML = `
+    <div class="physio">
+      <div class="physio-head">
+        <div>
+          <div class="physio-title">
+            <span class="physio-title-icon">⚕</span>Physio notes
+            <span class="physio-title-status ${hasContent ? 'has-notes' : ''}">${statusLabel}</span>
+          </div>
+        </div>
+        <button type="button" class="physio-toggle" id="physioToggle">${p.collapsed ? 'Edit' : 'Hide'}</button>
+      </div>
+      ${p.collapsed ? collapsedBody : expandedBody}
+    </div>`;
+
+  // Wire toggle
+  document.getElementById('physioToggle').addEventListener('click', () => {
+    p.collapsed = !p.collapsed;
+    drawPhysio(c);
+  });
+  if (p.collapsed) return;
+
+  // Wire region tags
+  for (const tag of box.querySelectorAll('.physio-tag')) {
+    tag.addEventListener('click', () => {
+      const r = tag.dataset.region;
+      const i = p.regions.indexOf(r);
+      if (i >= 0) p.regions.splice(i, 1); else p.regions.push(r);
+      checkDirty();
+      // Just re-toggle classes (avoid full redraw to preserve textarea focus)
+      tag.classList.toggle('active');
+      refreshPhysioStatus(c);
+    });
+  }
+  // Wire textarea
+  const ta = document.getElementById('physioNotes');
+  ta.addEventListener('input', () => {
+    p.notes = ta.value;
+    checkDirty();
+    refreshPhysioStatus(c);
+  });
+  // Wire save button
+  document.getElementById('physioSaveBtn').addEventListener('click', () => savePhysioNotes(c));
+}
+
+function refreshPhysioStatus(c) {
+  const p = window._physio;
+  const box = document.getElementById('physioPanel');
+  const headStatus = box.querySelector('.physio-title-status');
+  const hasContent = (p.notes || '').trim().length > 0 || p.regions.length > 0;
+  if (headStatus) {
+    headStatus.classList.toggle('has-notes', hasContent);
+    headStatus.textContent = hasContent ? `${p.regions.length} region${p.regions.length===1?'':'s'} · adjustments active` : 'No active injuries';
+  }
+  const saveBtn = document.getElementById('physioSaveBtn');
+  if (saveBtn) saveBtn.disabled = !p.dirty;
+  const dirtyLabel = box.querySelector('.physio-actions > div:first-child');
+  if (dirtyLabel) {
+    dirtyLabel.innerHTML = p.dirty
+      ? '<span style="color:var(--amber)">● Unsaved · will be used for this block</span>'
+      : (p.baseline || p.regionsBaseline?.length ? 'Loaded from athlete record' : '');
+  }
+}
+
+function checkDirty() {
+  const p = window._physio;
+  const sameRegions = JSON.stringify([...(p.regionsBaseline || [])].sort()) === JSON.stringify([...p.regions].sort());
+  p.dirty = (p.notes || '').trim() !== (p.baseline || '').trim() || !sameRegions;
+}
+
+async function savePhysioNotes(c) {
+  const p = window._physio;
+  if (!p.dirty) return;
+  let secret = localStorage.getItem('miloSyncSecret') || localStorage.getItem('milo_sync_secret') || '';
+  if (!secret) {
+    secret = prompt('Enter your MILO sync secret (same one the extension uses):') || '';
+    if (!secret) return;
+    localStorage.setItem('miloSyncSecret', secret);
+  }
+  const btn = document.getElementById('physioSaveBtn');
+  btn.disabled = true;
+  btn.textContent = 'Saving…';
+  // Build full athlete notes object — merge over existing
+  const all = await loadAthleteNotes();
+  const cur = (all && all[c.id]) || {};
+  const merged = {
+    ...cur,
+    current_injuries: (p.notes || '').trim(),
+    affected_regions: [...p.regions],
+  };
+  try {
+    const r = await fetch('/api/save-context', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Sync-Secret': secret },
+      body: JSON.stringify({ type: 'athleteNotes', clientId: c.id, notes: merged }),
+    });
+    const data = await r.json();
+    if (!r.ok) {
+      btn.disabled = false;
+      btn.textContent = 'Save failed — retry';
+      if (r.status === 401) localStorage.removeItem('miloSyncSecret');
+      alert('Save failed: ' + (data.error || r.status));
+      return;
+    }
+    // Update baseline + cache
+    p.baseline = merged.current_injuries;
+    p.regionsBaseline = [...merged.affected_regions];
+    p.dirty = false;
+    window._athleteNotesCache[c.id] = merged;
+    btn.classList.add('saved');
+    btn.textContent = '✓ Saved';
+    refreshPhysioStatus(c);
+    setTimeout(() => { btn.classList.remove('saved'); btn.textContent = `Save to ${c.name}'s record`; btn.disabled = !p._physio?.dirty; }, 2000);
+  } catch (e) {
+    btn.disabled = false;
+    btn.textContent = 'Save failed — retry';
+    alert('Network error: ' + e.message);
+  }
+}
 
 // ── Previous block panel ──
 // Pulls the athlete's most recent block's exercises per movement pattern.
@@ -694,6 +926,8 @@ document.getElementById('genBtn').addEventListener('click', async () => {
         templateId, frequency, conditioningZone,
         previousBlock: window._prevBlockData || null,
         progressionPreferences: window._progressionPrefs || {},
+        physioNotes: (window._physio?.notes || '').trim() || null,
+        affectedRegions: window._physio?.regions || [],
       }),
     });
     const data = await r.json();
