@@ -69,6 +69,19 @@
   .freq-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
   .tcard-vol{font-family:var(--mono);font-size:10px;color:var(--text2);letter-spacing:0.04em;padding:6px 10px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;line-height:1.5}
   .tcard-vol b{color:var(--text);font-weight:700}
+
+  /* Visual summary strip — 3 chips at bottom of card */
+  .tcard-summary{display:grid;grid-template-columns:auto 1fr 1fr;gap:6px;margin:14px 0 10px}
+  .summary-chip{padding:8px 10px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);min-width:0}
+  .summary-chip-label{font-family:var(--mono);font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .summary-chip-value{font-family:var(--head);font-size:12px;font-weight:700;color:var(--text);letter-spacing:-0.01em;line-height:1.25;overflow:hidden;text-overflow:ellipsis}
+  .summary-chip.style{border-color:transparent;color:#fff}
+  .summary-chip.style.foundation{background:linear-gradient(135deg,#1A6BF5,#3D85F7)}
+  .summary-chip.style.volume{background:linear-gradient(135deg,#0D7A4E,#10B981)}
+  .summary-chip.style.density{background:linear-gradient(135deg,#F59E0B,#FBBF24)}
+  .summary-chip.style.metabolic{background:linear-gradient(135deg,#A855F7,#C084FC)}
+  .summary-chip.style .summary-chip-label{color:rgba(255,255,255,0.65)}
+  .summary-chip.style .summary-chip-value{color:#fff;font-size:14px}
   .ttag{font-family:var(--mono);font-size:9px;padding:2px 8px;border-radius:10px;background:var(--blue-light);color:var(--blue-dark);font-weight:600;letter-spacing:0.04em}
 
   .empty{background:var(--surface);border:1px dashed var(--border2);border-radius:var(--r);padding:40px 20px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:12px;line-height:1.6}
@@ -231,6 +244,27 @@ function renderList() {
     const tags = (t.tags || []).map(tag => `<span class="ttag">${escapeHtml(tag)}</span>`).join('');
     const freqs = t.frequencyOptions || [t.sessions?.length || 2];
     const defaultFreq = t.defaultFrequency || freqs[0];
+    const summary = t.summary || {};
+    const styleClass = summaryStyleClass(summary.style);
+    const summaryHtml = (summary.style || summary.repScheme || summary.conditioning) ? `
+      <div class="tcard-summary">
+        ${summary.style ? `
+          <div class="summary-chip style ${styleClass}">
+            <div class="summary-chip-label">Style</div>
+            <div class="summary-chip-value">${escapeHtml(summary.style)}</div>
+          </div>` : '<div></div>'}
+        ${summary.repScheme ? `
+          <div class="summary-chip">
+            <div class="summary-chip-label">Reps</div>
+            <div class="summary-chip-value">${escapeHtml(summary.repScheme)}</div>
+          </div>` : '<div></div>'}
+        ${summary.conditioning ? `
+          <div class="summary-chip">
+            <div class="summary-chip-label">Conditioning</div>
+            <div class="summary-chip-value">${escapeHtml(summary.conditioning)}</div>
+          </div>` : '<div></div>'}
+      </div>` : '';
+
     return `
       <div class="tcard" onclick="showDetail('${id}')">
         <div class="tcard-head">
@@ -246,6 +280,7 @@ function renderList() {
           ${t.weeks ? `<span><b>${t.weeks}</b> weeks</span>` : ''}
         </div>
         ${tags ? `<div class="tcard-tags">${tags}</div>` : ''}
+        ${summaryHtml}
         <div class="tcard-freq" onclick="event.stopPropagation()">
           <span class="tcard-freq-label">Frequency</span>
           ${freqs.map(f => `<button class="freq-btn ${f === defaultFreq ? 'active' : ''}" data-tid="${id}" data-freq="${f}" onclick="changeFreq(event, '${id}', ${f})">${f}×/wk</button>`).join('')}
@@ -410,6 +445,16 @@ async function del(id) {
 
 function escapeHtml(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function summaryStyleClass(style) {
+  if (!style) return '';
+  const s = style.toLowerCase();
+  if (s.includes('foundation') || s.includes('basic')) return 'foundation';
+  if (s.includes('volume')) return 'volume';
+  if (s.includes('density') || s.includes('triplet')) return 'density';
+  if (s.includes('metabolic') || s.includes('met ')) return 'metabolic';
+  return '';
 }
 
 load();
