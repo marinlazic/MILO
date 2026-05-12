@@ -537,17 +537,42 @@
 <script>
 const params = new URLSearchParams(location.search);
 const clientId = params.get('id') || 'craig-blair';
-const c = window.MILO.getClient(clientId);
 
-if (!c) {
+// Defensive: if clients.js / classifier.js didn't load, surface a clear error rather than
+// leaving the page silently stuck on "Loading…" placeholders.
+if (typeof window.MILO === 'undefined' || typeof window.MILO_CLASSIFIER === 'undefined') {
   document.querySelector('.main').innerHTML = `
-    <div style="padding:60px;text-align:center">
-      <h2 style="font-family:var(--head);font-size:22px;margin-bottom:10px">Client not found</h2>
-      <p style="color:var(--muted)">No client with id "${clientId}".</p>
-      <a href="index.html" style="color:var(--blue);margin-top:20px;display:inline-block">← Back to dashboard</a>
+    <div style="padding:60px;text-align:center;max-width:560px;margin:0 auto">
+      <h2 style="font-family:var(--head);font-size:22px;margin-bottom:10px">Page didn't finish loading</h2>
+      <p style="color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:14px">
+        ${typeof window.MILO === 'undefined' ? '<code>clients.js</code> failed to load' : '<code>classifier.js</code> failed to load'}.
+        This usually means Vercel is mid-deploy. Wait 30-60 seconds and hard refresh (Cmd+Shift+R or Ctrl+Shift+R).
+      </p>
+      <button onclick="location.reload()" style="background:var(--blue);color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-family:var(--body);font-size:13px;font-weight:600">Reload now</button>
+      <p style="margin-top:14px"><a href="index.html" style="color:var(--blue);text-decoration:none">← Back to dashboard</a></p>
     </div>`;
 } else {
-  renderClient(c);
+  const c = window.MILO.getClient(clientId);
+  if (!c) {
+    document.querySelector('.main').innerHTML = `
+      <div style="padding:60px;text-align:center">
+        <h2 style="font-family:var(--head);font-size:22px;margin-bottom:10px">Client not found</h2>
+        <p style="color:var(--muted)">No client with id "${clientId}".</p>
+        <a href="index.html" style="color:var(--blue);margin-top:20px;display:inline-block">← Back to dashboard</a>
+      </div>`;
+  } else {
+    try {
+      renderClient(c);
+    } catch (e) {
+      console.error('renderClient failed:', e);
+      document.querySelector('.main').innerHTML = `
+        <div style="padding:60px;text-align:center;max-width:560px;margin:0 auto">
+          <h2 style="font-family:var(--head);font-size:22px;margin-bottom:10px">Something went wrong rendering ${c.name}</h2>
+          <pre style="background:var(--surface2);padding:14px;border-radius:8px;color:var(--red);font-family:var(--mono);font-size:11px;text-align:left;overflow:auto;max-height:220px">${String(e.message || e)}</pre>
+          <p style="margin-top:14px"><a href="index.html" style="color:var(--blue);text-decoration:none">← Back to dashboard</a></p>
+        </div>`;
+    }
+  }
 }
 
 function renderClient(c) {
