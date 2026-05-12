@@ -67331,7 +67331,7 @@
                 "reps": 15,
                 "weight": 500000,
                 "weightUnit": "lbs",
-                "rpe": 6,
+                "rpe": null,
                 "rest": 45,
                 "note": null
               }
@@ -70621,13 +70621,14 @@
         "isCircuit": false,
         "exercises": [
           {
-            "name": "Medicine Ball Overhead Slam - Rotational",
-            "slug": "medicine-ball-overhead-slam-rotational",
-            "exerciseId": 2053,
+            "name": "Push Jerk to Split - 1 Arm Landmine",
+            "slug": "push-jerk-to-split-1-arm-landmine",
+            "exerciseId": 96622,
             "sets": [
               {
                 "type": "Workset",
-                "reps": 5,
+                "reps": 8,
+                "weight": 400000,
                 "weightUnit": "kg",
                 "distanceUnit": "m",
                 "rpe": null,
@@ -70636,7 +70637,8 @@
               },
               {
                 "type": "Workset",
-                "reps": 5,
+                "reps": 8,
+                "weight": 400000,
                 "weightUnit": "kg",
                 "distanceUnit": "m",
                 "rpe": null,
@@ -70645,7 +70647,8 @@
               },
               {
                 "type": "Workset",
-                "reps": 5,
+                "reps": 8,
+                "weight": 400000,
                 "weightUnit": "kg",
                 "distanceUnit": "m",
                 "rpe": null,
@@ -70669,7 +70672,7 @@
             "sets": [
               {
                 "type": "Workset",
-                "reps": null,
+                "reps": 10,
                 "weight": 650000,
                 "weightUnit": "kg",
                 "distanceUnit": "m",
@@ -70679,7 +70682,7 @@
               },
               {
                 "type": "Workset",
-                "reps": null,
+                "reps": 10,
                 "weight": 650000,
                 "weightUnit": "kg",
                 "distanceUnit": "m",
@@ -70689,7 +70692,7 @@
               },
               {
                 "type": "Workset",
-                "reps": null,
+                "reps": 10,
                 "weight": 650000,
                 "weightUnit": "kg",
                 "distanceUnit": "m",
