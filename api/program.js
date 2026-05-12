@@ -116,12 +116,19 @@ ${JSON.stringify(stripMeta(principles), null, 2)}`);
 ${JSON.stringify(athleteNotes, null, 2)}`);
     }
     if (chosenTemplate) {
-      contextSections.push(`SCAFFOLD TEMPLATE (the coach has selected this movement-pattern blueprint — use it as the STRUCTURAL skeleton for the program. Fill in specific exercises from the athlete's preferred-exercise pool, but keep the session count, block count, intensity levels, set/rep schemes, and pattern distribution from the template. The mobility prep block is added separately):
+      contextSections.push(`SCAFFOLD TEMPLATE (the coach has selected this blueprint — use it as the STRUCTURAL skeleton for the program. Keep the session count, block count, ORDER, intensity levels, set/rep schemes, pair labels, and pattern distribution exactly as specified. Fill in specific exercises from the athlete's preferred-exercise pool. If the template includes "mobility" blocks with a "category" field, render them as their own block in the session using one exercise from the matching mobility pool — DO NOT skip them, they are part of the session flow):
 ${JSON.stringify(chosenTemplate, null, 2)}`);
     }
-    if (principles?.default_mobility_prep) {
-      contextSections.push(`MOBILITY PREP REQUIREMENT (add as the FIRST block of EVERY session — pick 1 exercise from each category, vary across sessions):
-${JSON.stringify(principles.default_mobility_prep, null, 2)}`);
+    if (principles?.mobility_pools) {
+      contextSections.push(`MOBILITY EXERCISE POOLS (use these when filling in a mobility block — pick 1 exercise from the matching category, vary across sessions for the same athlete):
+${JSON.stringify(principles.mobility_pools, null, 2)}`);
+    }
+    if (principles?.session_balance_rules && chosenTemplate) {
+      contextSections.push(`SESSION BALANCE RULES (apply alongside the template):
+${JSON.stringify(stripDocs(principles.session_balance_rules), null, 2)}`);
+    }
+    if (!chosenTemplate && principles?.mobility_pools) {
+      contextSections.push(`MOBILITY REQUIREMENT (free-form mode — no template was provided): include mobility blocks across each week so the athlete covers ankle, hip, and t-spine. Typical pattern: hip mobility mid-session in one workout, t-spine mid-session in another, ankle as cool-down. Pull exercises from the mobility_pools above.`);
     }
 
     const userContent = `BLOCK PARAMETERS
@@ -195,6 +202,10 @@ async function fetchJsonFile(filename) {
 function stripMeta(obj) {
   if (!obj || typeof obj !== 'object') return obj;
   const { _meta, ...rest } = obj;
-  // Also strip any _docs subkeys
   return JSON.parse(JSON.stringify(rest, (k, v) => k === '_docs' ? undefined : v));
+}
+
+function stripDocs(obj) {
+  if (!obj || typeof obj !== 'object') return obj;
+  return JSON.parse(JSON.stringify(obj, (k, v) => k === '_docs' ? undefined : v));
 }

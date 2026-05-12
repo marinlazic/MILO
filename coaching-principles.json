@@ -9,15 +9,19 @@
 
   "session_structure": "How I structure every session. e.g.: Every session opens with Mobility Prep (3-5 min, low-key). Then 1 primary compound pattern (Hinge, Squat, Push, or Pull) at the heaviest. Accessory work paired with the primary. Carry or core finisher closes most sessions.",
 
-  "default_mobility_prep": {
-    "_docs": "MILO automatically adds this block to the start of EVERY generated session (templates don't include it). Edit the exercise list to change your standard warm-up.",
-    "block_name": "Mobility Prep",
-    "minutes": 5,
-    "categories_to_cover": ["ankle", "hip", "t-spine"],
-    "ankle": ["Ankle Rocks - Half Kneeling", "Banded Ankle Distraction"],
-    "hip": ["90/90 Hip Switches", "World's Greatest Stretch", "Half-Kneeling Hip Flexor Stretch"],
-    "t_spine": ["Cat-Cow", "Thoracic Spine Windmill", "Quadruped T-Spine Rotation"],
-    "selection_rule": "Pick 1 from each category, or coach's choice. Vary across sessions to keep it fresh."
+  "mobility_pools": {
+    "_docs": "Exercise pools per mobility category. Used to fill in any mobility block in a template (templates specify WHEN, this specifies WHAT). MILO picks an exercise from the relevant pool, varying across sessions to keep it fresh.",
+    "ankle": ["Ankle Rocks - Half Kneeling", "Banded Ankle Distraction", "Heel Drops Off Step", "Wall Calf Stretch"],
+    "hip": ["90/90 Hip Switches", "World's Greatest Stretch", "Half-Kneeling Hip Flexor Stretch", "Frog Rocks", "Cossack Squat Hold"],
+    "t-spine": ["Thoracic Spine Windmill", "Quadruped T-Spine Rotation", "Cat-Cow", "Bench T-Spine Extensions", "Open Book"]
+  },
+
+  "session_balance_rules": {
+    "_docs": "Rules MILO must follow across all template-driven program generations. They preserve movement balance + mobility coverage across each week.",
+    "push_pull_alternation": "Across a 2-session week (A/B): Day A push & pull = HORIZONTAL. Day B push & pull = VERTICAL. Across 3-session week: rotate horizontal → vertical → horizontal-unilateral. Mix patterns so no single shoulder position is over-trained.",
+    "mobility_woven_in_session": "Mobility is NOT just prepended to the session. Templates specify mobility blocks at meaningful points: typically after the first strength superset pair (mid-session reset) and after conditioning (cool-down). Different sessions cover different categories so the week (A+B+...) covers ankle + hip + t-spine.",
+    "default_mobility_distribution_a_b": "Workout A: hip mobility after 1a/1b strength pair, ankle mobility after conditioning. Workout B: t-spine mobility after 1a/1b strength pair, ankle mobility after conditioning. Across the week: hip + t-spine + 2×ankle.",
+    "mobility_block_duration": "1-2 minutes per mobility block (flow / quality reps, not a heavy stretch session)"
   },
 
   "weekly_template": "How I think about week structure. e.g.: 3 strength sessions/week is the default for most H&P clients. Avoid heavy hinge + heavy squat consecutive days. Frontal/transverse plane work at least 1x/week.",

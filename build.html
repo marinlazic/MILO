@@ -74,6 +74,25 @@
   .loading-card .step{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.04em}
   .loading-card .step b{color:#fff;display:block;font-size:14px;font-family:var(--head);font-weight:700;margin-bottom:4px}
 
+  /* Template preview */
+  .tpl-preview{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);margin-bottom:18px}
+  .tpl-preview-head{padding:14px 20px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  .tpl-preview-title{font-family:var(--head);font-size:14px;font-weight:700;letter-spacing:-0.02em}
+  .tpl-preview-hint{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em}
+  .tpl-sessions{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .tpl-session{padding:14px 18px;border-right:1px solid var(--border)}
+  .tpl-session:last-child{border-right:none}
+  .tpl-session-name{font-family:var(--head);font-size:13px;font-weight:700;margin-bottom:8px}
+  .tpl-block{display:grid;grid-template-columns:18px 1fr auto;gap:8px;padding:6px 0;font-size:11px;align-items:center;border-bottom:1px dashed var(--border)}
+  .tpl-block:last-child{border-bottom:none}
+  .tpl-block-num{font-family:var(--mono);font-size:9px;color:var(--muted);font-weight:700}
+  .tpl-block.mobility{background:var(--green-bg);margin:2px -8px;padding:6px 8px;border-radius:5px;border:none}
+  .tpl-block.mobility .tpl-block-num{color:var(--green)}
+  .tpl-block-pattern{font-family:var(--body);font-weight:600;color:var(--text)}
+  .tpl-block.mobility .tpl-block-pattern{color:var(--green)}
+  .tpl-block-meta{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.04em;white-space:nowrap}
+  @media (max-width: 700px) { .tpl-sessions{grid-template-columns:1fr} .tpl-session{border-right:none;border-bottom:1px solid var(--border)} }
+
   /* Snapshot tile */
   .snap{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:18px}
   .snap-cell{background:var(--surface);border:1px solid var(--border);padding:12px 14px;border-radius:10px;box-shadow:var(--sh)}
@@ -245,6 +264,9 @@
     <!-- Snapshot of athlete's current state (live, updates with athlete change) -->
     <div class="snap" id="snap"></div>
 
+    <!-- Template preview (visible when a template is selected) -->
+    <div id="templatePreview"></div>
+
     <!-- Output area -->
     <div id="output"></div>
 
@@ -299,24 +321,57 @@ function renderSnap(c) {
 renderSnap(M.getClient(sel.value));
 sel.addEventListener('change', () => renderSnap(M.getClient(sel.value)));
 
-// Populate templates dropdown
+// Populate templates dropdown + render preview when one is selected
+let _templates = {};
 (async () => {
   try {
     const r = await fetch('program-templates.json?t=' + Date.now());
     const tfile = await r.json();
-    const templates = tfile.templates || {};
-    const sel = document.getElementById('templateSel');
+    _templates = tfile.templates || {};
+    const tselect = document.getElementById('templateSel');
     const preselect = params.get('template');
-    for (const [id, t] of Object.entries(templates)) {
+    for (const [id, t] of Object.entries(_templates)) {
       if (id.startsWith('_')) continue;
       const opt = document.createElement('option');
       opt.value = id;
       opt.textContent = t.name || id;
       if (id === preselect) opt.selected = true;
-      sel.appendChild(opt);
+      tselect.appendChild(opt);
     }
+    tselect.addEventListener('change', () => renderTemplatePreview(_templates[tselect.value]));
+    if (tselect.value) renderTemplatePreview(_templates[tselect.value]);
   } catch (e) { /* no templates yet */ }
 })();
+
+function renderTemplatePreview(t) {
+  const el = document.getElementById('templatePreview');
+  if (!t) { el.innerHTML = ''; return; }
+  const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const sessionsHtml = (t.sessions || []).map(s => `
+    <div class="tpl-session">
+      <div class="tpl-session-name">${escapeHtml(s.name)}</div>
+      ${(s.blocks || []).map((b, i) => {
+        const isMob = b.pattern === 'mobility';
+        const label = isMob ? `mobility · ${escapeHtml(b.category || '')}` : escapeHtml(b.pattern);
+        const meta = `${b.sets ?? '—'} × ${b.reps ?? '—'}${b.pair ? ' · ' + escapeHtml(b.pair) : ''}`;
+        return `
+          <div class="tpl-block ${isMob ? 'mobility' : ''}">
+            <div class="tpl-block-num">${i+1}</div>
+            <div class="tpl-block-pattern">${label}</div>
+            <div class="tpl-block-meta">${meta}</div>
+          </div>`;
+      }).join('')}
+    </div>
+  `).join('');
+  el.innerHTML = `
+    <div class="tpl-preview">
+      <div class="tpl-preview-head">
+        <div class="tpl-preview-title">Template preview · ${escapeHtml(t.name)}</div>
+        <div class="tpl-preview-hint">${(t.sessions||[]).length} sessions · mobility blocks shown in green · MILO will fill in specific exercises on generate</div>
+      </div>
+      <div class="tpl-sessions">${sessionsHtml}</div>
+    </div>`;
+}
 
 // ── Helper functions (mirror those used elsewhere) ──
 function weeklyBuckets(workouts, weeksBack = 12, todayStr = new Date().toISOString().slice(0,10)) {

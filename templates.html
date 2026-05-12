@@ -83,6 +83,9 @@
   .session-bcount{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em}
   .mob-block{padding:10px 14px;background:var(--green-bg);border:1px solid #C7EBD5;border-radius:8px;font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:8px;display:flex;align-items:center;gap:8px}
   .block-row{display:grid;grid-template-columns:120px 100px 1fr 80px;gap:14px;padding:10px 14px;border-bottom:1px dashed var(--border);align-items:center}
+  .block-row.mobility{background:var(--green-bg);border-radius:6px;border:1px solid #C7EBD5;margin:4px 0}
+  .block-row.mobility .block-pattern{color:var(--green);font-weight:800}
+  .mob-cat{display:inline-block;padding:2px 8px;border-radius:6px;background:var(--green);color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;margin-left:6px}
   .block-row:last-child{border-bottom:none}
   .block-pattern{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--text);letter-spacing:0.02em}
   .block-intensity{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-align:center}
@@ -248,15 +251,16 @@ function showDetail(id) {
         <div class="session-name">${escapeHtml(s.name || `Session ${i+1}`)}</div>
         <div class="session-bcount">${(s.blocks || []).length} blocks</div>
       </div>
-      ${mobilityCfg ? `<div class="mob-block">+ Mobility Prep (${(mobilityCfg.categories_to_cover || []).join(', ')}) · auto-added · ${mobilityCfg.minutes || '5'} min</div>` : ''}
-      ${(s.blocks || []).map(b => `
-        <div class="block-row">
-          <div class="block-pattern">${escapeHtml(b.pattern || '—')}</div>
+      ${(s.blocks || []).map(b => {
+        const isMobility = b.pattern === 'mobility';
+        return `
+        <div class="block-row ${isMobility ? 'mobility' : ''}">
+          <div class="block-pattern">${escapeHtml(b.pattern || '—')}${isMobility && b.category ? `<span class="mob-cat">${escapeHtml(b.category)}</span>` : ''}</div>
           <div class="block-intensity ${b.intensity || ''}">${escapeHtml(b.intensity || '—')}</div>
-          <div class="block-srep"><b>${b.sets ?? '—'}</b> × <b>${b.reps ?? '—'}</b>${b.note ? ` · <span class="block-note">${escapeHtml(b.note)}</span>` : ''}</div>
+          <div class="block-srep"><b>${b.sets ?? '—'}</b> × <b>${b.reps ?? '—'}</b>${b.pair ? ` · <span style="color:var(--blue);font-weight:700">${escapeHtml(b.pair)}</span>` : ''}${b.note ? ` · <span class="block-note">${escapeHtml(b.note)}</span>` : ''}</div>
           <div></div>
-        </div>
-      `).join('')}
+        </div>`;
+      }).join('')}
     </div>
   `).join('');
 
