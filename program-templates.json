@@ -27,6 +27,7 @@
     "power_lower",
     "power_upper",
     "explosive_carry",
+    "combination_total_body",
     "conditioning_zone_2",
     "conditioning_zone_5",
     "core_finisher"
@@ -35,41 +36,43 @@
   "_intensityLevels": ["primary", "secondary", "accessory", "finisher"],
 
   "templates": {
-    "_example_3day_strength": {
-      "id": "_example_3day_strength",
-      "name": "3-Day Foundational Strength (EXAMPLE — delete me)",
-      "description": "Classic 3-session split: lower hinge-dominant, upper push/pull, lower squat-dominant. Good for first 4-6 weeks with a new client or a strength rebuild block.",
-      "tags": ["strength", "foundational", "3x/week"],
-      "weeks": 4,
+    "basic-training-ab": {
+      "id": "basic-training-ab",
+      "name": "Basic Training (A/B split)",
+      "description": "Foundational 2-session split cycled across 4 workouts (A-B-A-B). Light volume, paired sets for time efficiency, intervals to cap each session. Good entry block for new clients or post-layoff return.",
+      "tags": ["foundational", "basic", "2-session split", "general health"],
+      "weeks": 2,
+      "sessionsPerWeek": 2,
+      "totalWorkouts": 4,
       "sessions": [
         {
-          "name": "Hinge + Posterior",
+          "name": "Workout A",
           "blocks": [
-            { "pattern": "hinge", "intensity": "primary", "sets": 4, "reps": "5", "note": "Top set RPE 7" },
-            { "pattern": "horizontal_pull", "intensity": "secondary", "sets": 3, "reps": "8-10" },
-            { "pattern": "hinge_unilateral", "intensity": "accessory", "sets": 3, "reps": "8 each side" },
-            { "pattern": "carry", "intensity": "finisher", "sets": 3, "reps": "20m" }
+            { "pattern": "anti_extension", "intensity": "primary", "sets": "1-2", "reps": "30 seconds", "note": "Core — Stability" },
+            { "pattern": "anti_rotation", "intensity": "primary", "sets": "1-2", "reps": "10", "note": "Core — Dynamic Stability" },
+            { "pattern": "power_lower", "intensity": "primary", "sets": 2, "reps": "5", "note": "Power slot — coach picks (jumps / KB swing / med ball / etc.)" },
+            { "pattern": "squat",           "intensity": "primary",   "sets": "1-2", "reps": "15", "pair": "1a" },
+            { "pattern": "horizontal_pull", "intensity": "primary",   "sets": "1-2", "reps": "15", "pair": "1b", "note": "Superset with 1a" },
+            { "pattern": "squat_unilateral","intensity": "secondary", "sets": "1-2", "reps": "15", "pair": "2a", "note": "Single-leg stance" },
+            { "pattern": "horizontal_push", "intensity": "secondary", "sets": "1-2", "reps": "15", "pair": "2b", "note": "Superset with 2a" },
+            { "pattern": "conditioning_zone_5", "intensity": "finisher", "sets": "2-4", "reps": "1 min work / 2 min recovery", "note": "Intervals" }
           ]
         },
         {
-          "name": "Push + Pull",
+          "name": "Workout B",
           "blocks": [
-            { "pattern": "horizontal_push", "intensity": "primary", "sets": 4, "reps": "5" },
-            { "pattern": "vertical_pull", "intensity": "primary", "sets": 4, "reps": "5" },
-            { "pattern": "horizontal_push_unilateral", "intensity": "accessory", "sets": 3, "reps": "10 each" },
-            { "pattern": "anti_rotation", "intensity": "finisher", "sets": 3, "reps": "10 each side" }
-          ]
-        },
-        {
-          "name": "Squat + Core",
-          "blocks": [
-            { "pattern": "squat", "intensity": "primary", "sets": 4, "reps": "5" },
-            { "pattern": "lunge", "intensity": "secondary", "sets": 3, "reps": "8 each leg" },
-            { "pattern": "core_finisher", "intensity": "finisher", "sets": 3, "reps": "as prescribed" }
+            { "pattern": "anti_extension", "intensity": "primary", "sets": "1-2", "reps": "30 seconds", "note": "Core — Stability" },
+            { "pattern": "anti_rotation", "intensity": "primary", "sets": 2, "reps": "10", "note": "Core — Dynamic Stability" },
+            { "pattern": "combination_total_body", "intensity": "primary", "sets": 2, "reps": "5-8", "note": "Combination slot — total-body multi-joint movement (e.g. KB clean+press, thruster, complex)" },
+            { "pattern": "hinge",           "intensity": "primary",   "sets": "1-2", "reps": "15", "pair": "1a" },
+            { "pattern": "horizontal_push", "intensity": "primary",   "sets": "1-2", "reps": "15", "pair": "1b", "note": "Superset with 1a" },
+            { "pattern": "lunge",           "intensity": "secondary", "sets": "1-2", "reps": "15", "pair": "2a" },
+            { "pattern": "horizontal_pull", "intensity": "secondary", "sets": "1-2", "reps": "15", "pair": "2b", "note": "Superset with 2a" },
+            { "pattern": "conditioning_zone_5", "intensity": "finisher", "sets": "2-4", "reps": "1 min work / 2 min recovery", "note": "Intervals" }
           ]
         }
       ],
-      "notes": "Mobility prep is added automatically. Use this template for athletes establishing baseline strength. Pairs well with deload week 4 dropping volume by 40%."
+      "notes": "Alternate Workout A and B over 4 sessions (A-B-A-B). Pairs marked 1a/1b and 2a/2b are supersets — back-to-back, then rest. Intervals can be bike, ski erg, row, or hill sprints based on equipment + conditioning goal. Mobility prep (ankle/hip/t-spine) is auto-added on top."
     }
   }
 }
