@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MILO — Program Templates</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
   :root {
     --bg:#F0F2F5; --surface:#FFFFFF; --surface2:#F7F8FA;
@@ -633,6 +634,7 @@ function showDetail(id) {
         </div>
         <div id="detailVolume" style="margin-top:12px"></div>
       </div>
+      <div id="progressionChart" style="background:var(--surface);border-bottom:1px solid var(--border)"></div>
       ${sessionsHtml}
       ${t.notes ? `<div style="padding:18px 28px;background:var(--amber-bg);border-top:1px solid #F5D58C;color:#5C3D00;font-size:12px;line-height:1.6"><b style="font-family:var(--mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:#8A5A00">Notes</b><br>${escapeHtml(t.notes)}</div>` : ''}
     </div>`;
@@ -675,6 +677,191 @@ function setDetailFreq(id, freq) {
       </div>
     </div>
   `;
+
+  renderProgressionChart(id, t, freq);
+}
+
+// ── Volume + Intensity progression chart (Chart.js dual-axis) ──
+let _progChart = null;
+function renderProgressionChart(id, t, frequency) {
+  const wrap = document.getElementById('progressionChart');
+  if (!wrap) return;
+  const wp = t.weeklyProgression;
+  if (!wp || !Array.isArray(wp.weeks) || wp.weeks.length === 0) {
+    wrap.innerHTML = '';
+    return;
+  }
+  const series = computeWeeklySeries(t, frequency);
+  if (!series.weeks.length) { wrap.innerHTML = ''; return; }
+
+  wrap.innerHTML = `
+    <div style="padding:18px 24px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px;flex-wrap:wrap">
+        <div>
+          <div style="font-family:var(--head);font-size:14px;font-weight:700;letter-spacing:-0.02em">Progressive overload across the block</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em;margin-top:2px">${series.weeks.length} weeks · primary strength volume × load intensity · @ ${frequency}×/wk</div>
+        </div>
+        <div style="display:flex;gap:14px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:0.04em">
+          <span><span style="display:inline-block;width:10px;height:10px;background:#1A6BF5;border-radius:2px;vertical-align:middle;margin-right:4px"></span>Volume (reps/wk)</span>
+          <span><span style="display:inline-block;width:10px;height:10px;background:#DC2626;border-radius:2px;vertical-align:middle;margin-right:4px"></span>Intensity (% e1RM)</span>
+        </div>
+      </div>
+      <div style="height:240px;position:relative"><canvas id="progCanvas"></canvas></div>
+      <div style="margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px;font-family:var(--mono);font-size:10px">
+        ${series.weeks.map((w, i) => `
+          <div style="padding:6px 8px;background:var(--surface2);border:1px solid var(--border);border-radius:6px">
+            <div style="font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600">W${w.week} · ${escapeHtml(w.intent || '')}</div>
+            <div style="margin-top:3px;color:var(--text);font-family:var(--head);font-size:12px;font-weight:700">${w.volumeReps} reps · ${w.intensityPct}%</div>
+            ${w.setsByReps ? `<div style="font-size:9px;color:var(--muted);margin-top:1px;letter-spacing:0.02em">${escapeHtml(w.setsByReps)}</div>` : ''}
+          </div>`).join('')}
+      </div>
+    </div>`;
+
+  if (_progChart) _progChart.destroy();
+  const ctx = document.getElementById('progCanvas');
+  _progChart = new Chart(ctx, {
+    data: {
+      labels: series.weeks.map(w => `W${w.week}`),
+      datasets: [
+        {
+          type: 'bar',
+          label: 'Volume (reps/wk)',
+          data: series.weeks.map(w => w.volumeReps),
+          backgroundColor: 'rgba(26,107,245,0.85)',
+          borderRadius: 4,
+          yAxisID: 'y',
+          order: 2,
+        },
+        {
+          type: 'line',
+          label: 'Intensity (% e1RM)',
+          data: series.weeks.map(w => w.intensityPct),
+          borderColor: '#DC2626',
+          backgroundColor: '#DC2626',
+          borderWidth: 2.5,
+          tension: 0.28,
+          pointBackgroundColor: '#DC2626',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          yAxisID: 'y1',
+          order: 1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { display: false }, tooltip: { backgroundColor: '#0E1117', padding: 10, titleFont: { family: 'DM Sans', size: 12, weight: 700 }, bodyFont: { family: 'DM Mono', size: 11 } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499' } },
+        y:  { position: 'left',  beginAtZero: true, title: { display: true, text: 'Volume (reps/wk)', font: { family: 'DM Mono', size: 10 }, color: '#1A6BF5' }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499' }, grid: { color: 'rgba(0,0,0,0.05)' } },
+        y1: { position: 'right', beginAtZero: false, suggestedMin: 50, suggestedMax: 100, title: { display: true, text: '% e1RM', font: { family: 'DM Mono', size: 10 }, color: '#DC2626' }, ticks: { font: { family: 'DM Mono', size: 10 }, color: '#7A8499', callback: v => v + '%' }, grid: { drawOnChartArea: false } },
+      },
+    },
+  });
+}
+
+// Compute per-week strength volume + intensity for a template at a given training frequency.
+// Volume = sum of primary+secondary strength block (sets × reps) across one week of sessions,
+//          using weeklyProgression overrides where the template defines them.
+function computeWeeklySeries(t, frequency) {
+  const weeks = t.weeklyProgression?.weeks || [];
+  const sessions = t.sessions || [];
+  if (!weeks.length || !sessions.length) return { weeks: [] };
+
+  const STRENGTH = new Set(['squat','single_leg','hinge','hinge_unilateral','lunge',
+    'horizontal_push','horizontal_push_unilateral','vertical_push',
+    'horizontal_pull','horizontal_pull_unilateral','vertical_pull',
+    'carry','rotation','anti_rotation','anti_extension','anti_lateral_flexion',
+    'power_lower','power_upper','combination_total_body','explosive_carry',
+    'core_finisher','frontal_plane','transverse_plane','free_zone']);
+
+  function parseReps(v) {
+    if (typeof v === 'number') return v;
+    if (typeof v !== 'string') return 0;
+    // comma-separated e.g. "5,5,5,5,8" → sum
+    if (v.includes(',')) {
+      return v.split(',').map(p => parseInt(p.trim(), 10)).filter(n => !isNaN(n)).reduce((a, b) => a + b, 0);
+    }
+    // wave string "Wave: W1 7-5-3/7-5-3..." → can't reliably parse, fall through
+    const m = v.match(/^\s*(\d+)\s*$/);
+    if (m) return parseInt(m[1], 10);
+    return 0;
+  }
+
+  // Pre-compute the per-session reps volume (W1 baseline, will be scaled per week)
+  function sessionVolumeBaseline(session) {
+    let total = 0;
+    for (const b of (session.blocks || [])) {
+      if (!STRENGTH.has(b.pattern)) continue;
+      if (b.category) continue; // skip mobility-classified
+      const sets = typeof b.sets === 'number' ? b.sets : (parseInt(String(b.sets), 10) || 0);
+      const reps = parseReps(b.reps);
+      total += sets * reps;
+    }
+    return total;
+  }
+
+  const freq = frequency || t.defaultFrequency || sessions.length;
+  // Cycle through sessions for the frequency
+  const cycleIdx = [];
+  for (let i = 0; i < freq; i++) cycleIdx.push(i % sessions.length);
+  const baselineWeekVolume = cycleIdx.reduce((s, i) => s + sessionVolumeBaseline(sessions[i]), 0);
+
+  // Build per-week series
+  const series = weeks.map(w => {
+    let volumeReps = baselineWeekVolume;
+    let setsByReps = null;
+    // If the week's prescription overrides sets/reps, scale the W1 baseline
+    if (typeof w.sets === 'number' && typeof w.reps === 'number') {
+      // Find the W1 prescription so we can scale
+      const w1 = weeks[0];
+      if (typeof w1?.sets === 'number' && typeof w1?.reps === 'number' && w1.sets * w1.reps > 0) {
+        const scale = (w.sets * w.reps) / (w1.sets * w1.reps);
+        volumeReps = Math.round(baselineWeekVolume * scale);
+      }
+      setsByReps = `${w.sets} × ${w.reps}`;
+    }
+    // Daily undulating: this week's volume = sum across the dailyRotation (one scheme per session)
+    if (t.undulating?.type === 'daily' && Array.isArray(t.undulating.dailyRotation)) {
+      const rot = t.undulating.dailyRotation;
+      // For each session in the week, use rot[i % rot.length]
+      let totalReps = 0;
+      const primaryBlocksPerSession = sessions.map(s => (s.blocks || []).filter(b => STRENGTH.has(b.pattern) && !b.category && b.intensity && b.intensity !== 'finisher' && b.intensity !== 'accessory').length);
+      for (let i = 0; i < freq; i++) {
+        const scheme = rot[i % rot.length];
+        const numBlocks = primaryBlocksPerSession[i % sessions.length] || 1;
+        if (scheme && typeof scheme.sets === 'number' && typeof scheme.reps === 'number') {
+          totalReps += scheme.sets * scheme.reps * numBlocks;
+        }
+      }
+      volumeReps = totalReps;
+      // Show the scheme rotation
+      setsByReps = rot.map(r => `${r.sets}×${r.reps}`).join(' / ');
+    }
+    // Wave: volume = sum of reps array × num main lifts per week
+    if (t.undulating?.type === 'wave' && t.undulating.wavePeriodization) {
+      const cycle = (t.undulating.wavePeriodization.cycles || []).find(c => Array.isArray(c.weeks) && c.weeks.includes(w.week));
+      if (cycle && Array.isArray(cycle.repsPerSet)) {
+        const repsThisWave = cycle.repsPerSet.reduce((a, b) => a + b, 0);
+        // 1 main lift per session × freq sessions
+        volumeReps = repsThisWave * freq;
+        setsByReps = cycle.repsPerSet.join('-');
+      }
+    }
+    return {
+      week: w.week,
+      intent: w.intent,
+      intensityPct: w.intensityPct ?? null,
+      volumeReps,
+      setsByReps,
+    };
+  });
+
+  return { weeks: series };
 }
 
 function showList() {

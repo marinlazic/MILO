@@ -4,7 +4,6 @@
     "version": 1,
     "_docs": "Program-block templates organised by MOVEMENT PATTERN (not specific exercises). MILO uses these as the structural scaffold when generating a program: it picks one (or you pick one), then fills in actual exercises based on the athlete's coaching principles + considerations. Mobility prep (ankle / hip / t-spine) is added automatically on top of every session — it does NOT need to be in the template."
   },
-
   "_patternVocabulary": [
     "squat",
     "single_leg",
@@ -34,7 +33,6 @@
     "free_zone",
     "mobility"
   ],
-
   "_blockFields": {
     "_docs": "Reference: every block in a template can carry these optional fields. pattern is required.",
     "pattern": "from vocabulary above",
@@ -47,9 +45,12 @@
     "loaded": "true if external resistance, false if bodyweight / mobility / cardio",
     "note": "free-text coaching note"
   },
-
-  "_intensityLevels": ["primary", "secondary", "accessory", "finisher"],
-
+  "_intensityLevels": [
+    "primary",
+    "secondary",
+    "accessory",
+    "finisher"
+  ],
   "templates": {
     "basic-training-ab": {
       "id": "basic-training-ab",
@@ -61,47 +62,239 @@
         "conditioning": "Intervals · 1 min / 2 min recovery"
       },
       "description": "Foundational A/B split. Day A = horizontal push/pull + hip mobility. Day B = vertical push/pull + t-spine mobility. Ankle mobility caps every session.",
-      "tags": ["foundational", "basic", "general health"],
+      "tags": [
+        "foundational",
+        "basic",
+        "general health"
+      ],
       "weeks": 4,
       "uniqueSessions": 2,
-      "frequencyOptions": [2, 3, 4],
+      "frequencyOptions": [
+        2,
+        3,
+        4
+      ],
       "defaultFrequency": 2,
       "cyclingNote": "Run A then B (alternate). At 3x/week the 3rd session repeats A. At 4x/week run two full A-B cycles.",
       "sessions": [
         {
           "name": "Workout A",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": "1-2", "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": "1-2", "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "power_lower",      "intensity": "primary",   "sets": 2,     "reps": "5",          "loaded": true,  "note": "Power slot — coach picks (jumps / KB swing / med ball)" },
-            { "pattern": "squat",            "intensity": "primary",   "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "1a" },
-            { "pattern": "horizontal_pull",  "intensity": "primary",   "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 1 = horizontal pull" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "2a" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 1 = horizontal push" },
-            { "pattern": "conditioning",     "zone": 5,                "intensity": "finisher", "sets": "2-4", "reps": "1 min work / 2 min recovery", "loaded": false, "note": "Intervals" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher", "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 1,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 1,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "power_lower",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "5",
+              "loaded": true,
+              "note": "Power slot — coach picks (jumps / KB swing / med ball)"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "primary",
+              "sets": 1,
+              "reps": 15,
+              "loaded": true,
+              "pair": "1a"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "primary",
+              "sets": 1,
+              "reps": 15,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 1 = horizontal pull"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 1,
+              "reps": "15",
+              "loaded": true,
+              "pair": "2a"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 1,
+              "reps": "15",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 1 = horizontal push"
+            },
+            {
+              "pattern": "conditioning",
+              "zone": 5,
+              "intensity": "finisher",
+              "sets": 2,
+              "reps": "1 min work / 2 min recovery",
+              "loaded": false,
+              "note": "Intervals"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": "1-2", "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "combination_total_body", "intensity": "primary", "sets": 2, "reps": "5-8",        "loaded": true,  "note": "Combination slot — total-body multi-joint (e.g. KB clean+press, thruster, complex)" },
-            { "pattern": "hinge",            "intensity": "primary",   "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "1a" },
-            { "pattern": "vertical_push",    "intensity": "primary",   "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 2 = vertical push" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "2a" },
-            { "pattern": "vertical_pull",    "intensity": "secondary", "sets": "1-2", "reps": "15",         "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 2 = vertical pull" },
-            { "pattern": "conditioning",     "zone": 5,                "intensity": "finisher", "sets": "2-4", "reps": "1 min work / 2 min recovery", "loaded": false, "note": "Intervals" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher", "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 1,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 5,
+              "loaded": true,
+              "note": "Combination slot — total-body multi-joint (e.g. KB clean+press, thruster, complex)"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "primary",
+              "sets": 1,
+              "reps": 15,
+              "loaded": true,
+              "pair": "1a"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "primary",
+              "sets": 1,
+              "reps": 15,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 2 = vertical push"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 1,
+              "reps": "15",
+              "loaded": true,
+              "pair": "2a"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "secondary",
+              "sets": 1,
+              "reps": "15",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 2 = vertical pull"
+            },
+            {
+              "pattern": "conditioning",
+              "zone": 5,
+              "intensity": "finisher",
+              "sets": 2,
+              "reps": "1 min work / 2 min recovery",
+              "loaded": false,
+              "note": "Intervals"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "Movement balance: Day A = horizontal push & pull, Day B = vertical push & pull. Mobility distribution across the cycle: A covers hip + ankle, B covers t-spine + ankle. All 3 mobility categories + both push/pull planes covered across each A-B cycle."
+      "notes": "Movement balance: Day A = horizontal push & pull, Day B = vertical push & pull. Mobility distribution across the cycle: A covers hip + ankle, B covers t-spine + ankle. All 3 mobility categories + both push/pull planes covered across each A-B cycle.",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "sets": 1,
+            "reps": 15,
+            "intensityPct": 60.0,
+            "intent": "intro"
+          },
+          {
+            "week": 2,
+            "sets": 2,
+            "reps": 15,
+            "intensityPct": 62.5,
+            "intent": "build"
+          },
+          {
+            "week": 3,
+            "sets": 2,
+            "reps": 15,
+            "intensityPct": 65.0,
+            "intent": "peak"
+          },
+          {
+            "week": 4,
+            "sets": 1,
+            "reps": 15,
+            "intensityPct": 55.0,
+            "intent": "deload"
+          }
+        ]
+      }
     },
-
     "strength-builder-ab": {
       "id": "strength-builder-ab",
       "name": "Basic 2",
@@ -112,45 +305,225 @@
         "conditioning": "Intervals · 30s / 60s (1:2)"
       },
       "description": "Volume bump over Basic Training. 2-4 sets x 10 reps. A includes a Combination slot (total-body multi-joint). B includes a Power slot. Lunge + Hinge in A, Single-leg stance + Squat in B = full lower-body coverage across the cycle.",
-      "tags": ["strength", "intermediate", "volume", "general health"],
+      "tags": [
+        "strength",
+        "intermediate",
+        "volume",
+        "general health"
+      ],
       "weeks": 4,
       "uniqueSessions": 2,
-      "frequencyOptions": [2, 3, 4],
+      "frequencyOptions": [
+        2,
+        3,
+        4
+      ],
       "defaultFrequency": 3,
       "cyclingNote": "Run A then B. At 3x/week the third session repeats A. At 4x/week run two full A-B cycles.",
       "sessions": [
         {
           "name": "Workout A",
           "blocks": [
-            { "pattern": "anti_extension",  "intensity": "primary",   "sets": 2,     "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "combination_total_body", "intensity": "primary", "sets": 2, "reps": "10",        "loaded": true,  "note": "Combination slot — KB clean+press / thruster / complex" },
-            { "pattern": "lunge",           "intensity": "primary",   "sets": "2-4", "reps": "10",         "loaded": true,  "pair": "1a" },
-            { "pattern": "horizontal_pull", "intensity": "primary",   "sets": "2-4", "reps": "10",         "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 1 = horizontal pull" },
-            { "pattern": "mobility",        "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "hinge",           "intensity": "secondary", "sets": "2-4", "reps": "10",         "loaded": true,  "pair": "2a" },
-            { "pattern": "horizontal_push", "intensity": "secondary", "sets": "2-4", "reps": "10",         "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 1 = horizontal push" },
-            { "pattern": "conditioning",    "zone": 5,                "intensity": "finisher",  "sets": "3-6", "reps": "30s work / 60s recovery", "loaded": false, "note": "Intervals" },
-            { "pattern": "mobility",        "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": true,
+              "note": "Combination slot — KB clean+press / thruster / complex"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1a"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 1 = horizontal pull"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": true,
+              "pair": "2a"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 1 = horizontal push"
+            },
+            {
+              "pattern": "conditioning",
+              "zone": 5,
+              "intensity": "finisher",
+              "sets": 3,
+              "reps": "30s work / 60s recovery",
+              "loaded": false,
+              "note": "Intervals"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B",
           "blocks": [
-            { "pattern": "anti_rotation",   "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "power_lower",     "intensity": "primary",   "sets": 2,     "reps": "5-8",        "loaded": true,  "note": "Power slot — jumps / KB swing / med ball" },
-            { "pattern": "single_leg",      "intensity": "primary",   "sets": "2-4", "reps": "10",         "loaded": true,  "pair": "1a", "note": "Single-leg stance" },
-            { "pattern": "vertical_push",   "intensity": "primary",   "sets": "2-4", "reps": "10",         "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 2 = vertical push" },
-            { "pattern": "mobility",        "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "squat",           "intensity": "secondary", "sets": "2-4", "reps": "10",         "loaded": true,  "pair": "2a" },
-            { "pattern": "vertical_pull",   "intensity": "secondary", "sets": "2-4", "reps": "10",         "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 2 = vertical pull" },
-            { "pattern": "conditioning",    "zone": 5,                "intensity": "finisher",  "sets": "3-6", "reps": "30s work / 60s recovery", "loaded": false, "note": "Intervals" },
-            { "pattern": "mobility",        "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "power_lower",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 5,
+              "loaded": true,
+              "note": "Power slot — jumps / KB swing / med ball"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Single-leg stance"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 2 = vertical push"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": true,
+              "pair": "2a"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 2 = vertical pull"
+            },
+            {
+              "pattern": "conditioning",
+              "zone": 5,
+              "intensity": "finisher",
+              "sets": 3,
+              "reps": "30s work / 60s recovery",
+              "loaded": false,
+              "note": "Intervals"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "Strength + power balance: A drills Lunge + Hinge with horizontal push/pull. B drills Single-leg + Squat with vertical push/pull. Mobility cycle: A = hip + ankle, B = t-spine + ankle. Across each A-B cycle: every lower pattern, all H+V planes, all 3 mobility categories."
+      "notes": "Strength + power balance: A drills Lunge + Hinge with horizontal push/pull. B drills Single-leg + Squat with vertical push/pull. Mobility cycle: A = hip + ankle, B = t-spine + ankle. Across each A-B cycle: every lower pattern, all H+V planes, all 3 mobility categories.",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "sets": 2,
+            "reps": 10,
+            "intensityPct": 65.0,
+            "intent": "intro"
+          },
+          {
+            "week": 2,
+            "sets": 3,
+            "reps": 10,
+            "intensityPct": 70.0,
+            "intent": "build"
+          },
+          {
+            "week": 3,
+            "sets": 4,
+            "reps": 10,
+            "intensityPct": 72.5,
+            "intent": "peak"
+          },
+          {
+            "week": 4,
+            "sets": 2,
+            "reps": 10,
+            "intensityPct": 60.0,
+            "intent": "deload"
+          }
+        ]
+      }
     },
-
     "triplet-density-ab": {
       "id": "triplet-density-ab",
       "name": "Basic 3",
@@ -161,47 +534,244 @@
         "conditioning": "Intervals · 30s / 30s (1:1)"
       },
       "description": "Density progression with triplet supersets (3 exercises back-to-back). 2-3 x 12. Shorter conditioning work:rest ratio (30s/30s). Triplet on the first set, pair on the second.",
-      "tags": ["strength", "density", "advanced", "intermediate"],
+      "tags": [
+        "strength",
+        "density",
+        "advanced",
+        "intermediate"
+      ],
       "weeks": 4,
       "uniqueSessions": 2,
-      "frequencyOptions": [2, 3, 4],
+      "frequencyOptions": [
+        2,
+        3,
+        4
+      ],
       "defaultFrequency": 3,
       "cyclingNote": "Triplet (1a-1b-1c) all back-to-back, rest, repeat. Then mobility, then pair (2a-2b). Conditioning, then ankle mobility.",
       "sessions": [
         {
           "name": "Workout A",
           "blocks": [
-            { "pattern": "anti_rotation",   "intensity": "primary",   "sets": "2-3", "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "power_lower",     "intensity": "primary",   "sets": 2,     "reps": "5-8",        "loaded": true,  "note": "Power slot — coach picks" },
-            { "pattern": "hinge",           "intensity": "primary",   "sets": "2-3", "reps": "12",         "loaded": true,  "pair": "1a" },
-            { "pattern": "horizontal_push", "intensity": "primary",   "sets": "2-3", "reps": "12",         "loaded": true,  "pair": "1b", "note": "Triplet with 1a · Day 1 = horizontal push" },
-            { "pattern": "lunge",           "intensity": "primary",   "sets": "2-3", "reps": "12",         "loaded": true,  "pair": "1c", "note": "Triplet with 1a + 1b" },
-            { "pattern": "mobility",        "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1d", "note": "Hip mobility reset" },
-            { "pattern": "horizontal_pull", "intensity": "secondary", "sets": "2-3", "reps": "12",         "loaded": true,  "pair": "2a", "note": "Day 1 = horizontal pull" },
-            { "pattern": "combination_total_body", "intensity": "secondary", "sets": "2-3", "reps": "12", "loaded": true,  "pair": "2b", "note": "Superset with 2a · KB / barbell complex" },
-            { "pattern": "conditioning",    "zone": 5,                "intensity": "finisher",  "sets": "4-6", "reps": "30s work / 30s recovery", "loaded": false, "note": "Intervals (1:1 work:rest)" },
-            { "pattern": "mobility",        "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "power_lower",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 5,
+              "loaded": true,
+              "note": "Power slot — coach picks"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 12,
+              "loaded": true,
+              "pair": "1a"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 12,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Triplet with 1a · Day 1 = horizontal push"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 12,
+              "loaded": true,
+              "pair": "1c",
+              "note": "Triplet with 1a + 1b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1d",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "12",
+              "loaded": true,
+              "pair": "2a",
+              "note": "Day 1 = horizontal pull"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "12",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · KB / barbell complex"
+            },
+            {
+              "pattern": "conditioning",
+              "zone": 5,
+              "intensity": "finisher",
+              "sets": 4,
+              "reps": "30s work / 30s recovery",
+              "loaded": false,
+              "note": "Intervals (1:1 work:rest)"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B",
           "blocks": [
-            { "pattern": "anti_rotation",   "intensity": "primary",   "sets": "2-3", "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "power_lower",     "intensity": "primary",   "sets": 2,     "reps": "5-8",        "loaded": true,  "note": "Power slot" },
-            { "pattern": "squat",           "intensity": "primary",   "sets": "2-3", "reps": "12",         "loaded": true,  "pair": "1a" },
-            { "pattern": "vertical_pull",   "intensity": "primary",   "sets": "2-3", "reps": "12",         "loaded": true,  "pair": "1b", "note": "Triplet with 1a · Day 2 = vertical pull" },
-            { "pattern": "single_leg",      "intensity": "primary",   "sets": "2-3", "reps": "12",         "loaded": true,  "pair": "1c", "note": "Triplet · single-leg stance" },
-            { "pattern": "mobility",        "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1d", "note": "T-spine mobility reset" },
-            { "pattern": "vertical_push",   "intensity": "secondary", "sets": "2-3", "reps": "12",         "loaded": true,  "pair": "2a", "note": "Day 2 = vertical push" },
-            { "pattern": "combination_total_body", "intensity": "secondary", "sets": "2-3", "reps": "12", "loaded": true,  "pair": "2b", "note": "Superset with 2a" },
-            { "pattern": "conditioning",    "zone": 5,                "intensity": "finisher",  "sets": "4-6", "reps": "30s work / 30s recovery", "loaded": false, "note": "Intervals (1:1)" },
-            { "pattern": "mobility",        "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "power_lower",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 5,
+              "loaded": true,
+              "note": "Power slot"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 12,
+              "loaded": true,
+              "pair": "1a"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 12,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Triplet with 1a · Day 2 = vertical pull"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 12,
+              "loaded": true,
+              "pair": "1c",
+              "note": "Triplet · single-leg stance"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1d",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "12",
+              "loaded": true,
+              "pair": "2a",
+              "note": "Day 2 = vertical push"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "12",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a"
+            },
+            {
+              "pattern": "conditioning",
+              "zone": 5,
+              "intensity": "finisher",
+              "sets": 4,
+              "reps": "30s work / 30s recovery",
+              "loaded": false,
+              "note": "Intervals (1:1)"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "Triplet structure 1a-1b-1c forces movement density. Conditioning ratio tightens to 1:1 (30s/30s) — more glycolytic stress. Power slot on both A and B (different from Strength Builder). Use this block when athlete has solid base + can handle higher exposure."
+      "notes": "Triplet structure 1a-1b-1c forces movement density. Conditioning ratio tightens to 1:1 (30s/30s) — more glycolytic stress. Power slot on both A and B (different from Strength Builder). Use this block when athlete has solid base + can handle higher exposure.",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "sets": 2,
+            "reps": 12,
+            "intensityPct": 60.0,
+            "intent": "intro"
+          },
+          {
+            "week": 2,
+            "sets": 3,
+            "reps": 12,
+            "intensityPct": 65.0,
+            "intent": "build"
+          },
+          {
+            "week": 3,
+            "sets": 3,
+            "reps": 12,
+            "intensityPct": 70.0,
+            "intent": "peak"
+          },
+          {
+            "week": 4,
+            "sets": 2,
+            "reps": 12,
+            "intensityPct": 55.0,
+            "intent": "deload"
+          }
+        ]
+      }
     },
-
     "metabolic-strength-ab": {
       "id": "metabolic-strength-ab",
       "name": "Basic 4",
@@ -212,51 +782,275 @@
         "conditioning": "Metabolic block · 3 strength + 1 locomotion"
       },
       "description": "Metabolic finisher replaces intervals. Pick 3 strength exercises + 1 locomotion, run each for 15-20 seconds (no rep counting). Higher volume strength block (3-4 sets) up top. Can be supercharged into a giant set (1a-1b-2a-2b consecutive, no rest).",
-      "tags": ["strength", "metabolic", "conditioning", "advanced"],
+      "tags": [
+        "strength",
+        "metabolic",
+        "conditioning",
+        "advanced"
+      ],
       "weeks": 4,
       "uniqueSessions": 2,
-      "frequencyOptions": [2, 3, 4],
+      "frequencyOptions": [
+        2,
+        3,
+        4
+      ],
       "defaultFrequency": 3,
       "cyclingNote": "Strength pairs 1a/1b and 2a/2b run normally. Metabolic 3a-3d done back-to-back, no rest between exercises (Alwyn Cosgrove giant-set option: 1a/1b/2a/2b combined into one giant set if you want to supercharge).",
       "sessions": [
         {
           "name": "Workout A",
           "blocks": [
-            { "pattern": "anti_rotation",   "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "combination_total_body", "intensity": "primary", "sets": 2, "reps": "8-10",     "loaded": true,  "note": "Combination slot — KB clean+press / thruster" },
-            { "pattern": "hinge",           "intensity": "primary",   "sets": "3-4", "reps": "10",         "loaded": true,  "pair": "1a" },
-            { "pattern": "horizontal_push", "intensity": "primary",   "sets": "3-4", "reps": "10",         "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 1 = horizontal push" },
-            { "pattern": "mobility",        "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "single_leg",      "intensity": "secondary", "sets": "3-4", "reps": "10",         "loaded": true,  "pair": "2a", "note": "Single-leg stance" },
-            { "pattern": "horizontal_pull", "intensity": "secondary", "sets": "3-4", "reps": "10",         "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 1 = horizontal pull" },
-            { "pattern": "hinge",           "intensity": "finisher",  "sets": "1-2", "reps": "15-20 seconds", "loaded": true,  "pair": "3a", "note": "Metabolic — time-based, no rep count" },
-            { "pattern": "horizontal_push", "intensity": "finisher",  "sets": "1-2", "reps": "15-20 seconds", "loaded": true,  "pair": "3b" },
-            { "pattern": "locomotion",      "intensity": "finisher",  "sets": "1-2", "reps": "15-20 seconds", "loaded": false, "pair": "3c", "note": "Sled drag / bear crawl / farmer walk / sprint" },
-            { "pattern": "horizontal_pull", "intensity": "finisher",  "sets": "1-2", "reps": "15-20 seconds", "loaded": true,  "pair": "3d" },
-            { "pattern": "mobility",        "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 8,
+              "loaded": true,
+              "note": "Combination slot — KB clean+press / thruster"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "primary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1a"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "primary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 1 = horizontal push"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": "10",
+              "loaded": true,
+              "pair": "2a",
+              "note": "Single-leg stance"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": "10",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 1 = horizontal pull"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "15-20 seconds",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Metabolic — time-based, no rep count"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "15-20 seconds",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "locomotion",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "15-20 seconds",
+              "loaded": false,
+              "pair": "3c",
+              "note": "Sled drag / bear crawl / farmer walk / sprint"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "15-20 seconds",
+              "loaded": true,
+              "pair": "3d"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B",
           "blocks": [
-            { "pattern": "anti_extension",  "intensity": "primary",   "sets": 2,     "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "combination_total_body", "intensity": "primary", "sets": 2, "reps": "8-10",     "loaded": true,  "note": "Combination slot" },
-            { "pattern": "squat",           "intensity": "primary",   "sets": "3-4", "reps": "10",         "loaded": true,  "pair": "1a" },
-            { "pattern": "vertical_pull",   "intensity": "primary",   "sets": "3-4", "reps": "10",         "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 2 = vertical pull" },
-            { "pattern": "mobility",        "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "lunge",           "intensity": "secondary", "sets": "3-4", "reps": "10",         "loaded": true,  "pair": "2a" },
-            { "pattern": "vertical_push",   "intensity": "secondary", "sets": "3-4", "reps": "10",         "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 2 = vertical push" },
-            { "pattern": "squat",           "intensity": "finisher",  "sets": "1-2", "reps": "15-20 seconds", "loaded": true,  "pair": "3a", "note": "Metabolic finisher — time-based" },
-            { "pattern": "vertical_pull",   "intensity": "finisher",  "sets": "1-2", "reps": "15-20 seconds", "loaded": true,  "pair": "3b" },
-            { "pattern": "locomotion",      "intensity": "finisher",  "sets": "1-2", "reps": "15-20 seconds", "loaded": false, "pair": "3c", "note": "Locomotion drill" },
-            { "pattern": "vertical_push",   "intensity": "finisher",  "sets": "1-2", "reps": "15-20 seconds", "loaded": true,  "pair": "3d" },
-            { "pattern": "mobility",        "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 8,
+              "loaded": true,
+              "note": "Combination slot"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "primary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1a"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "primary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 2 = vertical pull"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": "10",
+              "loaded": true,
+              "pair": "2a"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": "10",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 2 = vertical push"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "15-20 seconds",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Metabolic finisher — time-based"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "15-20 seconds",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "locomotion",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "15-20 seconds",
+              "loaded": false,
+              "pair": "3c",
+              "note": "Locomotion drill"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "15-20 seconds",
+              "loaded": true,
+              "pair": "3d"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "Metabolic block replaces intervals — pick 4 movements (3 strength + 1 locomotion) you can hold for 15-20 sec without form breakdown. For body weight: elevated push-ups, BW squats. SUPERCHARGE: combine 1a/1b/2a/2b into one giant set, 90s rest, repeat (Alwyn Cosgrove method). For locomotion: sled drag, bear crawl, farmer walk, lateral shuffle, sprint, ski erg — depends on equipment/setting."
+      "notes": "Metabolic block replaces intervals — pick 4 movements (3 strength + 1 locomotion) you can hold for 15-20 sec without form breakdown. For body weight: elevated push-ups, BW squats. SUPERCHARGE: combine 1a/1b/2a/2b into one giant set, 90s rest, repeat (Alwyn Cosgrove method). For locomotion: sled drag, bear crawl, farmer walk, lateral shuffle, sprint, ski erg — depends on equipment/setting.",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "sets": 3,
+            "reps": 10,
+            "intensityPct": 70.0,
+            "intent": "intro"
+          },
+          {
+            "week": 2,
+            "sets": 3,
+            "reps": 10,
+            "intensityPct": 72.5,
+            "intent": "build"
+          },
+          {
+            "week": 3,
+            "sets": 4,
+            "reps": 10,
+            "intensityPct": 75.0,
+            "intent": "peak"
+          },
+          {
+            "week": 4,
+            "sets": 2,
+            "reps": 10,
+            "intensityPct": 60.0,
+            "intent": "deload"
+          }
+        ]
+      }
     },
-
     "hypertrophy-1-ab": {
       "id": "hypertrophy-1-ab",
       "name": "Hypertrophy 1",
@@ -267,54 +1061,251 @@
         "conditioning": "Complex finisher · 3-4 × 8"
       },
       "description": "Lightest of the hypertrophy series. Daily undulating periodization (DUP): three rep schemes rotate across the days of a week — each session uses a different one. Scheme 1 = 4×6 (strength bias), Scheme 2 = 2×20 (endurance/lactate buffer), Scheme 3 = 3×12 (classic hypertrophy). Exercise template (A/B) rotates separately. Replaces conditioning intervals with a complex finisher (3-4 sets × 8 reps per movement).",
-      "tags": ["hypertrophy", "intermediate", "DUP"],
+      "tags": [
+        "hypertrophy",
+        "intermediate",
+        "DUP"
+      ],
       "weeks": 6,
       "uniqueSessions": 2,
-      "frequencyOptions": [2, 3, 4],
+      "frequencyOptions": [
+        2,
+        3,
+        4
+      ],
       "defaultFrequency": 3,
       "cyclingNote": "Each session in the week uses a different scheme from undulating.dailyRotation (Day 1 → scheme 1, Day 2 → scheme 2, Day 3 → scheme 3). Exercise template (A/B) alternates separately: at 3x/week the flow is A→B→A; at 4x/week run two full A-B cycles. Same exercises every week — schemes don't change across weeks, they change across DAYS within a week.",
       "undulating": {
         "_docs": "Daily undulating periodization (DUP). Each session in the week uses a different sets×reps scheme. Schemes rotate across day-of-week, NOT across week-of-block. Apply scheme N to the Nth session of the week. At <3 sessions/week, drop the last scheme(s). At >3, repeat from scheme 1.",
         "type": "daily",
         "dailyRotation": [
-          { "day": 1, "sets": 4, "reps": 6,  "intent": "strength" },
-          { "day": 2, "sets": 2, "reps": 20, "intent": "endurance" },
-          { "day": 3, "sets": 3, "reps": 12, "intent": "hypertrophy" }
+          {
+            "day": 1,
+            "sets": 4,
+            "reps": 6,
+            "intent": "strength"
+          },
+          {
+            "day": 2,
+            "sets": 2,
+            "reps": 20,
+            "intent": "endurance"
+          },
+          {
+            "day": 3,
+            "sets": 3,
+            "reps": 12,
+            "intent": "hypertrophy"
+          }
         ]
       },
       "sessions": [
         {
           "name": "Workout A",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": 2,     "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "power_lower",      "intensity": "primary",   "sets": 2,     "reps": "5-6",        "loaded": true,  "note": "Power slot — jumps / KB swing / med ball" },
-            { "pattern": "hinge",            "intensity": "primary",   "sets": 4,     "reps": 6,            "loaded": true,  "pair": "1a", "note": "Sets×reps come from this session's scheme in undulating.dailyRotation (shown: scheme 1)" },
-            { "pattern": "horizontal_push",  "intensity": "primary",   "sets": 4,     "reps": 6,            "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 1 = horizontal push · use this session's scheme" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": 4,     "reps": 6,            "loaded": true,  "pair": "2a", "note": "Use this session's scheme" },
-            { "pattern": "horizontal_pull",  "intensity": "secondary", "sets": 4,     "reps": 6,            "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 1 = horizontal pull · use this session's scheme" },
-            { "pattern": "combination_total_body", "intensity": "finisher", "sets": "3-4", "reps": 8, "loaded": true, "note": "Complex finisher — KB / barbell complex (e.g. clean+press+squat+row), 8 reps per movement" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "power_lower",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 5,
+              "loaded": true,
+              "note": "Power slot — jumps / KB swing / med ball"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 6,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Sets×reps come from this session's scheme in undulating.dailyRotation (shown: scheme 1)"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 6,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 1 = horizontal push · use this session's scheme"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 6,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Use this session's scheme"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 6,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 1 = horizontal pull · use this session's scheme"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "finisher",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "note": "Complex finisher — KB / barbell complex (e.g. clean+press+squat+row), 8 reps per movement"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "power_upper",      "intensity": "primary",   "sets": 2,     "reps": "5-6",        "loaded": true,  "note": "Power slot — med ball throws / explosive push" },
-            { "pattern": "squat",            "intensity": "primary",   "sets": 4,     "reps": 6,            "loaded": true,  "pair": "1a", "note": "Use this session's scheme from undulating.dailyRotation" },
-            { "pattern": "vertical_pull",    "intensity": "primary",   "sets": 4,     "reps": 6,            "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 2 = vertical pull · use this session's scheme" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": 4,     "reps": 6,            "loaded": true,  "pair": "2a", "note": "Use this session's scheme" },
-            { "pattern": "vertical_push",    "intensity": "secondary", "sets": 4,     "reps": 6,            "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 2 = vertical push · use this session's scheme" },
-            { "pattern": "combination_total_body", "intensity": "finisher", "sets": "3-4", "reps": 8, "loaded": true, "note": "Complex finisher — 8 reps per movement" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "power_upper",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 5,
+              "loaded": true,
+              "note": "Power slot — med ball throws / explosive push"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 6,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Use this session's scheme from undulating.dailyRotation"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 6,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 2 = vertical pull · use this session's scheme"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 6,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Use this session's scheme"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 6,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 2 = vertical push · use this session's scheme"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "finisher",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "note": "Complex finisher — 8 reps per movement"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "Daily Undulating Periodization (DUP): the three rep schemes rotate ACROSS DAYS within a single week — not across weeks of the block. Same exercises every week; sets×reps change day-to-day. Lightest of the hypertrophy series — 4×6 is the strongest scheme here. Movement balance: A horizontal push/pull, B vertical push/pull. Mobility cycle: A hip+ankle, B t-spine+ankle. Complex finisher replaces intervals."
+      "notes": "Daily Undulating Periodization (DUP): the three rep schemes rotate ACROSS DAYS within a single week — not across weeks of the block. Same exercises every week; sets×reps change day-to-day. Lightest of the hypertrophy series — 4×6 is the strongest scheme here. Movement balance: A horizontal push/pull, B vertical push/pull. Mobility cycle: A hip+ankle, B t-spine+ankle. Complex finisher replaces intervals.",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "intensityPct": 70.0,
+            "intent": "intro"
+          },
+          {
+            "week": 2,
+            "intensityPct": 72.5,
+            "intent": "build"
+          },
+          {
+            "week": 3,
+            "intensityPct": 75.0,
+            "intent": "build"
+          },
+          {
+            "week": 4,
+            "intensityPct": 75.0,
+            "intent": "load"
+          },
+          {
+            "week": 5,
+            "intensityPct": 77.5,
+            "intent": "peak"
+          },
+          {
+            "week": 6,
+            "intensityPct": 65.0,
+            "intent": "deload"
+          }
+        ]
+      }
     },
-
     "hypertrophy-2-ab": {
       "id": "hypertrophy-2-ab",
       "name": "Hypertrophy 2",
@@ -325,54 +1316,251 @@
         "conditioning": "Complex finisher · 4-5 × 6"
       },
       "description": "Middle of the hypertrophy series. Daily undulating periodization: each session in the week uses a different scheme — 4×5 (strength), 2×15 (endurance), 3×10 (hypertrophy). Loads sit between Hypertrophy 1 (4×6) and Hypertrophy 3 (4×4). Complex finisher 4-5 × 6.",
-      "tags": ["hypertrophy", "intermediate", "DUP"],
+      "tags": [
+        "hypertrophy",
+        "intermediate",
+        "DUP"
+      ],
       "weeks": 6,
       "uniqueSessions": 2,
-      "frequencyOptions": [2, 3, 4],
+      "frequencyOptions": [
+        2,
+        3,
+        4
+      ],
       "defaultFrequency": 3,
       "cyclingNote": "Each session in the week uses a different scheme from undulating.dailyRotation (Day 1 → scheme 1, Day 2 → scheme 2, Day 3 → scheme 3). Exercise template (A/B) alternates separately: at 3x/week run A→B→A; at 4x/week run two full A-B cycles.",
       "undulating": {
         "_docs": "Daily undulating periodization (DUP). Apply scheme N to the Nth session of the week.",
         "type": "daily",
         "dailyRotation": [
-          { "day": 1, "sets": 4, "reps": 5,  "intent": "strength" },
-          { "day": 2, "sets": 2, "reps": 15, "intent": "endurance" },
-          { "day": 3, "sets": 3, "reps": 10, "intent": "hypertrophy" }
+          {
+            "day": 1,
+            "sets": 4,
+            "reps": 5,
+            "intent": "strength"
+          },
+          {
+            "day": 2,
+            "sets": 2,
+            "reps": 15,
+            "intent": "endurance"
+          },
+          {
+            "day": 3,
+            "sets": 3,
+            "reps": 10,
+            "intent": "hypertrophy"
+          }
         ]
       },
       "sessions": [
         {
           "name": "Workout A",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": 2,     "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "power_lower",      "intensity": "primary",   "sets": 2,     "reps": "5",          "loaded": true,  "note": "Power slot" },
-            { "pattern": "hinge",            "intensity": "primary",   "sets": 4,     "reps": 5,            "loaded": true,  "pair": "1a", "note": "Sets×reps come from this session's scheme (shown: scheme 1)" },
-            { "pattern": "horizontal_push",  "intensity": "primary",   "sets": 4,     "reps": 5,            "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 1 = horizontal push · use this session's scheme" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": 4,     "reps": 5,            "loaded": true,  "pair": "2a", "note": "Use this session's scheme" },
-            { "pattern": "horizontal_pull",  "intensity": "secondary", "sets": 4,     "reps": 5,            "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 1 = horizontal pull · use this session's scheme" },
-            { "pattern": "combination_total_body", "intensity": "finisher", "sets": "4-5", "reps": 6, "loaded": true, "note": "Complex finisher — 6 reps per movement" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "power_lower",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "5",
+              "loaded": true,
+              "note": "Power slot"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 5,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Sets×reps come from this session's scheme (shown: scheme 1)"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 5,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 1 = horizontal push · use this session's scheme"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 5,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Use this session's scheme"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 5,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 1 = horizontal pull · use this session's scheme"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "finisher",
+              "sets": 4,
+              "reps": 6,
+              "loaded": true,
+              "note": "Complex finisher — 6 reps per movement"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "power_upper",      "intensity": "primary",   "sets": 2,     "reps": "5",          "loaded": true,  "note": "Power slot" },
-            { "pattern": "squat",            "intensity": "primary",   "sets": 4,     "reps": 5,            "loaded": true,  "pair": "1a", "note": "Use this session's scheme from undulating.dailyRotation" },
-            { "pattern": "vertical_pull",    "intensity": "primary",   "sets": 4,     "reps": 5,            "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 2 = vertical pull · use this session's scheme" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": 4,     "reps": 5,            "loaded": true,  "pair": "2a", "note": "Use this session's scheme" },
-            { "pattern": "vertical_push",    "intensity": "secondary", "sets": 4,     "reps": 5,            "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 2 = vertical push · use this session's scheme" },
-            { "pattern": "combination_total_body", "intensity": "finisher", "sets": "4-5", "reps": 6, "loaded": true, "note": "Complex finisher — 6 reps per movement" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "power_upper",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "5",
+              "loaded": true,
+              "note": "Power slot"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 5,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Use this session's scheme from undulating.dailyRotation"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 5,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 2 = vertical pull · use this session's scheme"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 5,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Use this session's scheme"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 5,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 2 = vertical push · use this session's scheme"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "finisher",
+              "sets": 4,
+              "reps": 6,
+              "loaded": true,
+              "note": "Complex finisher — 6 reps per movement"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "Middle template in the hypertrophy series. DUP rotates 4×5 / 2×15 / 3×10 across the days of each week. 4×5 is the strongest scheme — sits between Hypertrophy 1's 4×6 and Hypertrophy 3's 4×4. Use this for athletes who want pure hypertrophy stimulus without the endurance bias (H1) or near-maximal load (H3)."
+      "notes": "Middle template in the hypertrophy series. DUP rotates 4×5 / 2×15 / 3×10 across the days of each week. 4×5 is the strongest scheme — sits between Hypertrophy 1's 4×6 and Hypertrophy 3's 4×4. Use this for athletes who want pure hypertrophy stimulus without the endurance bias (H1) or near-maximal load (H3).",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "intensityPct": 72.5,
+            "intent": "intro"
+          },
+          {
+            "week": 2,
+            "intensityPct": 75.0,
+            "intent": "build"
+          },
+          {
+            "week": 3,
+            "intensityPct": 77.5,
+            "intent": "build"
+          },
+          {
+            "week": 4,
+            "intensityPct": 77.5,
+            "intent": "load"
+          },
+          {
+            "week": 5,
+            "intensityPct": 80.0,
+            "intent": "peak"
+          },
+          {
+            "week": 6,
+            "intensityPct": 67.5,
+            "intent": "deload"
+          }
+        ]
+      }
     },
-
     "hypertrophy-3-ab": {
       "id": "hypertrophy-3-ab",
       "name": "Hypertrophy 3",
@@ -383,54 +1571,252 @@
         "conditioning": "Complex finisher · 4-5 × 5"
       },
       "description": "Heaviest of the hypertrophy series. Daily undulating periodization: each session in the week uses a different scheme — 4×4 (near-maximal strength), 2×12 (endurance buffer), 3×8 (classic hypertrophy). Complex finisher tightens to 4-5 × 5 (heaviest load, fewest reps). For athletes who've already cycled through Hypertrophy 1 + 2 or have a strong base.",
-      "tags": ["hypertrophy", "strength", "advanced", "DUP"],
+      "tags": [
+        "hypertrophy",
+        "strength",
+        "advanced",
+        "DUP"
+      ],
       "weeks": 6,
       "uniqueSessions": 2,
-      "frequencyOptions": [2, 3, 4],
+      "frequencyOptions": [
+        2,
+        3,
+        4
+      ],
       "defaultFrequency": 3,
       "cyclingNote": "Each session in the week uses a different scheme from undulating.dailyRotation (Day 1 → scheme 1, Day 2 → scheme 2, Day 3 → scheme 3). Exercise template (A/B) alternates separately: at 3x/week run A→B→A; at 4x/week run two full A-B cycles.",
       "undulating": {
         "_docs": "Daily undulating periodization (DUP). Apply scheme N to the Nth session of the week.",
         "type": "daily",
         "dailyRotation": [
-          { "day": 1, "sets": 4, "reps": 4,  "intent": "strength" },
-          { "day": 2, "sets": 2, "reps": 12, "intent": "endurance" },
-          { "day": 3, "sets": 3, "reps": 8,  "intent": "hypertrophy" }
+          {
+            "day": 1,
+            "sets": 4,
+            "reps": 4,
+            "intent": "strength"
+          },
+          {
+            "day": 2,
+            "sets": 2,
+            "reps": 12,
+            "intent": "endurance"
+          },
+          {
+            "day": 3,
+            "sets": 3,
+            "reps": 8,
+            "intent": "hypertrophy"
+          }
         ]
       },
       "sessions": [
         {
           "name": "Workout A",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": 2,     "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "power_lower",      "intensity": "primary",   "sets": 2,     "reps": "5",          "loaded": true,  "note": "Power slot" },
-            { "pattern": "hinge",            "intensity": "primary",   "sets": 4,     "reps": 4,            "loaded": true,  "pair": "1a", "note": "Sets×reps come from this session's scheme (shown: scheme 1)" },
-            { "pattern": "horizontal_push",  "intensity": "primary",   "sets": 4,     "reps": 4,            "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 1 = horizontal push · use this session's scheme" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": 4,     "reps": 4,            "loaded": true,  "pair": "2a", "note": "Use this session's scheme" },
-            { "pattern": "horizontal_pull",  "intensity": "secondary", "sets": 4,     "reps": 4,            "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 1 = horizontal pull · use this session's scheme" },
-            { "pattern": "combination_total_body", "intensity": "finisher", "sets": "4-5", "reps": 5, "loaded": true, "note": "Heavy complex finisher — 5 reps per movement" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "power_lower",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "5",
+              "loaded": true,
+              "note": "Power slot"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 4,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Sets×reps come from this session's scheme (shown: scheme 1)"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 4,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 1 = horizontal push · use this session's scheme"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 4,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Use this session's scheme"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 4,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 1 = horizontal pull · use this session's scheme"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "finisher",
+              "sets": 4,
+              "reps": 5,
+              "loaded": true,
+              "note": "Heavy complex finisher — 5 reps per movement"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "power_upper",      "intensity": "primary",   "sets": 2,     "reps": "5",          "loaded": true,  "note": "Power slot" },
-            { "pattern": "squat",            "intensity": "primary",   "sets": 4,     "reps": 4,            "loaded": true,  "pair": "1a", "note": "Use this session's scheme from undulating.dailyRotation" },
-            { "pattern": "vertical_pull",    "intensity": "primary",   "sets": 4,     "reps": 4,            "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 2 = vertical pull · use this session's scheme" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": 4,     "reps": 4,            "loaded": true,  "pair": "2a", "note": "Use this session's scheme" },
-            { "pattern": "vertical_push",    "intensity": "secondary", "sets": 4,     "reps": 4,            "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day 2 = vertical push · use this session's scheme" },
-            { "pattern": "combination_total_body", "intensity": "finisher", "sets": "4-5", "reps": 5, "loaded": true, "note": "Heavy complex finisher — 5 reps per movement" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "power_upper",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "5",
+              "loaded": true,
+              "note": "Power slot"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 4,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Use this session's scheme from undulating.dailyRotation"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "primary",
+              "sets": 4,
+              "reps": 4,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 2 = vertical pull · use this session's scheme"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 4,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Use this session's scheme"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "secondary",
+              "sets": 4,
+              "reps": 4,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day 2 = vertical push · use this session's scheme"
+            },
+            {
+              "pattern": "combination_total_body",
+              "intensity": "finisher",
+              "sets": 4,
+              "reps": 5,
+              "loaded": true,
+              "note": "Heavy complex finisher — 5 reps per movement"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "Strength-biased hypertrophy — heaviest of the 3 templates. DUP rotates 4×4 / 2×12 / 3×8 across the days of each week. 4×4 is near-maximal; 3×8 is classic hypertrophy; 2×12 is the lighter endurance buffer. Complex finisher load goes UP (5 reps = more weight on the bar). Use with athletes who have a strong base and can recover from heavy days."
+      "notes": "Strength-biased hypertrophy — heaviest of the 3 templates. DUP rotates 4×4 / 2×12 / 3×8 across the days of each week. 4×4 is near-maximal; 3×8 is classic hypertrophy; 2×12 is the lighter endurance buffer. Complex finisher load goes UP (5 reps = more weight on the bar). Use with athletes who have a strong base and can recover from heavy days.",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "intensityPct": 75.0,
+            "intent": "intro"
+          },
+          {
+            "week": 2,
+            "intensityPct": 77.5,
+            "intent": "build"
+          },
+          {
+            "week": 3,
+            "intensityPct": 80.0,
+            "intent": "build"
+          },
+          {
+            "week": 4,
+            "intensityPct": 82.5,
+            "intent": "load"
+          },
+          {
+            "week": 5,
+            "intensityPct": 85.0,
+            "intent": "peak"
+          },
+          {
+            "week": 6,
+            "intensityPct": 70.0,
+            "intent": "deload"
+          }
+        ]
+      }
     },
-
     "strength-hypertrophy-4day": {
       "id": "strength-hypertrophy-4day",
       "name": "Strength + Hypertrophy I",
@@ -441,77 +1827,430 @@
         "conditioning": "Free Zone AMRAP · 5 min"
       },
       "description": "Advanced 4-day split. Each session has 3 zones: (1) Max Strength & Power — one main lift, 5 sets of 3-5 reps. (2) Muscle Hypertrophy — 4 accessory movements, 3-4 × 8-12 paired. (3) Free Zone — pick 2 exercises, 8-10 sets AMRAP inside a 5-minute window. Days alternate horizontal (A,C) and vertical (B,D) push/pull.",
-      "tags": ["hypertrophy", "strength", "advanced", "4-day", "high-volume"],
+      "tags": [
+        "hypertrophy",
+        "strength",
+        "advanced",
+        "4-day",
+        "high-volume"
+      ],
       "weeks": 4,
       "uniqueSessions": 4,
-      "frequencyOptions": [4],
+      "frequencyOptions": [
+        4
+      ],
       "defaultFrequency": 4,
       "cyclingNote": "Run A → B → C → D each week. 4 sessions/week is the only frequency for this template (high volume + recovery demand).",
       "sessions": [
         {
           "name": "Workout A — Lower / Horizontal",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": 2,     "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "hinge",            "intensity": "primary",   "sets": 5,     "reps": "3-5",        "loaded": true,  "note": "Max Strength & Power — main lift, work to RPE 8" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": "3-4", "reps": "8-12",       "loaded": true,  "pair": "1a", "note": "Hypertrophy zone" },
-            { "pattern": "horizontal_pull",  "intensity": "secondary", "sets": "3-4", "reps": "8-12",       "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day A = horizontal pull" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": "3-4", "reps": "8-12",       "loaded": true,  "pair": "2a", "note": "Hypertrophy zone" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": "3-4", "reps": "8-12",       "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day A = horizontal push" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone — pick 2 exercises, alternate, as many sets as possible in 5 min" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b", "note": "Free Zone partner exercise" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "primary",
+              "sets": 5,
+              "reps": 5,
+              "loaded": true,
+              "note": "Max Strength & Power — main lift, work to RPE 8 · W1 prescription shown; progresses 5/4/3 reps across W1-W3 (deload W4)"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy zone"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day A = horizontal pull"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy zone"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day A = horizontal push"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone — pick 2 exercises, alternate, as many sets as possible in 5 min"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b",
+              "note": "Free Zone partner exercise"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B — Upper / Vertical",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "vertical_push",    "intensity": "primary",   "sets": 5,     "reps": "3-5",        "loaded": true,  "note": "Max Strength & Power — main lift" },
-            { "pattern": "vertical_pull",    "intensity": "secondary", "sets": "3-4", "reps": "8-12",       "loaded": true,  "pair": "1a", "note": "Hypertrophy zone · Day B = vertical pull" },
-            { "pattern": "horizontal_push_unilateral", "intensity": "secondary", "sets": "3-4", "reps": "8-12", "loaded": true, "pair": "1b", "note": "Superset with 1a · unilateral push" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "horizontal_pull_unilateral", "intensity": "secondary", "sets": "3-4", "reps": "8-12", "loaded": true, "pair": "2a", "note": "Hypertrophy zone" },
-            { "pattern": "carry",            "intensity": "secondary", "sets": "3-4", "reps": "30m",        "loaded": true,  "pair": "2b", "note": "Superset with 2a · loaded carry" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone — pick 2 upper exercises" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "primary",
+              "sets": 5,
+              "reps": 5,
+              "loaded": true,
+              "note": "Max Strength & Power — main lift · W1 prescription shown; progresses 5/4/3 reps across W1-W3 (deload W4)"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy zone · Day B = vertical pull"
+            },
+            {
+              "pattern": "horizontal_push_unilateral",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · unilateral push"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "horizontal_pull_unilateral",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy zone"
+            },
+            {
+              "pattern": "carry",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": "30m",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · loaded carry"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone — pick 2 upper exercises"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout C — Lower / Horizontal",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": 2,     "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "squat",            "intensity": "primary",   "sets": 5,     "reps": "3-5",        "loaded": true,  "note": "Max Strength & Power — main lift" },
-            { "pattern": "hinge_unilateral", "intensity": "secondary", "sets": "3-4", "reps": "8-12",       "loaded": true,  "pair": "1a", "note": "Hypertrophy zone" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": "3-4", "reps": "8-12",       "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day C = horizontal push" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": "3-4", "reps": "8-12",       "loaded": true,  "pair": "2a", "note": "Hypertrophy zone" },
-            { "pattern": "horizontal_pull",  "intensity": "secondary", "sets": "3-4", "reps": "8-12",       "loaded": true,  "pair": "2b", "note": "Superset with 2a · Day C = horizontal pull" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone — pick 2 lower exercises" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "primary",
+              "sets": 5,
+              "reps": 5,
+              "loaded": true,
+              "note": "Max Strength & Power — main lift · W1 prescription shown; progresses 5/4/3 reps across W1-W3 (deload W4)"
+            },
+            {
+              "pattern": "hinge_unilateral",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy zone"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day C = horizontal push"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy zone"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · Day C = horizontal pull"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone — pick 2 lower exercises"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout D — Upper / Vertical",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "vertical_pull",    "intensity": "primary",   "sets": 5,     "reps": "3-5",        "loaded": true,  "note": "Max Strength & Power — main lift (e.g. weighted chin-up)" },
-            { "pattern": "vertical_push",    "intensity": "secondary", "sets": "3-4", "reps": "8-12",       "loaded": true,  "pair": "1a", "note": "Hypertrophy zone · Day D = vertical push" },
-            { "pattern": "horizontal_pull_unilateral", "intensity": "secondary", "sets": "3-4", "reps": "8-12", "loaded": true, "pair": "1b", "note": "Superset with 1a · unilateral pull" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "horizontal_push_unilateral", "intensity": "secondary", "sets": "3-4", "reps": "8-12", "loaded": true, "pair": "2a", "note": "Hypertrophy zone" },
-            { "pattern": "carry",            "intensity": "secondary", "sets": "3-4", "reps": "30m",        "loaded": true,  "pair": "2b", "note": "Superset with 2a · loaded carry" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone — pick 2 upper exercises" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "primary",
+              "sets": 5,
+              "reps": 5,
+              "loaded": true,
+              "note": "Max Strength & Power — main lift (e.g. weighted chin-up) · W1 prescription shown; progresses 5/4/3 reps across W1-W3 (deload W4)"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy zone · Day D = vertical push"
+            },
+            {
+              "pattern": "horizontal_pull_unilateral",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · unilateral pull"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "horizontal_push_unilateral",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy zone"
+            },
+            {
+              "pattern": "carry",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": "30m",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a · loaded carry"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone — pick 2 upper exercises"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "4-day high-volume block. Each session has a clear hierarchy: 1 heavy main lift (5×3-5 RPE 8) → 4 accessories paired (3-4 × 8-12) → Free Zone AMRAP (2 exercises alternated for 8-10 sets inside a 5-min window). Day pairing: A+B lower/upper horizontal+vertical primary, C+D mirror it with different patterns. Movement balance across the week: hinge, squat, vertical push, vertical pull each get one max-strength day. Mobility cycle: A+C hip+ankle, B+D t-spine+ankle. Only for athletes with strong base + 4 training days available. Watch fatigue going into week 3-4."
+      "notes": "4-day high-volume block. Each session has a clear hierarchy: 1 heavy main lift (5×3-5 RPE 8) → 4 accessories paired (3-4 × 8-12) → Free Zone AMRAP (2 exercises alternated for 8-10 sets inside a 5-min window). Day pairing: A+B lower/upper horizontal+vertical primary, C+D mirror it with different patterns. Movement balance across the week: hinge, squat, vertical push, vertical pull each get one max-strength day. Mobility cycle: A+C hip+ankle, B+D t-spine+ankle. Only for athletes with strong base + 4 training days available. Watch fatigue going into week 3-4.",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "sets": 5,
+            "reps": 5,
+            "intensityPct": 75.0,
+            "intent": "intro"
+          },
+          {
+            "week": 2,
+            "sets": 5,
+            "reps": 4,
+            "intensityPct": 80.0,
+            "intent": "build"
+          },
+          {
+            "week": 3,
+            "sets": 5,
+            "reps": 3,
+            "intensityPct": 85.0,
+            "intent": "peak"
+          },
+          {
+            "week": 4,
+            "sets": 5,
+            "reps": 5,
+            "intensityPct": 65.0,
+            "intent": "deload"
+          }
+        ]
+      }
     },
-
     "strength-endurance-ab": {
       "id": "strength-endurance-ab",
       "name": "Strength + Endurance",
@@ -522,51 +2261,295 @@
         "conditioning": "Free Zone AMRAP · 5 min"
       },
       "description": "Strength + muscular-endurance blend. A/B split, 6 weeks. Each session: one heavy paired strength block (2-3 × 6), a four-movement endurance quartet (2 × 15 across lunge/pull/single-leg/push), then a Free Zone AMRAP. Day A = horizontal push/pull + hip mobility. Day B = vertical push/pull + t-spine mobility.",
-      "tags": ["hypertrophy", "endurance", "intermediate"],
+      "tags": [
+        "hypertrophy",
+        "endurance",
+        "intermediate"
+      ],
       "weeks": 6,
       "uniqueSessions": 2,
-      "frequencyOptions": [2, 3, 4],
+      "frequencyOptions": [
+        2,
+        3,
+        4
+      ],
       "defaultFrequency": 3,
       "cyclingNote": "Run A then B (alternate). At 3x/week the 3rd session repeats A. Same exercises every week; load progresses week to week.",
       "sessions": [
         {
           "name": "Workout A",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": 2,     "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "hinge",            "intensity": "primary",   "sets": "2-3", "reps": 6,            "loaded": true,  "pair": "1a", "note": "Maximum Strength & Power" },
-            { "pattern": "horizontal_push",  "intensity": "primary",   "sets": "2-3", "reps": 6,            "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 1 = horizontal push" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": 2,     "reps": 15,           "loaded": true,  "pair": "2a", "note": "Muscle Hypertrophy & Endurance — quartet superset" },
-            { "pattern": "horizontal_pull",  "intensity": "secondary", "sets": 2,     "reps": 15,           "loaded": true,  "pair": "2b", "note": "2b · Day 1 = horizontal pull" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": 2,     "reps": 15,           "loaded": true,  "pair": "2c", "note": "2c — single-leg stance" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": 2,     "reps": 15,           "loaded": true,  "pair": "2d", "note": "2d · Day 1 = horizontal push" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone — pick 2 exercises, alternate, as many sets as possible in 5 min" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b", "note": "Free Zone partner" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 6,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Maximum Strength & Power"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 6,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 1 = horizontal push"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 15,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Muscle Hypertrophy & Endurance — quartet superset"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 15,
+              "loaded": true,
+              "pair": "2b",
+              "note": "2b · Day 1 = horizontal pull"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 15,
+              "loaded": true,
+              "pair": "2c",
+              "note": "2c — single-leg stance"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 15,
+              "loaded": true,
+              "pair": "2d",
+              "note": "2d · Day 1 = horizontal push"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone — pick 2 exercises, alternate, as many sets as possible in 5 min"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b",
+              "note": "Free Zone partner"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B",
           "blocks": [
-            { "pattern": "anti_extension",   "intensity": "primary",   "sets": 2,     "reps": "30 seconds", "loaded": false, "note": "Core — Stability" },
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "squat",            "intensity": "primary",   "sets": "2-3", "reps": 6,            "loaded": true,  "pair": "1a", "note": "Maximum Strength & Power" },
-            { "pattern": "vertical_pull",    "intensity": "primary",   "sets": "2-3", "reps": 6,            "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day 2 = vertical pull" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": 2,     "reps": 15,           "loaded": true,  "pair": "2a", "note": "Muscle Hypertrophy & Endurance — quartet superset" },
-            { "pattern": "vertical_push",    "intensity": "secondary", "sets": 2,     "reps": 15,           "loaded": true,  "pair": "2b", "note": "2b · Day 2 = vertical push" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": 2,     "reps": 15,           "loaded": true,  "pair": "2c", "note": "2c" },
-            { "pattern": "vertical_pull",    "intensity": "secondary", "sets": 2,     "reps": 15,           "loaded": true,  "pair": "2d", "note": "2d · Day 2 = vertical pull" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone — pick 2 exercises, alternate, AMRAP in 5 min" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b", "note": "Free Zone partner" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_extension",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "30 seconds",
+              "loaded": false,
+              "note": "Core — Stability"
+            },
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 6,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Maximum Strength & Power"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": 6,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day 2 = vertical pull"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 15,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Muscle Hypertrophy & Endurance — quartet superset"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 15,
+              "loaded": true,
+              "pair": "2b",
+              "note": "2b · Day 2 = vertical push"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 15,
+              "loaded": true,
+              "pair": "2c",
+              "note": "2c"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 15,
+              "loaded": true,
+              "pair": "2d",
+              "note": "2d · Day 2 = vertical pull"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone — pick 2 exercises, alternate, AMRAP in 5 min"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b",
+              "note": "Free Zone partner"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "Strength + endurance hybrid. ONE heavy pair (2-3 × 6 strength) followed by a FOUR-movement quartet at 2 × 15 (endurance). Quartet runs 2a-2b-2c-2d as a giant superset (or sequential pairs). Total volume per session is higher than Basic 4 because of the quartet, but loads stay manageable. Movement balance: Day A horizontal, Day B vertical. Mobility cycle: A hip+ankle, B t-spine+ankle. Free Zone closes every session."
+      "notes": "Strength + endurance hybrid. ONE heavy pair (2-3 × 6 strength) followed by a FOUR-movement quartet at 2 × 15 (endurance). Quartet runs 2a-2b-2c-2d as a giant superset (or sequential pairs). Total volume per session is higher than Basic 4 because of the quartet, but loads stay manageable. Movement balance: Day A horizontal, Day B vertical. Mobility cycle: A hip+ankle, B t-spine+ankle. Free Zone closes every session.",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "sets": 2,
+            "reps": 6,
+            "intensityPct": 75.0,
+            "intent": "intro"
+          },
+          {
+            "week": 2,
+            "sets": 2,
+            "reps": 6,
+            "intensityPct": 77.5,
+            "intent": "build"
+          },
+          {
+            "week": 3,
+            "sets": 3,
+            "reps": 6,
+            "intensityPct": 80.0,
+            "intent": "build"
+          },
+          {
+            "week": 4,
+            "sets": 3,
+            "reps": 6,
+            "intensityPct": 82.5,
+            "intent": "load"
+          },
+          {
+            "week": 5,
+            "sets": 3,
+            "reps": 6,
+            "intensityPct": 85.0,
+            "intent": "peak"
+          },
+          {
+            "week": 6,
+            "sets": 2,
+            "reps": 6,
+            "intensityPct": 65.0,
+            "intent": "deload"
+          }
+        ]
+      }
     },
-
     "strength-hypertrophy-2-4day": {
       "id": "strength-hypertrophy-2-4day",
       "name": "Strength + Hypertrophy II",
@@ -577,77 +2560,429 @@
         "conditioning": "Free Zone AMRAP · 5 min"
       },
       "description": "Higher-volume 4-day split. Each session has 3 zones: (1) Max Strength & Power — one main lift, 5 sets where the last set is a back-off burnout (5,5,5,5,8). (2) Muscle Hypertrophy — 2 paired blocks (1a/1b at 2-3 × 8 and 2a/2b at 3 × 8 / 12). (3) Free Zone AMRAP. Days alternate horizontal (A, C) and vertical (B, D) push/pull. Workout B's main is a heavier 3 × 3-6 vertical pull.",
-      "tags": ["hypertrophy", "strength", "advanced", "4-day", "high-volume"],
+      "tags": [
+        "hypertrophy",
+        "strength",
+        "advanced",
+        "4-day",
+        "high-volume"
+      ],
       "weeks": 4,
       "uniqueSessions": 4,
-      "frequencyOptions": [4],
+      "frequencyOptions": [
+        4
+      ],
       "defaultFrequency": 4,
       "cyclingNote": "Run A → B → C → D each week. Main lift on A/C/D is 5 sets: sets 1-4 at heavy 5 reps, set 5 is a back-off burnout at 8 reps (rest-pause if needed). Workout B's main is a heavier 3 × 3-6 (lower volume, higher intensity pull day).",
       "sessions": [
         {
           "name": "Workout A — Lower / Horizontal",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "squat",            "intensity": "primary",   "sets": 5,     "reps": "5,5,5,5,8",  "loaded": true,  "note": "Maximum Strength & Power — main lift · sets 1-4 heavy 5 reps, set 5 back-off burnout 8 reps" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": "2-3", "reps": 8,            "loaded": true,  "pair": "1a", "note": "Hypertrophy · Day A = horizontal push" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": "2-3", "reps": 8,            "loaded": true,  "pair": "1b", "note": "Superset with 1a" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "horizontal_pull",  "intensity": "secondary", "sets": 3,     "reps": 8,            "loaded": true,  "pair": "2a", "note": "Hypertrophy · Day A = horizontal pull" },
-            { "pattern": "locomotion",       "intensity": "secondary", "sets": 2,     "reps": "20-30 seconds", "loaded": true,  "pair": "2b", "note": "Loaded carry / sled drag / bear crawl" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone — pick 2 lower exercises" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "primary",
+              "sets": 5,
+              "reps": "5,5,5,5,8",
+              "loaded": true,
+              "note": "Maximum Strength & Power — main lift · sets 1-4 heavy 5 reps, set 5 back-off burnout 8 reps"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy · Day A = horizontal push"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy · Day A = horizontal pull"
+            },
+            {
+              "pattern": "locomotion",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "20-30 seconds",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Loaded carry / sled drag / bear crawl"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone — pick 2 lower exercises"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B — Upper / Vertical",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "vertical_pull",    "intensity": "primary",   "sets": 3,     "reps": "3-6",        "loaded": true,  "note": "Maximum Strength & Power — heavy pull (different format than A/C/D)" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": 3,     "reps": 8,            "loaded": true,  "pair": "1a", "note": "Hypertrophy" },
-            { "pattern": "vertical_push",    "intensity": "secondary", "sets": 3,     "reps": 8,            "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day B = vertical push" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "vertical_pull",    "intensity": "secondary", "sets": "2-3", "reps": 12,           "loaded": true,  "pair": "2a", "note": "Hypertrophy · higher reps" },
-            { "pattern": "hinge",            "intensity": "secondary", "sets": "2-3", "reps": 8,            "loaded": true,  "pair": "2b", "note": "Superset with 2a" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone — pick 2 upper exercises" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "primary",
+              "sets": 3,
+              "reps": 6,
+              "loaded": true,
+              "note": "Maximum Strength & Power — heavy pull (different format than A/C/D) · W1=3×6, W2=3×5, W3=3×4 (descending)"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day B = vertical push"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 12,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy · higher reps"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 8,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone — pick 2 upper exercises"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout C — Lower / Horizontal",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "hinge",            "intensity": "primary",   "sets": 5,     "reps": "5,5,5,5,8",  "loaded": true,  "note": "Maximum Strength & Power — main lift · sets 1-4 heavy 5 reps, set 5 back-off 8" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": "2-3", "reps": 8,            "loaded": true,  "pair": "1a", "note": "Hypertrophy · Day C = horizontal push" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": "2-3", "reps": 8,            "loaded": true,  "pair": "1b", "note": "Superset with 1a" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "horizontal_pull",  "intensity": "secondary", "sets": 3,     "reps": 8,            "loaded": true,  "pair": "2a", "note": "Hypertrophy · Day C = horizontal pull" },
-            { "pattern": "locomotion",       "intensity": "secondary", "sets": 2,     "reps": "20-30 seconds", "loaded": true,  "pair": "2b", "note": "Loaded carry / sled drag" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "primary",
+              "sets": 5,
+              "reps": "5,5,5,5,8",
+              "loaded": true,
+              "note": "Maximum Strength & Power — main lift · sets 1-4 heavy 5 reps, set 5 back-off 8"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy · Day C = horizontal push"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy · Day C = horizontal pull"
+            },
+            {
+              "pattern": "locomotion",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "20-30 seconds",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Loaded carry / sled drag"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout D — Upper / Vertical",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "vertical_push",    "intensity": "primary",   "sets": 5,     "reps": "5,5,5,5,8",  "loaded": true,  "note": "Maximum Strength & Power — main lift · sets 1-4 heavy 5 reps, set 5 back-off 8" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": 3,     "reps": 8,            "loaded": true,  "pair": "1a", "note": "Hypertrophy" },
-            { "pattern": "vertical_push",    "intensity": "secondary", "sets": 3,     "reps": 8,            "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day D = vertical push (accessory)" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "vertical_pull",    "intensity": "secondary", "sets": "2-3", "reps": 12,           "loaded": true,  "pair": "2a", "note": "Hypertrophy · higher reps" },
-            { "pattern": "hinge",            "intensity": "secondary", "sets": "2-3", "reps": 8,            "loaded": true,  "pair": "2b", "note": "Superset with 2a" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "primary",
+              "sets": 5,
+              "reps": "5,5,5,5,8",
+              "loaded": true,
+              "note": "Maximum Strength & Power — main lift · sets 1-4 heavy 5 reps, set 5 back-off 8"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 8,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day D = vertical push (accessory)"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 12,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy · higher reps"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 8,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "Higher-volume than Strength + Hypertrophy I — main lift is 5 sets with a back-off burnout (5,5,5,5,8) instead of 5×3-5 straight sets. Hypertrophy zone has TWO pairs (1a/1b + 2a/2b) instead of one. Workout B is intentionally different (3×3-6 pull, lighter overall) to give the upper-pull pattern a heavy day. Day pairing: A+C lower with horizontal accessories, B+D upper with vertical accessories. Mobility cycle: A+C hip+ankle, B+D t-spine+ankle."
+      "notes": "Higher-volume than Strength + Hypertrophy I — main lift is 5 sets with a back-off burnout (5,5,5,5,8) instead of 5×3-5 straight sets. Hypertrophy zone has TWO pairs (1a/1b + 2a/2b) instead of one. Workout B is intentionally different (3×3-6 pull, lighter overall) to give the upper-pull pattern a heavy day. Day pairing: A+C lower with horizontal accessories, B+D upper with vertical accessories. Mobility cycle: A+C hip+ankle, B+D t-spine+ankle.",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "sets": 5,
+            "reps": 5,
+            "intensityPct": 77.5,
+            "intent": "intro"
+          },
+          {
+            "week": 2,
+            "sets": 5,
+            "reps": 5,
+            "intensityPct": 80.0,
+            "intent": "build"
+          },
+          {
+            "week": 3,
+            "sets": 5,
+            "reps": 5,
+            "intensityPct": 82.5,
+            "intent": "peak"
+          },
+          {
+            "week": 4,
+            "sets": 5,
+            "reps": 5,
+            "intensityPct": 65.0,
+            "intent": "deload"
+          }
+        ]
+      }
     },
-
     "strength-wave-4day": {
       "id": "strength-wave-4day",
       "name": "Strength Wave",
@@ -658,10 +2993,18 @@
         "conditioning": "Free Zone AMRAP · 5 min"
       },
       "description": "Peaking block with wave-loaded main lifts. Each main lift is 6 sets (two waves of three). Across 3 weeks the waves get heavier and reps drop: Week 1 = 7-5-3 / 7-5-3, Week 2 = 6-4-2 / 6-4-2, Week 3 = 5-3-1 / 5-3-1. Goal: hit a true 1RM by the final set of week 3. Workout D's main is a 3 × 5-10 pull (lighter to balance volume).",
-      "tags": ["strength", "peaking", "wave", "advanced", "4-day"],
+      "tags": [
+        "strength",
+        "peaking",
+        "wave",
+        "advanced",
+        "4-day"
+      ],
       "weeks": 3,
       "uniqueSessions": 4,
-      "frequencyOptions": [4],
+      "frequencyOptions": [
+        4
+      ],
       "defaultFrequency": 4,
       "cyclingNote": "Run A → B → C → D each week. Main lift = 6 sets in two waves of 3. The Wave changes EACH WEEK (not each day): W1 = 7-5-3 / 7-5-3, W2 = 6-4-2 / 6-4-2, W3 = 5-3-1 / 5-3-1. Same exercises throughout — load increases each wave and each week.",
       "undulating": {
@@ -671,9 +3014,51 @@
           "wavesPerSession": 2,
           "setsPerWave": 3,
           "cycles": [
-            { "cycle": 1, "weeks": [1], "repsPerSet": [7, 5, 3, 7, 5, 3], "intent": "Wave 1 — establish working loads" },
-            { "cycle": 2, "weeks": [2], "repsPerSet": [6, 4, 2, 6, 4, 2], "intent": "Wave 2 — heavier loads, lower reps" },
-            { "cycle": 3, "weeks": [3], "repsPerSet": [5, 3, 1, 5, 3, 1], "intent": "Wave 3 — peaking, true 1RM on final set" }
+            {
+              "cycle": 1,
+              "weeks": [
+                1
+              ],
+              "repsPerSet": [
+                7,
+                5,
+                3,
+                7,
+                5,
+                3
+              ],
+              "intent": "Wave 1 — establish working loads"
+            },
+            {
+              "cycle": 2,
+              "weeks": [
+                2
+              ],
+              "repsPerSet": [
+                6,
+                4,
+                2,
+                6,
+                4,
+                2
+              ],
+              "intent": "Wave 2 — heavier loads, lower reps"
+            },
+            {
+              "cycle": 3,
+              "weeks": [
+                3
+              ],
+              "repsPerSet": [
+                5,
+                3,
+                1,
+                5,
+                3,
+                1
+              ],
+              "intent": "Wave 3 — peaking, true 1RM on final set"
+            }
           ]
         }
       },
@@ -681,65 +3066,397 @@
         {
           "name": "Workout A — Hinge Wave",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "hinge",            "intensity": "primary",   "sets": 6,     "reps": "Wave: W1 7-5-3/7-5-3 · W2 6-4-2/6-4-2 · W3 5-3-1/5-3-1", "loaded": true, "note": "Main lift wave-loaded · sets 1-3 first wave, sets 4-6 second wave (heavier)" },
-            { "pattern": "horizontal_pull",  "intensity": "secondary", "sets": "2-3", "reps": 10,           "loaded": true,  "pair": "1a", "note": "Hypertrophy · Day A = horizontal pull" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": "2-3", "reps": 10,           "loaded": true,  "pair": "1b", "note": "Superset with 1a" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": "2-3", "reps": 12,           "loaded": true,  "pair": "2a", "note": "Hypertrophy · Day A = horizontal push" },
-            { "pattern": "carry",            "intensity": "secondary", "sets": 2,     "reps": "10-12 each side", "loaded": true,  "pair": "2b", "note": "Loaded carry — book schedules it as 'Mobility 2 × 10-12'; we use it as a loaded mid-session reset" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "primary",
+              "sets": 6,
+              "reps": "Wave: W1 7-5-3/7-5-3 · W2 6-4-2/6-4-2 · W3 5-3-1/5-3-1",
+              "loaded": true,
+              "note": "Main lift wave-loaded · sets 1-3 first wave, sets 4-6 second wave (heavier)"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy · Day A = horizontal pull"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 12,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy · Day A = horizontal push"
+            },
+            {
+              "pattern": "carry",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "10-12 each side",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Loaded carry — book schedules it as 'Mobility 2 × 10-12'; we use it as a loaded mid-session reset"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout B — Push Wave",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "vertical_push",    "intensity": "primary",   "sets": 6,     "reps": "Wave: W1 7-5-3/7-5-3 · W2 6-4-2/6-4-2 · W3 5-3-1/5-3-1", "loaded": true, "note": "Main lift wave-loaded · Day B = vertical push" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": 3,     "reps": 10,           "loaded": true,  "pair": "1a", "note": "Hypertrophy" },
-            { "pattern": "vertical_pull",    "intensity": "secondary", "sets": 3,     "reps": 10,           "loaded": true,  "pair": "1b", "note": "Superset with 1a · Day B = vertical pull" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "hinge",            "intensity": "secondary", "sets": 3,     "reps": 10,           "loaded": true,  "pair": "2a", "note": "Hypertrophy" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": 3,     "reps": 10,           "loaded": true,  "pair": "2b", "note": "Superset with 2a" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "vertical_push",
+              "intensity": "primary",
+              "sets": 6,
+              "reps": "Wave: W1 7-5-3/7-5-3 · W2 6-4-2/6-4-2 · W3 5-3-1/5-3-1",
+              "loaded": true,
+              "note": "Main lift wave-loaded · Day B = vertical push"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · Day B = vertical pull"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout C — Squat Wave",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "squat",            "intensity": "primary",   "sets": 6,     "reps": "Wave: W1 7-5-3/7-5-3 · W2 6-4-2/6-4-2 · W3 5-3-1/5-3-1", "loaded": true, "note": "Main lift wave-loaded · target a true 1RM on W3 final set" },
-            { "pattern": "horizontal_pull",  "intensity": "secondary", "sets": "2-3", "reps": 10,           "loaded": true,  "pair": "1a", "note": "Hypertrophy · Day C = horizontal pull" },
-            { "pattern": "lunge",            "intensity": "secondary", "sets": "2-3", "reps": 10,           "loaded": true,  "pair": "1b", "note": "Superset with 1a" },
-            { "pattern": "mobility",         "category": "hip",        "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "Hip mobility reset" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": "2-3", "reps": 12,           "loaded": true,  "pair": "2a", "note": "Hypertrophy · Day C = horizontal push" },
-            { "pattern": "carry",            "intensity": "secondary", "sets": 2,     "reps": "10-12 each side", "loaded": true,  "pair": "2b", "note": "Loaded carry mid-session" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "squat",
+              "intensity": "primary",
+              "sets": 6,
+              "reps": "Wave: W1 7-5-3/7-5-3 · W2 6-4-2/6-4-2 · W3 5-3-1/5-3-1",
+              "loaded": true,
+              "note": "Main lift wave-loaded · target a true 1RM on W3 final set"
+            },
+            {
+              "pattern": "horizontal_pull",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy · Day C = horizontal pull"
+            },
+            {
+              "pattern": "lunge",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a"
+            },
+            {
+              "pattern": "mobility",
+              "category": "hip",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "Hip mobility reset"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": 12,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy · Day C = horizontal push"
+            },
+            {
+              "pattern": "carry",
+              "intensity": "secondary",
+              "sets": 2,
+              "reps": "10-12 each side",
+              "loaded": true,
+              "pair": "2b",
+              "note": "Loaded carry mid-session"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         },
         {
           "name": "Workout D — Pull Sets",
           "blocks": [
-            { "pattern": "anti_rotation",    "intensity": "primary",   "sets": 2,     "reps": "10",         "loaded": false, "note": "Core — Dynamic Stability" },
-            { "pattern": "vertical_pull",    "intensity": "primary",   "sets": 3,     "reps": "5-10",       "loaded": true,  "note": "Different from A/B/C — pull main lift is 3 × 5-10 (rep PR style: same load as Strength + Hypertrophy II, try to add reps)" },
-            { "pattern": "single_leg",       "intensity": "secondary", "sets": 3,     "reps": 10,           "loaded": true,  "pair": "1a", "note": "Hypertrophy" },
-            { "pattern": "vertical_pull",    "intensity": "secondary", "sets": 3,     "reps": 10,           "loaded": true,  "pair": "1b", "note": "Superset with 1a · accessory pull" },
-            { "pattern": "mobility",         "category": "t-spine",    "intensity": "accessory", "sets": 1, "reps": "1-2 min flow", "loaded": false, "pair": "1c", "note": "T-spine mobility reset" },
-            { "pattern": "hinge",            "intensity": "secondary", "sets": 3,     "reps": 10,           "loaded": true,  "pair": "2a", "note": "Hypertrophy" },
-            { "pattern": "horizontal_push",  "intensity": "secondary", "sets": 3,     "reps": 10,           "loaded": true,  "pair": "2b", "note": "Superset with 2a" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3a", "note": "Free Zone" },
-            { "pattern": "free_zone",        "intensity": "finisher",  "sets": "8-10","reps": "AMRAP in 5 min", "loaded": true,  "pair": "3b" },
-            { "pattern": "mobility",         "category": "ankle",      "intensity": "finisher",  "sets": 1, "reps": "1-2 min", "loaded": false, "note": "Ankle mobility cool-down" }
+            {
+              "pattern": "anti_rotation",
+              "intensity": "primary",
+              "sets": 2,
+              "reps": "10",
+              "loaded": false,
+              "note": "Core — Dynamic Stability"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "primary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "note": "Different from A/B/C — pull main lift is 3 × 5-10 (rep PR style: same load as Strength + Hypertrophy II, try to add reps) · W1=3×10, W2=3×8, W3=3×5 (descending reps, same load)"
+            },
+            {
+              "pattern": "single_leg",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1a",
+              "note": "Hypertrophy"
+            },
+            {
+              "pattern": "vertical_pull",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "1b",
+              "note": "Superset with 1a · accessory pull"
+            },
+            {
+              "pattern": "mobility",
+              "category": "t-spine",
+              "intensity": "accessory",
+              "sets": 1,
+              "reps": "1-2 min flow",
+              "loaded": false,
+              "pair": "1c",
+              "note": "T-spine mobility reset"
+            },
+            {
+              "pattern": "hinge",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "2a",
+              "note": "Hypertrophy"
+            },
+            {
+              "pattern": "horizontal_push",
+              "intensity": "secondary",
+              "sets": 3,
+              "reps": 10,
+              "loaded": true,
+              "pair": "2b",
+              "note": "Superset with 2a"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3a",
+              "note": "Free Zone"
+            },
+            {
+              "pattern": "free_zone",
+              "intensity": "finisher",
+              "sets": 8,
+              "reps": "AMRAP in 5 min",
+              "loaded": true,
+              "pair": "3b"
+            },
+            {
+              "pattern": "mobility",
+              "category": "ankle",
+              "intensity": "finisher",
+              "sets": 1,
+              "reps": "1-2 min",
+              "loaded": false,
+              "note": "Ankle mobility cool-down"
+            }
           ]
         }
       ],
-      "notes": "Peaking block — 3 weeks of wave-loaded main lifts. Wave structure: 2 waves of 3 sets per session, reps DESCEND within a wave (e.g. 7-5-3), waves get HEAVIER each week (W1 7-5-3, W2 6-4-2, W3 5-3-1). The book aims for a true 1RM on the final set of W3 on squat, deadlift, and bench/shoulder press. Workout D's main is a 3 × 5-10 pull where the goal is rep PR (same weight as previous block, add reps). Day mapping: A hinge, B vertical push, C squat, D vertical pull. Mobility cycle: A+C hip+ankle, B+D t-spine+ankle. Only for athletes deep into a strength cycle who need a peaking week."
+      "notes": "Peaking block — 3 weeks of wave-loaded main lifts. Wave structure: 2 waves of 3 sets per session, reps DESCEND within a wave (e.g. 7-5-3), waves get HEAVIER each week (W1 7-5-3, W2 6-4-2, W3 5-3-1). The book aims for a true 1RM on the final set of W3 on squat, deadlift, and bench/shoulder press. Workout D's main is a 3 × 5-10 pull where the goal is rep PR (same weight as previous block, add reps). Day mapping: A hinge, B vertical push, C squat, D vertical pull. Mobility cycle: A+C hip+ankle, B+D t-spine+ankle. Only for athletes deep into a strength cycle who need a peaking week.",
+      "weeklyProgression": {
+        "_docs": "Per-week prescription locking sets/reps and load intensity. Sets/reps fields = W1 baseline; subsequent weeks override per primary/secondary strength blocks. intensityPct = % of athlete e1RM for primary strength blocks (LLM uses this to compute loads). For undulating/wave templates, sets/reps come from dailyRotation/wavePeriodization; intensityPct still drives load.",
+        "weeks": [
+          {
+            "week": 1,
+            "intensityPct": 80.0,
+            "intent": "wave 1 — establish working loads"
+          },
+          {
+            "week": 2,
+            "intensityPct": 87.5,
+            "intent": "wave 2 — heavier loads, lower reps"
+          },
+          {
+            "week": 3,
+            "intensityPct": 95.0,
+            "intent": "wave 3 — peak (true 1RM final set)"
+          }
+        ]
+      }
     }
   }
 }
