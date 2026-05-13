@@ -1023,7 +1023,7 @@ function renderWorkoutContent(content, athleteSets, exNames) {
                   <div style="font-size:8px;color:${logged.length ? '#0D7A4E' : '#8A5A00'};text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:3px">Logged</div>
                   ${loggedRows.length
                     ? loggedRows.map(r => `<div style="color:var(--text);font-weight:600">${r}</div>`).join('')
-                    : '<div style="color:#8A5A00;font-size:9px;line-height:1.4">Athlete didn\\'t enter weights in Bridge</div>'}
+                    : '<div style="color:#8A5A00;font-size:9px;line-height:1.4">Athlete did not enter weights in Bridge</div>'}
                   ${logged.length > 6 ? `<div style="color:var(--muted);font-size:9px">+ ${logged.length - 6} more</div>` : ''}
                 </div>
               </div>
