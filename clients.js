@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-05-12T23:57:10.310Z
+   Last synced: 2026-05-13T00:01:08.543Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -437,6 +437,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-05-13",
+        "name": "Impulse: French Contrast",
+        "workoutId": 37116533,
+        "workoutHistoryId": 64820455,
+        "duration": 50,
+        "rpe": 6,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-12",
         "name": "Upper Horizontal Pull",
         "workoutId": 37116532,
@@ -542,16 +552,6 @@ const BRIDGE_DATA = {
         "workoutId": 36482640,
         "workoutHistoryId": 64127830,
         "duration": 60,
-        "rpe": 9,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-23",
-        "name": "Vertical Pull + Lower Unilateral",
-        "workoutId": 36482635,
-        "workoutHistoryId": 64031271,
-        "duration": 58,
         "rpe": 9,
         "program": "2025 -  SAM",
         "status": "completed"
@@ -2235,6 +2235,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-05-13",
+        "name": "Squat and Bench Light - Core Stability",
+        "workoutId": 37048366,
+        "workoutHistoryId": 64822857,
+        "duration": 82,
+        "rpe": 2,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-11",
         "name": "Deadlift and Military Press - Core Dynamic Stability",
         "workoutId": 37048365,
@@ -2341,16 +2351,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 63668455,
         "duration": 50,
         "rpe": 3,
-        "program": "2025 - Linda",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-07",
-        "name": null,
-        "workoutId": 35877701,
-        "workoutHistoryId": 63524496,
-        "duration": 26,
-        "rpe": 2,
         "program": "2025 - Linda",
         "status": "completed"
       }
