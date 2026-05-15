@@ -1,373 +1,600 @@
 ═══════════════════════════════════════════════════════════════════════════════
-UPPER BODY STACK — MICHAEL JAMES · PLAYLIST FORMAT
-4 weeks · 13 workouts · Run as a PLAYLIST (not scheduled)
-Load mode: RIR (Reps in Reserve) — NO RPE, NO %1RM
+UPPER BODY STACK — MICHAEL JAMES · BRIDGE IMPORT
+4 weeks · 13 workouts · PLAYLIST format · RIR-based prescription
 ═══════════════════════════════════════════════════════════════════════════════
 
-▶ HOW TO IMPORT INTO BRIDGE — READ BEFORE PASTING ▼
+═══════════════════════════════════════════════════════════════════════════════
+PART 1 · IMPORT INSTRUCTIONS — READ BEFORE PASTING
+═══════════════════════════════════════════════════════════════════════════════
 
-  STEP 1: In Bridge, set the prescription parameter to "RIR" (Reps in
-          Reserve). NOT "%Difficulty" (which is %RM relative intensity)
-          and NOT "%1RM". Bridge supports RIR as a first-class parameter
-          alongside tempo, rep range, %Difficulty etc.
+STEP 1: BRIDGE PRESCRIPTION SETTING (critical)
+  In Bridge → program settings → set the load prescription parameter to:
+        ▶ RIR  (Reps in Reserve)
+  NOT %Difficulty (that is %RM relative intensity).
+  NOT %1RM.
+  NOT RPE.
 
-  STEP 2: Create a NEW program for Michael James → choose "PLAYLIST"
-          structure (not scheduled / not weekly grid).
+STEP 2: CREATE THE PROGRAM
+  In Bridge → New program for Michael James → choose PLAYLIST structure.
+  NOT scheduled. NOT weekly calendar. Playlist = athlete picks next workout.
+  Program name: "Upper Body Stack"
 
-  STEP 3: For each of the 13 workouts below, create a workout in the
-          playlist with that name and paste the corresponding block.
+STEP 3: ADD 13 WORKOUTS IN ORDER
+  Create each workout below as a new entry in the playlist, in this order.
+  Use the workout names exactly as written so they sync back to MILO clean.
 
-  STEP 4: After Bridge AI generates the first workout, spot-check that:
-          - Each loaded exercise shows "X RIR" as its intensity (NOT
-            "75% Difficulty" and NOT "75% 1RM")
-          - The "EMOM" and "Superset" structure is preserved
-          - The grip finisher is in its own block at the end
-          The first workout is your canary — if it's clean, the rest
-          will be too.
+STEP 4: PASTE THE BLOCKS
+  For each workout, paste the body text (blocks + exercises + RIR + rest)
+  into Bridge's AI builder for that workout.
 
-▶ SET-TYPE VOCABULARY USED BELOW ▼
-
-  EMOM        Every Minute On the Minute — perform the prescribed reps
-              in the first part of each minute, rest for the remainder.
-  Superset    Two exercises performed back-to-back with no rest. Labelled
-              "1a / 1b" inside the same block.
-  Triset      Three exercises back-to-back (1a / 1b / 1c).
-  Straight    Single exercise, all sets in one block, rest between sets.
-  AMRAP       As Many Reps As Possible, single set, go to technical
-              failure (same as MREP in some systems).
-  Test set    Ramp single rep working to a true max (0 RIR).
-
-▶ INTENSITY KEY (RIR — Reps in Reserve) ▼
-
-  0 RIR   Max effort, couldn't do another rep clean
-  1 RIR   Could do 1 more rep
-  2 RIR   Could do 2 more reps
-  3 RIR   Could do 3 more reps   ← typical "working" intensity
-  4 RIR   Could do 4 more reps   ← typical first-set load on dense work
-  5+ RIR  Warmup / light work
+STEP 5: VERIFY (do this on the FIRST workout you create)
+  After Bridge generates the workout, check:
+    [ ] All loaded exercises show intensity as "X RIR" (not %Difficulty, not %1RM)
+    [ ] EMOM structure is preserved (look for "every minute" or "EMOM" tag)
+    [ ] Supersets are paired (1a / 1b or A1 / A2 grouping)
+    [ ] Grip finisher is its own block at the end
+  If any check fails, redo Step 1 and regenerate that workout.
 
 ═══════════════════════════════════════════════════════════════════════════════
-PLAYLIST ORDER (13 workouts)
+PART 2 · PROGRAM-LEVEL DESCRIPTION (paste this into Bridge as program notes)
+═══════════════════════════════════════════════════════════════════════════════
+
+Upper Body Stack — 4-week dense-training block for Michael James.
+3 upper-body sessions per week (A=Bench, B=Pull, C=Overhead) run as a
+playlist. Michael runs 2 self-managed lower-body sessions per week
+between these. No warmups prescribed — Michael runs his own mobility
+and tissue work. Accessory lower-body work (calves, tibs, glutes) is
+woven into the EMOM pairs so he doesn't need extra LB on these days.
+Power and integrated core (band rotations, ViPR, med ball, KB bottoms-up,
+wall T-mob) thread through every session.
+
+Format: EMOM (Every Minute On the Minute) × Superset throughout.
+Primary block: 20 sets x 3 reps on the minute, paired in 5 blocks of 4.
+Secondary block: 10 sets x 5 reps on the minute, paired in 2 blocks of 5.
+Tertiary block: 5 sets x 10 reps on the minute, single-pair throughout.
+Grip finisher: straight sets, rest as needed.
+
+Progressive overload (RIR):
+  Primary dense:    W1 4 RIR → W2 3-4 RIR → W3 3 RIR → W4 test
+  Secondary EMOM:   W1 3 RIR → W2 2 RIR → W3 2 RIR → W4 deload
+  Tertiary EMOM:    +1 rep per set per week (same load) if previous week clean
+Baseline test in Week 1 Workout 1; retest in Week 4 Workouts 12-13.
+Expected delta: Bench +5-7 kg, OHP +2.5-5 kg, Chin-Up +1-2 unbroken reps.
+
+═══════════════════════════════════════════════════════════════════════════════
+PART 3 · PLAYLIST ORDER (13 workouts)
 ═══════════════════════════════════════════════════════════════════════════════
 
   1.  Upper Body Stack · Baseline Test
-  2.  Upper Body Stack · A · Dense Bench (Week 1)
-  3.  Upper Body Stack · B · Dense Pull (Week 1)
-  4.  Upper Body Stack · C · Dense Overhead (Week 1)
-  5.  Upper Body Stack · A · Dense Bench (Week 2)
-  6.  Upper Body Stack · B · Dense Pull (Week 2)
-  7.  Upper Body Stack · C · Dense Overhead (Week 2)
-  8.  Upper Body Stack · A · Dense Bench (Week 3)
-  9.  Upper Body Stack · B · Dense Pull (Week 3)
-  10. Upper Body Stack · C · Dense Overhead (Week 3)
-  11. Upper Body Stack · Deload Bench (Week 4)
-  12. Upper Body Stack · Test · Chin & Row (Week 4)
-  13. Upper Body Stack · Test · Bench & OHP (Week 4)
-
-MJ runs them in order at his own pace. With 2 self-managed LB sessions
-per week + 3 upper days, this typically lands as ~4 weeks of training.
+  2.  Upper Body Stack · A · Dense Bench (W1)
+  3.  Upper Body Stack · B · Dense Pull (W1)
+  4.  Upper Body Stack · C · Dense Overhead (W1)
+  5.  Upper Body Stack · A · Dense Bench (W2)
+  6.  Upper Body Stack · B · Dense Pull (W2)
+  7.  Upper Body Stack · C · Dense Overhead (W2)
+  8.  Upper Body Stack · A · Dense Bench (W3)
+  9.  Upper Body Stack · B · Dense Pull (W3)
+  10. Upper Body Stack · C · Dense Overhead (W3)
+  11. Upper Body Stack · Deload Bench (W4)
+  12. Upper Body Stack · Test · Chin & Row (W4)
+  13. Upper Body Stack · Test · Bench & OHP (W4)
 
 ═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 1: UPPER BODY STACK · BASELINE TEST
-Goal: Record 3RM Bench, 3RM OHP, max strict Chin-Up. ~30-35 min.
+PART 4 · WORKOUT-BY-WORKOUT DETAIL — PASTE EACH ONE INTO BRIDGE
 ═══════════════════════════════════════════════════════════════════════════════
 
-BLOCK 1 · TEST SET · Bench Press 3RM
- · Set 1: 5 reps @ 6 RIR (light warmup)
- · Set 2: 5 reps @ 4 RIR
- · Set 3: 3 reps @ 3 RIR
- · Set 4: 3 reps @ 2 RIR
- · Set 5: 3 reps @ 0-1 RIR ← record this load as "Bench 3RM"
- · Rest: 2-3 min between ramping sets, 3-4 min before the top set
 
-BLOCK 2 · TEST SET · Standing OHP 3RM
- · Set 1: 5 reps @ 6 RIR (light warmup)
- · Set 2: 5 reps @ 4 RIR
- · Set 3: 3 reps @ 2 RIR
- · Set 4: 3 reps @ 0-1 RIR ← record this load as "OHP 3RM"
- · Rest: 2-3 min between sets
+═══ WORKOUT 1 · UPPER BODY STACK · BASELINE TEST ═══════════════════════════════
 
-BLOCK 3 · AMRAP · Strict Chin-Up
- · 1 set, max unbroken bodyweight reps. Record reps as "Chin-Up max".
+Purpose: Record baseline 3RM Bench, 3RM Overhead Press, max strict Chin-Up.
+Total time: ~30-35 minutes.
+Format: Straight sets (NOT dense, NOT EMOM). Test ramps.
+
+▼ BLOCK 1 · TEST SET · BARBELL BENCH PRESS — 3 REP MAX RAMP
+  Set 1: 5 reps @ 6 RIR · Rest 2 min
+  Set 2: 5 reps @ 4 RIR · Rest 2 min
+  Set 3: 3 reps @ 3 RIR · Rest 3 min
+  Set 4: 3 reps @ 2 RIR · Rest 3 min
+  Set 5: 3 reps @ 0-1 RIR (true 3RM) · Rest 4 min
+  Notes: Record the load of Set 5 — this is "Bench 3RM" for the block.
+
+▼ BLOCK 2 · TEST SET · STANDING BARBELL OVERHEAD PRESS — 3 REP MAX RAMP
+  Set 1: 5 reps @ 6 RIR · Rest 2 min
+  Set 2: 5 reps @ 4 RIR · Rest 2 min
+  Set 3: 3 reps @ 2 RIR · Rest 3 min
+  Set 4: 3 reps @ 0-1 RIR (true 3RM) · Rest 3 min
+  Notes: No leg drive, full lockout at top. Record Set 4 load as "OHP 3RM".
+
+▼ BLOCK 3 · AMRAP · CHIN-UP — MAX STRICT REPS
+  1 set, bodyweight, full ROM, unbroken until failure.
+  Notes: Record total reps as "Chin-Up max". Strict — no kip, no momentum.
+
+
+═══ WORKOUT 2 · UPPER BODY STACK · A · DENSE BENCH (W1) ═════════════════════════
+
+Purpose: Week 1 of the dense bench block. Establish working loads and rhythm.
+Total time: ~50 minutes.
+Format: EMOM × Superset throughout.
+
+▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-4:
+    1a. Barbell Bench Press — 3 reps @ first-set 4 RIR
+    1b. Standing Band Anti-Rotation Press — 6 reps each side
+  Round 5-8:
+    1a. Barbell Bench Press — 3 reps (same load)
+    1b. KB Half-Kneeling Bottoms-Up Press — 5 reps each side
+  Round 9-12:
+    1a. Barbell Bench Press — 3 reps (same load)
+    1b. Loaded Single-Leg Calf Raise — 12 reps each side
+  Round 13-16:
+    1a. Barbell Bench Press — 3 reps (same load)
+    1b. Band Pull-Apart — 12 reps
+  Round 17-20:
+    1a. Barbell Bench Press — 3 reps (same load, no pair, focus on bar speed)
+  Rest: any remainder of each minute. If bench bar speed slows, drop load
+        2.5-5 kg for the next round and hold.
+
+▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    2a. DB Lateral Raise (tempo: 3-sec lowering) — 5 reps @ 3 RIR
+    2b. Med Ball Rotational Slam — 4 reps each side
+  Round 6-10:
+    2a. DB Lateral Raise (tempo: 3-sec lowering) — 5 reps (same load)
+    2b. Tibialis Raise — 10 reps
+
+▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    3a. Cable Triceps Pushdown — 10 reps @ 3 RIR
+    3b. Pallof Press — 15-second hold each side
+
+▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
+  Behind-the-Back Barbell Wrist Curl — 3 sets x 20 reps · Rest as needed.
+
+
+═══ WORKOUT 3 · UPPER BODY STACK · B · DENSE PULL (W1) ══════════════════════════
+
+Purpose: Week 1 dense pull. Mirrors Michael's worked example exactly.
+Total time: ~50 minutes.
+Format: EMOM × Superset throughout.
+
+▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-4:
+    1a. Chin-Up — 2 reps @ bodyweight
+    1b. Ground-to-Stand drill with foam roller — 2 reps each leg
+  Round 5-8:
+    1a. Chin-Up — 2 reps @ bodyweight
+    1b. Band Y's — 8 reps
+  Round 9-12:
+    1a. Chin-Up — 2 reps @ bodyweight
+    1b. Wall T-Mob Rotational Reach — 4 reps each side
+  Round 13-16:
+    1a. Chin-Up — 2 reps @ bodyweight
+    1b. Loaded Double-Leg Calf Raise — 15 reps
+  Round 17-20:
+    1a. Chin-Up — 2 reps @ bodyweight (no pair, focus on bar speed + full ROM)
+
+▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    2a. Barbell Bent-Over Row — 5 reps @ 3 RIR
+    2b. Banded Rotational Wood Chop — 5 reps each side
+  Round 6-10:
+    2a. Barbell Bent-Over Row — 5 reps (same load)
+    2b. Bumper Plate Pinch Hold — 15 seconds
+
+▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    3a. Heavy DB Hammer Curl — 10 reps @ 2-3 RIR
+    3b. Glute Bridge — 12 reps
+
+▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
+  Bumper Plate Pinches — 4 sets x 15-20 seconds · Rest as needed.
+
+
+═══ WORKOUT 4 · UPPER BODY STACK · C · DENSE OVERHEAD (W1) ══════════════════════
+
+Purpose: Week 1 dense overhead. Uses all 5 of Michael's ViPR pairings.
+Total time: ~50 minutes.
+Format: EMOM × Superset throughout.
+
+▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-4:
+    1a. Standing Barbell Overhead Press — 3 reps @ first-set 4 RIR
+    1b. ViPR Shlift Lateral Step SS-Down — 3 reps each side
+  Round 5-8:
+    1a. Standing Barbell Overhead Press — 3 reps (same load)
+    1b. ViPR Uppercut Back Step — 4 reps each side
+  Round 9-12:
+    1a. Standing Barbell Overhead Press — 3 reps (same load)
+    1b. ViPR Trans Step with Up Shlift — 4 reps each side
+  Round 13-16:
+    1a. Standing Barbell Overhead Press — 3 reps (same load)
+    1b. Wall T-Mob Rotational Reach — 4 reps each side
+  Round 17-20:
+    1a. Standing Barbell Overhead Press — 3 reps (same load, no pair)
+  Notes: ViPR substitutions if no ViPR (commercial gym):
+    - Rounds 1-4: KB Side-Step Press
+    - Rounds 5-8: Reverse Lunge with Single-Arm DB Press
+    - Rounds 9-12: KB Lateral Lunge with Pass-Through
+
+▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    2a. Close-Grip Bench Press (tempo: 3 sec down / 3 sec up) — 5 reps @ 3 RIR
+    2b. Tempo Close-Grip Pushup (3 down / 3 up) — 4 reps
+  Round 6-10:
+    2a. Close-Grip Bench Press (same tempo, same load) — 5 reps
+    2b. Anti-Extension Plank Reach — 6 reps each side
+
+▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    3a. EZ-Bar Skullcrusher — 10 reps @ 3 RIR
+    3b. KB Bottoms-Up Carry — 20 metres
+
+▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
+  DB or KB Farmers Carry — 4 sets x 25 metres · Go heavy · Rest as needed.
+
+
+═══ WORKOUT 5 · UPPER BODY STACK · A · DENSE BENCH (W2) ═════════════════════════
+
+Purpose: Week 2 dense bench. Identical exercises and structure to W1.
+Load nudged up; pair exercises unchanged. ~50 min.
+
+▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
+  Bench Press load this week: first set 3-4 RIR (add ~2.5 kg vs W1).
+  Round 1-4:
+    1a. Barbell Bench Press — 3 reps @ first-set 3-4 RIR
+    1b. Standing Band Anti-Rotation Press — 6 reps each side
+  Round 5-8:
+    1a. Barbell Bench Press — 3 reps (same load)
+    1b. KB Half-Kneeling Bottoms-Up Press — 5 reps each side
+  Round 9-12:
+    1a. Barbell Bench Press — 3 reps (same load)
+    1b. Loaded Single-Leg Calf Raise — 12 reps each side
+  Round 13-16:
+    1a. Barbell Bench Press — 3 reps (same load)
+    1b. Band Pull-Apart — 12 reps
+  Round 17-20:
+    1a. Barbell Bench Press — 3 reps (same load, no pair, focus on bar speed)
+
+▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    2a. DB Lateral Raise (3-sec lowering tempo) — 5 reps @ 2 RIR
+    2b. Med Ball Rotational Slam — 4 reps each side
+  Round 6-10:
+    2a. DB Lateral Raise (same tempo, same load) — 5 reps
+    2b. Tibialis Raise — 10 reps
+
+▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    3a. Cable Triceps Pushdown — 11 reps (same load as W1; add 1 rep if W1 clean)
+    3b. Pallof Press — 15-second hold each side
+
+▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
+  Behind-the-Back Barbell Wrist Curl — 3 sets x 20 reps · Rest as needed.
+
+
+═══ WORKOUT 6 · UPPER BODY STACK · B · DENSE PULL (W2) ══════════════════════════
+
+Purpose: Week 2 dense pull. Same exercises; bar speed focus on chin-ups.
+Load nudged on row; reps nudged on hammer curls. ~50 min.
+
+▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-4:
+    1a. Chin-Up — 2 reps @ bodyweight
+    1b. Ground-to-Stand drill with foam roller — 2 reps each leg
+  Round 5-8:
+    1a. Chin-Up — 2 reps @ bodyweight
+    1b. Band Y's — 8 reps
+  Round 9-12:
+    1a. Chin-Up — 2 reps @ bodyweight
+    1b. Wall T-Mob Rotational Reach — 4 reps each side
+  Round 13-16:
+    1a. Chin-Up — 2 reps @ bodyweight
+    1b. Loaded Double-Leg Calf Raise — 15 reps
+  Round 17-20:
+    1a. Chin-Up — 2 reps @ bodyweight (no pair, focus on bar speed)
+
+▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    2a. Barbell Bent-Over Row — 5 reps @ 2 RIR
+    2b. Banded Rotational Wood Chop — 5 reps each side
+  Round 6-10:
+    2a. Barbell Bent-Over Row — 5 reps (same load)
+    2b. Bumper Plate Pinch Hold — 15 seconds
+
+▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    3a. Heavy DB Hammer Curl — 11 reps (same load as W1; add 1 rep if W1 clean)
+    3b. Glute Bridge — 12 reps
+
+▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
+  Bumper Plate Pinches — 4 sets x 15-20 seconds · Rest as needed.
+
+
+═══ WORKOUT 7 · UPPER BODY STACK · C · DENSE OVERHEAD (W2) ══════════════════════
+
+Purpose: Week 2 dense overhead. ViPR pairings unchanged; OHP load up. ~50 min.
+
+▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
+  OHP load this week: first set 3-4 RIR (add ~2.5 kg vs W1).
+  Round 1-4:
+    1a. Standing Barbell Overhead Press — 3 reps @ first-set 3-4 RIR
+    1b. ViPR Shlift Lateral Step SS-Down — 3 reps each side
+  Round 5-8:
+    1a. Standing Barbell Overhead Press — 3 reps (same load)
+    1b. ViPR Uppercut Back Step — 4 reps each side
+  Round 9-12:
+    1a. Standing Barbell Overhead Press — 3 reps (same load)
+    1b. ViPR Trans Step with Up Shlift — 4 reps each side
+  Round 13-16:
+    1a. Standing Barbell Overhead Press — 3 reps (same load)
+    1b. Wall T-Mob Rotational Reach — 4 reps each side
+  Round 17-20:
+    1a. Standing Barbell Overhead Press — 3 reps (same load, no pair)
+
+▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    2a. Close-Grip Bench Press (3 sec down / 3 sec up) — 5 reps @ 2 RIR
+    2b. Tempo Close-Grip Pushup (3 down / 3 up) — 4 reps
+  Round 6-10:
+    2a. Close-Grip Bench Press (same load, same tempo) — 5 reps
+    2b. Anti-Extension Plank Reach — 6 reps each side
+
+▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    3a. EZ-Bar Skullcrusher — 11 reps (same load as W1; add 1 rep if W1 clean)
+    3b. KB Bottoms-Up Carry — 20 metres
+
+▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
+  DB or KB Farmers Carry — 4 sets x 25 metres · Go heavy · Rest as needed.
+
+
+═══ WORKOUT 8 · UPPER BODY STACK · A · DENSE BENCH (W3) ═════════════════════════
+
+Purpose: Heaviest dense bench week. Last loaded session before retest. ~50 min.
+
+▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
+  Bench Press load this week: first set 3 RIR (~2.5-5 kg heavier than W2).
+  Expect last 4-5 sets to feel 1 RIR from accumulated fatigue.
+  Round 1-4:
+    1a. Barbell Bench Press — 3 reps @ first-set 3 RIR
+    1b. Standing Band Anti-Rotation Press — 6 reps each side
+  Round 5-8:
+    1a. Barbell Bench Press — 3 reps (same load)
+    1b. KB Half-Kneeling Bottoms-Up Press — 5 reps each side
+  Round 9-12:
+    1a. Barbell Bench Press — 3 reps (same load)
+    1b. Loaded Single-Leg Calf Raise — 12 reps each side
+  Round 13-16:
+    1a. Barbell Bench Press — 3 reps (same load)
+    1b. Band Pull-Apart — 12 reps
+  Round 17-20:
+    1a. Barbell Bench Press — 3 reps (same load, no pair, focus on bar speed)
+  Notes: If any rep slows visibly, drop load 2.5-5 kg for the next set.
+        Density is about quality reps under fatigue, not grinding.
+
+▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    2a. DB Lateral Raise (3-sec lowering tempo) — 5 reps @ 2 RIR
+    2b. Med Ball Rotational Slam — 4 reps each side
+  Round 6-10:
+    2a. DB Lateral Raise (same tempo, same load) — 5 reps
+    2b. Tibialis Raise — 10 reps
+
+▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    3a. Cable Triceps Pushdown — 12 reps (same load as W1; add 1 rep if W2 clean)
+    3b. Pallof Press — 15-second hold each side
+
+▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
+  Behind-the-Back Barbell Wrist Curl — 3 sets x 20 reps · Rest as needed.
+
+
+═══ WORKOUT 9 · UPPER BODY STACK · B · DENSE PULL (W3) ══════════════════════════
+
+Purpose: Heaviest dense pull week. Optional small load add on chin-up. ~50 min.
+
+▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
+  Chin-Up load this week: bodyweight by default. If W2 felt sub-3-RIR
+  (felt easy, bar speed high), add 2.5 kg with a dip belt or weight vest.
+  Round 1-4:
+    1a. Chin-Up — 2 reps @ BW (or BW + 2.5 kg if W2 was easy)
+    1b. Ground-to-Stand drill with foam roller — 2 reps each leg
+  Round 5-8:
+    1a. Chin-Up — 2 reps (same load as round 1-4)
+    1b. Band Y's — 8 reps
+  Round 9-12:
+    1a. Chin-Up — 2 reps (same load)
+    1b. Wall T-Mob Rotational Reach — 4 reps each side
+  Round 13-16:
+    1a. Chin-Up — 2 reps (same load)
+    1b. Loaded Double-Leg Calf Raise — 15 reps
+  Round 17-20:
+    1a. Chin-Up — 2 reps (same load, no pair, focus on bar speed)
+
+▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    2a. Barbell Bent-Over Row — 5 reps @ 2 RIR
+    2b. Banded Rotational Wood Chop — 5 reps each side
+  Round 6-10:
+    2a. Barbell Bent-Over Row — 5 reps (same load)
+    2b. Bumper Plate Pinch Hold — 15 seconds
+
+▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    3a. Heavy DB Hammer Curl — 12 reps (same load as W1; add 1 rep if W2 clean)
+    3b. Glute Bridge — 12 reps
+
+▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
+  Bumper Plate Pinches — 4 sets x 15-20 seconds · Rest as needed.
+
+
+═══ WORKOUT 10 · UPPER BODY STACK · C · DENSE OVERHEAD (W3) ═════════════════════
+
+Purpose: Heaviest dense overhead week. ~50 min.
+
+▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
+  OHP load this week: first set 3 RIR (~2.5-5 kg heavier than W2).
+  Round 1-4:
+    1a. Standing Barbell Overhead Press — 3 reps @ first-set 3 RIR
+    1b. ViPR Shlift Lateral Step SS-Down — 3 reps each side
+  Round 5-8:
+    1a. Standing Barbell Overhead Press — 3 reps (same load)
+    1b. ViPR Uppercut Back Step — 4 reps each side
+  Round 9-12:
+    1a. Standing Barbell Overhead Press — 3 reps (same load)
+    1b. ViPR Trans Step with Up Shlift — 4 reps each side
+  Round 13-16:
+    1a. Standing Barbell Overhead Press — 3 reps (same load)
+    1b. Wall T-Mob Rotational Reach — 4 reps each side
+  Round 17-20:
+    1a. Standing Barbell Overhead Press — 3 reps (same load, no pair)
+
+▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    2a. Close-Grip Bench Press (3 sec down / 3 sec up) — 5 reps @ 2 RIR
+    2b. Tempo Close-Grip Pushup (3 down / 3 up) — 4 reps
+  Round 6-10:
+    2a. Close-Grip Bench Press (same load, same tempo) — 5 reps
+    2b. Anti-Extension Plank Reach — 6 reps each side
+
+▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
+  Round 1-5:
+    3a. EZ-Bar Skullcrusher — 12 reps (same load as W1; add 1 rep if W2 clean)
+    3b. KB Bottoms-Up Carry — 20 metres
+
+▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
+  DB or KB Farmers Carry — 4 sets x 25 metres · Go heavy · Rest as needed.
+
+
+═══ WORKOUT 11 · UPPER BODY STACK · DELOAD BENCH (W4) ═══════════════════════════
+
+Purpose: Short deload session before the retest. No fatigue load. ~15 min.
+Format: Straight sets, light ramp only. No accessories. No grip work.
+
+▼ BLOCK 1 · STRAIGHT SETS · BARBELL BENCH PRESS — DELOAD RAMP
+  Set 1: 5 reps @ 6 RIR · Rest 2 min
+  Set 2: 3 reps @ 4 RIR · Rest 2 min
+  Set 3: 1 rep  @ 3 RIR · Rest — STOP, walk away.
+  Notes: This is intentionally short. Goal is to prime the nervous system
+        for Friday's 1RM test without adding any fatigue.
+
+
+═══ WORKOUT 12 · UPPER BODY STACK · TEST · CHIN & ROW (W4) ══════════════════════
+
+Purpose: Retest pull patterns. ~25 min.
+Format: AMRAP for chin-up, test set ramp for row.
+
+▼ BLOCK 1 · AMRAP · CHIN-UP — MAX STRICT REPS
+  1 set, bodyweight, full ROM, unbroken until failure.
+  Notes: Record total reps. Compare to baseline (Workout 1, Block 3).
+  Rest 5 minutes before Block 2.
+
+▼ BLOCK 2 · TEST SET · BARBELL BENT-OVER ROW — 3 REP MAX RAMP
+  Set 1: 5 reps @ 6 RIR · Rest 2 min
+  Set 2: 5 reps @ 4 RIR · Rest 2 min
+  Set 3: 3 reps @ 2 RIR · Rest 3 min
+  Set 4: 3 reps @ 0-1 RIR (true 3RM) · Done.
+  Notes: Record Set 4 load as "Row 3RM".
+
+
+═══ WORKOUT 13 · UPPER BODY STACK · TEST · BENCH & OHP (W4) ═════════════════════
+
+Purpose: Block-end retest of the two main lifts. ~35-45 min.
+Format: True 1RM ramps on both lifts.
+
+▼ BLOCK 1 · TEST SET · BARBELL BENCH PRESS — 1 REP MAX ATTEMPT
+  Set 1: 5 reps @ 6 RIR · Rest 3 min
+  Set 2: 3 reps @ 3 RIR · Rest 3 min
+  Set 3: 1 rep  @ 2 RIR · Rest 4 min
+  Set 4: 1 rep  @ 1 RIR · Rest 5 min
+  Set 5: 1 rep  @ 0 RIR (new 1RM attempt) · Done.
+  Notes: Record Set 5 load as "Bench 1RM". Rest 5 minutes before Block 2.
+
+▼ BLOCK 2 · TEST SET · STANDING BARBELL OVERHEAD PRESS — 1 REP MAX ATTEMPT
+  Set 1: 5 reps @ 6 RIR · Rest 3 min
+  Set 2: 3 reps @ 3 RIR · Rest 3 min
+  Set 3: 1 rep  @ 1 RIR · Rest 5 min
+  Set 4: 1 rep  @ 0 RIR (new 1RM attempt) · Done.
+  Notes: No leg drive, full lockout at top. Record Set 4 load as "OHP 1RM".
+
+EXPECTED PROGRESSION vs BASELINE:
+  · Bench:    +5 to +7 kg over the block
+  · OHP:      +2.5 to +5 kg over the block
+  · Chin-Up:  +1 to +2 unbroken reps over the block
+
 
 ═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 2: UPPER BODY STACK · A · DENSE BENCH (WEEK 1)
-═══════════════════════════════════════════════════════════════════════════════
-
-BLOCK 1 · EMOM × SUPERSET · 20 rounds / 1 min per round
- 1a. Bench Press: 3 reps @ first-set 4 RIR
- 1b. Pair (rotates every 4 rounds — see below)
- · Rest = whatever remains of each minute
- · Pair schedule:
-     Rounds 1-4:   Standing Band Anti-Rotation Press, 6 reps each side
-     Rounds 5-8:   KB Half-Kneeling Bottoms-Up Press, 5 reps each side
-     Rounds 9-12:  Loaded Single-Leg Calf Raise, 12 reps each side
-     Rounds 13-16: Band Pull-Apart, 12 reps
-     Rounds 17-20: NO PAIR — focus on bench bar speed only
-
-BLOCK 2 · EMOM × SUPERSET · 10 rounds / 1 min per round
- 2a. Tempo DB Lateral Raise: 5 reps @ 3 RIR (3-second lowering tempo)
- 2b. Pair (rotates every 5 rounds):
-     Rounds 1-5:  Med Ball Rotational Slam, 4 reps each side
-     Rounds 6-10: Tibialis Raise, 10 reps
-
-BLOCK 3 · EMOM × SUPERSET · 5 rounds / 1 min per round
- 3a. Cable Triceps Pushdown: 10 reps @ 3 RIR
- 3b. Pallof Press Hold: 15 seconds each side
-
-BLOCK 4 · STRAIGHT SETS · Grip Finisher
- · Behind-the-back Barbell Wrist Curl: 3 sets x 20 reps, rest as needed
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 3: UPPER BODY STACK · B · DENSE PULL (WEEK 1)
-═══════════════════════════════════════════════════════════════════════════════
-
-BLOCK 1 · EMOM × SUPERSET · 20 rounds / 1 min per round
- 1a. Chin-Up: 2 reps @ bodyweight
- 1b. Pair (rotates every 4 rounds):
-     Rounds 1-4:   Ground-to-Stand drill with foam roller, 2 reps each leg
-     Rounds 5-8:   Band Y's, 8 reps
-     Rounds 9-12:  Wall T-Mob Rotational Reach, 4 reps each side
-     Rounds 13-16: Loaded Double-Leg Calf Raise, 15 reps
-     Rounds 17-20: NO PAIR — focus on chin-up bar speed + full ROM
-
-BLOCK 2 · EMOM × SUPERSET · 10 rounds / 1 min per round
- 2a. BB Bent-Over Row: 5 reps @ 3 RIR
- 2b. Pair (rotates every 5 rounds):
-     Rounds 1-5:  Banded Rotational Wood Chop, 5 reps each side
-     Rounds 6-10: Bumper Plate Pinch Hold, 15 seconds
-
-BLOCK 3 · EMOM × SUPERSET · 5 rounds / 1 min per round
- 3a. Heavy DB Hammer Curl: 10 reps @ 2-3 RIR
- 3b. Glute Bridge: 12 reps
-
-BLOCK 4 · STRAIGHT SETS · Grip Finisher
- · Bumper Plate Pinches: 4 sets x 15-20 seconds, rest as needed
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 4: UPPER BODY STACK · C · DENSE OVERHEAD (WEEK 1)
-═══════════════════════════════════════════════════════════════════════════════
-
-BLOCK 1 · EMOM × SUPERSET · 20 rounds / 1 min per round
- 1a. Standing BB Overhead Press: 3 reps @ first-set 4 RIR
- 1b. Pair (rotates every 4 rounds):
-     Rounds 1-4:   ViPR Shlift Lateral Step SS-Down, 3 reps each side
-     Rounds 5-8:   ViPR Uppercut Back Step, 4 reps each side
-     Rounds 9-12:  ViPR Trans Step with Up Shlift, 4 reps each side
-     Rounds 13-16: Wall T-Mob Rotational Reach, 4 reps each side
-     Rounds 17-20: NO PAIR — focus on full overhead lockout
- · ViPR substitutions for commercial gyms:
-     - KB Side-Step Press
-     - Reverse Lunge with Single-Arm Press
-     - KB Lateral Lunge with Pass-Through
-
-BLOCK 2 · EMOM × SUPERSET · 10 rounds / 1 min per round
- 2a. Tempo Close-Grip Bench Press: 5 reps @ 3 RIR (3 sec down / 3 sec up)
- 2b. Pair (rotates every 5 rounds):
-     Rounds 1-5:  Tempo Close-Grip Pushup, 4 reps (3 down / 3 up)
-     Rounds 6-10: Anti-Extension Plank Reach, 6 reps each side
-
-BLOCK 3 · EMOM × SUPERSET · 5 rounds / 1 min per round
- 3a. EZ-Bar Skullcrusher: 10 reps @ 3 RIR
- 3b. KB Bottoms-Up Carry: 20 metres
-
-BLOCK 4 · STRAIGHT SETS · Grip Finisher
- · DB or KB Farmers Carry: 4 sets x 25 metres, go heavy, rest as needed
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 5: UPPER BODY STACK · A · DENSE BENCH (WEEK 2)
-═══════════════════════════════════════════════════════════════════════════════
-
-SAME STRUCTURE as Week 1 Workout A, with the following changes:
-
-BLOCK 1 · Bench Press EMOM
- · Load: first-set 3-4 RIR (add ~2.5 kg vs Week 1)
- · All pairs identical to Week 1
-
-BLOCK 2 · Tempo DB Lateral Raise EMOM
- · Load: 2 RIR
-
-BLOCK 3 · Cable Triceps Pushdown EMOM
- · Same load as Week 1, BUT add 1 rep per set if W1 was clean (5 sets x 11 reps)
-
-BLOCK 4 · Grip Finisher: same as Week 1
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 6: UPPER BODY STACK · B · DENSE PULL (WEEK 2)
-═══════════════════════════════════════════════════════════════════════════════
-
-SAME STRUCTURE as Week 1 Workout B, with the following changes:
-
-BLOCK 1 · Chin-Up EMOM
- · Load: bodyweight (same as Week 1 — bar speed focus)
-
-BLOCK 2 · BB Bent-Over Row EMOM
- · Load: 2 RIR
-
-BLOCK 3 · Heavy DB Hammer Curl EMOM
- · Same load as Week 1, add 1 rep per set if W1 was clean (5 sets x 11 reps)
-
-BLOCK 4 · Grip Finisher: same as Week 1
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 7: UPPER BODY STACK · C · DENSE OVERHEAD (WEEK 2)
-═══════════════════════════════════════════════════════════════════════════════
-
-SAME STRUCTURE as Week 1 Workout C, with the following changes:
-
-BLOCK 1 · OHP EMOM
- · Load: first-set 3-4 RIR (add ~2.5 kg vs Week 1)
-
-BLOCK 2 · Tempo Close-Grip Bench EMOM
- · Load: 2 RIR
-
-BLOCK 3 · EZ-Bar Skullcrusher EMOM
- · Same load as Week 1, add 1 rep per set if W1 was clean
-
-BLOCK 4 · Grip Finisher: same as Week 1
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 8: UPPER BODY STACK · A · DENSE BENCH (WEEK 3)
-═══════════════════════════════════════════════════════════════════════════════
-
-SAME STRUCTURE as Week 1 Workout A. Changes:
-
-BLOCK 1 · Bench Press EMOM
- · Load: first-set 3 RIR (~2.5-5 kg heavier than W2)
- · Last 4-5 sets should feel 1 RIR from accumulated fatigue
- · All pairs identical to W1/W2
-
-BLOCK 2 · Tempo DB Lateral Raise EMOM
- · Load: 2 RIR
-
-BLOCK 3 · Cable Triceps Pushdown EMOM
- · Add 1 more rep per set if W2 was clean (5 sets x 12 reps)
-
-BLOCK 4 · Grip Finisher: same as Week 1
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 9: UPPER BODY STACK · B · DENSE PULL (WEEK 3)
-═══════════════════════════════════════════════════════════════════════════════
-
-SAME STRUCTURE as Week 1 Workout B. Changes:
-
-BLOCK 1 · Chin-Up EMOM
- · Load: BW + 2.5 kg IF Week 2 felt sub-3-RIR. Otherwise stay at bodyweight.
-
-BLOCK 2 · BB Bent-Over Row EMOM
- · Load: 2 RIR
-
-BLOCK 3 · Heavy DB Hammer Curl EMOM
- · Add 1 more rep per set if W2 was clean (5 sets x 12 reps)
-
-BLOCK 4 · Grip Finisher: same as Week 1
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 10: UPPER BODY STACK · C · DENSE OVERHEAD (WEEK 3)
-═══════════════════════════════════════════════════════════════════════════════
-
-SAME STRUCTURE as Week 1 Workout C. Changes:
-
-BLOCK 1 · OHP EMOM
- · Load: first-set 3 RIR
-
-BLOCK 2 · Tempo Close-Grip Bench EMOM
- · Load: 2 RIR
-
-BLOCK 3 · EZ-Bar Skullcrusher EMOM
- · Add 1 more rep per set if W2 was clean
-
-BLOCK 4 · Grip Finisher: same as Week 1
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 11: UPPER BODY STACK · DELOAD BENCH (WEEK 4 DAY 1)
-═══════════════════════════════════════════════════════════════════════════════
-
-This is a short deload session before the retest. ~15 min total.
-
-BLOCK 1 · STRAIGHT SETS · Bench Press Deload Ramp
- · Set 1: 5 reps @ 6 RIR
- · Set 2: 3 reps @ 4 RIR
- · Set 3: 1 rep @ 3 RIR
- · STOP. No accessories. Walk away.
- · Rest: 2 min between sets
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 12: UPPER BODY STACK · TEST · CHIN & ROW (WEEK 4 DAY 3)
-═══════════════════════════════════════════════════════════════════════════════
-
-BLOCK 1 · AMRAP · Strict Chin-Up
- · 1 set, max unbroken bodyweight reps. Record reps.
-
-BLOCK 2 · TEST SET · BB Bent-Over Row 3RM
- · Set 1: 5 reps @ 6 RIR
- · Set 2: 5 reps @ 4 RIR
- · Set 3: 3 reps @ 2 RIR
- · Set 4: 3 reps @ 0-1 RIR ← record this load
- · Rest: 5 min after AMRAP, 2-3 min between row sets
-
-═══════════════════════════════════════════════════════════════════════════════
-WORKOUT 13: UPPER BODY STACK · TEST · BENCH & OHP (WEEK 4 DAY 5)
-═══════════════════════════════════════════════════════════════════════════════
-
-BLOCK 1 · TEST SET · Bench Press 1RM Attempt
- · Set 1: 5 reps @ 6 RIR
- · Set 2: 3 reps @ 3 RIR
- · Set 3: 1 rep @ 2 RIR
- · Set 4: 1 rep @ 1 RIR
- · Set 5: 1 rep @ 0 RIR — new 1RM attempt ← record load
- · Rest: 3-5 min between top sets
-
-BLOCK 2 · TEST SET · Standing OHP 1RM Attempt
- · Rest 5 min after Bench
- · Set 1: 5 reps @ 6 RIR
- · Set 2: 3 reps @ 3 RIR
- · Set 3: 1 rep @ 1 RIR
- · Set 4: 1 rep @ 0 RIR — new 1RM attempt ← record load
- · Rest: 3-5 min between top sets
-
-Expected progression vs baseline (Workout 1):
- · Bench:    +5 to +7 kg
- · OHP:      +2.5 to +5 kg
- · Chin-Up:  +1 to +2 reps unbroken
-
-═══════════════════════════════════════════════════════════════════════════════
-NOTES FOR MJ (athlete-facing)
+PART 5 · NOTES FOR MICHAEL (athlete-facing — share with him)
 ═══════════════════════════════════════════════════════════════════════════════
 
 · Pace yourself in the playlist. Aim for 3 upper-body sessions per week
-  in A→B→C order. Your two lower-body sessions slot in between.
-· No warmups are prescribed in this program — keep doing your tissue
-  work and mobility on your own. First 2-3 sets of each EMOM are your
-  specific warmup; ramp the load up to working RIR in those rounds.
-· EMOM pairings are mandatory, not optional. They are the second half
-  of each minute and what makes this dense work.
-· If a rep slows down on the bench, drop 2.5-5 kg for the next set and
-  hold that. Density is about quality reps under fatigue, not grinding.
-· Calves, tibialis, glutes are woven into the EMOM pairs — that's your
-  accessory lower body on these days. No extra LB needed here.
-· Grip finishers at the end of every session. Keep them in.
+  (A → B → C in order). Your two lower-body sessions slot between these.
+· No warmups prescribed — keep doing your own mobility, tissue work,
+  and (when home) ball juggling / catching / throwing in your warmup.
+· EMOM pairings are MANDATORY, not optional. They are the second half
+  of each minute and what makes this dense.
+· If a rep slows down on a primary lift, drop the load 2.5-5 kg for the
+  next set and hold there. Density is quality reps under fatigue.
+· Calves, tibialis, glutes are woven INTO the EMOM pairs. You don't
+  need to do extra accessory lower body on these days.
+· Grip finishers at the end of every session. Keep them in — they're
+  the difference between strong wrists and a tweaky elbow.
+· Log your working weight per dense block in Bridge so we can track
+  e1RM trends week by week.
 
 ═══════════════════════════════════════════════════════════════════════════════
-COACH NOTES (Marin)
+PART 6 · COACH NOTES (Marin — internal)
 ═══════════════════════════════════════════════════════════════════════════════
 
 · Athlete: Michael James, 48, 97 kg. Last block (ARM FARM MJ) ended
-  31 March — 6 weeks of upper-body detraining.
+  31 March — 6 weeks of upper-body detraining heading in.
+· Source: Benchuary 2026 (PPSA), re-cast into MJ's dense (NDM) format.
 · Constraints honoured: no warmups, no main LB work, dense format only,
-  ViPR vocabulary, integrated core + power on every session, NO RPE
-  anywhere (RIR throughout).
-· Progressive overload model:
-    Primary dense (20D3/20D2 EMOM):  W1 4 RIR → W2 3-4 RIR → W3 3 RIR
-    Secondary (10D5 EMOM):           W1 3 RIR → W2 2 RIR  → W3 2 RIR
-    Tertiary (5D10 EMOM):            same load, +1 rep per set per week
-    Baseline test in W1 → retest in W4 = the audit
+  ViPR vocabulary, accessory LB integrated into EMOM pairs, integrated
+  core + power on every session, RIR throughout (NO RPE, NO %1RM).
 · ACWR watch: he is ramping from 0 → 5 sessions/week. Likely climb in
   W2-W3. If cumulative fatigue spikes, drop one of his LB sessions for
   the first half of the block.
-· Logging request: ask him to log the 3rd, 10th, and 17th rep weights
-  of each 20D EMOM into Bridge — 3 datapoints per session is enough
-  for MILO to compute e1RM trends across the block.
+· Set-logging request to MJ: log the 3rd, 10th, and 17th rep weights of
+  each 20D EMOM into Bridge — 3 datapoints per session is enough for
+  MILO to compute his e1RM trend across the block.
+· When this lands, close out the dormant ARM FARM MJ program in Bridge
+  so MILO doesn't double-count active programs for him.
+
+═══════════════════════════════════════════════════════════════════════════════
+PART 7 · EXERCISE LIBRARY NOTES (Bridge — what may need to be created)
+═══════════════════════════════════════════════════════════════════════════════
+
+Standard names — should already be in Bridge's library:
+  Barbell Bench Press, Standing Barbell Overhead Press, Chin-Up,
+  Barbell Bent-Over Row, Close-Grip Bench Press, DB Lateral Raise,
+  Cable Triceps Pushdown, EZ-Bar Skullcrusher, DB Hammer Curl,
+  Barbell Wrist Curl, DB Farmers Carry, KB Farmers Carry, Glute Bridge,
+  Calf Raise, Band Pull-Apart, Pallof Press, Med Ball Rotational Slam,
+  KB Bottoms-Up Press, KB Bottoms-Up Carry, Banded Rotational Wood Chop,
+  Bumper Plate Pinch, Band Y's
+
+Custom — may need to be created in Bridge before importing:
+  · Standing Band Anti-Rotation Press
+       (sub: Pallof Press in the standing position — same pattern)
+  · Tibialis Raise
+       (sub: Heel-Down Wall Stand — same target, no dumbbell needed)
+  · Wall T-Mob Rotational Reach
+       (sub: World's Greatest Stretch — Reach phase only)
+  · Ground-to-Stand drill (foam roller variant from Institute of Motion)
+       (sub: Half-Kneeling-to-Standing — same pattern)
+  · Anti-Extension Plank Reach
+       (sub: Dead Bug — same target)
+  · ViPR Shlift Lateral Step SS-Down
+  · ViPR Uppercut Back Step
+  · ViPR Trans Step with Up Shlift
+       (sub for all 3 ViPR: KB Side-Step Press / Reverse Lunge + Single-Arm
+        DB Press / KB Lateral Lunge with Pass-Through — substitutes already
+        listed inline in Workout 4)
+
+Tempo-related (clarify in Bridge if it complains):
+  · "3-sec lowering" on DB Lateral Raise → tempo 30X0
+  · "3 sec down / 3 sec up" on Close-Grip Bench / Pushup → tempo 3030
 
 ═══════════════════════════════════════════════════════════════════════════════
 END OF PROGRAM
