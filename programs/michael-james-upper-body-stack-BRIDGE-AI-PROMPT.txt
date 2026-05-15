@@ -1,250 +1,261 @@
 ═══════════════════════════════════════════════════════════════════════════════
-UPPER BODY STACK — MICHAEL JAMES · BRIDGE AI BUILDER · SINGLE-PASTE PROMPT
+UPPER BODY HYPERTROPHY STACK — MICHAEL JAMES · BRIDGE AI BUILDER PROMPT
+12 weeks · 36 workouts · 3 sessions/week · 40 min each · Push/Pull/Arms split
 ═══════════════════════════════════════════════════════════════════════════════
 
 Paste everything below the line into Bridge's AI Program Builder in one go.
 Before pasting:
-  · Bridge program prescription parameter must be set to "%Difficulty" (not %1RM)
-  · Choose "PLAYLIST" program type (not scheduled)
-  · Athlete: Michael James
+  · Bridge → prescription parameter = "%Difficulty"
+  · Program type = PLAYLIST
+  · Athlete = Michael James
 
 
 ────────────────────────────────────────────────────────────────────────────────
 START PROMPT BELOW THIS LINE
 ────────────────────────────────────────────────────────────────────────────────
 
-Build a 12-week upper-body strength program for Michael James (48 y/o, 97 kg)
-called "Upper Body Stack". Format the program as a PLAYLIST. Prescribe all
-loads in %Difficulty (NOT %1RM, NOT RPE, NOT RIR). Make every workout's
-structure crystal clear: name each block, label set types (EMOM, Superset,
-Triset, Straight Sets, AMRAP, Wave Loading, Test Set), and specify exact
-rest times for every block. No "rest as needed" placeholders except where
-explicitly noted for grip work.
+Build a 12-week UPPER-BODY HYPERTROPHY program for Michael James (48 y/o, 97 kg,
+returning from 6 weeks of detraining). Program name: "Upper Body Hypertrophy
+Stack". Format as a PLAYLIST. Prescribe all loads in %Difficulty (NOT %1RM,
+NOT RPE, NOT RIR). The goal is muscle growth, specifically bigger ARMS, BACK,
+CHEST, and SHOULDERS.
 
+═══════════════════════════════════════════════════════════════════════════════
 PROGRAM PARAMETERS
-- 3 upper-body sessions per week (A · Bench, B · Pull, C · Overhead)
-- Athlete runs 2 self-managed lower-body sessions per week separately — do
-  not include any main lower-body work in this program
-- No warmups prescribed — athlete handles his own mobility and tissue work
-- Accessory lower body (calves, tibialis, glutes) woven into the EMOM pair
-  exercises so it's covered without adding standalone LB blocks
-- Integrated core + power threaded through every session (band rotations,
-  ViPR-style stepping moves, med ball, KB bottoms-up, wall T-mob, Pallof)
-- 12 weeks structured as 3 × 4-week mesocycles with deload at W4 + W8 and
-  a taper + retest in W12
+═══════════════════════════════════════════════════════════════════════════════
 
-DENSE TRAINING FORMAT (athlete's preferred style)
-Use EMOM (Every Minute On the Minute) for almost every loaded block:
-- 20D3 = 20 sets x 3 reps on the minute
-- 20D2 = 20 sets x 2 reps on the minute
-- 15D2 = 15 sets x 2 reps on the minute (peak block)
-- 10D5 = 10 sets x 5 reps on the minute
-- 10D3 = 10 sets x 3 reps on the minute (deload weeks)
-- 8D3, 6D3 = used in peak block for low-rep heavy work
-- 5D10 = 5 sets x 10 reps on the minute (tertiary blocks)
+· 3 upper-body sessions per week using a PUSH / PULL / ARMS split
+· 40 minutes maximum per session
+· Each session includes 2 warm-up sets at the start
+· Working rep range: 8-12 for all hypertrophy work (NOT EMOM, NOT density,
+  NOT dense-training — use straight sets, supersets, and drop sets only)
+· Athlete runs 2 self-managed lower-body sessions per week separately —
+  DO NOT include any lower-body exercises in this program
+· Use ONLY standard exercises that exist in Bridge Athletic's exercise
+  library (must have video demonstrations) — no custom moves, no ViPR,
+  no Institute of Motion drills, no obscure variations
 
-Within each EMOM block, pair the primary lift with a complementary exercise
-that rotates every 4 rounds in the 20-round blocks (so 5 different pairing
-movements across 20 rounds: rounds 1-4, 5-8, 9-12, 13-16, 17-20).
+═══════════════════════════════════════════════════════════════════════════════
+THE THREE WORKOUTS
+═══════════════════════════════════════════════════════════════════════════════
 
-MESOCYCLE STRUCTURE
-═════════════════════════════════════════════════════════════════════════════
+──────────────────────────────────────────────────────────────────────────────
+WORKOUT A · PUSH DAY (Chest + Triceps + Front/Side Delts) — 40 min
+──────────────────────────────────────────────────────────────────────────────
 
-BLOCK 1 — FOUNDATION (Weeks 1-4)
-Goal: Re-establish work capacity. Build the dense rhythm. Find baseline loads.
+WARM-UP (~5 min, 2 light sets total):
+  · Set 1: Push-Up × 10 reps (bodyweight)
+  · Set 2: Barbell Bench Press × 8 reps @ 50% Difficulty
 
-Workout A · Dense Bench:
-- Block 1: 20D3 Barbell Bench Press EMOM × Superset, paired with band
-  anti-rotation press / KB half-kneeling bottoms-up press / single-leg
-  calf raise / band pull-apart / no-pair-bar-speed-focus rotated every
-  4 rounds
-- Block 2: 10D5 DB Lateral Raise (3-sec lowering tempo) EMOM × Superset,
-  paired with med ball rotational slam (rounds 1-5) and tibialis raise
-  (rounds 6-10)
-- Block 3: 5D10 Cable Triceps Pushdown EMOM × Superset with Pallof Press
-  15-sec hold each side
-- Block 4: Grip Finisher — 3 sets x 20 reps Behind-the-Back Barbell
-  Wrist Curl, rest 60 sec between sets
+WORKING SETS:
 
-Workout B · Dense Pull:
-- Block 1: 20D2 Chin-Up (bodyweight) EMOM × Superset, paired with
-  ground-to-stand drill / band Y's / wall T-mob rotational reach / loaded
-  double-leg calf raise / no-pair rotated every 4 rounds
-- Block 2: 10D5 Barbell Bent-Over Row EMOM × Superset, paired with banded
-  rotational wood chop (rounds 1-5) and bumper plate pinch hold (rounds 6-10)
-- Block 3: 5D10 Heavy DB Hammer Curl EMOM × Superset with Glute Bridge 12 reps
-- Block 4: Grip Finisher — 4 sets x 15-20 sec Bumper Plate Pinches, rest 45 sec
+  1. Barbell Bench Press
+     4 sets × 8 reps @ 75% Difficulty · Rest 90 sec between sets
 
-Workout C · Dense Overhead:
-- Block 1: 20D3 Standing BB Overhead Press EMOM × Superset, paired with
-  ViPR Shlift Lateral Step / ViPR Uppercut Back Step / ViPR Trans Step
-  with Up Shlift / wall T-mob rotational reach / no-pair rotated every
-  4 rounds. If no ViPR available, substitute: KB Side-Step Press /
-  Reverse Lunge with Single-Arm DB Press / KB Lateral Lunge with
-  Pass-Through (one per missing ViPR slot)
-- Block 2: 10D5 Close-Grip Bench Press (3 sec down / 3 sec up tempo)
-  EMOM × Superset, paired with tempo close-grip pushup (rounds 1-5) and
-  anti-extension plank reach (rounds 6-10)
-- Block 3: 5D10 EZ-Bar Skullcrusher EMOM × Superset with KB Bottoms-Up
-  Carry 20 metres
-- Block 4: Grip Finisher — 4 sets x 25 metres DB or KB Farmers Carry, rest 60 sec
+  2. Incline Dumbbell Bench Press
+     3 sets × 10 reps @ 72% Difficulty · Rest 75 sec
 
-LOAD PROGRESSION (Block 1):
-  W1: Primary lifts 70% Difficulty · Secondary 75% Difficulty · Tertiary 75%
-  W2: Primary 72% · Secondary 78% · Tertiary same load +1 rep per set
-  W3: Primary 75% · Secondary 82% · Tertiary +1 more rep per set
-  W4 DELOAD: cut all volumes in half (20D3 becomes 10D3, 10D5 becomes 5D5,
-             5D10 becomes 3D10). All loads 60% Difficulty.
-             Replace grip finishers with mobility finishers
-             (Pallof, T-spine open book, band pull-apart).
+  3. Cable Chest Fly (high to low OR mid)
+     3 sets × 12 reps @ 70% Difficulty · Rest 60 sec
 
-BLOCK 2 — STRENGTH (Weeks 5-8)
-Goal: Heavier loads. Exercise variation. Push density.
+  4. Triceps Rope Pushdown
+     3 sets × 12 reps @ 70% Difficulty · Rest 60 sec
 
-Workout A · Strength Bench (same dense format, varied exercises):
-- Block 1: 20D3 BB Bench Press EMOM × Superset, with NEW pairings —
-  standing cable anti-rotation press / standing KB bottoms-up press /
-  loaded double-leg calf raise / face pull / no-pair rotated every 4 rounds
-- Block 2: 10D5 DB Bench Press EMOM × Superset (replaces lateral raise,
-  heavier), with med ball slam and tibialis raise
-- Block 3: 5D10 Cable Rope Triceps Extension (overhead) with Pallof Press
-- Block 4: 3 sets x 25 reps Behind-the-Back Wrist Curl, 60 sec rest
+  5. EZ-Bar Skullcrusher
+     3 sets × 10 reps @ 72% Difficulty · Rest 60 sec
 
-Workout B · Strength Pull:
-- Block 1: 20D2 Weighted Chin-Up (introduce BW + load) EMOM × Superset,
-  with NEW pairings — half-kneeling-to-standing / band W's / open books /
-  loaded calf raise / no-pair
-- Block 2: 10D5 Pendlay Row (BB dead-stop) EMOM × Superset with banded
-  wood chop and heavy bumper plate pinch
-- Block 3: 5D10 DB Concentration Curl with Single-Leg Glute Bridge
-- Block 4: 4 sets x 20-25 sec Bumper Plate Pinches, 45 sec rest
+──────────────────────────────────────────────────────────────────────────────
+WORKOUT B · PULL DAY (Back + Biceps + Rear Delts) — 40 min
+──────────────────────────────────────────────────────────────────────────────
 
-Workout C · Strength Overhead:
-- Block 1: 20D3 Push Press (leg drive permits heavier load — load is %
-  Difficulty of the strict OHP 3RM) EMOM × Superset, with KB Side-Step
-  Press / Reverse Lunge w Single-Arm DB Press / KB Lateral Lunge with
-  Pass-Through / Tall Kneeling Anti-Rotation Press / no-pair rotated
-- Block 2: 10D5 Spoto Press (bench pause 1cm off chest) EMOM × Superset
-  with tempo close-grip pushup and side plank with hip drop
-- Block 3: 5D10 Lying DB Triceps Extension with KB Bottoms-Up Carry 20m
-- Block 4: 4 sets x 30 metres DB or KB Farmers Carry (heavier), 60 sec
+WARM-UP (~5 min, 2 light sets total):
+  · Set 1: Band Pull-Apart × 15 reps
+  · Set 2: Lat Pulldown × 8 reps @ 50% Difficulty
 
-LOAD PROGRESSION (Block 2):
-  W5: Primary 75% Difficulty · Secondary 82% · Tertiary 78%
-  W6: Primary 78% · Secondary 85% · Tertiary +1 rep per set
-  W7: Primary 80% · Secondary 88% · Tertiary +1 more rep per set
-      ADD optional 3RM Bench retest at START of Workout A (W7) —
-      ramp 5 @ 55%, 5 @ 70%, 3 @ 82%, 3 @ 92-100% (true 3RM). If PR,
-      update working loads for W8-W12 by +5%.
-  W8 DELOAD: cut volumes in half. Primary load 65% Difficulty.
-             Drop weighted chin-up back to bodyweight.
-             Mobility finishers replace grip work.
+WORKING SETS:
 
-BLOCK 3 — PEAK + RETEST (Weeks 9-12)
-Goal: Lower reps, heavier loads, wave loading, retest at W12.
+  1. Pull-Up (or Lat Pulldown if unable to do 8 bodyweight)
+     4 sets × 8 reps @ 75% Difficulty · Rest 90 sec
 
-Workout A · Peak Bench:
-- Block 1 (W9): 15D2 BB Bench Press EMOM × Superset at 82% Difficulty
-  (lower rep density, heavier loads), pairs as W1-3 but reduced reps
-- Block 1 (W10-W11): Switch to WAVE LOADING — 6 working sets with 2-3
-  min rest, NOT EMOM. W10 wave: 3@75% / 2@82% / 1@88% / 3@78% / 2@85% /
-  1@90%. W11 wave (heavier): 2@82% / 1@88% / 1@92% / 2@85% / 1@90% / 1@94%
-- Block 2: 8D3 Floor Press (BB) EMOM × Superset, paired with heavy med
-  ball slam and heavy single-leg calf raise
-- Block 3: 5D10 (or 5D8 in W11) Heavy DB Skullcrusher with Pallof Press
-- Block 4: 3 sets x 18-20 reps Behind-the-Back Wrist Curl heavy, 75-90 sec rest
+  2. Barbell Bent-Over Row
+     4 sets × 10 reps @ 75% Difficulty · Rest 75 sec
 
-Workout B · Peak Pull:
-- Block 1: 15D2 (W9-W10) / 10D2 (W11) Slow Strict Pause Chin-Up at
-  BW + 5/7.5/10 kg progression. Tempo: 2 up / 2 pause at top / 3 lower /
-  1 pause at bottom. Pairs as Block 2 with reduced rep counts in W11.
-- Block 2: 8D3 (W9-W10) / 6D3 (W11) Heavy Pendlay Row at 88-92% Difficulty
-  paired with banded wood chop and heavy bumper plate pinch
-- Block 3: 5D8 (or 5D6 in W11) Cheat Curl heavy with Single-Leg Glute Bridge
-- Block 4: 3-4 sets x 25-30 sec Heavy Bumper Plate Pinches, 60-75 sec rest
+  3. Seated Cable Row
+     3 sets × 12 reps @ 72% Difficulty · Rest 60 sec
 
-Workout C · Peak Overhead:
-- Block 1 (W9): 15D2 Standing BB OHP STRICT at 82% Difficulty
-- Block 1 (W10-W11): WAVE LOADING (same scheme as bench wave) on strict OHP
-- Block 2: 8D3 (W9-W10) / 6D3 (W11) Strict Close-Grip Bench Press at
-  88-92% Difficulty paired with tempo close-grip pushup and anti-extension
-  plank reach
-- Block 3: 5D8 (or 5D6 in W11) Tate Press with KB Bottoms-Up Carry 20m
-- Block 4: 4 sets x 30 metres DB or KB Farmers Carry HEAVY, 75-90 sec rest
+  4. Dumbbell Bicep Curl
+     3 sets × 10 reps @ 75% Difficulty · Rest 60 sec
 
-LOAD PROGRESSION (Block 3):
-  W9:  Primary 82% Difficulty · Secondary 88% · Tertiary 82%
-  W10: Wave loading on primary lifts (Bench + OHP) · Secondary 90% · Tertiary 85%
-  W11: Heavier wave on primary lifts (peak intensities to 94% Difficulty)
-       Secondary 92% · Tertiary 88%
-  W12 TAPER + RETEST:
-    Day 1 — Taper Bench: STRAIGHT SETS short ramp 5@55% / 3@70% / 1@80% /
-            1@85%, done. ~20 min, no fatigue, no accessories. Neural primer only.
-    Day 3 — Test Chin & Row:
-            Block 1: AMRAP Strict Chin-Up bodyweight (max unbroken reps,
-            record reps)
-            Block 2: TEST SET BB Bent-Over Row 3RM ramp (5@55% / 5@70% /
-            3@82% / 3@92-100% record load)
-    Day 5 — Test Bench & OHP:
-            Block 1: TEST SET BB Bench Press 1RM attempt (5@55% / 3@70% /
-            1@85% / 1@92% / 1@100% — optional 1@102-105% if clean)
-            Block 2: TEST SET Standing BB OHP 1RM attempt (5@55% / 3@70% /
-            1@88% / 1@95% / 1@100%)
+  5. Hammer Curl (dumbbell)
+     3 sets × 12 reps @ 72% Difficulty · Rest 45 sec
 
-BASELINE TEST (Week 1, FIRST workout of the playlist)
-Create a separate workout at the start of the playlist titled
-"Upper Body Stack · Baseline Test" containing:
-  Block 1: TEST SET BB Bench Press 3RM ramp (5@55% / 5@70% / 3@78% /
-           3@85% / 3@92-100% — record this load as Bench 3RM)
-  Block 2: TEST SET Standing BB OHP 3RM ramp (5@55% / 5@70% / 3@82% /
-           3@92-100% — record this load as OHP 3RM)
-  Block 3: AMRAP Strict Chin-Up — max unbroken bodyweight reps
+──────────────────────────────────────────────────────────────────────────────
+WORKOUT C · ARMS + SHOULDERS DAY (specialization for arm growth) — 40 min
+──────────────────────────────────────────────────────────────────────────────
 
-INTENSITY KEY (%Difficulty — relative intensity)
-  100% Difficulty = max effort, true 1RM territory
-   92% Difficulty = near-maximal, 1 rep left in tank
-   85% Difficulty = heavy working / 2 reps left
-   78% Difficulty = moderate-heavy / 3 reps left
-   75% Difficulty = typical working intensity
-   70% Difficulty = typical first-set load on dense work
-   60% Difficulty = deload week working intensity
-   55% Difficulty = warmup / activation
+WARM-UP (~5 min, 2 light sets total):
+  · Set 1: Band Pull-Apart × 15 reps
+  · Set 2: Seated Dumbbell Shoulder Press × 8 reps @ 50% Difficulty
 
-OUTPUT REQUIREMENTS
-- Generate this as a PLAYLIST with 37 distinct workouts in this order:
-  1. Baseline Test
-  2-10. W1-W3 main sessions (3 weeks × A/B/C = 9 workouts)
-  11-13. W4 Deload A/B/C
-  14-22. W5-W7 main sessions
-  23-25. W8 Deload A/B/C
-  26-34. W9-W11 main sessions (peak)
-  35. W12 Taper Bench (Day 1)
-  36. W12 Test Chin & Row (Day 3)
-  37. W12 Test Bench & OHP (Day 5)
-- Name each workout: "Upper Body Stack · A · Dense Bench (W1)" etc.
-- For every block: include block name, set-type label (EMOM × Superset,
-  Wave Loading, Test Set, AMRAP, Straight Sets), exact sets x reps,
-  load as %Difficulty, and explicit rest time
-- Mobility finishers in deload weeks replace grip finishers
-- Test/taper workouts in W12 are short and specific — no extra accessories
+WORKING SETS:
+
+  1. Seated Dumbbell Shoulder Press
+     4 sets × 10 reps @ 75% Difficulty · Rest 90 sec
+
+  2. Dumbbell Lateral Raise
+     3 sets × 12 reps @ 70% Difficulty · Rest 60 sec
+
+  3. SUPERSET (back-to-back, no rest within):
+     3a. EZ-Bar Bicep Curl — 10 reps @ 75% Difficulty
+     3b. EZ-Bar Skullcrusher — 10 reps @ 75% Difficulty
+     3 supersets total · Rest 75 sec between supersets
+
+  4. SUPERSET:
+     4a. Hammer Curl — 12 reps @ 72% Difficulty
+     4b. Cable Triceps Pushdown — 12 reps @ 72% Difficulty
+     3 supersets total · Rest 60 sec between supersets
+
+  5. Cable Face Pull (finisher for rear delts + upper back)
+     2 sets × 15 reps @ 65% Difficulty · Rest 45 sec
+
+═══════════════════════════════════════════════════════════════════════════════
+12-WEEK PROGRESSION MAP
+═══════════════════════════════════════════════════════════════════════════════
+
+The three workouts above are the TEMPLATE. Loads and minor variations evolve
+across 12 weeks in three 4-week mesocycles:
+
+──────────────────────────────────────────────────────────────────────────────
+BLOCK 1 — FOUNDATION (Weeks 1-4) · Build the habit, dial in form
+──────────────────────────────────────────────────────────────────────────────
+
+W1 (RE-ENTRY week — MJ has been off 6 weeks):
+  · Drop primary load to 70% Difficulty (instead of 75% in template)
+  · Drop secondary to 68%
+  · 3 sets instead of 4 on the heaviest exercise of each session
+  · Goal: re-establish movement quality, no soreness
+
+W2: Template loads (Push primary 75% · Pull primary 75% · OHP 75%)
+
+W3: +2.5% Difficulty on all primary lifts (so 77.5%)
+
+W4 (DELOAD): Reduce all sets by 1 (so 3 sets becomes 2, 4 becomes 3).
+  All loads at 60% Difficulty. Same exercises, same exercise order, just
+  lower volume + lower intensity. Use the week to recover.
+
+──────────────────────────────────────────────────────────────────────────────
+BLOCK 2 — VOLUME BUMP (Weeks 5-8) · Add sets, introduce drop sets
+──────────────────────────────────────────────────────────────────────────────
+
+W5: Add 1 set to every exercise (so 4 sets becomes 5, 3 becomes 4)
+  Loads: primary 75% · secondary 72%
+
+W6: Same volume as W5. Add a DROP SET on the LAST exercise of each session:
+  · Workout A: Final set of EZ-Bar Skullcrusher → after reaching failure,
+    drop weight 30% and immediately rep to failure (no rest)
+  · Workout B: Final set of Hammer Curl → same drop set protocol
+  · Workout C: Final set of Cable Face Pull → same drop set protocol
+
+W7: Same as W6 but ADD ANOTHER DROP SET on the second-to-last exercise.
+  Loads: primary 78% · secondary 75%
+
+W8 (DELOAD): Back to template volume (W2 numbers), 60% Difficulty, no drop sets.
+
+──────────────────────────────────────────────────────────────────────────────
+BLOCK 3 — INTENSIFICATION (Weeks 9-12) · Exercise variation, heavier loads
+──────────────────────────────────────────────────────────────────────────────
+
+For Block 3, ROTATE exercises slightly to introduce variation. Keep the
+same set/rep schemes as Block 2 (5 sets primary, 4 sets secondary, etc.).
+
+W9-11 EXERCISE SWAPS:
+  Workout A · PUSH:
+    · Swap Barbell Bench Press → Dumbbell Bench Press (heavier stimulus,
+      different shoulder angle for hypertrophy)
+    · Swap Cable Chest Fly → Dumbbell Chest Fly on flat bench
+    · Swap Triceps Rope Pushdown → Overhead Cable Rope Triceps Extension
+
+  Workout B · PULL:
+    · Swap Pull-Up → Weighted Pull-Up (add small belt load) OR continue
+      with Lat Pulldown but heavier
+    · Swap Seated Cable Row → Single-Arm Dumbbell Row
+    · Swap Dumbbell Bicep Curl → Preacher Curl
+
+  Workout C · ARMS + SHOULDERS:
+    · Swap Seated Dumbbell Shoulder Press → Standing Barbell Overhead Press
+    · Swap Dumbbell Lateral Raise → Cable Lateral Raise
+    · Keep the supersets — same structure, same exercises
+
+LOAD PROGRESSION:
+  W9: Primary 78% · Secondary 75% · 4 sets primary, 3 sets secondary
+  W10: Primary 80% · Secondary 78% · same volume
+  W11: Primary 82% · Secondary 80% · same volume
+       (heaviest hypertrophy loads of the block)
+  W12: Optional measurement re-test week (see below) — light volume.
+
+W12 (BODY COMP RE-MEASUREMENT WEEK):
+  This is NOT a 1RM test week (this is a hypertrophy program, not strength).
+  Goal: measure arm circumference, chest, weight, and visible muscle gain.
+  All three workouts run at W4 deload volume (3 sets primary, 2 sets
+  secondary, 60% Difficulty). Take photos and tape measurements at the
+  start of the week.
+
+═══════════════════════════════════════════════════════════════════════════════
+INTENSITY KEY (%Difficulty)
+═══════════════════════════════════════════════════════════════════════════════
+
+  82% = heavy hypertrophy / last 2 reps challenging
+  78% = moderate-heavy working / last 3 reps challenging
+  75% = typical working hypertrophy intensity (10 reps with 2 in tank)
+  72% = moderate (12 reps comfortable, 13th would be a grind)
+  70% = light working / drop-set bottom-out
+  65% = light isolation
+  60% = deload week working intensity
+  50% = warm-up set load
+
+═══════════════════════════════════════════════════════════════════════════════
+OUTPUT REQUIREMENTS FOR BRIDGE AI
+═══════════════════════════════════════════════════════════════════════════════
+
+· Generate a PLAYLIST with 36 distinct workouts (3 per week × 12 weeks)
+· Name each workout: "Upper Body Hypertrophy · A · Push (W1)",
+  "Upper Body Hypertrophy · B · Pull (W1)", "Upper Body Hypertrophy · C ·
+  Arms + Shoulders (W1)", and so on through (W12)
+· Every workout must have a WARM-UP block at the start (2 light sets)
+· Every exercise must be a standard Bridge library exercise that includes
+  a video demonstration — do NOT generate exercises that don't exist in
+  the library
+· Every block must explicitly label its type: STRAIGHT SETS, SUPERSET,
+  DROP SET, or WARM-UP
+· Every set must have an explicit rest time (no "rest as needed")
+· Use the prescribed %Difficulty values — do not convert to %1RM or RIR
+· Workouts must complete in approximately 40 minutes total time
 
 ────────────────────────────────────────────────────────────────────────────────
 END PROMPT (do not include this line in the paste)
 ────────────────────────────────────────────────────────────────────────────────
 
 
-AFTER BRIDGE AI GENERATES THE PROGRAM:
-  1. Verify the first workout shows %Difficulty as the load unit (not %1RM)
-  2. Verify EMOM and Superset structure is preserved on all blocks
-  3. Verify 37 workouts were created in the playlist (you may need to scroll)
-  4. Verify exercise names match Bridge's library — if any are missing,
-     create them once (see the substitutes list at the bottom of the
-     master file: programs/michael-james-upper-body-stack-BRIDGE-IMPORT.txt
-     for the full custom-exercise → standard-exercise substitute table)
-  5. Spot-check Workout 20 (W7 — includes the mid-block 3RM Bench test)
-     and Workout 32 (W11 — heaviest wave loading week) to confirm they
-     came through correctly.
+AFTER BRIDGE GENERATES THE PROGRAM:
+  1. Verify Workout 1 shows %Difficulty (not %1RM)
+  2. Verify each exercise has a video icon next to it in Bridge — if any
+     don't, replace them with a similar exercise from the library that does
+  3. Verify warm-up sets are explicit at the start of every workout
+  4. Verify Block 2 (W5-8) introduces drop sets
+  5. Verify Block 3 (W9-11) has exercise variations (DB Bench instead of
+     BB Bench, etc.)
+  6. Verify each workout is ~40 min (not 50+)
+  7. Verify no EMOM, no density training, no "20 sets on the minute"
 
-If anything looks wrong, the full reference file with every workout
-expanded line-by-line is at:
-  programs/michael-james-upper-body-stack-BRIDGE-IMPORT.txt
+If any exercise in Workout C's supersets isn't in the library:
+  · For "EZ-Bar Bicep Curl + EZ-Bar Skullcrusher" superset →
+       sub: Dumbbell Bicep Curl + Dumbbell Skullcrusher
+  · For "Hammer Curl + Cable Triceps Pushdown" superset →
+       sub: Concentration Curl + Triceps Kickback
+
+Volume comparison vs his last block (ARM FARM MJ):
+  · ARM FARM averaged 200 reps / 30 sets per session
+  · This program W1: ~150 reps / 22 sets per session (60% volume — safe
+    re-entry after 6 weeks off)
+  · This program W7 peak: ~210 reps / 33 sets (slight bump above ARM FARM
+    with appropriate ramp)
