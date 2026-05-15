@@ -1,0 +1,282 @@
+═══════════════════════════════════════════════════════════════════════════════
+ALANA SAPHIN · 4-WEEK UPPER/LOWER DUP BLOCK · BRIDGE AI PROMPT
+4 weeks · 16 workouts · 4 sessions/week · ~45 min each
+Daily Undulating Periodization (DUP) with explicit progressive overload
+═══════════════════════════════════════════════════════════════════════════════
+
+Paste everything below the line into Bridge's AI Program Builder.
+Before pasting:
+  · Bridge → prescription parameter = "%Difficulty"
+  · Program type = PLAYLIST (or scheduled — your call)
+  · Athlete = Alana Saphin
+
+
+────────────────────────────────────────────────────────────────────────────────
+START PROMPT BELOW THIS LINE
+────────────────────────────────────────────────────────────────────────────────
+
+Build a 4-week strength and conditioning program for Alana Saphin (42 y/o,
+52 kg) called "Alana DUP Block (May-Jun 2026)". Format as a PLAYLIST.
+Prescribe all loads in %Difficulty (NOT %1RM, NOT RIR, NOT RPE).
+
+This program continues from her existing "Alana 2026 Health and Performance
+Program" and shifts her from 2 sessions/week (Upper/Lower repeated) to
+4 sessions/week with DAILY UNDULATING PERIODIZATION (DUP) — each session
+targets the same upper or lower patterns but at a DIFFERENT rep range,
+producing both strength and hypertrophy adaptations from the same
+movement library.
+
+═══════════════════════════════════════════════════════════════════════════════
+PROGRAM PARAMETERS
+═══════════════════════════════════════════════════════════════════════════════
+
+· 4 sessions per week, ~45 min each
+· DUP layout — each week cycles through 4 stimuli:
+    Day 1 · Lower STRENGTH   (heavy, 5-6 reps)
+    Day 2 · Upper STRENGTH   (heavy, 5-6 reps)
+    Day 3 · Lower HYPERTROPHY + POWER  (moderate-high reps, plyos)
+    Day 4 · Upper HYPERTROPHY (moderate-high reps, volume)
+· Every session opens with breath + movement prep + activation (~8 min)
+· Working rep range adapted per day type (see scheme below)
+· Use Alana's existing exercise library where possible (KB, DB, TRX, med ball)
+· Use ONLY Bridge library exercises with video demos — no custom moves
+
+═══════════════════════════════════════════════════════════════════════════════
+DUP REP SCHEME (the periodization engine)
+═══════════════════════════════════════════════════════════════════════════════
+
+  STRENGTH DAYS (Day 1, Day 2):
+    Primary lift:    4-5 sets × 5-6 reps @ 78-82% Difficulty · Rest 2 min
+    Secondary lift:  4 sets × 6-8 reps @ 75-78% Difficulty · Rest 90 sec
+    Accessory:       3 sets × 8 reps @ 70% Difficulty · Rest 60 sec
+
+  HYPERTROPHY DAYS (Day 3, Day 4):
+    Primary lift:    4 sets × 8-10 reps @ 72-75% Difficulty · Rest 75 sec
+    Secondary lift:  3-4 sets × 10-12 reps @ 70-72% Difficulty · Rest 60 sec
+    Accessory:       3 sets × 12-15 reps @ 65-68% Difficulty · Rest 45 sec
+
+  POWER element (Day 3 only — built into Lower Hypertrophy session):
+    Plyometrics:     3-4 sets × 4-6 reps explosive · Rest 60 sec (full recovery)
+
+═══════════════════════════════════════════════════════════════════════════════
+THE FOUR SESSIONS (Week 1 template — Week 2-4 progressions below)
+═══════════════════════════════════════════════════════════════════════════════
+
+──────────────────────────────────────────────────────────────────────────────
+DAY 1 · LOWER STRENGTH (~45 min)
+──────────────────────────────────────────────────────────────────────────────
+
+WARM-UP / PREP (~8 min):
+  · Diaphragmatic Breathing - 90/90 Hip Lift × 5 reps
+  · Glute Med Trigger Point × 5 reps each side
+  · Single-Leg Romanian Deadlift In Place × 8 reps each leg (bodyweight)
+
+PRIMARY · STRENGTH SET:
+  1. Kettlebell Deadlift
+     5 sets × 5 reps @ 80% Difficulty · Rest 2 min
+
+SECONDARY:
+  2. Single-Arm Kettlebell Front-Rack Reverse Lunge
+     4 sets × 6 reps each leg @ 75% Difficulty · Rest 90 sec
+
+ACCESSORY (CIRCUIT, 3 rounds):
+  3a. Bulgarian Split Squat (dumbbell or bodyweight)
+      3 sets × 8 reps each leg @ 72% Difficulty · Rest 45 sec into 3b
+  3b. TRX Single-Leg Pike
+      3 sets × 8 reps each leg · Rest 60 sec, then back to 3a
+
+CORE FINISHER:
+  4. Half-Kneeling Anti-Rotation Press
+     3 sets × 10 reps each side @ 65% Difficulty · Rest 45 sec
+
+──────────────────────────────────────────────────────────────────────────────
+DAY 2 · UPPER STRENGTH (~45 min)
+──────────────────────────────────────────────────────────────────────────────
+
+WARM-UP / PREP (~8 min):
+  · Diaphragmatic Breathing - Downward Dog × 5 breaths
+  · Quadruped T-Spine Rotation × 5 reps each side
+  · Band Pull-Apart × 15 reps
+
+PRIMARY · STRENGTH SET:
+  1. Standing Kettlebell Overhead Press
+     5 sets × 5 reps each side @ 80% Difficulty · Rest 2 min
+
+SECONDARY:
+  2. Weighted Pull-Up (dumbbell at hip OR bodyweight if 6 unbroken)
+     4 sets × 5 reps @ 78% Difficulty · Rest 2 min
+
+ACCESSORY (CIRCUIT, 3 rounds):
+  3a. Single-Arm Dumbbell Row
+      3 sets × 8 reps each arm @ 72% Difficulty · Rest 45 sec into 3b
+  3b. Push-Up (feet on TRX for instability)
+      3 sets × 8 reps · Rest 60 sec, then back to 3a
+
+CORE FINISHER:
+  4. Dumbbell Overhead Carry
+     3 sets × 20 metres @ 70% Difficulty · Rest 60 sec
+
+──────────────────────────────────────────────────────────────────────────────
+DAY 3 · LOWER HYPERTROPHY + POWER (~45 min)
+──────────────────────────────────────────────────────────────────────────────
+
+WARM-UP / PREP (~8 min):
+  · Diaphragmatic Breathing - 90/90 Hip Lift × 5
+  · Quad/Hip Flexor Stretch - Half Kneeling × 5 each side
+  · Glute Bridge × 12 reps (activation)
+
+POWER · PLYOMETRIC (build CNS):
+  1. Athletic Stance Pogo - Straight Leg
+     3 sets × 6 reps explosive · Rest 60 sec
+  2. Lateral Bound to Stabilize
+     3 sets × 4 reps each side · Rest 60 sec
+
+PRIMARY · HYPERTROPHY:
+  3. Double-Arm Kettlebell Swing
+     4 sets × 10 reps @ 75% Difficulty · Rest 75 sec
+
+SECONDARY:
+  4. 3-Way Lunge with Medicine Ball (forward, lateral, rotational)
+     4 sets × 8 reps each direction @ 70% Difficulty · Rest 60 sec
+
+ACCESSORY:
+  5. TRX Drop Lunge
+     3 sets × 12 reps each side @ 68% Difficulty · Rest 45 sec
+
+──────────────────────────────────────────────────────────────────────────────
+DAY 4 · UPPER HYPERTROPHY (~45 min)
+──────────────────────────────────────────────────────────────────────────────
+
+WARM-UP / PREP (~8 min):
+  · Band Pull-Apart × 15 reps
+  · Shoulder Circles with Dowel × 5 each direction
+  · Cat-Cow × 5 cycles
+
+PRIMARY · HYPERTROPHY:
+  1. Double Kettlebell Clean from Symmetrical Stance
+     4 sets × 8 reps @ 75% Difficulty · Rest 75 sec
+
+SECONDARY (SUPERSET, 4 rounds):
+  2a. TRX Inverted Curl (chin-up grip, body horizontal)
+      4 sets × 10 reps @ 72% Difficulty · Rest 0 sec into 2b
+  2b. TRX Triceps Kick Back
+      4 sets × 12 reps @ 72% Difficulty · Rest 75 sec, then back to 2a
+
+ACCESSORY (SUPERSET, 3 rounds):
+  3a. Dumbbell Lateral Raise
+      3 sets × 12 reps @ 70% Difficulty · Rest 0 sec into 3b
+  3b. Cable Face Pull (or band face pull)
+      3 sets × 15 reps @ 65% Difficulty · Rest 60 sec, then back to 3a
+
+CORE FINISHER:
+  4. Hollow Body Hold
+     3 sets × 30 sec hold · Rest 45 sec between sets
+
+═══════════════════════════════════════════════════════════════════════════════
+4-WEEK PROGRESSIVE OVERLOAD MAP
+═══════════════════════════════════════════════════════════════════════════════
+
+Same exercises, same DUP structure across all 4 weeks. The variables that
+change week-to-week are load (%Difficulty) and total volume.
+
+────────────────────────────────────────────────────────────────────────────────
+WEEK 1 — ESTABLISH BASELINE (template loads above)
+────────────────────────────────────────────────────────────────────────────────
+  Strength days (1,2): primary 80% · secondary 78% · accessory 72%
+  Hypertrophy days (3,4): primary 75% · secondary 72% · accessory 68%
+  Goal: find the load that matches each %Difficulty — record working weight.
+
+────────────────────────────────────────────────────────────────────────────────
+WEEK 2 — INTENSITY NUDGE
+────────────────────────────────────────────────────────────────────────────────
+  Strength days: primary 82% · secondary 80% · accessory 75%
+  Hypertrophy days: primary 78% · secondary 75% · accessory 70%
+  Sets/reps: identical to W1. Only the load creeps up.
+  Goal: same exercises, slightly harder. Same number of reps clean.
+
+────────────────────────────────────────────────────────────────────────────────
+WEEK 3 — VOLUME + INTENSITY PEAK
+────────────────────────────────────────────────────────────────────────────────
+  Strength days: primary 82% · secondary 80% · accessory 75%
+        ADD 1 set to the primary lift (so 5×5 becomes 6×5 on Days 1 + 2)
+  Hypertrophy days: primary 80% · secondary 78% · accessory 72%
+        ADD 1 set to the primary lift (so 4×10 becomes 5×10 on Days 3 + 4)
+  Goal: heaviest week of the block. Last set primary should be ~RPE 8.
+
+────────────────────────────────────────────────────────────────────────────────
+WEEK 4 — DELOAD
+────────────────────────────────────────────────────────────────────────────────
+  All days: primary 65% · secondary 62% · accessory 60% · plyos 50% intensity
+  Reduce set count: primary 3 sets (instead of 5 or 4), secondary 3, accessory 2
+  Skip supersets — run as straight sets only.
+  Skip core finisher OR replace with mobility (Child's Pose, T-spine open book).
+  Goal: recover. Pattern grooves stay, fatigue drops to near-zero.
+  At the end of W4, retest: log working weight on KB Deadlift and Standing
+  KB OHP at 5 reps @ 80% Difficulty — compare to W1 same lift, same %.
+
+═══════════════════════════════════════════════════════════════════════════════
+INTENSITY KEY (%Difficulty)
+═══════════════════════════════════════════════════════════════════════════════
+
+  82% = heavy working / 2 reps left in tank
+  80% = strength working / 2-3 reps left
+  78% = moderate-heavy / 3 reps left
+  75% = typical hypertrophy intensity (10 reps, 2 in tank)
+  72% = moderate hypertrophy
+  70% = light working / superset bottom
+  68% = isolation
+  65% = deload week working intensity
+  62% = deload secondary
+  60% = deload accessory
+  50% = warm-up / activation
+
+═══════════════════════════════════════════════════════════════════════════════
+OUTPUT REQUIREMENTS FOR BRIDGE AI
+═══════════════════════════════════════════════════════════════════════════════
+
+· Generate a PLAYLIST with 16 distinct workouts (4 per week × 4 weeks)
+· Workout naming convention:
+    "Alana DUP · Day 1 · Lower Strength (W1)"
+    "Alana DUP · Day 2 · Upper Strength (W1)"
+    "Alana DUP · Day 3 · Lower Hyper + Power (W1)"
+    "Alana DUP · Day 4 · Upper Hypertrophy (W1)"
+    ... through W4 (deload week)
+· Every workout starts with a Warm-Up / Movement Prep block
+· Every block must be labelled with its type: WARM-UP, STRAIGHT SETS,
+  CIRCUIT, SUPERSET, PLYOMETRIC, CORE FINISHER
+· Every set must have an explicit rest time (no "as needed" fallbacks)
+· Every exercise must be a standard Bridge library exercise with a video
+  demo. If a custom exercise isn't in the library, substitute with the
+  closest standard equivalent and tag it for review.
+· Use the prescribed %Difficulty values exactly — do not convert to %1RM
+· Workouts must complete in approximately 45 minutes total
+
+────────────────────────────────────────────────────────────────────────────────
+END PROMPT (do not include this line in the paste)
+────────────────────────────────────────────────────────────────────────────────
+
+
+AFTER BRIDGE GENERATES THE PROGRAM:
+  1. Verify Workout 1 (Day 1 Lower Strength W1) shows %Difficulty
+  2. Verify every exercise has a video — sub out any that don't
+  3. Verify the DUP rep scheme is preserved (5×5 on strength days,
+     4×8-10 on hypertrophy days)
+  4. Verify W2 nudges loads up (82% on primaries)
+  5. Verify W3 adds a set to the primary lift on each day
+  6. Verify W4 is a true deload (reduced sets, 60-65% loads, no supersets)
+
+LOGGING REMINDER FOR ALANA:
+  She stopped logging per-set on 22 Sep 2025. To make progressive overload
+  trackable, ask her to log at least the working sets on:
+    · Kettlebell Deadlift (Day 1)
+    · Standing Kettlebell Overhead Press (Day 2)
+    · Double Kettlebell Clean (Day 4)
+  3 datapoints per week unlocks her e1RM trends in MILO.
+
+ATHLETE NOTE TO SEND ALANA:
+  "Hey Alana — stepping up to 4 sessions a week for the next 4 weeks with
+   undulating periodization. Two heavy strength days (KB DL and KB OHP at
+   5 reps) and two hypertrophy / power days (8-12 reps, plyos on lower).
+   Loads climb each week (W1 baseline → W3 peak), then W4 is a recovery
+   week. Please log your working weight on KB DL and KB OHP each session
+   so I can track your strength progression."
