@@ -1,6 +1,6 @@
 ═══════════════════════════════════════════════════════════════════════════════
 UPPER BODY STACK — MICHAEL JAMES · BRIDGE IMPORT
-4 weeks · 13 workouts · PLAYLIST format · RIR-based prescription
+4 weeks · 13 workouts · PLAYLIST format · %Difficulty prescription
 ═══════════════════════════════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════════════════════════════
@@ -9,10 +9,10 @@ PART 1 · IMPORT INSTRUCTIONS — READ BEFORE PASTING
 
 STEP 1: BRIDGE PRESCRIPTION SETTING (critical)
   In Bridge → program settings → set the load prescription parameter to:
-        ▶ RIR  (Reps in Reserve)
-  NOT %Difficulty (that is %RM relative intensity).
+        ▶ %Difficulty  (Bridge's relative-intensity / %RM parameter)
   NOT %1RM.
   NOT RPE.
+  NOT RIR.
 
 STEP 2: CREATE THE PROGRAM
   In Bridge → New program for Michael James → choose PLAYLIST structure.
@@ -24,16 +24,38 @@ STEP 3: ADD 13 WORKOUTS IN ORDER
   Use the workout names exactly as written so they sync back to MILO clean.
 
 STEP 4: PASTE THE BLOCKS
-  For each workout, paste the body text (blocks + exercises + RIR + rest)
+  For each workout, paste the body text (blocks + exercises + %Difficulty + rest)
   into Bridge's AI builder for that workout.
 
 STEP 5: VERIFY (do this on the FIRST workout you create)
   After Bridge generates the workout, check:
-    [ ] All loaded exercises show intensity as "X RIR" (not %Difficulty, not %1RM)
+    [ ] All loaded exercises show intensity as "X% Difficulty" (not %1RM, not RIR, not RPE)
     [ ] EMOM structure is preserved (look for "every minute" or "EMOM" tag)
     [ ] Supersets are paired (1a / 1b or A1 / A2 grouping)
     [ ] Grip finisher is its own block at the end
   If any check fails, redo Step 1 and regenerate that workout.
+
+▶ INTENSITY KEY (%Difficulty — relative intensity) ▼
+
+  100% Difficulty   Max effort, true 1RM territory
+   92% Difficulty   Could grind out 1 more rep — near-maximal
+   82% Difficulty   Could do 2 more reps — heavy working weight
+   75% Difficulty   Could do 3 more reps — typical "working" intensity
+   70% Difficulty   Could do 4 more reps — typical first-set load on dense work
+   65% Difficulty   Could do 5+ more reps — moderate / submaximal
+   55% Difficulty   Could do 6+ more reps — warmup / activation
+
+▶ SET-TYPE VOCABULARY USED BELOW ▼
+
+  EMOM        Every Minute On the Minute — perform the prescribed reps in
+              the first part of each minute, rest for the remainder.
+  Superset    Two exercises performed back-to-back with no rest. Labelled
+              "1a / 1b" inside the same block.
+  Triset      Three exercises back-to-back (1a / 1b / 1c).
+  Straight    Single exercise, all sets in one block, rest between sets.
+  AMRAP       As Many Reps As Possible, single set, go to technical failure
+              (same concept as MREP in some systems).
+  Test set    Ramp single rep working to a true max.
 
 ═══════════════════════════════════════════════════════════════════════════════
 PART 2 · PROGRAM-LEVEL DESCRIPTION (paste this into Bridge as program notes)
@@ -54,9 +76,9 @@ Secondary block: 10 sets x 5 reps on the minute, paired in 2 blocks of 5.
 Tertiary block: 5 sets x 10 reps on the minute, single-pair throughout.
 Grip finisher: straight sets, rest as needed.
 
-Progressive overload (RIR):
-  Primary dense:    W1 4 RIR → W2 3-4 RIR → W3 3 RIR → W4 test
-  Secondary EMOM:   W1 3 RIR → W2 2 RIR → W3 2 RIR → W4 deload
+Progressive overload (%Difficulty):
+  Primary dense:    W1 70% Difficulty → W2 70-75% Difficulty → W3 75% Difficulty → W4 test
+  Secondary EMOM:   W1 75% Difficulty → W2 82% Difficulty → W3 82% Difficulty → W4 deload
   Tertiary EMOM:    +1 rep per set per week (same load) if previous week clean
 Baseline test in Week 1 Workout 1; retest in Week 4 Workouts 12-13.
 Expected delta: Bench +5-7 kg, OHP +2.5-5 kg, Chin-Up +1-2 unbroken reps.
@@ -91,18 +113,18 @@ Total time: ~30-35 minutes.
 Format: Straight sets (NOT dense, NOT EMOM). Test ramps.
 
 ▼ BLOCK 1 · TEST SET · BARBELL BENCH PRESS — 3 REP MAX RAMP
-  Set 1: 5 reps @ 6 RIR · Rest 2 min
-  Set 2: 5 reps @ 4 RIR · Rest 2 min
-  Set 3: 3 reps @ 3 RIR · Rest 3 min
-  Set 4: 3 reps @ 2 RIR · Rest 3 min
-  Set 5: 3 reps @ 0-1 RIR (true 3RM) · Rest 4 min
+  Set 1: 5 reps @ 55% Difficulty · Rest 2 min
+  Set 2: 5 reps @ 70% Difficulty · Rest 2 min
+  Set 3: 3 reps @ 75% Difficulty · Rest 3 min
+  Set 4: 3 reps @ 82% Difficulty · Rest 3 min
+  Set 5: 3 reps @ 92-100% Difficulty (true 3RM) · Rest 4 min
   Notes: Record the load of Set 5 — this is "Bench 3RM" for the block.
 
 ▼ BLOCK 2 · TEST SET · STANDING BARBELL OVERHEAD PRESS — 3 REP MAX RAMP
-  Set 1: 5 reps @ 6 RIR · Rest 2 min
-  Set 2: 5 reps @ 4 RIR · Rest 2 min
-  Set 3: 3 reps @ 2 RIR · Rest 3 min
-  Set 4: 3 reps @ 0-1 RIR (true 3RM) · Rest 3 min
+  Set 1: 5 reps @ 55% Difficulty · Rest 2 min
+  Set 2: 5 reps @ 70% Difficulty · Rest 2 min
+  Set 3: 3 reps @ 82% Difficulty · Rest 3 min
+  Set 4: 3 reps @ 92-100% Difficulty (true 3RM) · Rest 3 min
   Notes: No leg drive, full lockout at top. Record Set 4 load as "OHP 3RM".
 
 ▼ BLOCK 3 · AMRAP · CHIN-UP — MAX STRICT REPS
@@ -118,7 +140,7 @@ Format: EMOM × Superset throughout.
 
 ▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
   Round 1-4:
-    1a. Barbell Bench Press — 3 reps @ first-set 4 RIR
+    1a. Barbell Bench Press — 3 reps @ first-set 70% Difficulty
     1b. Standing Band Anti-Rotation Press — 6 reps each side
   Round 5-8:
     1a. Barbell Bench Press — 3 reps (same load)
@@ -136,7 +158,7 @@ Format: EMOM × Superset throughout.
 
 ▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    2a. DB Lateral Raise (tempo: 3-sec lowering) — 5 reps @ 3 RIR
+    2a. DB Lateral Raise (tempo: 3-sec lowering) — 5 reps @ 75% Difficulty
     2b. Med Ball Rotational Slam — 4 reps each side
   Round 6-10:
     2a. DB Lateral Raise (tempo: 3-sec lowering) — 5 reps (same load)
@@ -144,7 +166,7 @@ Format: EMOM × Superset throughout.
 
 ▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    3a. Cable Triceps Pushdown — 10 reps @ 3 RIR
+    3a. Cable Triceps Pushdown — 10 reps @ 75% Difficulty
     3b. Pallof Press — 15-second hold each side
 
 ▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
@@ -175,7 +197,7 @@ Format: EMOM × Superset throughout.
 
 ▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    2a. Barbell Bent-Over Row — 5 reps @ 3 RIR
+    2a. Barbell Bent-Over Row — 5 reps @ 75% Difficulty
     2b. Banded Rotational Wood Chop — 5 reps each side
   Round 6-10:
     2a. Barbell Bent-Over Row — 5 reps (same load)
@@ -183,7 +205,7 @@ Format: EMOM × Superset throughout.
 
 ▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    3a. Heavy DB Hammer Curl — 10 reps @ 2-3 RIR
+    3a. Heavy DB Hammer Curl — 10 reps @ 75-82% Difficulty
     3b. Glute Bridge — 12 reps
 
 ▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
@@ -198,7 +220,7 @@ Format: EMOM × Superset throughout.
 
 ▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
   Round 1-4:
-    1a. Standing Barbell Overhead Press — 3 reps @ first-set 4 RIR
+    1a. Standing Barbell Overhead Press — 3 reps @ first-set 70% Difficulty
     1b. ViPR Shlift Lateral Step SS-Down — 3 reps each side
   Round 5-8:
     1a. Standing Barbell Overhead Press — 3 reps (same load)
@@ -218,7 +240,7 @@ Format: EMOM × Superset throughout.
 
 ▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    2a. Close-Grip Bench Press (tempo: 3 sec down / 3 sec up) — 5 reps @ 3 RIR
+    2a. Close-Grip Bench Press (tempo: 3 sec down / 3 sec up) — 5 reps @ 75% Difficulty
     2b. Tempo Close-Grip Pushup (3 down / 3 up) — 4 reps
   Round 6-10:
     2a. Close-Grip Bench Press (same tempo, same load) — 5 reps
@@ -226,7 +248,7 @@ Format: EMOM × Superset throughout.
 
 ▼ BLOCK 3 · EMOM × SUPERSET · 5 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    3a. EZ-Bar Skullcrusher — 10 reps @ 3 RIR
+    3a. EZ-Bar Skullcrusher — 10 reps @ 75% Difficulty
     3b. KB Bottoms-Up Carry — 20 metres
 
 ▼ BLOCK 4 · STRAIGHT SETS · GRIP FINISHER
@@ -239,9 +261,9 @@ Purpose: Week 2 dense bench. Identical exercises and structure to W1.
 Load nudged up; pair exercises unchanged. ~50 min.
 
 ▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
-  Bench Press load this week: first set 3-4 RIR (add ~2.5 kg vs W1).
+  Bench Press load this week: first set 70-75% Difficulty (add ~2.5 kg vs W1).
   Round 1-4:
-    1a. Barbell Bench Press — 3 reps @ first-set 3-4 RIR
+    1a. Barbell Bench Press — 3 reps @ first-set 70-75% Difficulty
     1b. Standing Band Anti-Rotation Press — 6 reps each side
   Round 5-8:
     1a. Barbell Bench Press — 3 reps (same load)
@@ -257,7 +279,7 @@ Load nudged up; pair exercises unchanged. ~50 min.
 
 ▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    2a. DB Lateral Raise (3-sec lowering tempo) — 5 reps @ 2 RIR
+    2a. DB Lateral Raise (3-sec lowering tempo) — 5 reps @ 82% Difficulty
     2b. Med Ball Rotational Slam — 4 reps each side
   Round 6-10:
     2a. DB Lateral Raise (same tempo, same load) — 5 reps
@@ -295,7 +317,7 @@ Load nudged on row; reps nudged on hammer curls. ~50 min.
 
 ▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    2a. Barbell Bent-Over Row — 5 reps @ 2 RIR
+    2a. Barbell Bent-Over Row — 5 reps @ 82% Difficulty
     2b. Banded Rotational Wood Chop — 5 reps each side
   Round 6-10:
     2a. Barbell Bent-Over Row — 5 reps (same load)
@@ -315,9 +337,9 @@ Load nudged on row; reps nudged on hammer curls. ~50 min.
 Purpose: Week 2 dense overhead. ViPR pairings unchanged; OHP load up. ~50 min.
 
 ▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
-  OHP load this week: first set 3-4 RIR (add ~2.5 kg vs W1).
+  OHP load this week: first set 70-75% Difficulty (add ~2.5 kg vs W1).
   Round 1-4:
-    1a. Standing Barbell Overhead Press — 3 reps @ first-set 3-4 RIR
+    1a. Standing Barbell Overhead Press — 3 reps @ first-set 70-75% Difficulty
     1b. ViPR Shlift Lateral Step SS-Down — 3 reps each side
   Round 5-8:
     1a. Standing Barbell Overhead Press — 3 reps (same load)
@@ -333,7 +355,7 @@ Purpose: Week 2 dense overhead. ViPR pairings unchanged; OHP load up. ~50 min.
 
 ▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    2a. Close-Grip Bench Press (3 sec down / 3 sec up) — 5 reps @ 2 RIR
+    2a. Close-Grip Bench Press (3 sec down / 3 sec up) — 5 reps @ 82% Difficulty
     2b. Tempo Close-Grip Pushup (3 down / 3 up) — 4 reps
   Round 6-10:
     2a. Close-Grip Bench Press (same load, same tempo) — 5 reps
@@ -353,10 +375,10 @@ Purpose: Week 2 dense overhead. ViPR pairings unchanged; OHP load up. ~50 min.
 Purpose: Heaviest dense bench week. Last loaded session before retest. ~50 min.
 
 ▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
-  Bench Press load this week: first set 3 RIR (~2.5-5 kg heavier than W2).
-  Expect last 4-5 sets to feel 1 RIR from accumulated fatigue.
+  Bench Press load this week: first set 75% Difficulty (~2.5-5 kg heavier than W2).
+  Expect last 4-5 sets to feel 90% Difficulty from accumulated fatigue.
   Round 1-4:
-    1a. Barbell Bench Press — 3 reps @ first-set 3 RIR
+    1a. Barbell Bench Press — 3 reps @ first-set 75% Difficulty
     1b. Standing Band Anti-Rotation Press — 6 reps each side
   Round 5-8:
     1a. Barbell Bench Press — 3 reps (same load)
@@ -374,7 +396,7 @@ Purpose: Heaviest dense bench week. Last loaded session before retest. ~50 min.
 
 ▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    2a. DB Lateral Raise (3-sec lowering tempo) — 5 reps @ 2 RIR
+    2a. DB Lateral Raise (3-sec lowering tempo) — 5 reps @ 82% Difficulty
     2b. Med Ball Rotational Slam — 4 reps each side
   Round 6-10:
     2a. DB Lateral Raise (same tempo, same load) — 5 reps
@@ -394,7 +416,7 @@ Purpose: Heaviest dense bench week. Last loaded session before retest. ~50 min.
 Purpose: Heaviest dense pull week. Optional small load add on chin-up. ~50 min.
 
 ▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
-  Chin-Up load this week: bodyweight by default. If W2 felt sub-3-RIR
+  Chin-Up load this week: bodyweight by default. If W2 felt sub-75% Difficulty
   (felt easy, bar speed high), add 2.5 kg with a dip belt or weight vest.
   Round 1-4:
     1a. Chin-Up — 2 reps @ BW (or BW + 2.5 kg if W2 was easy)
@@ -413,7 +435,7 @@ Purpose: Heaviest dense pull week. Optional small load add on chin-up. ~50 min.
 
 ▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    2a. Barbell Bent-Over Row — 5 reps @ 2 RIR
+    2a. Barbell Bent-Over Row — 5 reps @ 82% Difficulty
     2b. Banded Rotational Wood Chop — 5 reps each side
   Round 6-10:
     2a. Barbell Bent-Over Row — 5 reps (same load)
@@ -433,9 +455,9 @@ Purpose: Heaviest dense pull week. Optional small load add on chin-up. ~50 min.
 Purpose: Heaviest dense overhead week. ~50 min.
 
 ▼ BLOCK 1 · EMOM × SUPERSET · 20 ROUNDS · 1 MINUTE PER ROUND
-  OHP load this week: first set 3 RIR (~2.5-5 kg heavier than W2).
+  OHP load this week: first set 75% Difficulty (~2.5-5 kg heavier than W2).
   Round 1-4:
-    1a. Standing Barbell Overhead Press — 3 reps @ first-set 3 RIR
+    1a. Standing Barbell Overhead Press — 3 reps @ first-set 75% Difficulty
     1b. ViPR Shlift Lateral Step SS-Down — 3 reps each side
   Round 5-8:
     1a. Standing Barbell Overhead Press — 3 reps (same load)
@@ -451,7 +473,7 @@ Purpose: Heaviest dense overhead week. ~50 min.
 
 ▼ BLOCK 2 · EMOM × SUPERSET · 10 ROUNDS · 1 MINUTE PER ROUND
   Round 1-5:
-    2a. Close-Grip Bench Press (3 sec down / 3 sec up) — 5 reps @ 2 RIR
+    2a. Close-Grip Bench Press (3 sec down / 3 sec up) — 5 reps @ 82% Difficulty
     2b. Tempo Close-Grip Pushup (3 down / 3 up) — 4 reps
   Round 6-10:
     2a. Close-Grip Bench Press (same load, same tempo) — 5 reps
@@ -472,9 +494,9 @@ Purpose: Short deload session before the retest. No fatigue load. ~15 min.
 Format: Straight sets, light ramp only. No accessories. No grip work.
 
 ▼ BLOCK 1 · STRAIGHT SETS · BARBELL BENCH PRESS — DELOAD RAMP
-  Set 1: 5 reps @ 6 RIR · Rest 2 min
-  Set 2: 3 reps @ 4 RIR · Rest 2 min
-  Set 3: 1 rep  @ 3 RIR · Rest — STOP, walk away.
+  Set 1: 5 reps @ 55% Difficulty · Rest 2 min
+  Set 2: 3 reps @ 70% Difficulty · Rest 2 min
+  Set 3: 1 rep  @ 75% Difficulty · Rest — STOP, walk away.
   Notes: This is intentionally short. Goal is to prime the nervous system
         for Friday's 1RM test without adding any fatigue.
 
@@ -490,10 +512,10 @@ Format: AMRAP for chin-up, test set ramp for row.
   Rest 5 minutes before Block 2.
 
 ▼ BLOCK 2 · TEST SET · BARBELL BENT-OVER ROW — 3 REP MAX RAMP
-  Set 1: 5 reps @ 6 RIR · Rest 2 min
-  Set 2: 5 reps @ 4 RIR · Rest 2 min
-  Set 3: 3 reps @ 2 RIR · Rest 3 min
-  Set 4: 3 reps @ 0-1 RIR (true 3RM) · Done.
+  Set 1: 5 reps @ 55% Difficulty · Rest 2 min
+  Set 2: 5 reps @ 70% Difficulty · Rest 2 min
+  Set 3: 3 reps @ 82% Difficulty · Rest 3 min
+  Set 4: 3 reps @ 92-100% Difficulty (true 3RM) · Done.
   Notes: Record Set 4 load as "Row 3RM".
 
 
@@ -503,18 +525,18 @@ Purpose: Block-end retest of the two main lifts. ~35-45 min.
 Format: True 1RM ramps on both lifts.
 
 ▼ BLOCK 1 · TEST SET · BARBELL BENCH PRESS — 1 REP MAX ATTEMPT
-  Set 1: 5 reps @ 6 RIR · Rest 3 min
-  Set 2: 3 reps @ 3 RIR · Rest 3 min
-  Set 3: 1 rep  @ 2 RIR · Rest 4 min
-  Set 4: 1 rep  @ 1 RIR · Rest 5 min
-  Set 5: 1 rep  @ 0 RIR (new 1RM attempt) · Done.
+  Set 1: 5 reps @ 55% Difficulty · Rest 3 min
+  Set 2: 3 reps @ 75% Difficulty · Rest 3 min
+  Set 3: 1 rep  @ 82% Difficulty · Rest 4 min
+  Set 4: 1 rep  @ 90% Difficulty · Rest 5 min
+  Set 5: 1 rep  @ 100% Difficulty (new 1RM attempt) · Done.
   Notes: Record Set 5 load as "Bench 1RM". Rest 5 minutes before Block 2.
 
 ▼ BLOCK 2 · TEST SET · STANDING BARBELL OVERHEAD PRESS — 1 REP MAX ATTEMPT
-  Set 1: 5 reps @ 6 RIR · Rest 3 min
-  Set 2: 3 reps @ 3 RIR · Rest 3 min
-  Set 3: 1 rep  @ 1 RIR · Rest 5 min
-  Set 4: 1 rep  @ 0 RIR (new 1RM attempt) · Done.
+  Set 1: 5 reps @ 55% Difficulty · Rest 3 min
+  Set 2: 3 reps @ 75% Difficulty · Rest 3 min
+  Set 3: 1 rep  @ 90% Difficulty · Rest 5 min
+  Set 4: 1 rep  @ 100% Difficulty (new 1RM attempt) · Done.
   Notes: No leg drive, full lockout at top. Record Set 4 load as "OHP 1RM".
 
 EXPECTED PROGRESSION vs BASELINE:
@@ -551,7 +573,7 @@ PART 6 · COACH NOTES (Marin — internal)
 · Source: Benchuary 2026 (PPSA), re-cast into MJ's dense (NDM) format.
 · Constraints honoured: no warmups, no main LB work, dense format only,
   ViPR vocabulary, accessory LB integrated into EMOM pairs, integrated
-  core + power on every session, RIR throughout (NO RPE, NO %1RM).
+  core + power on every session, %Difficulty throughout (NO RPE, NO %1RM, NO RIR).
 · ACWR watch: he is ramping from 0 → 5 sessions/week. Likely climb in
   W2-W3. If cumulative fatigue spikes, drop one of his LB sessions for
   the first half of the block.
