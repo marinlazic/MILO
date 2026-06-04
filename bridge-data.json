@@ -11,11 +11,19 @@
     "weightKg": 79,
     "programs": [
       {
+        "bridgeId": 2230360,
+        "name": "Reini Otter 12-Week Training Program",
+        "status": "started",
+        "startedAt": "2026-06-01",
+        "updatedAt": "2026-06-02",
+        "isPlaylist": true
+      },
+      {
         "bridgeId": 2114919,
         "name": "ARM FARM (no above head)",
-        "status": "started",
+        "status": "completed",
         "startedAt": "2026-02-08",
-        "updatedAt": "2026-05-12",
+        "updatedAt": "2026-06-01",
         "isPlaylist": true
       },
       {
@@ -133,6 +141,36 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-06-02",
+        "name": "Upper Pull + Lower Push + Aerobic Row",
+        "workoutId": -37596144,
+        "workoutHistoryId": 65679099,
+        "duration": 100,
+        "rpe": 10,
+        "program": "Reini Otter 12-Week Training Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-19",
+        "name": "4.1",
+        "workoutId": -35263434,
+        "workoutHistoryId": 65067802,
+        "duration": 90,
+        "rpe": 10,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-14",
+        "name": "4.4",
+        "workoutId": -35263437,
+        "workoutHistoryId": 65040559,
+        "duration": 87,
+        "rpe": 10,
+        "program": "ARM FARM (no above head)",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-12",
         "name": "4.3",
         "workoutId": -35263436,
@@ -221,39 +259,9 @@
         "rpe": 10,
         "program": "ARM FARM (no above head)",
         "status": "completed"
-      },
-      {
-        "date": "2026-04-16",
-        "name": "4.2",
-        "workoutId": -35263435,
-        "workoutHistoryId": 63851498,
-        "duration": 75,
-        "rpe": 9,
-        "program": "ARM FARM (no above head)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-15",
-        "name": "4.1",
-        "workoutId": 35263434,
-        "workoutHistoryId": 63766440,
-        "duration": 65,
-        "rpe": 10,
-        "program": "ARM FARM (no above head)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-12",
-        "name": "4.4",
-        "workoutId": -35263437,
-        "workoutHistoryId": 63667565,
-        "duration": 81,
-        "rpe": 10,
-        "program": "ARM FARM (no above head)",
-        "status": "completed"
       }
     ],
-    "programCount": 15,
+    "programCount": 16,
     "totalCompletedThisRange": 12
   },
   "samantha-van-gelder": {
@@ -272,7 +280,7 @@
         "name": "Hypertrophy & Impulse Integration",
         "status": "started",
         "startedAt": "2026-05-10",
-        "updatedAt": "2026-05-12",
+        "updatedAt": "2026-06-02",
         "isPlaylist": true
       },
       {
@@ -430,123 +438,123 @@
     ],
     "recentWorkouts": [
       {
-        "date": "2026-05-13",
+        "date": "2026-06-03",
         "name": "Impulse: French Contrast",
-        "workoutId": 37116533,
-        "workoutHistoryId": 64820455,
-        "duration": 50,
-        "rpe": 6,
-        "program": "Hypertrophy & Impulse Integration",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-12",
-        "name": "Upper Horizontal Pull",
-        "workoutId": 37116532,
-        "workoutHistoryId": 64781312,
-        "duration": 57,
-        "rpe": 6,
-        "program": "Hypertrophy & Impulse Integration",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-11",
-        "name": "Lower Power + Frontal Plane",
-        "workoutId": 37116531,
-        "workoutHistoryId": 64705270,
-        "duration": 55,
-        "rpe": 6,
-        "program": "Hypertrophy & Impulse Integration",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-10",
-        "name": "Hinge + Horizontal Push/Pull",
-        "workoutId": 36482644,
-        "workoutHistoryId": 64683510,
-        "duration": 73,
-        "rpe": 9,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-07",
-        "name": "Lower Power + Horizontal Push/Pull",
-        "workoutId": -36482642,
-        "workoutHistoryId": 64597730,
-        "duration": 49,
-        "rpe": 9,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-05",
-        "name": "Vertical Pull + Lower Unilateral",
-        "workoutId": 36482643,
-        "workoutHistoryId": 64512822,
-        "duration": 58,
-        "rpe": 10,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-04",
-        "name": "Hinge + Horizontal Push/Pull",
-        "workoutId": 36482644,
-        "workoutHistoryId": 64396764,
-        "duration": 52,
-        "rpe": 9,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-01",
-        "name": "Vertical Press + Lower Unilateral",
-        "workoutId": 36482645,
-        "workoutHistoryId": 64311374,
-        "duration": 51,
-        "rpe": 9,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-30",
-        "name": "Vertical Pull + Lower Unilateral",
-        "workoutId": 36482639,
-        "workoutHistoryId": 64271603,
-        "duration": 55,
-        "rpe": 9,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-29",
-        "name": "Lower Power + Horizontal Push/Pull",
-        "workoutId": 36482638,
-        "workoutHistoryId": 64227399,
-        "duration": 56,
-        "rpe": 8,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-28",
-        "name": "Vertical Press + Lower Unilateral",
-        "workoutId": 36482641,
-        "workoutHistoryId": 64190086,
+        "workoutId": 37116548,
+        "workoutHistoryId": 65759529,
         "duration": 48,
-        "rpe": 7,
-        "program": "2025 -  SAM",
+        "rpe": 9,
+        "program": "Hypertrophy & Impulse Integration",
         "status": "completed"
       },
       {
-        "date": "2026-04-27",
-        "name": "Hinge + Horizontal Push/Pull",
-        "workoutId": 36482640,
-        "workoutHistoryId": 64127830,
+        "date": "2026-06-02",
+        "name": "Upper Horizontal Pull",
+        "workoutId": 37116547,
+        "workoutHistoryId": 65665377,
+        "duration": 57,
+        "rpe": 7,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
+        "date": "2026-06-01",
+        "name": "Lower Power + Frontal Plane",
+        "workoutId": 37116546,
+        "workoutHistoryId": 65536956,
         "duration": 60,
-        "rpe": 9,
-        "program": "2025 -  SAM",
+        "rpe": 7,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-31",
+        "name": "Lower Posterior Chain + Rotation",
+        "workoutId": 37116544,
+        "workoutHistoryId": 65501476,
+        "duration": 76,
+        "rpe": 5,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-30",
+        "name": "Impulse: French Contrast",
+        "workoutId": 37116543,
+        "workoutHistoryId": 65461430,
+        "duration": 57,
+        "rpe": 7,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-29",
+        "name": "Upper Vertical Pull",
+        "workoutId": 37116545,
+        "workoutHistoryId": 65382211,
+        "duration": 55,
+        "rpe": 7,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-26",
+        "name": "Upper Horizontal Pull",
+        "workoutId": 37116542,
+        "workoutHistoryId": 65238640,
+        "duration": 68,
+        "rpe": 7,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-25",
+        "name": "Lower Power + Frontal Plane",
+        "workoutId": 37116541,
+        "workoutHistoryId": 65203318,
+        "duration": 63,
+        "rpe": 6,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-22",
+        "name": "Upper Vertical Pull",
+        "workoutId": 37116540,
+        "workoutHistoryId": 65135494,
+        "duration": 58,
+        "rpe": 6,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-21",
+        "name": "Lower Posterior Chain + Rotation",
+        "workoutId": 37116539,
+        "workoutHistoryId": 65100795,
+        "duration": 72,
+        "rpe": 6,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-20",
+        "name": "Impulse: French Contrast",
+        "workoutId": 37116538,
+        "workoutHistoryId": 65067266,
+        "duration": 43,
+        "rpe": 7,
+        "program": "Hypertrophy & Impulse Integration",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-19",
+        "name": "Upper Horizontal Pull",
+        "workoutId": 37116537,
+        "workoutHistoryId": 65038462,
+        "duration": 55,
+        "rpe": 8,
+        "program": "Hypertrophy & Impulse Integration",
         "status": "completed"
       }
     ],
@@ -562,14 +570,14 @@
     "age": 57,
     "birthDate": "1968-09-19",
     "gender": null,
-    "weightKg": 83,
+    "weightKg": 84,
     "programs": [
       {
         "bridgeId": 1446317,
         "name": "Road to LA28- Craig",
         "status": "started",
         "startedAt": "2024-05-21",
-        "updatedAt": "2026-05-11",
+        "updatedAt": "2026-06-03",
         "isPlaylist": true
       },
       {
@@ -577,7 +585,7 @@
         "name": "STRONG HIPS",
         "status": "started",
         "startedAt": "2026-04-04",
-        "updatedAt": "2026-04-04",
+        "updatedAt": "2026-05-25",
         "isPlaylist": true
       },
       {
@@ -695,6 +703,86 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-06-04",
+        "name": "2.Upper Body Pull  // Lower Body Push",
+        "workoutId": 37582966,
+        "workoutHistoryId": 65815536,
+        "duration": 50,
+        "rpe": 5,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-06-03",
+        "name": "1.Upper Body Push // Lower Body Pull",
+        "workoutId": 37582965,
+        "workoutHistoryId": 65760842,
+        "duration": 53,
+        "rpe": 5,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-06-01",
+        "name": "Full Body Consolidation",
+        "workoutId": 36959926,
+        "workoutHistoryId": 65537200,
+        "duration": 61,
+        "rpe": 3,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-28",
+        "name": "Hinge, Carry, Core",
+        "workoutId": 36959924,
+        "workoutHistoryId": 65344485,
+        "duration": null,
+        "rpe": null,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-27",
+        "name": "Push, Glute, Hip",
+        "workoutId": 36959920,
+        "workoutHistoryId": 65297596,
+        "duration": 59,
+        "rpe": 3,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-26",
+        "name": null,
+        "workoutId": 36369920,
+        "workoutHistoryId": 65242743,
+        "duration": null,
+        "rpe": null,
+        "program": "STRONG HIPS",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-15",
+        "name": "Pull, Posterior Shoulder, Hip",
+        "workoutId": 36959922,
+        "workoutHistoryId": 64883234,
+        "duration": 65,
+        "rpe": 5,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-14",
+        "name": "Full Body Consolidation",
+        "workoutId": 36959919,
+        "workoutHistoryId": 64854964,
+        "duration": 57,
+        "rpe": 3,
+        "program": "Road to LA28- Craig",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-12",
         "name": "Zone 5 Maximum Aerobic Speed",
         "workoutId": 36959916,
@@ -733,86 +821,6 @@
         "rpe": 5,
         "program": "Road to LA28- Craig",
         "status": "completed"
-      },
-      {
-        "date": "2026-05-04",
-        "name": "Push, Glute, Hip",
-        "workoutId": 36959913,
-        "workoutHistoryId": 64396947,
-        "duration": 52,
-        "rpe": 3,
-        "program": "Road to LA28- Craig",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-02",
-        "name": "Par 5(3)",
-        "workoutId": 35831017,
-        "workoutHistoryId": 64361127,
-        "duration": 42,
-        "rpe": 3,
-        "program": "Road to LA28- Craig",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-30",
-        "name": "Par 5(3)",
-        "workoutId": 35831020,
-        "workoutHistoryId": 64272973,
-        "duration": null,
-        "rpe": null,
-        "program": "Road to LA28- Craig",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-28",
-        "name": "Par 3(3)",
-        "workoutId": 35831018,
-        "workoutHistoryId": 64188139,
-        "duration": 56,
-        "rpe": 3,
-        "program": "Road to LA28- Craig",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-22",
-        "name": "Par 4 (3)",
-        "workoutId": 35831019,
-        "workoutHistoryId": 64034157,
-        "duration": 65,
-        "rpe": 3,
-        "program": "Road to LA28- Craig",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-17",
-        "name": "Par 5(3)",
-        "workoutId": 35831020,
-        "workoutHistoryId": 63865303,
-        "duration": null,
-        "rpe": null,
-        "program": "Road to LA28- Craig",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-16",
-        "name": "Par 4 (3)",
-        "workoutId": 35831019,
-        "workoutHistoryId": 63833269,
-        "duration": 58,
-        "rpe": 3,
-        "program": "Road to LA28- Craig",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-15",
-        "name": "Par 3(3)",
-        "workoutId": 35831018,
-        "workoutHistoryId": 63766830,
-        "duration": 61,
-        "rpe": 3,
-        "program": "Road to LA28- Craig",
-        "status": "completed"
       }
     ],
     "programCount": 16,
@@ -834,7 +842,7 @@
         "name": "ARM FARM Charlie",
         "status": "started",
         "startedAt": "2026-02-09",
-        "updatedAt": "2026-04-20",
+        "updatedAt": "2026-06-01",
         "isPlaylist": true
       },
       {
@@ -984,6 +992,16 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-06-01",
+        "name": "3.2",
+        "workoutId": 35281313,
+        "workoutHistoryId": 65549465,
+        "duration": 45,
+        "rpe": 4,
+        "program": "ARM FARM Charlie",
+        "status": "completed"
+      },
+      {
         "date": "2026-04-21",
         "name": "3.1",
         "workoutId": 35281312,
@@ -1092,16 +1110,6 @@
         "rpe": null,
         "program": "Two Day Full Body Health and Performance  Charlie",
         "status": "completed"
-      },
-      {
-        "date": "2025-09-23",
-        "name": "Upper Push / Lower Pull",
-        "workoutId": 32076722,
-        "workoutHistoryId": 56911591,
-        "duration": 60,
-        "rpe": null,
-        "program": "Two Day Full Body Health and Performance  Charlie",
-        "status": "completed"
       }
     ],
     "programCount": 19,
@@ -1116,14 +1124,14 @@
     "age": 61,
     "birthDate": "1965-03-16",
     "gender": null,
-    "weightKg": 104.9,
+    "weightKg": 102.9,
     "programs": [
       {
         "bridgeId": 2193854,
         "name": "Mark -SLEEP BETTER PROGRAM",
         "status": "started",
         "startedAt": "2026-04-28",
-        "updatedAt": "2026-05-07",
+        "updatedAt": "2026-05-28",
         "isPlaylist": true
       },
       {
@@ -1249,6 +1257,66 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-05-29",
+        "name": "Hinge + Vertical Pull Focus",
+        "workoutId": 36881030,
+        "workoutHistoryId": 65384235,
+        "duration": null,
+        "rpe": null,
+        "program": "Mark -SLEEP BETTER PROGRAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-27",
+        "name": "Power + Multi-Planar + Vertical Pull Repeat",
+        "workoutId": 36881029,
+        "workoutHistoryId": 65297304,
+        "duration": 60,
+        "rpe": 6,
+        "program": "Mark -SLEEP BETTER PROGRAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-26",
+        "name": "Squat + Vertical Push + Horizontal Pull",
+        "workoutId": 36881028,
+        "workoutHistoryId": 65240058,
+        "duration": 45,
+        "rpe": 6,
+        "program": "Mark -SLEEP BETTER PROGRAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-22",
+        "name": "Hinge + Vertical Pull Focus",
+        "workoutId": 36881027,
+        "workoutHistoryId": 65136757,
+        "duration": 50,
+        "rpe": 5,
+        "program": "Mark -SLEEP BETTER PROGRAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-20",
+        "name": "Power + Multi-Planar + Vertical Pull Repeat",
+        "workoutId": 36881026,
+        "workoutHistoryId": 65069102,
+        "duration": 48,
+        "rpe": 10,
+        "program": "Mark -SLEEP BETTER PROGRAM",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-14",
+        "name": "Squat + Vertical Push + Horizontal Pull",
+        "workoutId": 36881025,
+        "workoutHistoryId": 64855009,
+        "duration": null,
+        "rpe": null,
+        "program": "Mark -SLEEP BETTER PROGRAM",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-08",
         "name": "Hinge + Vertical Pull Focus",
         "workoutId": -36881024,
@@ -1307,80 +1375,10 @@
         "rpe": 5,
         "program": "Mark 2026 Health and Performance Program",
         "status": "completed"
-      },
-      {
-        "date": "2026-03-25",
-        "name": "Workout A",
-        "workoutId": 35013595,
-        "workoutHistoryId": 63110263,
-        "duration": 60,
-        "rpe": 5,
-        "program": "Mark 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-20",
-        "name": "Workout A",
-        "workoutId": 35013595,
-        "workoutHistoryId": 62937099,
-        "duration": 60,
-        "rpe": 7,
-        "program": "Mark 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-18",
-        "name": "Workout B",
-        "workoutId": 35013596,
-        "workoutHistoryId": 62879895,
-        "duration": null,
-        "rpe": null,
-        "program": "Mark 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-18",
-        "name": "Workout B",
-        "workoutId": -35013596,
-        "workoutHistoryId": 62879971,
-        "duration": 60,
-        "rpe": 6,
-        "program": "Mark 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-06",
-        "name": "Workout A",
-        "workoutId": 35013595,
-        "workoutHistoryId": 62516549,
-        "duration": null,
-        "rpe": null,
-        "program": "Mark 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-04",
-        "name": "Workout B",
-        "workoutId": 35013594,
-        "workoutHistoryId": 62453395,
-        "duration": null,
-        "rpe": null,
-        "program": "Mark 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-02-25",
-        "name": "Workout A",
-        "workoutId": 35013593,
-        "workoutHistoryId": 62203703,
-        "duration": null,
-        "rpe": null,
-        "program": "Mark 2026 Health and Performance Program",
-        "status": "completed"
       }
     ],
     "programCount": 16,
-    "totalCompletedThisRange": 13
+    "totalCompletedThisRange": 12
   },
   "nathan-parris": {
     "id": "nathan-parris",
@@ -1398,7 +1396,7 @@
         "name": "Nathan 2026 Health and Performance Program",
         "status": "started",
         "startedAt": "2026-01-26",
-        "updatedAt": "2026-05-12",
+        "updatedAt": "2026-06-02",
         "isPlaylist": true
       },
       {
@@ -1476,6 +1474,76 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-06-02",
+        "name": "Push with Pull Tax - Core Dynamic Stability",
+        "workoutId": 36854098,
+        "workoutHistoryId": 65681159,
+        "duration": 42,
+        "rpe": 5,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-27",
+        "name": "Impulse and Power Day - Core Stability",
+        "workoutId": -36854099,
+        "workoutHistoryId": 65297586,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-26",
+        "name": "Lower Body Heavy - Core Dynamic Stability",
+        "workoutId": 36854096,
+        "workoutHistoryId": 65241699,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-19",
+        "name": "Pull and Deadlift Volume - Core Dynamic Stability",
+        "workoutId": 36854092,
+        "workoutHistoryId": 65043779,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-19",
+        "name": "Impulse and Power Day - Core Dynamic Stability",
+        "workoutId": -36854094,
+        "workoutHistoryId": 65069239,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-19",
+        "name": null,
+        "workoutId": null,
+        "workoutHistoryId": 65069644,
+        "duration": 17,
+        "rpe": 10,
+        "program": null,
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-13",
+        "name": "Push with Pull Tax - Core Stability",
+        "workoutId": -36854093,
+        "workoutHistoryId": 64822260,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
+      {
         "date": "2026-05-12",
         "name": "Lower Body Squat Focus - Core Stability",
         "workoutId": 36854091,
@@ -1544,60 +1612,10 @@
         "rpe": 5,
         "program": "Nathan 2026 Health and Performance Program",
         "status": "completed"
-      },
-      {
-        "date": "2026-02-25",
-        "name": "Workout A11",
-        "workoutId": 34988589,
-        "workoutHistoryId": 62203939,
-        "duration": null,
-        "rpe": null,
-        "program": "Nathan 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-02-24",
-        "name": "Workout B10",
-        "workoutId": 34988588,
-        "workoutHistoryId": 62166560,
-        "duration": null,
-        "rpe": null,
-        "program": "Nathan 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-02-18",
-        "name": "Workout A9",
-        "workoutId": 34988587,
-        "workoutHistoryId": 61987964,
-        "duration": null,
-        "rpe": null,
-        "program": "Nathan 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-02-17",
-        "name": "Workout B8",
-        "workoutId": 34988586,
-        "workoutHistoryId": 61953590,
-        "duration": null,
-        "rpe": null,
-        "program": "Nathan 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-02-10",
-        "name": "Workout A7",
-        "workoutId": 34988585,
-        "workoutHistoryId": 61775674,
-        "duration": null,
-        "rpe": null,
-        "program": "Nathan 2026 Health and Performance Program",
-        "status": "completed"
       }
     ],
     "programCount": 10,
-    "totalCompletedThisRange": 12
+    "totalCompletedThisRange": 14
   },
   "steve-turner": {
     "id": "steve-turner",
@@ -1822,7 +1840,7 @@
         "name": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "started",
         "startedAt": "2025-12-29",
-        "updatedAt": "2026-05-11",
+        "updatedAt": "2026-05-24",
         "isPlaylist": true
       },
       {
@@ -1851,6 +1869,36 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-05-25",
+        "name": "Workout B",
+        "workoutId": 34391445,
+        "workoutHistoryId": 65207522,
+        "duration": 27,
+        "rpe": 3,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-22",
+        "name": "Workout B",
+        "workoutId": 34391443,
+        "workoutHistoryId": 65140751,
+        "duration": 40,
+        "rpe": 3,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-17",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 64937113,
+        "duration": 36,
+        "rpe": 3,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
       {
         "date": "2026-05-11",
         "name": "Workout B",
@@ -1970,36 +2018,6 @@
         "rpe": null,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "completed"
-      },
-      {
-        "date": "2026-01-13",
-        "name": "Workout A",
-        "workoutId": 34391438,
-        "workoutHistoryId": 60816417,
-        "duration": null,
-        "rpe": null,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-01-08",
-        "name": "Workout B",
-        "workoutId": 34390348,
-        "workoutHistoryId": 60624953,
-        "duration": null,
-        "rpe": null,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-01-02",
-        "name": "Workout A",
-        "workoutId": 34388369,
-        "workoutHistoryId": 60301374,
-        "duration": null,
-        "rpe": null,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
       }
     ],
     "programCount": 4,
@@ -2021,7 +2039,7 @@
         "name": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "started",
         "startedAt": "2025-12-29",
-        "updatedAt": "2026-05-08",
+        "updatedAt": "2026-06-01",
         "isPlaylist": true
       },
       {
@@ -2050,6 +2068,56 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-06-02",
+        "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 65675481,
+        "duration": 36,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-30",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 65467380,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-26",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 65238977,
+        "duration": 39,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-23",
+        "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 65183928,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-22",
+        "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 65137891,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
       {
         "date": "2026-05-09",
         "name": "Workout B",
@@ -2119,56 +2187,6 @@
         "rpe": 4,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "completed"
-      },
-      {
-        "date": "2026-04-03",
-        "name": "Workout B",
-        "workoutId": 34391445,
-        "workoutHistoryId": 63390096,
-        "duration": 52,
-        "rpe": 3,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-31",
-        "name": "Workout B",
-        "workoutId": 34391447,
-        "workoutHistoryId": 63303840,
-        "duration": 57,
-        "rpe": 4,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-28",
-        "name": "Workout A",
-        "workoutId": 34391446,
-        "workoutHistoryId": 63185302,
-        "duration": null,
-        "rpe": null,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-14",
-        "name": "Workout B",
-        "workoutId": 34391445,
-        "workoutHistoryId": 62759514,
-        "duration": 49,
-        "rpe": 4,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-11",
-        "name": "Workout A",
-        "workoutId": 34391444,
-        "workoutHistoryId": 62672905,
-        "duration": 52,
-        "rpe": 4,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
       }
     ],
     "programCount": 4,
@@ -2190,7 +2208,7 @@
         "name": "2025 - Linda",
         "status": "started",
         "startedAt": "2024-08-25",
-        "updatedAt": "2026-05-12",
+        "updatedAt": "2026-05-25",
         "isPlaylist": true
       },
       {
@@ -2227,6 +2245,36 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-05-26",
+        "name": "Deadlift and Military Press - Core Dynamic Stability",
+        "workoutId": 37048371,
+        "workoutHistoryId": 65243203,
+        "duration": 78,
+        "rpe": 2,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-24",
+        "name": "Squat and Bench - Core Stability",
+        "workoutId": 37048370,
+        "workoutHistoryId": 65193720,
+        "duration": 78,
+        "rpe": 2,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-21",
+        "name": "Squat and Bench Light - Core Dynamic Stability",
+        "workoutId": 37048369,
+        "workoutHistoryId": 65104422,
+        "duration": 72,
+        "rpe": 2,
+        "program": "2025 - Linda",
+        "status": "completed"
+      },
       {
         "date": "2026-05-13",
         "name": "Squat and Bench Light - Core Stability",
@@ -2316,36 +2364,6 @@
         "rpe": 2,
         "program": "2025 - Linda",
         "status": "completed"
-      },
-      {
-        "date": "2026-04-20",
-        "name": "1",
-        "workoutId": 29888236,
-        "workoutHistoryId": 63913650,
-        "duration": 47,
-        "rpe": 3,
-        "program": "2025 - Linda",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-17",
-        "name": "3",
-        "workoutId": 29888238,
-        "workoutHistoryId": 63854963,
-        "duration": null,
-        "rpe": null,
-        "program": "2025 - Linda",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-13",
-        "name": "1",
-        "workoutId": 29888236,
-        "workoutHistoryId": 63668455,
-        "duration": 50,
-        "rpe": 3,
-        "program": "2025 - Linda",
-        "status": "completed"
       }
     ],
     "programCount": 5,
@@ -2367,7 +2385,7 @@
         "name": "Alana 2026 Health and Performance Program ",
         "status": "started",
         "startedAt": "2026-01-14",
-        "updatedAt": "2026-05-10",
+        "updatedAt": "2026-06-01",
         "isPlaylist": true
       },
       {
@@ -2380,6 +2398,86 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-06-01",
+        "name": "Workout B",
+        "workoutId": 34743200,
+        "workoutHistoryId": 65562352,
+        "duration": 31,
+        "rpe": 3,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-28",
+        "name": "Workout A",
+        "workoutId": 34743199,
+        "workoutHistoryId": 65352440,
+        "duration": 32,
+        "rpe": 4,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-26",
+        "name": "Workout B",
+        "workoutId": 34743198,
+        "workoutHistoryId": 65247896,
+        "duration": 29,
+        "rpe": 3,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-23",
+        "name": "Workout A",
+        "workoutId": 34743197,
+        "workoutHistoryId": 65184442,
+        "duration": 30,
+        "rpe": 3,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-20",
+        "name": "Workout B",
+        "workoutId": 34743202,
+        "workoutHistoryId": 65076442,
+        "duration": 41,
+        "rpe": 5,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-17",
+        "name": "Workout A",
+        "workoutId": 34743201,
+        "workoutHistoryId": 64937546,
+        "duration": 35,
+        "rpe": 4,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-16",
+        "name": "Workout B",
+        "workoutId": 34743200,
+        "workoutHistoryId": 64930260,
+        "duration": 51,
+        "rpe": 4,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-13",
+        "name": "Upper",
+        "workoutId": 35576323,
+        "workoutHistoryId": 64827224,
+        "duration": 38,
+        "rpe": 5,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
       {
         "date": "2026-05-11",
         "name": "Lower",
@@ -2419,86 +2517,6 @@
         "rpe": 4,
         "program": "Alana 2026 Health and Performance Program ",
         "status": "completed"
-      },
-      {
-        "date": "2026-05-04",
-        "name": "Lower",
-        "workoutId": 35576324,
-        "workoutHistoryId": 64436530,
-        "duration": 43,
-        "rpe": 4,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-28",
-        "name": "Upper",
-        "workoutId": 35576323,
-        "workoutHistoryId": 64195680,
-        "duration": 45,
-        "rpe": 3,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-25",
-        "name": "Lower",
-        "workoutId": 35576322,
-        "workoutHistoryId": 64096339,
-        "duration": 32,
-        "rpe": 3,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-23",
-        "name": "Upper",
-        "workoutId": 35576321,
-        "workoutHistoryId": 64034039,
-        "duration": 60,
-        "rpe": null,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-20",
-        "name": "Lower",
-        "workoutId": 35576324,
-        "workoutHistoryId": 63919458,
-        "duration": 60,
-        "rpe": null,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-15",
-        "name": "Upper",
-        "workoutId": 35576323,
-        "workoutHistoryId": 63777289,
-        "duration": 32,
-        "rpe": 3,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-13",
-        "name": "Lower",
-        "workoutId": 35576322,
-        "workoutHistoryId": 63669865,
-        "duration": 76,
-        "rpe": 5,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-12",
-        "name": "Upper",
-        "workoutId": 35576321,
-        "workoutHistoryId": 63653161,
-        "duration": 52,
-        "rpe": 6,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
       }
     ],
     "programCount": 2,
@@ -2520,11 +2538,31 @@
         "name": "2025 - Craig Saphin",
         "status": "started",
         "startedAt": "2024-12-24",
-        "updatedAt": "2026-04-27",
+        "updatedAt": "2026-06-01",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-06-01",
+        "name": "5 x 5 reps B",
+        "workoutId": 36528258,
+        "workoutHistoryId": 65549502,
+        "duration": 64,
+        "rpe": 6,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-28",
+        "name": "5 x 5 reps A",
+        "workoutId": 36528256,
+        "workoutHistoryId": 65347229,
+        "duration": 69,
+        "rpe": 6,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
       {
         "date": "2026-04-27",
         "name": "5 x 5 reps B",
@@ -2622,26 +2660,6 @@
         "workoutHistoryId": 62861618,
         "duration": 49,
         "rpe": 4,
-        "program": "2025 - Craig Saphin",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-13",
-        "name": "5 x 5 reps B",
-        "workoutId": 35119251,
-        "workoutHistoryId": 62735418,
-        "duration": 57,
-        "rpe": 4,
-        "program": "2025 - Craig Saphin",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-09",
-        "name": "5 x 5 reps A",
-        "workoutId": 35119248,
-        "workoutHistoryId": 62580706,
-        "duration": null,
-        "rpe": null,
         "program": "2025 - Craig Saphin",
         "status": "completed"
       }
@@ -2810,127 +2828,127 @@
         "name": "Health & Performance ",
         "status": "started",
         "startedAt": "2025-09-07",
-        "updatedAt": "2026-05-11",
+        "updatedAt": "2026-06-03",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
       {
-        "date": "2026-05-11",
-        "name": "Workout B",
-        "workoutId": 36802201,
-        "workoutHistoryId": 64735792,
-        "duration": 62,
+        "date": "2026-06-02",
+        "name": "Workout A",
+        "workoutId": 36802140,
+        "workoutHistoryId": 65778502,
+        "duration": 100,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
       },
       {
-        "date": "2026-05-04",
-        "name": "Workout A",
-        "workoutId": 36802200,
-        "workoutHistoryId": 64437567,
-        "duration": 75,
-        "rpe": 4,
-        "program": "Health & Performance ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-02",
+        "date": "2026-05-31",
         "name": "Workout B",
-        "workoutId": 36802143,
-        "workoutHistoryId": 64364432,
-        "duration": 51,
-        "rpe": 4,
-        "program": "Health & Performance ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-30",
-        "name": "Workout A",
-        "workoutId": 36802142,
-        "workoutHistoryId": 64282890,
-        "duration": 76,
-        "rpe": 3,
-        "program": "Health & Performance ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-28",
-        "name": "Workout B",
-        "workoutId": 36802141,
-        "workoutHistoryId": 64198075,
+        "workoutId": 36802211,
+        "workoutHistoryId": 65598871,
         "duration": 80,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
       },
       {
-        "date": "2026-04-26",
+        "date": "2026-05-29",
         "name": "Workout A",
-        "workoutId": 36802140,
-        "workoutHistoryId": 64116023,
+        "workoutId": 36802210,
+        "workoutHistoryId": 65458499,
         "duration": 70,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
       },
       {
-        "date": "2026-04-24",
+        "date": "2026-05-27",
         "name": "Workout B",
-        "workoutId": 35877231,
-        "workoutHistoryId": 64063577,
-        "duration": 60,
+        "workoutId": 36802209,
+        "workoutHistoryId": 65329887,
+        "duration": 80,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
       },
       {
-        "date": "2026-04-22",
+        "date": "2026-05-25",
         "name": "Workout A",
-        "workoutId": 35877230,
-        "workoutHistoryId": 64013688,
-        "duration": 60,
+        "workoutId": 36802208,
+        "workoutHistoryId": 65217305,
+        "duration": 90,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
       },
       {
-        "date": "2026-04-20",
+        "date": "2026-05-23",
         "name": "Workout B",
-        "workoutId": 35877229,
-        "workoutHistoryId": 63932448,
-        "duration": 75,
+        "workoutId": 36802207,
+        "workoutHistoryId": 65186127,
+        "duration": 90,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-21",
+        "name": "Workout A",
+        "workoutId": 36802206,
+        "workoutHistoryId": 65109457,
+        "duration": 90,
         "rpe": 4,
         "program": "Health & Performance ",
         "status": "completed"
       },
       {
-        "date": "2026-04-18",
-        "name": "Workout A",
-        "workoutId": 35877228,
-        "workoutHistoryId": 63880636,
-        "duration": 60,
-        "rpe": 3,
-        "program": "Health & Performance ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-15",
+        "date": "2026-05-19",
         "name": "Workout B",
-        "workoutId": 35877227,
-        "workoutHistoryId": 63782397,
-        "duration": 75,
+        "workoutId": 36802205,
+        "workoutHistoryId": 65052469,
+        "duration": 90,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
       },
       {
-        "date": "2026-04-13",
+        "date": "2026-05-17",
         "name": "Workout A",
-        "workoutId": 35877226,
-        "workoutHistoryId": 63688613,
-        "duration": 75,
+        "workoutId": 36802204,
+        "workoutHistoryId": 64950006,
+        "duration": 90,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-15",
+        "name": "Workout B",
+        "workoutId": 36802203,
+        "workoutHistoryId": 64895878,
+        "duration": 66,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-13",
+        "name": "Workout A",
+        "workoutId": 36802202,
+        "workoutHistoryId": 64828779,
+        "duration": 90,
+        "rpe": 4,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-11",
+        "name": "Workout B",
+        "workoutId": 36802201,
+        "workoutHistoryId": 64735792,
+        "duration": 62,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
@@ -3013,14 +3031,14 @@
     "age": 19,
     "birthDate": "2007-03-03",
     "gender": null,
-    "weightKg": 72.6,
+    "weightKg": 70.3,
     "programs": [
       {
         "bridgeId": 2194780,
         "name": "Liam Tennis Performance Foundation ",
         "status": "started",
         "startedAt": "2026-04-30",
-        "updatedAt": "2026-04-30",
+        "updatedAt": "2026-06-03",
         "isPlaylist": true
       },
       {
@@ -3041,6 +3059,26 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-06-03",
+        "name": "Upper Push-Pull - Core Stability",
+        "workoutId": 36910401,
+        "workoutHistoryId": 65779410,
+        "duration": 70,
+        "rpe": 6,
+        "program": "Liam Tennis Performance Foundation ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-25",
+        "name": "Lower Strength and Vertical Pull - Core Anti-Rotation",
+        "workoutId": 36910400,
+        "workoutHistoryId": 65217016,
+        "duration": null,
+        "rpe": null,
+        "program": "Liam Tennis Performance Foundation ",
+        "status": "completed"
+      },
       {
         "date": "2026-04-23",
         "name": "Athletic Max Effort Lower Sumo Deadlift 1 Rep",
@@ -3150,26 +3188,6 @@
         "rpe": null,
         "program": "Ruthless",
         "status": "completed"
-      },
-      {
-        "date": "2025-12-29",
-        "name": "Athletic Max Effort Upper Close-Grip Bench 3 Rep",
-        "workoutId": 34140390,
-        "workoutHistoryId": 60251948,
-        "duration": null,
-        "rpe": null,
-        "program": "Ruthless",
-        "status": "completed"
-      },
-      {
-        "date": "2025-12-17",
-        "name": "Athletic Max Effort Upper Barbell Bench 1 Rep",
-        "workoutId": 34140387,
-        "workoutHistoryId": 59998338,
-        "duration": null,
-        "rpe": null,
-        "program": "Ruthless",
-        "status": "completed"
       }
     ],
     "programCount": 3,
@@ -3184,14 +3202,14 @@
     "age": 52,
     "birthDate": "1973-08-11",
     "gender": null,
-    "weightKg": 29.9,
+    "weightKg": 65,
     "programs": [
       {
         "bridgeId": 2189488,
         "name": "Sondra Hamill - 12 Week Home Programme",
         "status": "started",
         "startedAt": "2026-04-27",
-        "updatedAt": "2026-04-28",
+        "updatedAt": "2026-05-19",
         "isPlaylist": false
       },
       {
@@ -3204,6 +3222,26 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-04-29",
+        "name": "Day B - Upper Body Push/Pull",
+        "workoutId": 36804227,
+        "workoutHistoryId": 64128078,
+        "duration": 30,
+        "rpe": 2,
+        "program": "Sondra Hamill - 12 Week Home Programme",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-27",
+        "name": "Day A - Lower Body & Core",
+        "workoutId": 36804226,
+        "workoutHistoryId": 64128077,
+        "duration": 30,
+        "rpe": 4,
+        "program": "Sondra Hamill - 12 Week Home Programme",
+        "status": "completed"
+      },
       {
         "date": "2026-02-01",
         "name": "11",
@@ -3303,26 +3341,6 @@
         "rpe": null,
         "program": "Sondra Hamill Health and Performance ",
         "status": "completed"
-      },
-      {
-        "date": "2025-12-16",
-        "name": "4",
-        "workoutId": 33956205,
-        "workoutHistoryId": 59916627,
-        "duration": null,
-        "rpe": null,
-        "program": "Sondra Hamill Health and Performance ",
-        "status": "completed"
-      },
-      {
-        "date": "2025-12-13",
-        "name": "3",
-        "workoutId": 33956204,
-        "workoutHistoryId": 59834150,
-        "duration": null,
-        "rpe": null,
-        "program": "Sondra Hamill Health and Performance ",
-        "status": "completed"
       }
     ],
     "programCount": 2,
@@ -3344,11 +3362,99 @@
         "name": "2026 Program - Renee Lodens (Kettlebells)",
         "status": "started",
         "startedAt": "2025-12-31",
-        "updatedAt": "2026-05-06",
+        "updatedAt": "2026-06-03",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2211035,
+        "name": "BBQ Workout",
+        "status": "started",
+        "startedAt": "2026-05-16",
+        "updatedAt": "2026-05-31",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-06-03",
+        "name": "Heavy Lower, Vertical Pull",
+        "workoutId": 36959787,
+        "workoutHistoryId": 65767398,
+        "duration": 36,
+        "rpe": 5,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-06-01",
+        "name": "Cable Arms & Shape",
+        "workoutId": -37269886,
+        "workoutHistoryId": 65538401,
+        "duration": 20,
+        "rpe": 2,
+        "program": "BBQ Workout",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-30",
+        "name": "Volume Lower, Heavy Pull",
+        "workoutId": -36959786,
+        "workoutHistoryId": 65471253,
+        "duration": 44,
+        "rpe": 5,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-29",
+        "name": "Upper Push, Mixed Pull",
+        "workoutId": 36959785,
+        "workoutHistoryId": 65386228,
+        "duration": 39,
+        "rpe": 3,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-25",
+        "name": "Heavy Lower, Vertical Pull",
+        "workoutId": 36959784,
+        "workoutHistoryId": 65203343,
+        "duration": 24,
+        "rpe": 3,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-22",
+        "name": "Movement Quality",
+        "workoutId": 36959783,
+        "workoutHistoryId": 65136475,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-18",
+        "name": "Upper Assessment",
+        "workoutId": 36959782,
+        "workoutHistoryId": 64955136,
+        "duration": 38,
+        "rpe": 4,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-17",
+        "name": "DB Arms & Glow",
+        "workoutId": 37269885,
+        "workoutHistoryId": 64936443,
+        "duration": 20,
+        "rpe": 4,
+        "program": "BBQ Workout",
+        "status": "completed"
+      },
       {
         "date": "2026-05-06",
         "name": "Lower Assessment",
@@ -3388,89 +3494,9 @@
         "rpe": 2,
         "program": "2026 Program - Renee Lodens (Kettlebells)",
         "status": "completed"
-      },
-      {
-        "date": "2026-04-19",
-        "name": "Workout A",
-        "workoutId": 36039425,
-        "workoutHistoryId": 63887015,
-        "duration": 33,
-        "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-17",
-        "name": "Workout B",
-        "workoutId": 36039424,
-        "workoutHistoryId": 63852686,
-        "duration": 38,
-        "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-14",
-        "name": "Workout A",
-        "workoutId": 36039423,
-        "workoutHistoryId": 63725117,
-        "duration": 39,
-        "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-12",
-        "name": "Workout B",
-        "workoutId": 36039422,
-        "workoutHistoryId": 63652945,
-        "duration": 40,
-        "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-10",
-        "name": "Workout A",
-        "workoutId": 36039421,
-        "workoutHistoryId": 63618879,
-        "duration": 40,
-        "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-08",
-        "name": "Workout B",
-        "workoutId": 36039420,
-        "workoutHistoryId": 63563619,
-        "duration": 34,
-        "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-06",
-        "name": "Workout A",
-        "workoutId": 36039419,
-        "workoutHistoryId": 63466555,
-        "duration": null,
-        "rpe": null,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-05",
-        "name": "Workout B",
-        "workoutId": 36039418,
-        "workoutHistoryId": 63443506,
-        "duration": 35,
-        "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
       }
     ],
-    "programCount": 1,
+    "programCount": 2,
     "totalCompletedThisRange": 12
   },
   "michael-james": {
@@ -3482,8 +3508,24 @@
     "age": 48,
     "birthDate": "1978-03-22",
     "gender": null,
-    "weightKg": 97,
+    "weightKg": 96,
     "programs": [
+      {
+        "bridgeId": 2210220,
+        "name": "Easy Strength copy",
+        "status": "started",
+        "startedAt": "2026-05-15",
+        "updatedAt": "2026-05-31",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2210199,
+        "name": "Upper Body Hypertrophy Stack",
+        "status": "started",
+        "startedAt": "2026-05-15",
+        "updatedAt": "2026-05-15",
+        "isPlaylist": true
+      },
       {
         "bridgeId": 2112370,
         "name": "ARM FARM MJ",
@@ -3494,6 +3536,66 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-06-01",
+        "name": "Squat and Bench Light - Core Dynamic Stability",
+        "workoutId": 37248835,
+        "workoutHistoryId": 65546157,
+        "duration": 26,
+        "rpe": 3,
+        "program": "Easy Strength copy",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-29",
+        "name": "Military Press - Core Stability",
+        "workoutId": 37248834,
+        "workoutHistoryId": 65391012,
+        "duration": 52,
+        "rpe": 5,
+        "program": "Easy Strength copy",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-25",
+        "name": "Bench - Core Stability",
+        "workoutId": 37248833,
+        "workoutHistoryId": 65205471,
+        "duration": 38,
+        "rpe": 5,
+        "program": "Easy Strength copy",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-20",
+        "name": "Bench and Arms - Core Stability",
+        "workoutId": 37248832,
+        "workoutHistoryId": 65074899,
+        "duration": 30,
+        "rpe": 4,
+        "program": "Easy Strength copy",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-18",
+        "name": "Military Press - Core Dynamic Stability",
+        "workoutId": 37248831,
+        "workoutHistoryId": 64958502,
+        "duration": 27,
+        "rpe": 3,
+        "program": "Easy Strength copy",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-16",
+        "name": "Bench - Core Stability",
+        "workoutId": 37248830,
+        "workoutHistoryId": 64931002,
+        "duration": 34,
+        "rpe": 3,
+        "program": "Easy Strength copy",
+        "status": "completed"
+      },
       {
         "date": "2026-03-31",
         "name": "2.4.4",
@@ -3553,69 +3655,9 @@
         "rpe": 2,
         "program": "ARM FARM MJ",
         "status": "completed"
-      },
-      {
-        "date": "2026-03-23",
-        "name": "2.3.2",
-        "workoutId": 35831507,
-        "workoutHistoryId": 63011243,
-        "duration": 49,
-        "rpe": 5,
-        "program": "ARM FARM MJ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-22",
-        "name": "2.3.1",
-        "workoutId": 35831506,
-        "workoutHistoryId": 62983030,
-        "duration": 44,
-        "rpe": 4,
-        "program": "ARM FARM MJ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-20",
-        "name": "2.2.4",
-        "workoutId": 35831505,
-        "workoutHistoryId": 62942270,
-        "duration": 41,
-        "rpe": 3,
-        "program": "ARM FARM MJ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-19",
-        "name": "2.2.3",
-        "workoutId": 35831504,
-        "workoutHistoryId": 62913258,
-        "duration": 45,
-        "rpe": 5,
-        "program": "ARM FARM MJ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-16",
-        "name": "2.2.2",
-        "workoutId": 35831503,
-        "workoutHistoryId": 62791463,
-        "duration": 44,
-        "rpe": 5,
-        "program": "ARM FARM MJ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-15",
-        "name": "2.2.1",
-        "workoutId": 35831502,
-        "workoutHistoryId": 62771995,
-        "duration": 41,
-        "rpe": 4,
-        "program": "ARM FARM MJ",
-        "status": "completed"
       }
     ],
-    "programCount": 1,
+    "programCount": 3,
     "totalCompletedThisRange": 12
   }
 }
