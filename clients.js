@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-06-06T22:30:29.427Z
+   Last synced: 2026-06-07T00:00:28.992Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -580,43 +580,51 @@ const BRIDGE_DATA = {
     "weightKg": 84,
     "programs": [
       {
-        "bridgeId": 1446317,
-        "name": "Road to LA28- Craig",
+        "bridgeId": 2239609,
+        "name": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "started",
-        "startedAt": "2024-05-21",
-        "updatedAt": "2026-06-03",
+        "startedAt": "2026-06-06",
+        "updatedAt": "2026-06-06",
         "isPlaylist": true
       },
       {
         "bridgeId": 2170530,
         "name": "STRONG HIPS",
-        "status": "started",
+        "status": "completed",
         "startedAt": "2026-04-04",
-        "updatedAt": "2026-05-25",
+        "updatedAt": "2026-06-06",
         "isPlaylist": true
       },
       {
         "bridgeId": 2066178,
         "name": "Hotel Gym Program INDIA",
-        "status": "started",
+        "status": "completed",
         "startedAt": "2025-12-27",
-        "updatedAt": "2026-01-17",
+        "updatedAt": "2026-06-06",
         "isPlaylist": true
       },
       {
         "bridgeId": 1664195,
         "name": "Train From Home - Intermediate/Advanced - 6 weeks - No Equipment copy",
-        "status": "started",
+        "status": "completed",
         "startedAt": "2024-12-20",
-        "updatedAt": "2024-12-20",
+        "updatedAt": "2026-06-06",
         "isPlaylist": true
       },
       {
         "bridgeId": 1542294,
         "name": "TESTING",
-        "status": "started",
+        "status": "completed",
         "startedAt": "2024-08-28",
-        "updatedAt": "2024-08-28",
+        "updatedAt": "2026-06-06",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1446317,
+        "name": "Road to LA28- Craig",
+        "status": "completed",
+        "startedAt": "2024-05-21",
+        "updatedAt": "2026-06-06",
         "isPlaylist": true
       },
       {
@@ -830,7 +838,7 @@ const BRIDGE_DATA = {
         "status": "completed"
       }
     ],
-    "programCount": 16,
+    "programCount": 17,
     "totalCompletedThisRange": 12
   },
   "charlie-lanchester": {
