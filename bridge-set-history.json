@@ -1781,161 +1781,7 @@
         "t": "Tracked"
       }
     ],
-    "394332": [
-      {
-        "d": "2025-09-22T12:00:00.000Z",
-        "ex": 364,
-        "rw": 25000000,
-        "rr": 3,
-        "rrpe": null,
-        "whId": 56863953,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-22T12:00:00.000Z",
-        "ex": 364,
-        "rw": 27500000,
-        "rr": 3,
-        "rrpe": null,
-        "whId": 56863953,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-22T12:00:00.000Z",
-        "ex": 364,
-        "rw": 35000000,
-        "rr": 2,
-        "rrpe": null,
-        "whId": 56863953,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-22T12:00:00.000Z",
-        "ex": 364,
-        "rw": 40000000,
-        "rr": 2,
-        "rrpe": null,
-        "whId": 56863953,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-22T12:00:00.000Z",
-        "ex": 369,
-        "rw": null,
-        "rr": 2,
-        "rrpe": null,
-        "whId": 56863953,
-        "t": "Required"
-      },
-      {
-        "d": "2025-09-22T12:00:00.000Z",
-        "ex": 370,
-        "rw": null,
-        "rr": 10,
-        "rrpe": null,
-        "whId": 56863953,
-        "t": "Required"
-      },
-      {
-        "d": "2025-09-19T12:00:00.000Z",
-        "ex": 367,
-        "rw": 30000000,
-        "rr": 2,
-        "rrpe": null,
-        "whId": 56798041,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-19T12:00:00.000Z",
-        "ex": 367,
-        "rw": 32500000,
-        "rr": 2,
-        "rrpe": null,
-        "whId": 56798041,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-19T12:00:00.000Z",
-        "ex": 367,
-        "rw": 35000000,
-        "rr": 1,
-        "rrpe": null,
-        "whId": 56798041,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-19T12:00:00.000Z",
-        "ex": 367,
-        "rw": 37500000,
-        "rr": 1,
-        "rrpe": null,
-        "whId": 56798041,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-16T12:00:00.000Z",
-        "ex": 677,
-        "rw": 40000000,
-        "rr": 3,
-        "rrpe": null,
-        "whId": 56705509,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-16T12:00:00.000Z",
-        "ex": 677,
-        "rw": 60000000,
-        "rr": 3,
-        "rrpe": null,
-        "whId": 56705509,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-16T12:00:00.000Z",
-        "ex": 677,
-        "rw": 70000000,
-        "rr": 2,
-        "rrpe": null,
-        "whId": 56705509,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-16T12:00:00.000Z",
-        "ex": 677,
-        "rw": 75000000,
-        "rr": 2,
-        "rrpe": null,
-        "whId": 56705509,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-16T12:00:00.000Z",
-        "ex": 759,
-        "rw": null,
-        "rr": 3,
-        "rrpe": null,
-        "whId": 56705509,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-16T12:00:00.000Z",
-        "ex": 759,
-        "rw": null,
-        "rr": 2,
-        "rrpe": null,
-        "whId": 56705509,
-        "t": "Tracked"
-      },
-      {
-        "d": "2025-09-16T12:00:00.000Z",
-        "ex": 759,
-        "rw": null,
-        "rr": 1,
-        "rrpe": null,
-        "whId": 56705509,
-        "t": "Tracked"
-      }
-    ],
+    "394332": [],
     "457666": [],
     "516347": [],
     "572157": [],
@@ -2725,13 +2571,11 @@
     "315": "Squat",
     "364": "Back Squat - Barbell",
     "367": "Bench Press - Barbell",
-    "369": "Pull Up",
     "370": "Push Up",
     "392": "Front Squat - Barbell",
     "508": "Incline Bench Press - Barbell",
     "510": "Overhead Press - Seated Dumbbell",
     "677": "Deadlift - Trap Bar",
-    "759": "Broad Jump",
     "1487": "Swing - 2 Arm Kettlebell",
     "41884": "Bench Press - 1 Arm Dumbbell",
     "42542": "Reverse Crunches",
