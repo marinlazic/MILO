@@ -48438,6 +48438,459 @@
       }
     ]
   },
+  "37596150": {
+    "workoutId": 37596150,
+    "name": "Upper Pull Vertical + Lower Push + Row Intervals",
+    "blocks": [
+      {
+        "name": "Rehab Block",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": false,
+        "exercises": [
+          {
+            "name": "Shoulder Internal Rotation - Standing Theraband 90",
+            "slug": "shoulder-internal-rotation-standing-theraband-90",
+            "exerciseId": 41790,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 30,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 30,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 30,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Shoulder External Rotation - Supine at 90",
+            "slug": "shoulder-external-rotation-supine-at-90",
+            "exerciseId": 41793,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 30,
+                "note": "Priority movement"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 30,
+                "note": "Priority movement"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 30,
+                "note": "Priority movement"
+              }
+            ]
+          },
+          {
+            "name": "Cable Face Pull",
+            "slug": "cable-face-pull",
+            "exerciseId": 830838,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 45,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 45,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 45,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "AAROM Shoulder External Rotation",
+            "slug": "aarom-shoulder-external-rotation",
+            "exerciseId": 1329010,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 30,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 30,
+                "note": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Strength Block",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": false,
+        "exercises": [
+          {
+            "name": "Lateral Squat - Kettlebell",
+            "slug": "lateral-squat-kettlebell",
+            "exerciseId": 43287,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 680000,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": "Sub Spanish Squat if needed"
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 680000,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 680000,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Lat Pulldown - Half Kneeling Cable",
+            "slug": "lat-pulldown-half-kneeling-cable",
+            "exerciseId": 43330,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 730000,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 90,
+                "note": "Neutral grip, avoid end-range hang"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 730000,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 90,
+                "note": "Neutral grip, avoid end-range hang"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 730000,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 90,
+                "note": "Neutral grip, avoid end-range hang"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Accessory Block - C",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": true,
+        "exercises": [
+          {
+            "name": "Walking Lunges - Dumbbell",
+            "slug": "walking-lunges-dumbbell",
+            "exerciseId": 442,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 45,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 45,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 45,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Banded Y Deltoid Fly",
+            "slug": "banded-y-deltoid-fly",
+            "exerciseId": 730051,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": 12,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": "External-rotation builder, light load"
+              },
+              {
+                "type": "Workset",
+                "reps": 12,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 12,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Accessory Block - D",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": true,
+        "exercises": [
+          {
+            "name": "Biceps Curls - Standing Cable",
+            "slug": "biceps-curls-standing-cable",
+            "exerciseId": 41568,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": 12,
+                "weight": 700000,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": "By control"
+              },
+              {
+                "type": "Workset",
+                "reps": 12,
+                "weight": 700000,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 12,
+                "weight": 700000,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Farmer's Walk - 1 Arm Kettlebell",
+            "slug": "farmer-s-walk-1-arm-kettlebell",
+            "exerciseId": 43255,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 600000,
+                "weightUnit": "kg",
+                "distance": 30000,
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 45,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 600000,
+                "weightUnit": "kg",
+                "distance": 30000,
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 45,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 600000,
+                "weightUnit": "kg",
+                "distance": 30000,
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 45,
+                "note": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Conditioning Block",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": false,
+        "exercises": [
+          {
+            "name": "Concept2 Row",
+            "slug": "concept2-row",
+            "exerciseId": 1329021,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 60,
+                "note": "Moderate intensity; 1 min hard / 1 min easy"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 60,
+                "note": "Moderate intensity; 1 min hard / 1 min easy"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 60,
+                "note": "Moderate intensity; 1 min hard / 1 min easy"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 60,
+                "note": "Moderate intensity; 1 min hard / 1 min easy"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 60,
+                "note": "Moderate intensity; 1 min hard / 1 min easy"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weightUnit": "kg",
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": 60,
+                "note": "Moderate intensity; 1 min hard / 1 min easy"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "37701261": {
     "workoutId": 37701261,
     "name": "Lower Pull / Upper Push B",
