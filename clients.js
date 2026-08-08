@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-08-07T22:34:59.654Z
+   Last synced: 2026-08-08T00:21:34.848Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -148,6 +148,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-08",
+        "name": "Upper Pull Vertical + Lower Push + Row Intervals",
+        "workoutId": 37596150,
+        "workoutHistoryId": 68331519,
+        "duration": 97,
+        "rpe": 9,
+        "program": "Reini Otter 12-Week Training Program",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-07",
         "name": "Upper Push + Lower Pull",
         "workoutId": 37596149,
@@ -264,16 +274,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 65987764,
         "duration": 90,
         "rpe": 10,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-06-05",
-        "name": "Upper Pull Vertical + Lower Push + Row Intervals",
-        "workoutId": -37596146,
-        "workoutHistoryId": 65945317,
-        "duration": 78,
-        "rpe": 9,
         "program": "Reini Otter 12-Week Training Program",
         "status": "completed"
       }
@@ -2110,6 +2110,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-08",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 68331746,
+        "duration": 39,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-04",
         "name": "Workout B",
         "workoutId": 34391447,
@@ -2226,16 +2236,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 65467380,
         "duration": null,
         "rpe": null,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-26",
-        "name": "Workout B",
-        "workoutId": 34391447,
-        "workoutHistoryId": 65238977,
-        "duration": 39,
-        "rpe": 4,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "completed"
       }
