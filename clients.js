@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-08-09T04:23:37.676Z
+   Last synced: 2026-08-09T22:30:33.030Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -293,6 +293,14 @@ const BRIDGE_DATA = {
     "weightKg": 54,
     "programs": [
       {
+        "bridgeId": 2311868,
+        "name": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "started",
+        "startedAt": "2026-08-09",
+        "updatedAt": "2026-08-09",
+        "isPlaylist": true
+      },
+      {
         "bridgeId": 1366329,
         "name": "2025 -  SAM",
         "status": "started",
@@ -303,9 +311,9 @@ const BRIDGE_DATA = {
       {
         "bridgeId": 2204709,
         "name": "Hypertrophy & Impulse Integration",
-        "status": "started",
+        "status": "completed",
         "startedAt": "2026-05-10",
-        "updatedAt": "2026-06-21",
+        "updatedAt": "2026-08-09",
         "isPlaylist": true
       },
       {
@@ -595,7 +603,7 @@ const BRIDGE_DATA = {
         "status": "completed"
       }
     ],
-    "programCount": 20,
+    "programCount": 21,
     "totalCompletedThisRange": 14
   },
   "craig-blair": {
@@ -614,7 +622,7 @@ const BRIDGE_DATA = {
         "name": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "started",
         "startedAt": "2026-06-06",
-        "updatedAt": "2026-08-04",
+        "updatedAt": "2026-08-09",
         "isPlaylist": true
       },
       {
@@ -891,27 +899,59 @@ const BRIDGE_DATA = {
     "weightKg": 79,
     "programs": [
       {
-        "bridgeId": 2116305,
-        "name": "ARM FARM Charlie",
+        "bridgeId": 2312016,
+        "name": "Charlie — 9-Week Phase (Golf · Surf · Padel)",
         "status": "started",
-        "startedAt": "2026-02-09",
-        "updatedAt": "2026-06-22",
+        "startedAt": "2026-08-09",
+        "updatedAt": "2026-08-09",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2312012,
+        "name": "Charlie — 9-Week Phase (Golf · Surf · Padel)",
+        "status": "completed",
+        "startedAt": "2026-08-09",
+        "updatedAt": "2026-08-09",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2312003,
+        "name": "Charlie — 9-Week Phase (Golf · Surf · Padel)",
+        "status": "completed",
+        "startedAt": "2026-08-09",
+        "updatedAt": "2026-08-09",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2311870,
+        "name": "Charlie — 9-Week Phase (Golf · Surf · Padel)",
+        "status": "completed",
+        "startedAt": "2026-08-09",
+        "updatedAt": "2026-08-09",
         "isPlaylist": true
       },
       {
         "bridgeId": 2136720,
         "name": "Golf Warm Ups",
-        "status": "started",
+        "status": "completed",
         "startedAt": "2026-03-01",
-        "updatedAt": "2026-03-01",
+        "updatedAt": "2026-08-09",
         "isPlaylist": true
       },
       {
         "bridgeId": 2136718,
         "name": "Surf Warm Up",
-        "status": "started",
+        "status": "completed",
         "startedAt": "2026-03-01",
-        "updatedAt": "2026-03-01",
+        "updatedAt": "2026-08-09",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2116305,
+        "name": "ARM FARM Charlie",
+        "status": "completed",
+        "startedAt": "2026-02-09",
+        "updatedAt": "2026-08-09",
         "isPlaylist": true
       },
       {
@@ -1165,7 +1205,7 @@ const BRIDGE_DATA = {
         "status": "completed"
       }
     ],
-    "programCount": 19,
+    "programCount": 23,
     "totalCompletedThisRange": 12
   },
   "mark-oreilly": {
@@ -2460,7 +2500,7 @@ const BRIDGE_DATA = {
         "name": "Alana 2026 Health and Performance Program ",
         "status": "started",
         "startedAt": "2026-01-14",
-        "updatedAt": "2026-08-05",
+        "updatedAt": "2026-08-08",
         "isPlaylist": true
       },
       {
@@ -2742,6 +2782,151 @@ const BRIDGE_DATA = {
     "programCount": 1,
     "totalCompletedThisRange": 12
   },
+  "maria-goddard": {
+    "id": "maria-goddard",
+    "bridgeId": 516347,
+    "name": "Maria Goddard",
+    "initials": "MG",
+    "email": "marialong2@hotmail.com",
+    "age": 42,
+    "birthDate": "1984-01-04",
+    "gender": null,
+    "weightKg": 60,
+    "programs": [
+      {
+        "bridgeId": 1798903,
+        "name": "Health and Performance _Maria",
+        "status": "started",
+        "startedAt": "2025-04-29",
+        "updatedAt": "2026-03-03",
+        "isPlaylist": true
+      }
+    ],
+    "recentWorkouts": [
+      {
+        "date": "2026-03-03",
+        "name": "2",
+        "workoutId": 33811593,
+        "workoutHistoryId": 62430900,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-26",
+        "name": "1",
+        "workoutId": 33811592,
+        "workoutHistoryId": 62236759,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-21",
+        "name": "3",
+        "workoutId": 33811594,
+        "workoutHistoryId": 60064091,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-12",
+        "name": "2",
+        "workoutId": 33811593,
+        "workoutHistoryId": 59810025,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-10",
+        "name": "1",
+        "workoutId": 33811592,
+        "workoutHistoryId": 59745199,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-07-30",
+        "name": null,
+        "workoutId": 29611862,
+        "workoutHistoryId": 55127472,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-07-29",
+        "name": null,
+        "workoutId": 29611861,
+        "workoutHistoryId": 55088080,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-06-12",
+        "name": null,
+        "workoutId": 29611860,
+        "workoutHistoryId": 53618063,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-28",
+        "name": null,
+        "workoutId": 29611859,
+        "workoutHistoryId": 53045094,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-21",
+        "name": null,
+        "workoutId": 29611858,
+        "workoutHistoryId": 52819909,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-18",
+        "name": null,
+        "workoutId": 29611858,
+        "workoutHistoryId": 52817560,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-13",
+        "name": null,
+        "workoutId": 29611857,
+        "workoutHistoryId": 52541367,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      }
+    ],
+    "programCount": 1,
+    "totalCompletedThisRange": 12
+  },
   "katherine-freire": {
     "id": "katherine-freire",
     "bridgeId": 572157,
@@ -2758,11 +2943,21 @@ const BRIDGE_DATA = {
         "name": "Health & Performance ",
         "status": "started",
         "startedAt": "2025-09-07",
-        "updatedAt": "2026-08-07",
+        "updatedAt": "2026-08-09",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-08-09",
+        "name": "Lower Pull / Upper Push B",
+        "workoutId": 37701273,
+        "workoutHistoryId": 68372026,
+        "duration": 61,
+        "rpe": 2,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
       {
         "date": "2026-08-07",
         "name": "Lower Push / Upper Pull A",
@@ -2869,16 +3064,6 @@ const BRIDGE_DATA = {
         "workoutId": 37701262,
         "workoutHistoryId": 67449981,
         "duration": 83,
-        "rpe": 3,
-        "program": "Health & Performance ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-12",
-        "name": "Lower Pull / Upper Push B",
-        "workoutId": 37701261,
-        "workoutHistoryId": 67346369,
-        "duration": 75,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
@@ -3292,7 +3477,7 @@ const BRIDGE_DATA = {
         "name": "2026 Program - Renee Lodens (Kettlebells)",
         "status": "started",
         "startedAt": "2025-12-31",
-        "updatedAt": "2026-08-08",
+        "updatedAt": "2026-08-09",
         "isPlaylist": true
       },
       {
