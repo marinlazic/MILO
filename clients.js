@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-08-08T00:21:34.848Z
+   Last synced: 2026-08-09T04:23:37.676Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -1310,6 +1310,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-07",
+        "name": "Hinge + Vertical Pull",
+        "workoutId": -36881000,
+        "workoutHistoryId": 68292295,
+        "duration": null,
+        "rpe": null,
+        "program": "Mark -SLEEP BETTER PROGRAM",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-05",
         "name": "Power + Multi-Planar + Vertical Pull",
         "workoutId": 36880999,
@@ -1418,16 +1428,6 @@ const BRIDGE_DATA = {
         "rpe": null,
         "program": "Mark -SLEEP BETTER PROGRAM",
         "status": "completed"
-      },
-      {
-        "date": "2026-05-08",
-        "name": "Hinge + Vertical Pull Focus",
-        "workoutId": -36881024,
-        "workoutHistoryId": 64636045,
-        "duration": 44,
-        "rpe": 7,
-        "program": "Mark -SLEEP BETTER PROGRAM",
-        "status": "completed"
       }
     ],
     "programCount": 16,
@@ -1526,6 +1526,16 @@ const BRIDGE_DATA = {
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-08-07",
+        "name": "Deadlift Heavy - Core Stability",
+        "workoutId": -36854097,
+        "workoutHistoryId": 68292321,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
       {
         "date": "2026-06-23",
         "name": "Pull Heavy - Core Stability",
@@ -1653,16 +1663,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 64230423,
         "duration": 51,
         "rpe": 7,
-        "program": "Nathan 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-04-28",
-        "name": "Pull and Deadlift - Core Stability",
-        "workoutId": 36854087,
-        "workoutHistoryId": 64190650,
-        "duration": 52,
-        "rpe": 8,
         "program": "Nathan 2026 Health and Performance Program",
         "status": "completed"
       }
@@ -1889,6 +1889,14 @@ const BRIDGE_DATA = {
     "weightKg": 65,
     "programs": [
       {
+        "bridgeId": 2311431,
+        "name": "Foundation Block - Mel and Steph",
+        "status": "started",
+        "startedAt": "2026-08-08",
+        "updatedAt": "2026-08-08",
+        "isPlaylist": true
+      },
+      {
         "bridgeId": 2067838,
         "name": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "started",
@@ -1899,9 +1907,9 @@ const BRIDGE_DATA = {
       {
         "bridgeId": 2285180,
         "name": "Foundation Block",
-        "status": "started",
+        "status": "completed",
         "startedAt": "2026-07-12",
-        "updatedAt": "2026-07-12",
+        "updatedAt": "2026-08-08",
         "isPlaylist": true
       },
       {
@@ -2061,7 +2069,7 @@ const BRIDGE_DATA = {
         "status": "completed"
       }
     ],
-    "programCount": 5,
+    "programCount": 6,
     "totalCompletedThisRange": 13
   },
   "stephanie-belton": {
@@ -2076,11 +2084,27 @@ const BRIDGE_DATA = {
     "weightKg": 91,
     "programs": [
       {
+        "bridgeId": 2311430,
+        "name": "Foundation Block - Mel and Steph",
+        "status": "started",
+        "startedAt": "2026-08-08",
+        "updatedAt": "2026-08-08",
+        "isPlaylist": true
+      },
+      {
         "bridgeId": 2067839,
         "name": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "started",
         "startedAt": "2025-12-29",
         "updatedAt": "2026-08-07",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2311420,
+        "name": "Foundation Block",
+        "status": "completed",
+        "startedAt": "2026-08-08",
+        "updatedAt": "2026-08-08",
         "isPlaylist": true
       },
       {
@@ -2240,7 +2264,7 @@ const BRIDGE_DATA = {
         "status": "completed"
       }
     ],
-    "programCount": 4,
+    "programCount": 6,
     "totalCompletedThisRange": 13
   },
   "linda-gregory": {
@@ -2712,151 +2736,6 @@ const BRIDGE_DATA = {
         "duration": 51,
         "rpe": 6,
         "program": "2025 - Craig Saphin",
-        "status": "completed"
-      }
-    ],
-    "programCount": 1,
-    "totalCompletedThisRange": 12
-  },
-  "maria-goddard": {
-    "id": "maria-goddard",
-    "bridgeId": 516347,
-    "name": "Maria Goddard",
-    "initials": "MG",
-    "email": "marialong2@hotmail.com",
-    "age": 42,
-    "birthDate": "1984-01-04",
-    "gender": null,
-    "weightKg": 60,
-    "programs": [
-      {
-        "bridgeId": 1798903,
-        "name": "Health and Performance _Maria",
-        "status": "started",
-        "startedAt": "2025-04-29",
-        "updatedAt": "2026-03-03",
-        "isPlaylist": true
-      }
-    ],
-    "recentWorkouts": [
-      {
-        "date": "2026-03-03",
-        "name": "2",
-        "workoutId": 33811593,
-        "workoutHistoryId": 62430900,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2026-02-26",
-        "name": "1",
-        "workoutId": 33811592,
-        "workoutHistoryId": 62236759,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2025-12-21",
-        "name": "3",
-        "workoutId": 33811594,
-        "workoutHistoryId": 60064091,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2025-12-12",
-        "name": "2",
-        "workoutId": 33811593,
-        "workoutHistoryId": 59810025,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2025-12-10",
-        "name": "1",
-        "workoutId": 33811592,
-        "workoutHistoryId": 59745199,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2025-07-30",
-        "name": null,
-        "workoutId": 29611862,
-        "workoutHistoryId": 55127472,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2025-07-29",
-        "name": null,
-        "workoutId": 29611861,
-        "workoutHistoryId": 55088080,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2025-06-12",
-        "name": null,
-        "workoutId": 29611860,
-        "workoutHistoryId": 53618063,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2025-05-28",
-        "name": null,
-        "workoutId": 29611859,
-        "workoutHistoryId": 53045094,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2025-05-21",
-        "name": null,
-        "workoutId": 29611858,
-        "workoutHistoryId": 52819909,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2025-05-18",
-        "name": null,
-        "workoutId": 29611858,
-        "workoutHistoryId": 52817560,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
-        "status": "completed"
-      },
-      {
-        "date": "2025-05-13",
-        "name": null,
-        "workoutId": 29611857,
-        "workoutHistoryId": 52541367,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance _Maria",
         "status": "completed"
       }
     ],
@@ -3413,7 +3292,7 @@ const BRIDGE_DATA = {
         "name": "2026 Program - Renee Lodens (Kettlebells)",
         "status": "started",
         "startedAt": "2025-12-31",
-        "updatedAt": "2026-08-06",
+        "updatedAt": "2026-08-08",
         "isPlaylist": true
       },
       {
@@ -3426,6 +3305,16 @@ const BRIDGE_DATA = {
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-08-09",
+        "name": "Lunge + Hinge Focus",
+        "workoutId": 37804633,
+        "workoutHistoryId": 68348934,
+        "duration": 44,
+        "rpe": 3,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
       {
         "date": "2026-08-07",
         "name": "Single-Leg + Squat Focus",
@@ -3533,16 +3422,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 66980975,
         "duration": 37,
         "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-06-28",
-        "name": "Lunge + Hinge Focus",
-        "workoutId": 37804621,
-        "workoutHistoryId": 66823112,
-        "duration": 17,
-        "rpe": 1,
         "program": "2026 Program - Renee Lodens (Kettlebells)",
         "status": "completed"
       }
