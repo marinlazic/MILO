@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-08-09T22:30:33.030Z
+   Last synced: 2026-08-10T00:00:36.034Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -463,6 +463,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-10",
+        "name": "Lower (Quad-Bias) + Frontal Plane",
+        "workoutId": -39015516,
+        "workoutHistoryId": 68386585,
+        "duration": 49,
+        "rpe": 7,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-07",
         "name": "Upper Pull (Horizontal + Vertical) + Arms",
         "workoutId": 38158910,
@@ -571,40 +581,10 @@ const BRIDGE_DATA = {
         "rpe": 9,
         "program": "2025 -  SAM",
         "status": "completed"
-      },
-      {
-        "date": "2026-07-22",
-        "name": "Lower (Posterior Chain) + Rotation",
-        "workoutId": 38158899,
-        "workoutHistoryId": 67728364,
-        "duration": null,
-        "rpe": null,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-22",
-        "name": "Lower (Posterior Chain) + Rotation",
-        "workoutId": 38158899,
-        "workoutHistoryId": 67728382,
-        "duration": 53,
-        "rpe": 7,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-22",
-        "name": "Upper Pull (Horizontal + Vertical) + Arms",
-        "workoutId": 38158900,
-        "workoutHistoryId": 67761030,
-        "duration": 50,
-        "rpe": 8,
-        "program": "2025 -  SAM",
-        "status": "completed"
       }
     ],
     "programCount": 21,
-    "totalCompletedThisRange": 14
+    "totalCompletedThisRange": 12
   },
   "craig-blair": {
     "id": "craig-blair",
@@ -764,6 +744,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-10",
+        "name": "Upper Push / Lower Pull",
+        "workoutId": 37702310,
+        "workoutHistoryId": 68388095,
+        "duration": 70,
+        "rpe": 3,
+        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-05",
         "name": "Upper Pull / Lower Push",
         "workoutId": 37702309,
@@ -869,16 +859,6 @@ const BRIDGE_DATA = {
         "workoutId": 37702301,
         "workoutHistoryId": 66791369,
         "duration": 38,
-        "rpe": 3,
-        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
-        "status": "completed"
-      },
-      {
-        "date": "2026-06-23",
-        "name": "Upper Push / Lower Pull",
-        "workoutId": 37702300,
-        "workoutHistoryId": 66677825,
-        "duration": 67,
         "rpe": 3,
         "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "completed"
@@ -2653,11 +2633,21 @@ const BRIDGE_DATA = {
         "name": "2025 - Craig Saphin",
         "status": "started",
         "startedAt": "2024-12-24",
-        "updatedAt": "2026-08-06",
+        "updatedAt": "2026-08-09",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-08-10",
+        "name": "Max Strength",
+        "workoutId": 38457370,
+        "workoutHistoryId": 68397055,
+        "duration": 79,
+        "rpe": 6,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
       {
         "date": "2026-08-06",
         "name": "Strength",
@@ -2765,16 +2755,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 66579210,
         "duration": 47,
         "rpe": 4,
-        "program": "2025 - Craig Saphin",
-        "status": "completed"
-      },
-      {
-        "date": "2026-06-16",
-        "name": "5 x 5 reps B",
-        "workoutId": 36528262,
-        "workoutHistoryId": 66443996,
-        "duration": 51,
-        "rpe": 6,
         "program": "2025 - Craig Saphin",
         "status": "completed"
       }
