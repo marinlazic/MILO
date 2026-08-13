@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-08-12T22:30:33.673Z
+   Last synced: 2026-08-13T00:00:31.980Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -148,6 +148,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-12",
+        "name": "Upper Pull + Lower Push + Aerobic Row",
+        "workoutId": -37596152,
+        "workoutHistoryId": 68497104,
+        "duration": 144,
+        "rpe": 8,
+        "program": "Reini Otter 12-Week Training Program",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-11",
         "name": "Upper Push Overhead + Lower Pull",
         "workoutId": 37596151,
@@ -263,16 +273,6 @@ const BRIDGE_DATA = {
         "workoutId": 37596149,
         "workoutHistoryId": 66310445,
         "duration": 109,
-        "rpe": 10,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-06-10",
-        "name": "Upper Pull + Lower Push + Aerobic Row",
-        "workoutId": -37596148,
-        "workoutHistoryId": 66238091,
-        "duration": 94,
         "rpe": 10,
         "program": "Reini Otter 12-Week Training Program",
         "status": "completed"
@@ -463,6 +463,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-13",
+        "name": "Lower (Posterior Chain) + Rotation",
+        "workoutId": 39015519,
+        "workoutHistoryId": 68496572,
+        "duration": 47,
+        "rpe": 8,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-12",
         "name": "Impulse: Contrast Pairs",
         "workoutId": 39015518,
@@ -569,16 +579,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 67975327,
         "duration": 61,
         "rpe": 10,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-28",
-        "name": "Upper Push (Horizontal + Vertical Press)",
-        "workoutId": 38158902,
-        "workoutHistoryId": 67941501,
-        "duration": 60,
-        "rpe": 7,
         "program": "2025 -  SAM",
         "status": "completed"
       }
