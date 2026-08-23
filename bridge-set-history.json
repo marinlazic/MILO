@@ -837,6 +837,7 @@
     ],
     "284199": [],
     "285152": [],
+    "291354": [],
     "349616": [
       {
         "d": "2023-12-09T12:00:00.000Z",
@@ -2565,7 +2566,8 @@
         "whId": 61640548,
         "t": "Required"
       }
-    ]
+    ],
+    "712273": []
   },
   "exerciseNames": {
     "315": "Squat",
@@ -2575,6 +2577,7 @@
     "392": "Front Squat - Barbell",
     "508": "Incline Bench Press - Barbell",
     "510": "Overhead Press - Seated Dumbbell",
+    "655": "Glute Bridge - Marching",
     "677": "Deadlift - Trap Bar",
     "1487": "Swing - 2 Arm Kettlebell",
     "41884": "Bench Press - 1 Arm Dumbbell",
