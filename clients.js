@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-08-23T22:30:37.850Z
+   Last synced: 2026-08-24T00:00:34.929Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -148,6 +148,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-24",
+        "name": "UPPER PUSH (Sub-Overhead) + LOWER UNILATERAL + Rotation",
+        "workoutId": 39169262,
+        "workoutHistoryId": 68873436,
+        "duration": 116,
+        "rpe": 9,
+        "program": "Reini Otter 12-Week Training Program",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-19",
         "name": "LOWER PULL (Hinge/Power) + UPPER PULL (Vertical) + Row Intervals",
         "workoutId": 39169261,
@@ -263,16 +273,6 @@ const BRIDGE_DATA = {
         "workoutId": 37596146,
         "workoutHistoryId": 68076299,
         "duration": 76,
-        "rpe": 4,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-25",
-        "name": "Upper Push + Lower Pull",
-        "workoutId": 37596145,
-        "workoutHistoryId": 67815624,
-        "duration": 65,
         "rpe": 4,
         "program": "Reini Otter 12-Week Training Program",
         "status": "completed"
@@ -463,6 +463,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-24",
+        "name": "Upper Push / Lower Pull",
+        "workoutId": 39169127,
+        "workoutHistoryId": 68870118,
+        "duration": 56,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-23",
         "name": "Total Body",
         "workoutId": 39169129,
@@ -568,16 +578,6 @@ const BRIDGE_DATA = {
         "workoutId": 38158910,
         "workoutHistoryId": 68291785,
         "duration": 52,
-        "rpe": 9,
-        "program": "2025 -  SAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-06",
-        "name": "Lower (Posterior Chain) + Rotation",
-        "workoutId": 38158909,
-        "workoutHistoryId": 68263628,
-        "duration": 65,
         "rpe": 9,
         "program": "2025 -  SAM",
         "status": "completed"
@@ -744,6 +744,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-24",
+        "name": "Upper Pull / Lower Push",
+        "workoutId": 37702317,
+        "workoutHistoryId": 68870419,
+        "duration": 70,
+        "rpe": 5,
+        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-22",
         "name": "Upper Push / Lower Pull",
         "workoutId": 37702316,
@@ -850,16 +860,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 67976886,
         "duration": 71,
         "rpe": 5,
-        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-27",
-        "name": "Upper Pull / Lower Push",
-        "workoutId": 37702307,
-        "workoutHistoryId": 67863230,
-        "duration": 55,
-        "rpe": 3,
         "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "completed"
       }
