@@ -15,7 +15,7 @@
         "name": "Reini Otter 12-Week Training Program",
         "status": "started",
         "startedAt": "2026-06-01",
-        "updatedAt": "2026-08-23",
+        "updatedAt": "2026-08-28",
         "isPlaylist": true
       },
       {
@@ -456,6 +456,16 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-28",
+        "name": "Total Body",
+        "workoutId": 39169132,
+        "workoutHistoryId": 69121005,
+        "duration": 56,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-27",
         "name": "Lower Push / Upper Pull",
         "workoutId": 39169131,
@@ -562,16 +572,6 @@
         "workoutHistoryId": 68469577,
         "duration": 38,
         "rpe": 7,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-11",
-        "name": "Upper Push (Horizontal + Vertical Press)",
-        "workoutId": -39015517,
-        "workoutHistoryId": 68437059,
-        "duration": 48,
-        "rpe": 5,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
       }
@@ -1333,6 +1333,16 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-28",
+        "name": "Hinge + Vertical Pull",
+        "workoutId": 36881006,
+        "workoutHistoryId": 69122246,
+        "duration": 51,
+        "rpe": 6,
+        "program": "Mark -SLEEP BETTER PROGRAM",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-26",
         "name": "Power + Multi-Planar + Vertical Pull",
         "workoutId": -36881005,
@@ -1437,16 +1447,6 @@
         "name": "Squat + Vertical Push + Horizontal Pull",
         "workoutId": -36881031,
         "workoutHistoryId": 66239128,
-        "duration": null,
-        "rpe": null,
-        "program": "Mark -SLEEP BETTER PROGRAM",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-29",
-        "name": "Hinge + Vertical Pull Focus",
-        "workoutId": 36881030,
-        "workoutHistoryId": 65384235,
         "duration": null,
         "rpe": null,
         "program": "Mark -SLEEP BETTER PROGRAM",
@@ -2630,6 +2630,151 @@
     "programCount": 1,
     "totalCompletedThisRange": 12
   },
+  "maria-goddard": {
+    "id": "maria-goddard",
+    "bridgeId": 516347,
+    "name": "Maria Goddard",
+    "initials": "MG",
+    "email": "marialong2@hotmail.com",
+    "age": 42,
+    "birthDate": "1984-01-04",
+    "gender": null,
+    "weightKg": 60,
+    "programs": [
+      {
+        "bridgeId": 1798903,
+        "name": "Health and Performance _Maria",
+        "status": "started",
+        "startedAt": "2025-04-29",
+        "updatedAt": "2026-03-03",
+        "isPlaylist": true
+      }
+    ],
+    "recentWorkouts": [
+      {
+        "date": "2026-03-03",
+        "name": "2",
+        "workoutId": 33811593,
+        "workoutHistoryId": 62430900,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-26",
+        "name": "1",
+        "workoutId": 33811592,
+        "workoutHistoryId": 62236759,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-21",
+        "name": "3",
+        "workoutId": 33811594,
+        "workoutHistoryId": 60064091,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-12",
+        "name": "2",
+        "workoutId": 33811593,
+        "workoutHistoryId": 59810025,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-12-10",
+        "name": "1",
+        "workoutId": 33811592,
+        "workoutHistoryId": 59745199,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-07-30",
+        "name": null,
+        "workoutId": 29611862,
+        "workoutHistoryId": 55127472,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-07-29",
+        "name": null,
+        "workoutId": 29611861,
+        "workoutHistoryId": 55088080,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-06-12",
+        "name": null,
+        "workoutId": 29611860,
+        "workoutHistoryId": 53618063,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-28",
+        "name": null,
+        "workoutId": 29611859,
+        "workoutHistoryId": 53045094,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-21",
+        "name": null,
+        "workoutId": 29611858,
+        "workoutHistoryId": 52819909,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-18",
+        "name": null,
+        "workoutId": 29611858,
+        "workoutHistoryId": 52817560,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      },
+      {
+        "date": "2025-05-13",
+        "name": null,
+        "workoutId": 29611857,
+        "workoutHistoryId": 52541367,
+        "duration": null,
+        "rpe": null,
+        "program": "Health and Performance _Maria",
+        "status": "completed"
+      }
+    ],
+    "programCount": 1,
+    "totalCompletedThisRange": 12
+  },
   "katherine-freire": {
     "id": "katherine-freire",
     "bridgeId": 572157,
@@ -3704,19 +3849,30 @@
     "age": 41,
     "birthDate": "1985-01-24",
     "gender": null,
-    "weightKg": null,
+    "weightKg": 95.3,
     "programs": [
       {
         "bridgeId": 2327997,
         "name": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
         "status": "started",
         "startedAt": "2026-08-23",
-        "updatedAt": "2026-08-23",
+        "updatedAt": "2026-08-28",
         "isPlaylist": true
       }
     ],
-    "recentWorkouts": [],
+    "recentWorkouts": [
+      {
+        "date": "2026-08-28",
+        "name": "Total Body A - Squat + Horizontal Push/Pull",
+        "workoutId": 39310282,
+        "workoutHistoryId": 69152487,
+        "duration": 40,
+        "rpe": 4,
+        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
+        "status": "completed"
+      }
+    ],
     "programCount": 1,
-    "totalCompletedThisRange": 0
+    "totalCompletedThisRange": 1
   }
 }
