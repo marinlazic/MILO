@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-08-29T00:39:19.084Z
+   Last synced: 2026-08-30T00:20:35.898Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -873,7 +873,7 @@ const BRIDGE_DATA = {
         "name": "Charlie — 9-Week Phase (Golf · Surf · Padel)",
         "status": "started",
         "startedAt": "2026-08-09",
-        "updatedAt": "2026-08-24",
+        "updatedAt": "2026-08-29",
         "isPlaylist": true
       },
       {
@@ -1055,6 +1055,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-29",
+        "name": "1.2 · SURF CLUB GYM — Upper Pull + Push",
+        "workoutId": 39015450,
+        "workoutHistoryId": 69165876,
+        "duration": 38,
+        "rpe": 3,
+        "program": "Charlie — 9-Week Phase (Golf · Surf · Padel)",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-24",
         "name": "1.1 · SURF CLUB GYM — Lower + Press",
         "workoutId": 39015449,
@@ -1169,16 +1179,6 @@ const BRIDGE_DATA = {
         "name": "1.2",
         "workoutId": 35281305,
         "workoutHistoryId": 61911855,
-        "duration": null,
-        "rpe": null,
-        "program": "ARM FARM Charlie",
-        "status": "completed"
-      },
-      {
-        "date": "2026-02-12",
-        "name": "1.1",
-        "workoutId": 35281304,
-        "workoutHistoryId": 61839395,
         "duration": null,
         "rpe": null,
         "program": "ARM FARM Charlie",
@@ -2108,6 +2108,380 @@ const BRIDGE_DATA = {
     "programCount": 8,
     "totalCompletedThisRange": 13
   },
+  "stephanie-belton": {
+    "id": "stephanie-belton",
+    "bridgeId": 371587,
+    "name": "Stephanie Belton",
+    "initials": "SB",
+    "email": "stephmbelton@gmail.com",
+    "age": 59,
+    "birthDate": "1966-09-22",
+    "gender": null,
+    "weightKg": 91,
+    "programs": [
+      {
+        "bridgeId": 2329413,
+        "name": "Build Block v2 - Mel and Steph",
+        "status": "started",
+        "startedAt": "2026-08-24",
+        "updatedAt": "2026-08-27",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2067839,
+        "name": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "started",
+        "startedAt": "2025-12-29",
+        "updatedAt": "2026-08-07",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2329407,
+        "name": "Build Block v1 - Mel and Steph",
+        "status": "completed",
+        "startedAt": "2026-08-24",
+        "updatedAt": "2026-08-24",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2311430,
+        "name": "Foundation Block - Mel and Steph",
+        "status": "completed",
+        "startedAt": "2026-08-08",
+        "updatedAt": "2026-08-24",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2311420,
+        "name": "Foundation Block",
+        "status": "completed",
+        "startedAt": "2026-08-08",
+        "updatedAt": "2026-08-08",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1714070,
+        "name": "2025 Health & Fitness Program",
+        "status": "completed",
+        "startedAt": "2025-02-03",
+        "updatedAt": "2025-12-29",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1331175,
+        "name": "M&S - GPP",
+        "status": "completed",
+        "startedAt": "2024-01-15",
+        "updatedAt": "2025-02-03",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1372492,
+        "name": "Health and Performance 1.0",
+        "status": "completed",
+        "startedAt": "2024-03-04",
+        "updatedAt": "2025-02-03",
+        "isPlaylist": true
+      }
+    ],
+    "recentWorkouts": [
+      {
+        "date": "2026-08-28",
+        "name": "Lunge & Rotate",
+        "workoutId": 39328854,
+        "workoutHistoryId": 69123502,
+        "duration": null,
+        "rpe": null,
+        "program": "Build Block v2 - Mel and Steph",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-22",
+        "name": "Squat & Pull",
+        "workoutId": 39005848,
+        "workoutHistoryId": 68816152,
+        "duration": 34,
+        "rpe": 2,
+        "program": "Foundation Block - Mel and Steph",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-15",
+        "name": "Hinge & Press",
+        "workoutId": 39005847,
+        "workoutHistoryId": 68545016,
+        "duration": 50,
+        "rpe": 4,
+        "program": "Foundation Block - Mel and Steph",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-08",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 68331746,
+        "duration": 39,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 68197653,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-04",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 68197710,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-01",
+        "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 68076163,
+        "duration": 46,
+        "rpe": 3,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-07-28",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 67942249,
+        "duration": 31,
+        "rpe": 3,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-07-21",
+        "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 67689366,
+        "duration": 46,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-07-14",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 67433531,
+        "duration": 32,
+        "rpe": 3,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-06-26",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 66771297,
+        "duration": 33,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-06-23",
+        "name": "Workout B",
+        "workoutId": 34391447,
+        "workoutHistoryId": 66664329,
+        "duration": 38,
+        "rpe": 3,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-06-18",
+        "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 66508429,
+        "duration": null,
+        "rpe": null,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      }
+    ],
+    "programCount": 8,
+    "totalCompletedThisRange": 13
+  },
+  "alana-saphin": {
+    "id": "alana-saphin",
+    "bridgeId": 394332,
+    "name": "Alana Saphin",
+    "initials": "AS",
+    "email": "asaphin@gmail.com",
+    "age": 43,
+    "birthDate": "1983-07-15",
+    "gender": null,
+    "weightKg": 56,
+    "programs": [
+      {
+        "bridgeId": 2088880,
+        "name": "Alana 2026 Health and Performance Program ",
+        "status": "started",
+        "startedAt": "2026-01-14",
+        "updatedAt": "2026-08-27",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1419478,
+        "name": "Health and Performance 1.0 - Alana",
+        "status": "completed",
+        "startedAt": "2024-04-24",
+        "updatedAt": "2026-01-14",
+        "isPlaylist": true
+      }
+    ],
+    "recentWorkouts": [
+      {
+        "date": "2026-08-27",
+        "name": "Upper",
+        "workoutId": 35576315,
+        "workoutHistoryId": 69075937,
+        "duration": 30,
+        "rpe": 3,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-25",
+        "name": "Lower",
+        "workoutId": 35576314,
+        "workoutHistoryId": 68983646,
+        "duration": 34,
+        "rpe": 4,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Upper",
+        "workoutId": 35576313,
+        "workoutHistoryId": 68874490,
+        "duration": 60,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-20",
+        "name": "Lower",
+        "workoutId": 35576312,
+        "workoutHistoryId": 68753600,
+        "duration": 60,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-18",
+        "name": "Upper",
+        "workoutId": 35576311,
+        "workoutHistoryId": 68685929,
+        "duration": 36,
+        "rpe": 4,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-16",
+        "name": "Lower",
+        "workoutId": 35576310,
+        "workoutHistoryId": 68561124,
+        "duration": 40,
+        "rpe": 5,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Upper",
+        "workoutId": 35576309,
+        "workoutHistoryId": 68526879,
+        "duration": 35,
+        "rpe": 4,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-14",
+        "name": "Total Body - Day 4",
+        "workoutId": 37727914,
+        "workoutHistoryId": 68526876,
+        "duration": null,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-12",
+        "name": "Total Body - Day 4",
+        "workoutId": 37727914,
+        "workoutHistoryId": 68472589,
+        "duration": 38,
+        "rpe": 3,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-09",
+        "name": "Total Body - Day 3",
+        "workoutId": 37727913,
+        "workoutHistoryId": 68349312,
+        "duration": null,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-05",
+        "name": "Total Body - Day 2",
+        "workoutId": 37727912,
+        "workoutHistoryId": 68241237,
+        "duration": null,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-02",
+        "name": "Total Body - Day 1",
+        "workoutId": 37727911,
+        "workoutHistoryId": 68090341,
+        "duration": 35,
+        "rpe": 5,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-07-29",
+        "name": "Total Body - Day 4",
+        "workoutId": 37727910,
+        "workoutHistoryId": 67987142,
+        "duration": null,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      }
+    ],
+    "programCount": 2,
+    "totalCompletedThisRange": 13
+  },
   "craig-saphin": {
     "id": "craig-saphin",
     "bridgeId": 457666,
@@ -2414,7 +2788,7 @@ const BRIDGE_DATA = {
         "name": "Health & Performance ",
         "status": "started",
         "startedAt": "2025-09-07",
-        "updatedAt": "2026-08-27",
+        "updatedAt": "2026-08-29",
         "isPlaylist": true
       }
     ],
@@ -2948,7 +3322,7 @@ const BRIDGE_DATA = {
         "name": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
         "status": "started",
         "startedAt": "2026-08-23",
-        "updatedAt": "2026-08-25",
+        "updatedAt": "2026-08-29",
         "isPlaylist": true
       },
       {
@@ -2969,6 +3343,16 @@ const BRIDGE_DATA = {
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-08-30",
+        "name": "Upper A: Push",
+        "workoutId": 39310655,
+        "workoutHistoryId": 69197869,
+        "duration": 47,
+        "rpe": 3,
+        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
+        "status": "completed"
+      },
       {
         "date": "2026-08-26",
         "name": "Lower A: Squat",
@@ -3076,16 +3460,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 68243491,
         "duration": null,
         "rpe": null,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-29",
-        "name": "Single-Leg + Squat Focus",
-        "workoutId": 37804630,
-        "workoutHistoryId": 67976376,
-        "duration": 33,
-        "rpe": 4,
         "program": "2026 Program - Renee Lodens (Kettlebells)",
         "status": "completed"
       }
