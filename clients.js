@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-08-30T00:20:35.898Z
+   Last synced: 2026-08-30T00:36:52.248Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -3322,7 +3322,7 @@ const BRIDGE_DATA = {
         "name": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
         "status": "started",
         "startedAt": "2026-08-23",
-        "updatedAt": "2026-08-29",
+        "updatedAt": "2026-08-25",
         "isPlaylist": true
       },
       {
@@ -3343,16 +3343,6 @@ const BRIDGE_DATA = {
       }
     ],
     "recentWorkouts": [
-      {
-        "date": "2026-08-30",
-        "name": "Upper A: Push",
-        "workoutId": 39310655,
-        "workoutHistoryId": 69197869,
-        "duration": 47,
-        "rpe": 3,
-        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
-        "status": "completed"
-      },
       {
         "date": "2026-08-26",
         "name": "Lower A: Squat",
@@ -3460,6 +3450,16 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 68243491,
         "duration": null,
         "rpe": null,
+        "program": "2026 Program - Renee Lodens (Kettlebells)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-07-29",
+        "name": "Single-Leg + Squat Focus",
+        "workoutId": 37804630,
+        "workoutHistoryId": 67976376,
+        "duration": 33,
+        "rpe": 4,
         "program": "2026 Program - Renee Lodens (Kettlebells)",
         "status": "completed"
       }
@@ -3836,41 +3836,6 @@ const BRIDGE_DATA = {
     ],
     "programCount": 9,
     "totalCompletedThisRange": 12
-  },
-  "alex-strand": {
-    "id": "alex-strand",
-    "bridgeId": 712273,
-    "name": "Alex Strand",
-    "initials": "AS",
-    "email": "206strand@gmail.com",
-    "age": 41,
-    "birthDate": "1985-01-24",
-    "gender": null,
-    "weightKg": 95.3,
-    "programs": [
-      {
-        "bridgeId": 2327997,
-        "name": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
-        "status": "started",
-        "startedAt": "2026-08-23",
-        "updatedAt": "2026-08-28",
-        "isPlaylist": true
-      }
-    ],
-    "recentWorkouts": [
-      {
-        "date": "2026-08-28",
-        "name": "Total Body A - Squat + Horizontal Push/Pull",
-        "workoutId": 39310282,
-        "workoutHistoryId": 69152487,
-        "duration": 40,
-        "rpe": 4,
-        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
-        "status": "completed"
-      }
-    ],
-    "programCount": 1,
-    "totalCompletedThisRange": 1
   }
 };
 
