@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-08-30T00:36:52.248Z
+   Last synced: 2026-08-31T00:01:00.107Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -22,7 +22,7 @@ const BRIDGE_DATA = {
         "name": "Reini Otter 12-Week Training Program",
         "status": "started",
         "startedAt": "2026-06-01",
-        "updatedAt": "2026-08-28",
+        "updatedAt": "2026-08-30",
         "isPlaylist": true
       },
       {
@@ -148,6 +148,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-30",
+        "name": "UPPER PUSH (Horizontal) + LOWER PULL (Hinge)",
+        "workoutId": 39169264,
+        "workoutHistoryId": 69222168,
+        "duration": 117,
+        "rpe": 9,
+        "program": "Reini Otter 12-Week Training Program",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-27",
         "name": "LOWER PUSH (Squat) + UPPER PULL (Horizontal) + Aerobic Row",
         "workoutId": 39169263,
@@ -256,16 +266,6 @@ const BRIDGE_DATA = {
         "rpe": 5,
         "program": "Reini Otter 12-Week Training Program",
         "status": "completed"
-      },
-      {
-        "date": "2026-08-03",
-        "name": "Upper Push Overhead + Lower Pull",
-        "workoutId": -37596147,
-        "workoutHistoryId": 68137379,
-        "duration": 95,
-        "rpe": 6,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
       }
     ],
     "programCount": 16,
@@ -287,7 +287,7 @@ const BRIDGE_DATA = {
         "name": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "started",
         "startedAt": "2026-08-09",
-        "updatedAt": "2026-08-27",
+        "updatedAt": "2026-08-30",
         "isPlaylist": true
       },
       {
@@ -453,6 +453,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-08-31",
+        "name": "Lower (Quad-Bias) + Frontal Plane",
+        "workoutId": 39015521,
+        "workoutHistoryId": 69219917,
+        "duration": 55,
+        "rpe": 7,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-08-28",
         "name": "Total Body",
         "workoutId": 39169132,
@@ -561,16 +571,6 @@ const BRIDGE_DATA = {
         "rpe": 8,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
-      },
-      {
-        "date": "2026-08-12",
-        "name": "Impulse: Contrast Pairs",
-        "workoutId": 39015518,
-        "workoutHistoryId": 68469577,
-        "duration": 38,
-        "rpe": 7,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
       }
     ],
     "programCount": 21,
@@ -592,7 +592,7 @@ const BRIDGE_DATA = {
         "name": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "started",
         "startedAt": "2026-06-06",
-        "updatedAt": "2026-08-26",
+        "updatedAt": "2026-08-30",
         "isPlaylist": true
       },
       {
@@ -2498,11 +2498,21 @@ const BRIDGE_DATA = {
         "name": "2025 - Craig Saphin",
         "status": "started",
         "startedAt": "2024-12-24",
-        "updatedAt": "2026-08-26",
+        "updatedAt": "2026-08-30",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-08-31",
+        "name": "Strength",
+        "workoutId": 38457375,
+        "workoutHistoryId": 69230988,
+        "duration": 86,
+        "rpe": 6,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
       {
         "date": "2026-08-26",
         "name": "Hypertrophy",
@@ -2609,16 +2619,6 @@ const BRIDGE_DATA = {
         "workoutId": 36528257,
         "workoutHistoryId": 67343033,
         "duration": 70,
-        "rpe": 6,
-        "program": "2025 - Craig Saphin",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-08",
-        "name": "5 x 5 reps A",
-        "workoutId": 36528253,
-        "workoutHistoryId": 67232361,
-        "duration": 78,
         "rpe": 6,
         "program": "2025 - Craig Saphin",
         "status": "completed"
@@ -3322,7 +3322,7 @@ const BRIDGE_DATA = {
         "name": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
         "status": "started",
         "startedAt": "2026-08-23",
-        "updatedAt": "2026-08-25",
+        "updatedAt": "2026-08-30",
         "isPlaylist": true
       },
       {
@@ -3343,6 +3343,26 @@ const BRIDGE_DATA = {
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-08-31",
+        "name": "Lower B: Hinge",
+        "workoutId": 39310656,
+        "workoutHistoryId": 69220799,
+        "duration": 49,
+        "rpe": 5,
+        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-30",
+        "name": "Upper A: Push",
+        "workoutId": 39310655,
+        "workoutHistoryId": 69197869,
+        "duration": 47,
+        "rpe": 3,
+        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
+        "status": "completed"
+      },
       {
         "date": "2026-08-26",
         "name": "Lower A: Squat",
@@ -3440,26 +3460,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 68292684,
         "duration": 33,
         "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-05",
-        "name": "Lunge + Hinge Focus",
-        "workoutId": 37804631,
-        "workoutHistoryId": 68243491,
-        "duration": null,
-        "rpe": null,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-29",
-        "name": "Single-Leg + Squat Focus",
-        "workoutId": 37804630,
-        "workoutHistoryId": 67976376,
-        "duration": 33,
-        "rpe": 4,
         "program": "2026 Program - Renee Lodens (Kettlebells)",
         "status": "completed"
       }
@@ -3836,6 +3836,51 @@ const BRIDGE_DATA = {
     ],
     "programCount": 9,
     "totalCompletedThisRange": 12
+  },
+  "alex-strand": {
+    "id": "alex-strand",
+    "bridgeId": 712273,
+    "name": "Alex Strand",
+    "initials": "AS",
+    "email": "206strand@gmail.com",
+    "age": 41,
+    "birthDate": "1985-01-24",
+    "gender": null,
+    "weightKg": 96.6,
+    "programs": [
+      {
+        "bridgeId": 2327997,
+        "name": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
+        "status": "started",
+        "startedAt": "2026-08-23",
+        "updatedAt": "2026-08-30",
+        "isPlaylist": true
+      }
+    ],
+    "recentWorkouts": [
+      {
+        "date": "2026-08-30",
+        "name": "Total Body B - Hinge + Vertical Push/Pull",
+        "workoutId": 39310283,
+        "workoutHistoryId": 69213297,
+        "duration": 53,
+        "rpe": 5,
+        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-28",
+        "name": "Total Body A - Squat + Horizontal Push/Pull",
+        "workoutId": 39310282,
+        "workoutHistoryId": 69152487,
+        "duration": 40,
+        "rpe": 4,
+        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
+        "status": "completed"
+      }
+    ],
+    "programCount": 1,
+    "totalCompletedThisRange": 2
   }
 };
 
