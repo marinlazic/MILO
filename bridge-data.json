@@ -15,7 +15,7 @@
         "name": "Reini Otter 12-Week Training Program",
         "status": "started",
         "startedAt": "2026-06-01",
-        "updatedAt": "2026-08-31",
+        "updatedAt": "2026-09-06",
         "isPlaylist": true
       },
       {
@@ -141,6 +141,26 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-04",
+        "name": "LOWER PUSH (Squat) + UPPER PULL (Horizontal) + Aerobic Row",
+        "workoutId": 39169267,
+        "workoutHistoryId": 69466008,
+        "duration": 134,
+        "rpe": 10,
+        "program": "Reini Otter 12-Week Training Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-03",
+        "name": "UPPER PUSH (Sub-Overhead) + LOWER UNILATERAL + Rotation",
+        "workoutId": -39169266,
+        "workoutHistoryId": 69426900,
+        "duration": 112,
+        "rpe": 9,
+        "program": "Reini Otter 12-Week Training Program",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-01",
         "name": "LOWER PULL (Hinge/Power) + UPPER PULL (Vertical) + Row Intervals",
         "workoutId": 39169265,
@@ -239,29 +259,314 @@
         "rpe": 7,
         "program": "Reini Otter 12-Week Training Program",
         "status": "completed"
-      },
-      {
-        "date": "2026-08-08",
-        "name": "Upper Pull Vertical + Lower Push + Row Intervals",
-        "workoutId": 37596150,
-        "workoutHistoryId": 68331519,
-        "duration": 97,
-        "rpe": 9,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-07",
-        "name": "Upper Push + Lower Pull",
-        "workoutId": 37596149,
-        "workoutHistoryId": 68293250,
-        "duration": 91,
-        "rpe": 5,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
       }
     ],
     "programCount": 16,
+    "totalCompletedThisRange": 12
+  },
+  "samantha-van-gelder": {
+    "id": "samantha-van-gelder",
+    "bridgeId": 283317,
+    "name": "Samantha van Gelder",
+    "initials": "SV",
+    "email": "samantha_killesteyn@yahoo.com.au",
+    "age": 50,
+    "birthDate": "1976-04-01",
+    "gender": null,
+    "weightKg": 54,
+    "programs": [
+      {
+        "bridgeId": 2311868,
+        "name": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "started",
+        "startedAt": "2026-08-09",
+        "updatedAt": "2026-09-06",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1366329,
+        "name": "2025 -  SAM",
+        "status": "started",
+        "startedAt": "2024-02-26",
+        "updatedAt": "2026-08-06",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2204709,
+        "name": "Hypertrophy & Impulse Integration",
+        "status": "completed",
+        "startedAt": "2026-05-10",
+        "updatedAt": "2026-08-09",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1311284,
+        "name": "DEC / JAN -  SAM",
+        "status": "completed",
+        "startedAt": "2023-12-27",
+        "updatedAt": "2024-02-26",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1270967,
+        "name": "3 Day Hypertrophy - NOV23",
+        "status": "completed",
+        "startedAt": "2023-11-06",
+        "updatedAt": "2023-12-27",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1236885,
+        "name": "Sam - MAX POWER BLOCK",
+        "status": "completed",
+        "startedAt": "2023-09-24",
+        "updatedAt": "2023-11-06",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1194250,
+        "name": "3 Day Hypertrophy 5.0 - Sam  (AUG 22)",
+        "status": "completed",
+        "startedAt": "2023-08-06",
+        "updatedAt": "2023-09-24",
+        "isPlaylist": false
+      },
+      {
+        "bridgeId": 1166488,
+        "name": "3 Day Hypertrophy 4.0 - Sam  (JULY 22) PALM BEACH",
+        "status": "completed",
+        "startedAt": "2023-06-25",
+        "updatedAt": "2023-08-06",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1145028,
+        "name": "3 Day Hypertrophy 3.0 - Sam  (JUNE 22)",
+        "status": "completed",
+        "startedAt": "2023-05-30",
+        "updatedAt": "2023-08-06",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1144064,
+        "name": "TESTING",
+        "status": "completed",
+        "startedAt": "2023-05-29",
+        "updatedAt": "2023-05-30",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1138673,
+        "name": "Unloading 3.0",
+        "status": "completed",
+        "startedAt": "2023-05-22",
+        "updatedAt": "2023-05-29",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1115753,
+        "name": "MAX STRENGHT 1 - SAM",
+        "status": "completed",
+        "startedAt": "2023-04-20",
+        "updatedAt": "2023-05-29",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1077699,
+        "name": "Hypertrophy 3.0 - Sam",
+        "status": "completed",
+        "startedAt": "2023-02-28",
+        "updatedAt": "2023-05-29",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1103208,
+        "name": "Unloading 1.0 copy",
+        "status": "completed",
+        "startedAt": "2023-04-03",
+        "updatedAt": "2023-04-21",
+        "isPlaylist": false
+      },
+      {
+        "bridgeId": 1077694,
+        "name": "Hypertrophy 3.0 - Sam",
+        "status": "completed",
+        "startedAt": "2023-02-28",
+        "updatedAt": "2023-02-28",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1071031,
+        "name": "Unloading Week 1.0",
+        "status": "completed",
+        "startedAt": "2023-02-18",
+        "updatedAt": "2023-02-28",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1052284,
+        "name": "Max Strength 1.0 - Marin Lazic Coaching",
+        "status": "completed",
+        "startedAt": "2023-01-23",
+        "updatedAt": "2023-02-18",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1030282,
+        "name": "Hypertrophy - Advanced - 2.0",
+        "status": "completed",
+        "startedAt": "2022-12-24",
+        "updatedAt": "2023-01-23",
+        "isPlaylist": false
+      },
+      {
+        "bridgeId": 1003786,
+        "name": "Hypertrophy - Advanced - 1.0",
+        "status": "completed",
+        "startedAt": "2022-11-18",
+        "updatedAt": "2022-12-30",
+        "isPlaylist": false
+      },
+      {
+        "bridgeId": 998100,
+        "name": "Unloading Week 1.0",
+        "status": "completed",
+        "startedAt": "2022-11-10",
+        "updatedAt": "2022-12-07",
+        "isPlaylist": false
+      },
+      {
+        "bridgeId": 981498,
+        "name": "Strength 8-6-5-4 - Sam",
+        "status": "completed",
+        "startedAt": "2022-10-17",
+        "updatedAt": "2022-11-25",
+        "isPlaylist": false
+      }
+    ],
+    "recentWorkouts": [
+      {
+        "date": "2026-09-04",
+        "name": "Upper Pull (Horizontal + Vertical) + Arms",
+        "workoutId": -39015525,
+        "workoutHistoryId": 69464479,
+        "duration": 50,
+        "rpe": 9,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Lower (Posterior Chain) + Rotation",
+        "workoutId": 39015524,
+        "workoutHistoryId": 69425446,
+        "duration": null,
+        "rpe": null,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Impulse: Contrast Pairs",
+        "workoutId": 39015523,
+        "workoutHistoryId": 69360257,
+        "duration": 37,
+        "rpe": 9,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Upper Push (Horizontal + Vertical Press)",
+        "workoutId": 39015522,
+        "workoutHistoryId": 69309087,
+        "duration": 43,
+        "rpe": 8,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-31",
+        "name": "Lower (Quad-Bias) + Frontal Plane",
+        "workoutId": 39015521,
+        "workoutHistoryId": 69219917,
+        "duration": 55,
+        "rpe": 7,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-28",
+        "name": "Total Body",
+        "workoutId": 39169132,
+        "workoutHistoryId": 69121005,
+        "duration": 56,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-27",
+        "name": "Lower Push / Upper Pull",
+        "workoutId": 39169131,
+        "workoutHistoryId": 69061003,
+        "duration": 55,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-26",
+        "name": "Upper Push / Lower Pull",
+        "workoutId": 39169130,
+        "workoutHistoryId": 69022393,
+        "duration": 60,
+        "rpe": 5,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-24",
+        "name": "Upper Push / Lower Pull",
+        "workoutId": 39169127,
+        "workoutHistoryId": 68870118,
+        "duration": 56,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-23",
+        "name": "Total Body",
+        "workoutId": 39169129,
+        "workoutHistoryId": 68852443,
+        "duration": 65,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-21",
+        "name": "Lower Push / Upper Pull",
+        "workoutId": 39169128,
+        "workoutHistoryId": 68780281,
+        "duration": 60,
+        "rpe": null,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-20",
+        "name": "Upper Push / Lower Pull",
+        "workoutId": 39169124,
+        "workoutHistoryId": 68738231,
+        "duration": 60,
+        "rpe": 5,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      }
+    ],
+    "programCount": 21,
     "totalCompletedThisRange": 12
   },
   "craig-blair": {
@@ -273,14 +578,14 @@
     "age": 57,
     "birthDate": "1968-09-19",
     "gender": null,
-    "weightKg": 84,
+    "weightKg": 83,
     "programs": [
       {
         "bridgeId": 2239609,
         "name": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "started",
         "startedAt": "2026-06-06",
-        "updatedAt": "2026-08-31",
+        "updatedAt": "2026-09-06",
         "isPlaylist": true
       },
       {
@@ -1157,7 +1462,7 @@
         "name": "Nathan 2026 Health and Performance Program",
         "status": "started",
         "startedAt": "2026-01-26",
-        "updatedAt": "2026-08-25",
+        "updatedAt": "2026-09-01",
         "isPlaylist": true
       },
       {
@@ -1234,6 +1539,16 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-02",
+        "name": "Push Volume with Pull Tax - Core Dynamic Stability",
+        "workoutId": 36854108,
+        "workoutHistoryId": 69363729,
+        "duration": null,
+        "rpe": null,
+        "program": "Nathan 2026 Health and Performance Program",
+        "status": "completed"
+      },
       {
         "date": "2026-08-26",
         "name": "Lower Body - Core Dynamic Stability",
@@ -1343,40 +1658,10 @@
         "rpe": null,
         "program": "Nathan 2026 Health and Performance Program",
         "status": "completed"
-      },
-      {
-        "date": "2026-05-19",
-        "name": "Pull and Deadlift Volume - Core Dynamic Stability",
-        "workoutId": 36854092,
-        "workoutHistoryId": 65043779,
-        "duration": null,
-        "rpe": null,
-        "program": "Nathan 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-19",
-        "name": "Impulse and Power Day - Core Dynamic Stability",
-        "workoutId": -36854094,
-        "workoutHistoryId": 65069239,
-        "duration": null,
-        "rpe": null,
-        "program": "Nathan 2026 Health and Performance Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-19",
-        "name": null,
-        "workoutId": null,
-        "workoutHistoryId": 65069644,
-        "duration": 17,
-        "rpe": 10,
-        "program": null,
-        "status": "completed"
       }
     ],
     "programCount": 10,
-    "totalCompletedThisRange": 14
+    "totalCompletedThisRange": 12
   },
   "steve-turner": {
     "id": "steve-turner",
@@ -1601,7 +1886,7 @@
         "name": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "started",
         "startedAt": "2025-12-29",
-        "updatedAt": "2026-08-24",
+        "updatedAt": "2026-09-01",
         "isPlaylist": true
       },
       {
@@ -1662,6 +1947,16 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-02",
+        "name": "Workout A",
+        "workoutId": 34391446,
+        "workoutHistoryId": 69361375,
+        "duration": 39,
+        "rpe": 4,
+        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
+        "status": "completed"
+      },
       {
         "date": "2026-08-25",
         "name": "Workout A",
@@ -1778,16 +2073,6 @@
         "workoutId": 34391443,
         "workoutHistoryId": 65140751,
         "duration": 40,
-        "rpe": 3,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-05-17",
-        "name": "Workout B",
-        "workoutId": 34391447,
-        "workoutHistoryId": 64937113,
-        "duration": 36,
         "rpe": 3,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "completed"
@@ -2023,7 +2308,7 @@
         "name": "Alana 2026 Health and Performance Program ",
         "status": "started",
         "startedAt": "2026-01-14",
-        "updatedAt": "2026-08-27",
+        "updatedAt": "2026-09-06",
         "isPlaylist": true
       },
       {
@@ -2036,6 +2321,26 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-02",
+        "name": "Upper",
+        "workoutId": 35576317,
+        "workoutHistoryId": 69378588,
+        "duration": 60,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Lower",
+        "workoutId": 35576316,
+        "workoutHistoryId": 69323846,
+        "duration": 60,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
       {
         "date": "2026-08-27",
         "name": "Upper",
@@ -2145,26 +2450,6 @@
         "rpe": null,
         "program": "Alana 2026 Health and Performance Program ",
         "status": "completed"
-      },
-      {
-        "date": "2026-08-02",
-        "name": "Total Body - Day 1",
-        "workoutId": 37727911,
-        "workoutHistoryId": 68090341,
-        "duration": 35,
-        "rpe": 5,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-29",
-        "name": "Total Body - Day 4",
-        "workoutId": 37727910,
-        "workoutHistoryId": 67987142,
-        "duration": null,
-        "rpe": null,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
       }
     ],
     "programCount": 2,
@@ -2186,11 +2471,21 @@
         "name": "2025 - Craig Saphin",
         "status": "started",
         "startedAt": "2024-12-24",
-        "updatedAt": "2026-08-30",
+        "updatedAt": "2026-09-02",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-02",
+        "name": "Max Strength",
+        "workoutId": 38457376,
+        "workoutHistoryId": 69380710,
+        "duration": 79,
+        "rpe": 5,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
       {
         "date": "2026-08-31",
         "name": "Strength",
@@ -2297,16 +2592,6 @@
         "workoutId": 38457364,
         "workoutHistoryId": 67439019,
         "duration": 87,
-        "rpe": 6,
-        "program": "2025 - Craig Saphin",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-12",
-        "name": "5 x 5 reps B",
-        "workoutId": 36528257,
-        "workoutHistoryId": 67343033,
-        "duration": 70,
         "rpe": 6,
         "program": "2025 - Craig Saphin",
         "status": "completed"
@@ -2469,18 +2754,28 @@
     "age": 50,
     "birthDate": "1976-06-30",
     "gender": "female",
-    "weightKg": 59,
+    "weightKg": 61.2,
     "programs": [
       {
         "bridgeId": 1947766,
         "name": "Health & Performance ",
         "status": "started",
         "startedAt": "2025-09-07",
-        "updatedAt": "2026-08-31",
+        "updatedAt": "2026-09-03",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-03",
+        "name": "Lower Pull & Upper Push A",
+        "workoutId": 37701284,
+        "workoutHistoryId": 69446945,
+        "duration": 81,
+        "rpe": 3,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
       {
         "date": "2026-08-31",
         "name": "Lower Push & Upper Pull B",
@@ -2590,85 +2885,10 @@
         "rpe": 2,
         "program": "Health & Performance ",
         "status": "completed"
-      },
-      {
-        "date": "2026-08-07",
-        "name": "Lower Push / Upper Pull A",
-        "workoutId": 37701272,
-        "workoutHistoryId": 68299743,
-        "duration": 41,
-        "rpe": 2,
-        "program": "Health & Performance ",
-        "status": "completed"
       }
     ],
     "programCount": 1,
     "totalCompletedThisRange": 12
-  },
-  "david-shein": {
-    "id": "david-shein",
-    "bridgeId": 579479,
-    "name": "David Shein",
-    "initials": "DS",
-    "email": "david@shein.com.au",
-    "age": 65,
-    "birthDate": "1960-10-03",
-    "gender": null,
-    "weightKg": 75,
-    "programs": [
-      {
-        "bridgeId": 1933662,
-        "name": "Road to LA - David",
-        "status": "started",
-        "startedAt": "2025-08-29",
-        "updatedAt": "2025-10-09",
-        "isPlaylist": true
-      }
-    ],
-    "recentWorkouts": [
-      {
-        "date": "2025-10-10",
-        "name": "2",
-        "workoutId": 31897691,
-        "workoutHistoryId": 57499224,
-        "duration": null,
-        "rpe": null,
-        "program": "Road to LA - David",
-        "status": "completed"
-      },
-      {
-        "date": "2025-10-10",
-        "name": "2",
-        "workoutId": 31897691,
-        "workoutHistoryId": 57499724,
-        "duration": null,
-        "rpe": null,
-        "program": "Road to LA - David",
-        "status": "completed"
-      },
-      {
-        "date": "2025-10-06",
-        "name": "2",
-        "workoutId": 31897691,
-        "workoutHistoryId": 57344396,
-        "duration": null,
-        "rpe": null,
-        "program": "Road to LA - David",
-        "status": "completed"
-      },
-      {
-        "date": "2025-09-02",
-        "name": "1",
-        "workoutId": 31897690,
-        "workoutHistoryId": 56179752,
-        "duration": null,
-        "rpe": null,
-        "program": "Road to LA - David",
-        "status": "completed"
-      }
-    ],
-    "programCount": 1,
-    "totalCompletedThisRange": 4
   },
   "liam-beard": {
     "id": "liam-beard",
@@ -3010,7 +3230,7 @@
         "name": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
         "status": "started",
         "startedAt": "2026-08-23",
-        "updatedAt": "2026-08-30",
+        "updatedAt": "2026-09-06",
         "isPlaylist": true
       },
       {
@@ -3031,6 +3251,36 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-06",
+        "name": "Upper A: Push",
+        "workoutId": -39310659,
+        "workoutHistoryId": 69527297,
+        "duration": 46,
+        "rpe": 4,
+        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Lower A: Squat",
+        "workoutId": 39310658,
+        "workoutHistoryId": 69471227,
+        "duration": 55,
+        "rpe": 4,
+        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-02",
+        "name": "Upper B: Pull",
+        "workoutId": 39310657,
+        "workoutHistoryId": 69361248,
+        "duration": 38,
+        "rpe": 4,
+        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
+        "status": "completed"
+      },
       {
         "date": "2026-08-31",
         "name": "Lower B: Hinge",
@@ -3117,36 +3367,6 @@
         "workoutId": 37804635,
         "workoutHistoryId": 68476903,
         "duration": 29,
-        "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-10",
-        "name": "Single-Leg + Squat Focus",
-        "workoutId": 37804634,
-        "workoutHistoryId": 68388431,
-        "duration": 20,
-        "rpe": 2,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-09",
-        "name": "Lunge + Hinge Focus",
-        "workoutId": 37804633,
-        "workoutHistoryId": 68348934,
-        "duration": 44,
-        "rpe": 3,
-        "program": "2026 Program - Renee Lodens (Kettlebells)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-07",
-        "name": "Single-Leg + Squat Focus",
-        "workoutId": 37804632,
-        "workoutHistoryId": 68292684,
-        "duration": 33,
         "rpe": 3,
         "program": "2026 Program - Renee Lodens (Kettlebells)",
         "status": "completed"
@@ -3332,7 +3552,7 @@
         "name": "Alex - Foundation Block (Weeks 1-4)",
         "status": "started",
         "startedAt": "2026-08-20",
-        "updatedAt": "2026-08-31",
+        "updatedAt": "2026-09-03",
         "isPlaylist": true
       },
       {
@@ -3401,6 +3621,16 @@
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-03",
+        "name": "Squat + Vertical Pull",
+        "workoutId": 39261809,
+        "workoutHistoryId": 69447761,
+        "duration": 45,
+        "rpe": 3,
+        "program": "Alex - Foundation Block (Weeks 1-4)",
+        "status": "completed"
+      },
       {
         "date": "2026-08-31",
         "name": "Hinge + Horizontal Push",
@@ -3510,16 +3740,6 @@
         "rpe": null,
         "program": "Health and Performance 1.0 - Alex",
         "status": "completed"
-      },
-      {
-        "date": "2025-02-19",
-        "name": null,
-        "workoutId": -23059582,
-        "workoutHistoryId": 49927445,
-        "duration": null,
-        "rpe": null,
-        "program": "Health and Performance 1.0 - Alex",
-        "status": "completed"
       }
     ],
     "programCount": 9,
@@ -3534,18 +3754,58 @@
     "age": 41,
     "birthDate": "1985-01-24",
     "gender": null,
-    "weightKg": 96.6,
+    "weightKg": 97.1,
     "programs": [
       {
         "bridgeId": 2327997,
         "name": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
         "status": "started",
         "startedAt": "2026-08-23",
-        "updatedAt": "2026-08-30",
+        "updatedAt": "2026-09-06",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-06",
+        "name": "Total Body B - Hinge + Vertical Push/Pull",
+        "workoutId": 39310287,
+        "workoutHistoryId": 69540199,
+        "duration": 50,
+        "rpe": 7,
+        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-04",
+        "name": "Total Body A - Squat + Horizontal Push/Pull",
+        "workoutId": 39310286,
+        "workoutHistoryId": 69497766,
+        "duration": 45,
+        "rpe": 5,
+        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-03",
+        "name": "Total Body B2 - Hinge + Vertical Push/Pull",
+        "workoutId": 39310285,
+        "workoutHistoryId": 69470004,
+        "duration": 45,
+        "rpe": 5,
+        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-01",
+        "name": "Total Body A2 - Squat + Horizontal Push/Pull",
+        "workoutId": 39310284,
+        "workoutHistoryId": 69365124,
+        "duration": 46,
+        "rpe": 6,
+        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
+        "status": "completed"
+      },
       {
         "date": "2026-08-30",
         "name": "Total Body B - Hinge + Vertical Push/Pull",
@@ -3568,6 +3828,6 @@
       }
     ],
     "programCount": 1,
-    "totalCompletedThisRange": 2
+    "totalCompletedThisRange": 6
   }
 }
