@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-09-07T22:37:21.671Z
+   Last synced: 2026-09-08T00:01:10.685Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -453,6 +453,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-08",
+        "name": "Upper Push (Horizontal + Vertical Press)",
+        "workoutId": 39015527,
+        "workoutHistoryId": 69590991,
+        "duration": 50,
+        "rpe": 9,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-07",
         "name": "Lower (Quad-Bias) + Frontal Plane",
         "workoutId": 39015526,
@@ -559,16 +569,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 68852443,
         "duration": 65,
         "rpe": 6,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-21",
-        "name": "Lower Push / Upper Pull",
-        "workoutId": 39169128,
-        "workoutHistoryId": 68780281,
-        "duration": 60,
-        "rpe": null,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
       }
@@ -2166,6 +2166,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-08",
+        "name": "Squat & Press",
+        "workoutId": 39328855,
+        "workoutHistoryId": 69590985,
+        "duration": 43,
+        "rpe": 3,
+        "program": "Build Block v2 - Mel and Steph",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-01",
         "name": "Lunge & Rotate",
         "workoutId": 39328854,
@@ -2284,16 +2294,6 @@ const BRIDGE_DATA = {
         "rpe": 4,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "completed"
-      },
-      {
-        "date": "2026-06-23",
-        "name": "Workout B",
-        "workoutId": 34391447,
-        "workoutHistoryId": 66664329,
-        "duration": 38,
-        "rpe": 3,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
       }
     ],
     "programCount": 8,
@@ -2328,6 +2328,16 @@ const BRIDGE_DATA = {
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-08",
+        "name": "Upper",
+        "workoutId": 35576319,
+        "workoutHistoryId": 69593064,
+        "duration": 32,
+        "rpe": 3,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
       {
         "date": "2026-09-07",
         "name": "Lower",
@@ -2445,16 +2455,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 68472589,
         "duration": 38,
         "rpe": 3,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-09",
-        "name": "Total Body - Day 3",
-        "workoutId": 37727913,
-        "workoutHistoryId": 68349312,
-        "duration": null,
-        "rpe": null,
         "program": "Alana 2026 Health and Performance Program ",
         "status": "completed"
       }
