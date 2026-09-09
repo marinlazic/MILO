@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-09-09T03:22:31.520Z
+   Last synced: 2026-09-09T22:31:36.127Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -287,7 +287,7 @@ const BRIDGE_DATA = {
         "name": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "started",
         "startedAt": "2026-08-09",
-        "updatedAt": "2026-09-08",
+        "updatedAt": "2026-09-09",
         "isPlaylist": true
       },
       {
@@ -453,6 +453,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-09",
+        "name": "Impulse: Contrast Pairs",
+        "workoutId": 39015528,
+        "workoutHistoryId": 69647528,
+        "duration": 37,
+        "rpe": 7,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-08",
         "name": "Upper Push (Horizontal + Vertical Press)",
         "workoutId": 39015527,
@@ -558,16 +568,6 @@ const BRIDGE_DATA = {
         "workoutId": 39169127,
         "workoutHistoryId": 68870118,
         "duration": 56,
-        "rpe": 6,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-23",
-        "name": "Total Body",
-        "workoutId": 39169129,
-        "workoutHistoryId": 68852443,
-        "duration": 65,
         "rpe": 6,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
@@ -2961,6 +2961,177 @@ const BRIDGE_DATA = {
     ],
     "programCount": 1,
     "totalCompletedThisRange": 4
+  },
+  "liam-beard": {
+    "id": "liam-beard",
+    "bridgeId": 594255,
+    "name": "Liam Beard",
+    "initials": "LB",
+    "email": "beard337@icloud.com",
+    "age": 19,
+    "birthDate": "2007-03-03",
+    "gender": null,
+    "weightKg": 72.6,
+    "programs": [
+      {
+        "bridgeId": 2194780,
+        "name": "Liam Tennis Performance Foundation ",
+        "status": "started",
+        "startedAt": "2026-04-30",
+        "updatedAt": "2026-07-13",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2055704,
+        "name": "Ruthless",
+        "status": "started",
+        "startedAt": "2025-12-15",
+        "updatedAt": "2026-04-23",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1971653,
+        "name": "Road to Slam",
+        "status": "started",
+        "startedAt": "2025-09-29",
+        "updatedAt": "2026-04-18",
+        "isPlaylist": true
+      }
+    ],
+    "recentWorkouts": [
+      {
+        "date": "2026-07-13",
+        "name": "Lower Strength and Vertical Pull - Core Anti-Rotation",
+        "workoutId": 36910406,
+        "workoutHistoryId": 67411012,
+        "duration": null,
+        "rpe": null,
+        "program": "Liam Tennis Performance Foundation ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-06-04",
+        "name": "Lower Posterior and Frontal Plane - Core Anti-Lateral Flexion",
+        "workoutId": 36910403,
+        "workoutHistoryId": 65837756,
+        "duration": null,
+        "rpe": null,
+        "program": "Liam Tennis Performance Foundation ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-06-03",
+        "name": "Upper Push-Pull - Core Stability",
+        "workoutId": 36910401,
+        "workoutHistoryId": 65779410,
+        "duration": 70,
+        "rpe": 6,
+        "program": "Liam Tennis Performance Foundation ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-05-25",
+        "name": "Lower Strength and Vertical Pull - Core Anti-Rotation",
+        "workoutId": 36910400,
+        "workoutHistoryId": 65217016,
+        "duration": null,
+        "rpe": null,
+        "program": "Liam Tennis Performance Foundation ",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-23",
+        "name": "Athletic Max Effort Lower Sumo Deadlift 1 Rep",
+        "workoutId": 34140389,
+        "workoutHistoryId": 64038261,
+        "duration": 61,
+        "rpe": 5,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-20",
+        "name": "Athletic Max Effort Upper Comp Bench Press - Bands 1 Rep",
+        "workoutId": 34140461,
+        "workoutHistoryId": 63926940,
+        "duration": 78,
+        "rpe": 5,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-18",
+        "name": "Workout A1",
+        "workoutId": 32509863,
+        "workoutHistoryId": 63880310,
+        "duration": 60,
+        "rpe": null,
+        "program": "Road to Slam",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-18",
+        "name": "Athletic Max Effort Lower Front Squat 1 Rep",
+        "workoutId": 34140460,
+        "workoutHistoryId": 63880314,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-04-13",
+        "name": "Athletic Combined Dynamic Effort Box Squat/Power Clean 75%",
+        "workoutId": 34140394,
+        "workoutHistoryId": 63686239,
+        "duration": 87,
+        "rpe": 5,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-26",
+        "name": "Athletic Max Effort Lower Sumo Deadlift 1 Rep",
+        "workoutId": 34140389,
+        "workoutHistoryId": 63157073,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-13",
+        "name": "Athletic Max Effort Upper Comp Bench Press - Bands 1 Rep",
+        "workoutId": 34140393,
+        "workoutHistoryId": 62763430,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-10",
+        "name": "Athletic Max Effort Lower Front Squat 1 Rep",
+        "workoutId": 34140392,
+        "workoutHistoryId": 62680838,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      },
+      {
+        "date": "2026-03-04",
+        "name": "Athletic Combined Dynamic Effort Box Squat/Power Cleans 70%",
+        "workoutId": 34140391,
+        "workoutHistoryId": 62486295,
+        "duration": null,
+        "rpe": null,
+        "program": "Ruthless",
+        "status": "completed"
+      }
+    ],
+    "programCount": 3,
+    "totalCompletedThisRange": 13
   },
   "sondra-hamill": {
     "id": "sondra-hamill",
