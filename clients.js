@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-09-09T22:31:36.127Z
+   Last synced: 2026-09-10T08:35:41.387Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -453,6 +453,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-10",
+        "name": "Lower (Posterior Chain) + Rotation",
+        "workoutId": -39015529,
+        "workoutHistoryId": 69690643,
+        "duration": 43,
+        "rpe": 7,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-09",
         "name": "Impulse: Contrast Pairs",
         "workoutId": 39015528,
@@ -559,16 +569,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 69022393,
         "duration": 60,
         "rpe": 5,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-24",
-        "name": "Upper Push / Lower Pull",
-        "workoutId": 39169127,
-        "workoutHistoryId": 68870118,
-        "duration": 56,
-        "rpe": 6,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
       }
@@ -3816,91 +3816,6 @@ const BRIDGE_DATA = {
     ],
     "programCount": 9,
     "totalCompletedThisRange": 12
-  },
-  "alex-strand": {
-    "id": "alex-strand",
-    "bridgeId": 712273,
-    "name": "Alex Strand",
-    "initials": "AS",
-    "email": "206strand@gmail.com",
-    "age": 41,
-    "birthDate": "1985-01-24",
-    "gender": null,
-    "weightKg": 97.1,
-    "programs": [
-      {
-        "bridgeId": 2327997,
-        "name": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
-        "status": "started",
-        "startedAt": "2026-08-23",
-        "updatedAt": "2026-09-06",
-        "isPlaylist": true
-      }
-    ],
-    "recentWorkouts": [
-      {
-        "date": "2026-09-06",
-        "name": "Total Body B - Hinge + Vertical Push/Pull",
-        "workoutId": 39310287,
-        "workoutHistoryId": 69540199,
-        "duration": 50,
-        "rpe": 7,
-        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-04",
-        "name": "Total Body A - Squat + Horizontal Push/Pull",
-        "workoutId": 39310286,
-        "workoutHistoryId": 69497766,
-        "duration": 45,
-        "rpe": 5,
-        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-03",
-        "name": "Total Body B2 - Hinge + Vertical Push/Pull",
-        "workoutId": 39310285,
-        "workoutHistoryId": 69470004,
-        "duration": 45,
-        "rpe": 5,
-        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-01",
-        "name": "Total Body A2 - Squat + Horizontal Push/Pull",
-        "workoutId": 39310284,
-        "workoutHistoryId": 69365124,
-        "duration": 46,
-        "rpe": 6,
-        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-30",
-        "name": "Total Body B - Hinge + Vertical Push/Pull",
-        "workoutId": 39310283,
-        "workoutHistoryId": 69213297,
-        "duration": 53,
-        "rpe": 5,
-        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-28",
-        "name": "Total Body A - Squat + Horizontal Push/Pull",
-        "workoutId": 39310282,
-        "workoutHistoryId": 69152487,
-        "duration": 40,
-        "rpe": 4,
-        "program": "Alex Strand - 12 Week Strength & Mitochondrial Program (Playlist)",
-        "status": "completed"
-      }
-    ],
-    "programCount": 1,
-    "totalCompletedThisRange": 6
   }
 };
 
