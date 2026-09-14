@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-09-14T00:00:53.992Z
+   Last synced: 2026-09-14T00:19:37.407Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -148,16 +148,6 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
-        "date": "2026-09-14",
-        "name": "LOWER PUSH (Squat) + UPPER PULL (Horizontal) + Aerobic Row",
-        "workoutId": 39169271,
-        "workoutHistoryId": 69850318,
-        "duration": 132,
-        "rpe": 9,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
         "date": "2026-09-10",
         "name": "UPPER PUSH (Sub-Overhead) + LOWER UNILATERAL + Rotation",
         "workoutId": -39169270,
@@ -263,6 +253,16 @@ const BRIDGE_DATA = {
         "workoutId": 39169260,
         "workoutHistoryId": 68677029,
         "duration": 130,
+        "rpe": 9,
+        "program": "Reini Otter 12-Week Training Program",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-17",
+        "name": "LOWER PUSH (Squat) + UPPER PULL (Horizontal) + Aerobic Row",
+        "workoutId": 39169259,
+        "workoutHistoryId": 68607639,
+        "duration": 134,
         "rpe": 9,
         "program": "Reini Otter 12-Week Training Program",
         "status": "completed"
@@ -453,16 +453,6 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
-        "date": "2026-09-14",
-        "name": "Lower (Quad-Bias) + Frontal Plane",
-        "workoutId": 39015531,
-        "workoutHistoryId": 69840380,
-        "duration": 60,
-        "rpe": 8,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
-      },
-      {
         "date": "2026-09-11",
         "name": "Upper Pull (Horizontal + Vertical) + Arms",
         "workoutId": 39015530,
@@ -568,6 +558,16 @@ const BRIDGE_DATA = {
         "workoutId": 39169132,
         "workoutHistoryId": 69121005,
         "duration": 56,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-27",
+        "name": "Lower Push / Upper Pull",
+        "workoutId": 39169131,
+        "workoutHistoryId": 69061003,
+        "duration": 55,
         "rpe": 6,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
@@ -734,16 +734,6 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
-        "date": "2026-09-14",
-        "name": "Upper Pull / Lower Push",
-        "workoutId": 37702325,
-        "workoutHistoryId": 69849500,
-        "duration": 52,
-        "rpe": 10,
-        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
-        "status": "completed"
-      },
-      {
         "date": "2026-09-11",
         "name": "Upper Push / Lower Pull",
         "workoutId": 37702324,
@@ -850,6 +840,16 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 68676692,
         "duration": null,
         "rpe": null,
+        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
+        "status": "completed"
+      },
+      {
+        "date": "2026-08-17",
+        "name": "Upper Pull / Lower Push",
+        "workoutId": 37702313,
+        "workoutHistoryId": 68607390,
+        "duration": 64,
+        "rpe": 5,
         "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "completed"
       }
@@ -1055,16 +1055,6 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
-        "date": "2026-09-14",
-        "name": "1.3 · HOME GYM — TRX · 24 kg KB · Chin Bar",
-        "workoutId": 39015451,
-        "workoutHistoryId": 69849548,
-        "duration": 45,
-        "rpe": 6,
-        "program": "Charlie — 9-Week Phase (Golf · Surf · Padel)",
-        "status": "completed"
-      },
-      {
         "date": "2026-08-29",
         "name": "1.2 · SURF CLUB GYM — Upper Pull + Push",
         "workoutId": 39015450,
@@ -1179,6 +1169,16 @@ const BRIDGE_DATA = {
         "name": "1.3",
         "workoutId": 35281306,
         "workoutHistoryId": 62114805,
+        "duration": null,
+        "rpe": null,
+        "program": "ARM FARM Charlie",
+        "status": "completed"
+      },
+      {
+        "date": "2026-02-16",
+        "name": "1.2",
+        "workoutId": 35281305,
+        "workoutHistoryId": 61911855,
         "duration": null,
         "rpe": null,
         "program": "ARM FARM Charlie",
@@ -2484,16 +2484,6 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
-        "date": "2026-09-14",
-        "name": "Max Strength",
-        "workoutId": 38457379,
-        "workoutHistoryId": 69851056,
-        "duration": 76,
-        "rpe": 5,
-        "program": "2025 - Craig Saphin",
-        "status": "completed"
-      },
-      {
         "date": "2026-09-12",
         "name": "Strength",
         "workoutId": 38457378,
@@ -2599,6 +2589,16 @@ const BRIDGE_DATA = {
         "workoutId": 38457368,
         "workoutHistoryId": 68140702,
         "duration": 78,
+        "rpe": 6,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
+        "date": "2026-07-22",
+        "name": "Strength",
+        "workoutId": 38457366,
+        "workoutHistoryId": 67731036,
+        "duration": 88,
         "rpe": 6,
         "program": "2025 - Craig Saphin",
         "status": "completed"
