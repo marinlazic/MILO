@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-09-27T22:39:42.317Z
+   Last synced: 2026-09-28T03:25:53.015Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -463,6 +463,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-28",
+        "name": "Lower (Quad-Bias) + Frontal Plane",
+        "workoutId": 39015541,
+        "workoutHistoryId": 70484223,
+        "duration": 27,
+        "rpe": 5,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-25",
         "name": "Upper Pull (Horizontal + Vertical) + Arms",
         "workoutId": 39015540,
@@ -579,16 +589,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 69741498,
         "duration": 45,
         "rpe": 9,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-10",
-        "name": "Lower (Posterior Chain) + Rotation",
-        "workoutId": -39015529,
-        "workoutHistoryId": 69690643,
-        "duration": 43,
-        "rpe": 7,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
       }
@@ -1075,6 +1075,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-28",
+        "name": "2.2 · SURF CLUB GYM — Upper Pull + Push",
+        "workoutId": 39015453,
+        "workoutHistoryId": 70484890,
+        "duration": 37,
+        "rpe": 4,
+        "program": "Charlie — 9-Week Phase (Golf · Surf · Padel)",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-24",
         "name": "2.1 · SURF CLUB GYM — Lower + Press",
         "workoutId": 39015452,
@@ -1189,16 +1199,6 @@ const BRIDGE_DATA = {
         "name": "2.1",
         "workoutId": 35281308,
         "workoutHistoryId": 62479467,
-        "duration": null,
-        "rpe": null,
-        "program": "ARM FARM Charlie",
-        "status": "completed"
-      },
-      {
-        "date": "2026-03-03",
-        "name": "1.4",
-        "workoutId": 35281307,
-        "workoutHistoryId": 62411998,
         "duration": null,
         "rpe": null,
         "program": "ARM FARM Charlie",
