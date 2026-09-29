@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-09-28T03:25:53.015Z
+   Last synced: 2026-09-29T22:30:44.243Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -297,7 +297,7 @@ const BRIDGE_DATA = {
         "name": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "started",
         "startedAt": "2026-08-09",
-        "updatedAt": "2026-09-27",
+        "updatedAt": "2026-09-29",
         "isPlaylist": true
       },
       {
@@ -463,6 +463,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-29",
+        "name": "Upper Push (Horizontal + Vertical Press)",
+        "workoutId": 39015542,
+        "workoutHistoryId": 70547905,
+        "duration": null,
+        "rpe": null,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-28",
         "name": "Lower (Quad-Bias) + Frontal Plane",
         "workoutId": 39015541,
@@ -581,16 +591,6 @@ const BRIDGE_DATA = {
         "rpe": 8,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
-      },
-      {
-        "date": "2026-09-11",
-        "name": "Upper Pull (Horizontal + Vertical) + Arms",
-        "workoutId": 39015530,
-        "workoutHistoryId": 69741498,
-        "duration": 45,
-        "rpe": 9,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
       }
     ],
     "programCount": 21,
@@ -612,7 +612,7 @@ const BRIDGE_DATA = {
         "name": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "started",
         "startedAt": "2026-06-06",
-        "updatedAt": "2026-09-27",
+        "updatedAt": "2026-09-29",
         "isPlaylist": true
       },
       {
@@ -754,6 +754,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-28",
+        "name": "Upper Pull / Lower Push",
+        "workoutId": 37702331,
+        "workoutHistoryId": 70484889,
+        "duration": null,
+        "rpe": null,
+        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-26",
         "name": "Upper Push / Lower Pull",
         "workoutId": 37702330,
@@ -859,16 +869,6 @@ const BRIDGE_DATA = {
         "workoutId": 37702317,
         "workoutHistoryId": 68870419,
         "duration": 70,
-        "rpe": 5,
-        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-22",
-        "name": "Upper Push / Lower Pull",
-        "workoutId": 37702316,
-        "workoutHistoryId": 68816964,
-        "duration": 72,
         "rpe": 5,
         "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "completed"
@@ -2124,7 +2124,7 @@ const BRIDGE_DATA = {
         "name": "Build Block v2 - Mel and Steph",
         "status": "started",
         "startedAt": "2026-08-24",
-        "updatedAt": "2026-09-21",
+        "updatedAt": "2026-09-28",
         "isPlaylist": true
       },
       {
@@ -2185,6 +2185,16 @@ const BRIDGE_DATA = {
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-29",
+        "name": "Squat & Press",
+        "workoutId": 39328858,
+        "workoutHistoryId": 70547907,
+        "duration": 56,
+        "rpe": 3,
+        "program": "Build Block v2 - Mel and Steph",
+        "status": "completed"
+      },
       {
         "date": "2026-09-22",
         "name": "Lunge & Rotate",
@@ -2302,16 +2312,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 67942249,
         "duration": 31,
         "rpe": 3,
-        "program": "2026 Program \"Move Strong\" - Mel and Steph ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-07-21",
-        "name": "Workout A",
-        "workoutId": 34391446,
-        "workoutHistoryId": 67689366,
-        "duration": 46,
-        "rpe": 4,
         "program": "2026 Program \"Move Strong\" - Mel and Steph ",
         "status": "completed"
       }
@@ -2494,6 +2494,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-27",
+        "name": "Max Strength",
+        "workoutId": 38457367,
+        "workoutHistoryId": 70465372,
+        "duration": null,
+        "rpe": null,
+        "program": "2025 - Craig Saphin",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-23",
         "name": "Strength",
         "workoutId": 38457381,
@@ -2600,16 +2610,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 68476746,
         "duration": 66,
         "rpe": 4,
-        "program": "2025 - Craig Saphin",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-10",
-        "name": "Max Strength",
-        "workoutId": 38457370,
-        "workoutHistoryId": 68397055,
-        "duration": 79,
-        "rpe": 6,
         "program": "2025 - Craig Saphin",
         "status": "completed"
       }
@@ -3312,7 +3312,7 @@ const BRIDGE_DATA = {
         "name": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
         "status": "started",
         "startedAt": "2026-08-23",
-        "updatedAt": "2026-09-27",
+        "updatedAt": "2026-09-29",
         "isPlaylist": true
       },
       {
@@ -3333,6 +3333,16 @@ const BRIDGE_DATA = {
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-29",
+        "name": "Lower B: Hinge",
+        "workoutId": 39310656,
+        "workoutHistoryId": 70550090,
+        "duration": 43,
+        "rpe": 3,
+        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
+        "status": "completed"
+      },
       {
         "date": "2026-09-27",
         "name": "Upper A: Push",
@@ -3440,16 +3450,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 69651522,
         "duration": null,
         "rpe": null,
-        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-07",
-        "name": "Lower B: Hinge",
-        "workoutId": 39310660,
-        "workoutHistoryId": 69551690,
-        "duration": 44,
-        "rpe": 4,
         "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
         "status": "completed"
       }
@@ -3634,7 +3634,7 @@ const BRIDGE_DATA = {
         "name": "Alex - Foundation Block (Weeks 1-4)",
         "status": "started",
         "startedAt": "2026-08-20",
-        "updatedAt": "2026-09-22",
+        "updatedAt": "2026-09-29",
         "isPlaylist": true
       },
       {
