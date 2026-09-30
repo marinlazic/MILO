@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-09-29T22:30:44.243Z
+   Last synced: 2026-09-30T00:00:47.477Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -463,6 +463,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-30",
+        "name": "Impulse: Contrast Pairs",
+        "workoutId": -39015543,
+        "workoutHistoryId": 70606119,
+        "duration": 36,
+        "rpe": 5,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-29",
         "name": "Upper Push (Horizontal + Vertical Press)",
         "workoutId": 39015542,
@@ -579,16 +589,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 69907942,
         "duration": 42,
         "rpe": 9,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-14",
-        "name": "Lower (Quad-Bias) + Frontal Plane",
-        "workoutId": 39015531,
-        "workoutHistoryId": 69840380,
-        "duration": 60,
-        "rpe": 8,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
       }
@@ -754,6 +754,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-30",
+        "name": "Upper Push / Lower Pull",
+        "workoutId": 37702334,
+        "workoutHistoryId": 70608369,
+        "duration": 63,
+        "rpe": 3,
+        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-28",
         "name": "Upper Pull / Lower Push",
         "workoutId": 37702331,
@@ -859,16 +869,6 @@ const BRIDGE_DATA = {
         "workoutId": 37702318,
         "workoutHistoryId": 68966840,
         "duration": 195,
-        "rpe": 5,
-        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-24",
-        "name": "Upper Pull / Lower Push",
-        "workoutId": 37702317,
-        "workoutHistoryId": 68870419,
-        "duration": 70,
         "rpe": 5,
         "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "completed"
@@ -3334,6 +3334,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-30",
+        "name": "Upper B: Pull",
+        "workoutId": -39310657,
+        "workoutHistoryId": 70608899,
+        "duration": 44,
+        "rpe": 5,
+        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-29",
         "name": "Lower B: Hinge",
         "workoutId": 39310656,
@@ -3440,16 +3450,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 69742669,
         "duration": 93,
         "rpe": 3,
-        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-09",
-        "name": "Upper B: Pull",
-        "workoutId": -39310661,
-        "workoutHistoryId": 69651522,
-        "duration": null,
-        "rpe": null,
         "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
         "status": "completed"
       }
@@ -3704,6 +3704,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-09-30",
+        "name": "Hinge + Horizontal Push",
+        "workoutId": 39261816,
+        "workoutHistoryId": 70609029,
+        "duration": 51,
+        "rpe": 5,
+        "program": "Alex - Foundation Block (Weeks 1-4)",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-22",
         "name": "Squat + Vertical Pull",
         "workoutId": 39261815,
@@ -3808,16 +3818,6 @@ const BRIDGE_DATA = {
         "name": null,
         "workoutId": 29770877,
         "workoutHistoryId": 55184252,
-        "duration": null,
-        "rpe": null,
-        "program": "ALEX 2025",
-        "status": "completed"
-      },
-      {
-        "date": "2025-06-27",
-        "name": null,
-        "workoutId": 29770876,
-        "workoutHistoryId": 54091603,
         "duration": null,
         "rpe": null,
         "program": "ALEX 2025",
