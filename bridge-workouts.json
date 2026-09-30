@@ -7653,454 +7653,6 @@
       }
     ]
   },
-  "29770876": {
-    "workoutId": 29770876,
-    "name": null,
-    "blocks": [
-      {
-        "name": "Warm Up",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Foam Roll - Rhomboids/Back",
-            "slug": "foam-roll-rhomboidsback",
-            "exerciseId": 805,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "weightUnit": "lbs",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Foam Roll - Glutes",
-            "slug": "foam-roll-glutes",
-            "exerciseId": 808,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "weightUnit": "lbs",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Foam Roll - Calf",
-            "slug": "foam-roll-calf",
-            "exerciseId": 41053,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "weightUnit": "lbs",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Foam Roll - Low Back",
-            "slug": "foam-roll-low-back",
-            "exerciseId": 41415,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Core",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Plank - with Shoulder Tap",
-            "slug": "plank-with-shoulder-tap",
-            "exerciseId": 41906,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Anti rotation Press - half kneeling cable",
-            "slug": "anti-rotation-press-half-kneeling-cable",
-            "exerciseId": 43243,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 700000,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 700000,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Power",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Skipping - Double Bounce",
-            "slug": "skipping-double-bounce",
-            "exerciseId": 476265,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Round 1",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Squat to Press - Dumbbell",
-            "slug": "squat-to-press-dumbbell",
-            "exerciseId": 685,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Row - TRX",
-            "slug": "row-trx",
-            "exerciseId": 43364,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "TRX Lower Back Stretch",
-            "slug": "trx-lower-back-stretch",
-            "exerciseId": 721779,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 5,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 5,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 5,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 5,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Round 2",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Flexed Arm Hang",
-            "slug": null,
-            "exerciseId": 373393,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 4,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 4,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 4,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 4,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Plank Row with DB",
-            "slug": null,
-            "exerciseId": 373482,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Arm Farm ",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Biceps Curls - Standing Dumbbell",
-            "slug": "biceps-curls-standing-dumbbell",
-            "exerciseId": 541,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Triceps Pressdown - Standing Cable (Rope)",
-            "slug": "triceps-pressdown-standing-cable-rope",
-            "exerciseId": 549,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
   "29770877": {
     "workoutId": 29770877,
     "name": null,
@@ -46242,624 +45794,6 @@
       }
     ]
   },
-  "37702317": {
-    "workoutId": 37702317,
-    "name": "Upper Pull / Lower Push",
-    "blocks": [
-      {
-        "name": "Prep A - Hip",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "90/90 Stretch - with Arm Sweep",
-            "slug": "90-90-stretch-with-arm-sweep",
-            "exerciseId": 41825,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Hip Airplane",
-            "slug": "hip-airplane",
-            "exerciseId": 431893,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Left side"
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Left side"
-              }
-            ]
-          },
-          {
-            "name": "Banded External Rotation",
-            "slug": "banded-external-rotation",
-            "exerciseId": 612404,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Hip external rotation focus, left side"
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Hip external rotation focus, left side"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Prep B - Shoulder",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Banded External Rotation",
-            "slug": "banded-external-rotation",
-            "exerciseId": 612404,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Left focus"
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Left focus"
-              }
-            ]
-          },
-          {
-            "name": "Scapular Pull ups",
-            "slug": "scapular-pull-ups",
-            "exerciseId": 830875,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Band Pull Aparts",
-            "slug": "band-pull-aparts",
-            "exerciseId": 1078200,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Power",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Med Ball Rotational Throw",
-            "slug": "med-ball-rotational-throw",
-            "exerciseId": 1286819,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Superset 1 - Vertical Pull + Biceps",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": true,
-        "exercises": [
-          {
-            "name": "Biceps curls - zottman curl",
-            "slug": "biceps-curls-zottman-curl",
-            "exerciseId": 493170,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 12,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 12,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 12,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 12,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Single Arm Lat Pull-Down",
-            "slug": "single-arm-lat-pull-down",
-            "exerciseId": 1287365,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Each side"
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Superset 2 - Horizontal Pull + Prehab",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": true,
-        "exercises": [
-          {
-            "name": "1 Arm Row - Dumbbell (Bench Supported)",
-            "slug": "1-arm-row-dumbbell-bench-supported",
-            "exerciseId": 1263549,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Each side"
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Face Pull with External Rotation",
-            "slug": "face-pull-with-external-rotation",
-            "exerciseId": 1287378,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 15,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 15,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 15,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 15,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Superset 3 - Lunge + Anti-Rotation",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": true,
-        "exercises": [
-          {
-            "name": "Landmine Lateral Lunges",
-            "slug": "landmine-lateral-lunges",
-            "exerciseId": 762082,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Each side"
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Each side"
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          },
-          {
-            "name": "Banded Wood Chop",
-            "slug": "banded-wood-chop",
-            "exerciseId": 1309107,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Superset 4 - Single-Leg + Carry",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": true,
-        "exercises": [
-          {
-            "name": "Lateral Step Down",
-            "slug": "lateral-step-down",
-            "exerciseId": 1286817,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Each side"
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": 10,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Each side"
-              }
-            ]
-          },
-          {
-            "name": "Suitcase Carry - Dumbbell",
-            "slug": "suitcase-carry-dumbbell",
-            "exerciseId": 1329011,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "distance": 20000,
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": "Each side"
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "distance": 20000,
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "distance": 20000,
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "weight": 750000,
-                "weightUnit": "kg",
-                "distance": 20000,
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": "Each side"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Conditioning",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Ski Erg",
-            "slug": "ski-erg",
-            "exerciseId": 1328408,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Surge rounds - sprint the first 5 cal, settle and hold"
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Surge rounds - sprint the first 5 cal, settle and hold"
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": null
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
   "37702318": {
     "workoutId": 37702318,
     "name": "Upper Push / Lower Pull",
@@ -53560,6 +52494,603 @@
               {
                 "type": "Workset",
                 "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "37702334": {
+    "workoutId": 37702334,
+    "name": "Upper Push / Lower Pull",
+    "blocks": [
+      {
+        "name": "Prep A - Shoulder + Midline",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": false,
+        "exercises": [
+          {
+            "name": "Foam Roll - T-Spine",
+            "slug": null,
+            "exerciseId": 373559,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Banded External Rotation",
+            "slug": "banded-external-rotation",
+            "exerciseId": 612404,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "Left focus"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "Left focus"
+              }
+            ]
+          },
+          {
+            "name": "Banded Y Deltoid Fly",
+            "slug": "banded-y-deltoid-fly",
+            "exerciseId": 730051,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Dead Bug",
+            "slug": "dead-bug",
+            "exerciseId": 1235847,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Prep B - Hip",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": false,
+        "exercises": [
+          {
+            "name": "Banded External Rotation",
+            "slug": "banded-external-rotation",
+            "exerciseId": 612404,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "Banded Hip External Rotation - left focus"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "Banded Hip External Rotation - left focus"
+              }
+            ]
+          },
+          {
+            "name": "Copenhagen Plank - Short Lever",
+            "slug": "copenhagen-plank-short-lever",
+            "exerciseId": 826123,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Banded Abduction",
+            "slug": "banded-abduction",
+            "exerciseId": 1329871,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "Left focus"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "Left focus"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Superset 1 - Push + Triceps",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": true,
+        "exercises": [
+          {
+            "name": "Floor press DB - Unilateral",
+            "slug": "floor-press-db-unilateral",
+            "exerciseId": 851363,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": "Each side"
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": "Each side"
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": "Each side"
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Triceps Push Up",
+            "slug": "triceps-push-up",
+            "exerciseId": 1283980,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": 10,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 10,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 10,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 10,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Superset 2 - Vertical Pull + Anti-Rotation",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": true,
+        "exercises": [
+          {
+            "name": "Neutral Grip Lat Pulldown",
+            "slug": "neutral-grip-lat-pulldown",
+            "exerciseId": 1164471,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Banded Rotational Wood Chop",
+            "slug": "banded-rotational-wood-chop",
+            "exerciseId": 1309110,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Superset 3 - Hinge + Carry",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": true,
+        "exercises": [
+          {
+            "name": "Front Rack Walk - 2 Kettlebells",
+            "slug": "front-rack-walk-2-kettlebells",
+            "exerciseId": 1153983,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "distance": 25000,
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "distance": 25000,
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "distance": 25000,
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "distance": 25000,
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Deadlift",
+            "slug": "deadlift",
+            "exerciseId": 1283983,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": 6,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 6,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 6,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 6,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Superset 4 - Single-Leg Hinge + Core",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": true,
+        "exercises": [
+          {
+            "name": "Side Plank - Loaded",
+            "slug": "side-plank-loaded",
+            "exerciseId": 752067,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Deadlift",
+            "slug": "deadlift",
+            "exerciseId": 1283983,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": "Single-Leg RDL - Dumbbell"
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": 8,
+                "weight": 800000,
+                "weightUnit": "kg",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Conditioning",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": false,
+        "exercises": [
+          {
+            "name": "Ski Erg",
+            "slug": "ski-erg",
+            "exerciseId": 1328408,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "distance": 500000,
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": "Race pace - hold splits within 2 seconds"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "distance": 500000,
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "distance": 500000,
+                "distanceUnit": "m",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "distance": 500000,
+                "distanceUnit": "m",
                 "rpe": null,
                 "rest": null,
                 "note": null
@@ -63620,353 +63151,6 @@
       }
     ]
   },
-  "39015531": {
-    "workoutId": 39015531,
-    "name": "Lower (Quad-Bias) + Frontal Plane",
-    "blocks": [
-      {
-        "name": "Warm-up & Mobility",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Fire Hydrant",
-            "slug": "fire-hydrant",
-            "exerciseId": 567,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 8,
-                "rpe": null,
-                "rest": null,
-                "note": "Slow circles, ribs down. Reps each side."
-              },
-              {
-                "type": "Workset",
-                "reps": 8,
-                "rpe": null,
-                "rest": null,
-                "note": "Slow circles, ribs down. Reps each side."
-              }
-            ]
-          },
-          {
-            "name": "Reverse Lunge + World's Greatest Stretch",
-            "slug": "reverse-lunge-world-s-greatest-stretch",
-            "exerciseId": 41704,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 5,
-                "rpe": null,
-                "rest": null,
-                "note": "Big reach, rotate over front leg. Reps each side."
-              },
-              {
-                "type": "Workset",
-                "reps": 5,
-                "rpe": null,
-                "rest": null,
-                "note": "Big reach, rotate over front leg. Reps each side."
-              }
-            ]
-          },
-          {
-            "name": "Crocodile Breathing",
-            "slug": null,
-            "exerciseId": 373469,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 5,
-                "rpe": null,
-                "rest": null,
-                "note": "Belly to floor, slow exhale. 5 breaths per set."
-              },
-              {
-                "type": "Workset",
-                "reps": 5,
-                "rpe": null,
-                "rest": null,
-                "note": "Belly to floor, slow exhale. 5 breaths per set."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Power",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Dumbbell Squat Jump",
-            "slug": "dumbbell-squat-jump",
-            "exerciseId": 484276,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 3,
-                "weight": 200000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Light DBs, max intent, quiet land."
-              },
-              {
-                "type": "Workset",
-                "reps": 3,
-                "weight": 200000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Light DBs, max intent, quiet land."
-              },
-              {
-                "type": "Workset",
-                "reps": 3,
-                "weight": 200000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Light DBs, max intent, quiet land."
-              },
-              {
-                "type": "Workset",
-                "reps": 3,
-                "weight": 200000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Light DBs, max intent, quiet land."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Main Lift (tri-set)",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": true,
-        "exercises": [
-          {
-            "name": "Single Leg Step Down - Dumbbell",
-            "slug": "single-leg-step-down-dumbbell",
-            "exerciseId": 70875,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 4,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Slow lower, knee tracks. Reps each side."
-              },
-              {
-                "type": "Workset",
-                "reps": 4,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Slow lower, knee tracks. Reps each side."
-              },
-              {
-                "type": "Workset",
-                "reps": 4,
-                "weight": 650000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Slow lower, knee tracks. Reps each side."
-              }
-            ]
-          },
-          {
-            "name": "Frog Stretch",
-            "slug": "frog-stretch",
-            "exerciseId": 1265220,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Rock back, knees wide, breathe."
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Rock back, knees wide, breathe."
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Rock back, knees wide, breathe."
-              }
-            ]
-          },
-          {
-            "name": "Anderson Zercher squat from pins",
-            "slug": "anderson-zercher-squat-from-pins",
-            "exerciseId": 1345169,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 2,
-                "weight": 900000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Dead start off pins, brace hard, no bounce."
-              },
-              {
-                "type": "Workset",
-                "reps": 2,
-                "weight": 900000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Dead start off pins, brace hard, no bounce."
-              },
-              {
-                "type": "Workset",
-                "reps": 2,
-                "weight": 900000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Dead start off pins, brace hard, no bounce."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Strength Superset",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": true,
-        "exercises": [
-          {
-            "name": "Step Up - Back Barbell",
-            "slug": "step-up-back-barbell",
-            "exerciseId": 447,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": 5,
-                "weight": 780000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Full foot on box, drive tall. Reps each side."
-              },
-              {
-                "type": "Workset",
-                "reps": 5,
-                "weight": 780000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Full foot on box, drive tall. Reps each side."
-              },
-              {
-                "type": "Workset",
-                "reps": 5,
-                "weight": 780000,
-                "weightUnit": "kg",
-                "rpe": null,
-                "rest": null,
-                "note": "Full foot on box, drive tall. Reps each side."
-              }
-            ]
-          },
-          {
-            "name": "Single Arm Front Rack Grapevine Carry",
-            "slug": "single-arm-front-rack-grapevine-carry",
-            "exerciseId": 512104,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "weightUnit": "kg",
-                "distance": 15000,
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": "Rack tight, hips quiet. Distance each side."
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "weightUnit": "kg",
-                "distance": 15000,
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": "Rack tight, hips quiet. Distance each side."
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "weightUnit": "kg",
-                "distance": 15000,
-                "distanceUnit": "m",
-                "rpe": null,
-                "rest": null,
-                "note": "Rack tight, hips quiet. Distance each side."
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "Core",
-        "rounds": null,
-        "minutes": 1,
-        "isCircuit": false,
-        "exercises": [
-          {
-            "name": "Banded Side Plank Clamshell",
-            "slug": "banded-side-plank-clamshell",
-            "exerciseId": 830874,
-            "sets": [
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Stack hips, open knee vs band. Time each side."
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Stack hips, open knee vs band. Time each side."
-              },
-              {
-                "type": "Workset",
-                "reps": null,
-                "rpe": null,
-                "rest": null,
-                "note": "Stack hips, open knee vs band. Time each side."
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
   "39015532": {
     "workoutId": 39015532,
     "name": "Upper Push (Horizontal + Vertical Press)",
@@ -74017,6 +73201,476 @@
                 "rpe": null,
                 "rest": null,
                 "note": "hard effort"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "39261816": {
+    "workoutId": 39261816,
+    "name": "Hinge + Horizontal Push",
+    "blocks": [
+      {
+        "name": "Warm-up",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": false,
+        "exercises": [
+          {
+            "name": "The World's Greatest Stretch",
+            "slug": "the-world-s-greatest-stretch",
+            "exerciseId": 474039,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "reach long through the top arm"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "reach long through the top arm"
+              }
+            ]
+          },
+          {
+            "name": "90/90 Hip Switch",
+            "slug": "90-90-hip-switch",
+            "exerciseId": 830851,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "chest tall, move slowly, no hands if possible"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "chest tall, move slowly, no hands if possible"
+              }
+            ]
+          },
+          {
+            "name": "Knee to Wall Ankle Mobilization",
+            "slug": "knee-to-wall-ankle-mobilization",
+            "exerciseId": 1283170,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "heel stays down, drive the knee over the toes"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "heel stays down, drive the knee over the toes"
+              }
+            ]
+          },
+          {
+            "name": "Bike Easy",
+            "slug": "bike-easy",
+            "exerciseId": 1287156,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "easy pace, just raise the temperature"
+              }
+            ]
+          },
+          {
+            "name": "Quadruped Thoracic Rotation",
+            "slug": "quadruped-thoracic-rotation",
+            "exerciseId": 1411189,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "hips stay square, rotate from the ribs"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "hips stay square, rotate from the ribs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Core",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": false,
+        "exercises": [
+          {
+            "name": "Dead Bug",
+            "slug": "dead-bug",
+            "exerciseId": 1235847,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "ribs down, low back flat on the floor"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "rpe": null,
+                "rest": null,
+                "note": "ribs down, low back flat on the floor"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Combination",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": false,
+        "exercises": [
+          {
+            "name": "Squat to Press - Dumbbell",
+            "slug": "squat-to-press-dumbbell",
+            "exerciseId": 685,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 550000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "one smooth movement, stay light"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 550000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "one smooth movement, stay light"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Strength 1",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": true,
+        "exercises": [
+          {
+            "name": "Romanian Deadlift - Dumbbell",
+            "slug": "romanian-deadlift-dumbbell",
+            "exerciseId": 398,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "push the hips back, soft knees"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "push the hips back, soft knees"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "push the hips back, soft knees"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "push the hips back, soft knees"
+              }
+            ]
+          },
+          {
+            "name": "Flat Dumbbell Bench Press",
+            "slug": "flat-dumbbell-bench-press",
+            "exerciseId": 1106945,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "elbows at 45 degrees"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "elbows at 45 degrees"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "elbows at 45 degrees"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "elbows at 45 degrees"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Strength 2",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": true,
+        "exercises": [
+          {
+            "name": "Split Squat - Rear Foot Elevated Dumbbell",
+            "slug": "split-squat-rear-foot-elevated-dumbbell",
+            "exerciseId": 408,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": null
+              }
+            ]
+          },
+          {
+            "name": "Seated Cable Row Overhand",
+            "slug": "seated-cable-row-overhand",
+            "exerciseId": 1164812,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "chest up, pull to the belly button"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "chest up, pull to the belly button"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "chest up, pull to the belly button"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 800000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "chest up, pull to the belly button"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Metabolic",
+        "rounds": null,
+        "minutes": 1,
+        "isCircuit": true,
+        "exercises": [
+          {
+            "name": "Deadlift - Kettlebell",
+            "slug": "deadlift-kettlebell",
+            "exerciseId": 43250,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 550000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "steady pace, flat back"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 550000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "steady pace, flat back"
+              }
+            ]
+          },
+          {
+            "name": "Incline Push-Up",
+            "slug": null,
+            "exerciseId": 373359,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 550000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "hands on a bench"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 550000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "hands on a bench"
+              }
+            ]
+          },
+          {
+            "name": "Seated Cable Row Overhand",
+            "slug": "seated-cable-row-overhand",
+            "exerciseId": 1164812,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 550000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "light and continuous"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 550000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "light and continuous"
+              }
+            ]
+          },
+          {
+            "name": "Farmer Carry",
+            "slug": "farmer-carry",
+            "exerciseId": 1292887,
+            "sets": [
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 550000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "tall posture, short steps"
+              },
+              {
+                "type": "Workset",
+                "reps": null,
+                "weight": 550000,
+                "weightUnit": "lbs",
+                "rpe": null,
+                "rest": null,
+                "note": "tall posture, short steps"
               }
             ]
           }
