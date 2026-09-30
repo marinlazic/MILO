@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-09-30T00:00:47.477Z
+   Last synced: 2026-09-30T22:30:36.419Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -297,7 +297,7 @@ const BRIDGE_DATA = {
         "name": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "started",
         "startedAt": "2026-08-09",
-        "updatedAt": "2026-09-29",
+        "updatedAt": "2026-09-30",
         "isPlaylist": true
       },
       {
@@ -612,7 +612,7 @@ const BRIDGE_DATA = {
         "name": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "started",
         "startedAt": "2026-06-06",
-        "updatedAt": "2026-09-29",
+        "updatedAt": "2026-09-30",
         "isPlaylist": true
       },
       {
@@ -2335,7 +2335,7 @@ const BRIDGE_DATA = {
         "name": "Alana 2026 Health and Performance Program ",
         "status": "started",
         "startedAt": "2026-01-14",
-        "updatedAt": "2026-09-21",
+        "updatedAt": "2026-09-30",
         "isPlaylist": true
       },
       {
@@ -2348,6 +2348,16 @@ const BRIDGE_DATA = {
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-09-30",
+        "name": "Total Body - Day 1",
+        "workoutId": 37727895,
+        "workoutHistoryId": 70614948,
+        "duration": null,
+        "rpe": null,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
       {
         "date": "2026-09-22",
         "name": "Total Body - Day 4",
@@ -2455,16 +2465,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 68983646,
         "duration": 34,
         "rpe": 4,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-24",
-        "name": "Upper",
-        "workoutId": 35576313,
-        "workoutHistoryId": 68874490,
-        "duration": 60,
-        "rpe": null,
         "program": "Alana 2026 Health and Performance Program ",
         "status": "completed"
       }
