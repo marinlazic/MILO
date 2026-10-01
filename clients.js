@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-09-30T22:30:36.419Z
+   Last synced: 2026-10-01T22:31:34.999Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -297,7 +297,7 @@ const BRIDGE_DATA = {
         "name": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "started",
         "startedAt": "2026-08-09",
-        "updatedAt": "2026-09-30",
+        "updatedAt": "2026-10-01",
         "isPlaylist": true
       },
       {
@@ -463,6 +463,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-10-01",
+        "name": "Lower (Posterior Chain) + Rotation",
+        "workoutId": 39015544,
+        "workoutHistoryId": 70637852,
+        "duration": 16,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-30",
         "name": "Impulse: Contrast Pairs",
         "workoutId": -39015543,
@@ -578,16 +588,6 @@ const BRIDGE_DATA = {
         "workoutId": 39015533,
         "workoutHistoryId": 69961306,
         "duration": 41,
-        "rpe": 9,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-15",
-        "name": "Upper Push (Horizontal + Vertical Press)",
-        "workoutId": 39015532,
-        "workoutHistoryId": 69907942,
-        "duration": 42,
         "rpe": 9,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
@@ -754,6 +754,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-10-01",
+        "name": "Upper Pull / Lower Push",
+        "workoutId": 37702333,
+        "workoutHistoryId": 70652613,
+        "duration": 60,
+        "rpe": 3,
+        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-30",
         "name": "Upper Push / Lower Pull",
         "workoutId": 37702334,
@@ -859,16 +869,6 @@ const BRIDGE_DATA = {
         "workoutId": 37702319,
         "workoutHistoryId": 69062021,
         "duration": 68,
-        "rpe": 5,
-        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-25",
-        "name": "Upper Push / Lower Pull",
-        "workoutId": 37702318,
-        "workoutHistoryId": 68966840,
-        "duration": 195,
         "rpe": 5,
         "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "completed"
@@ -3312,7 +3312,7 @@ const BRIDGE_DATA = {
         "name": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
         "status": "started",
         "startedAt": "2026-08-23",
-        "updatedAt": "2026-09-29",
+        "updatedAt": "2026-10-01",
         "isPlaylist": true
       },
       {
@@ -3634,7 +3634,7 @@ const BRIDGE_DATA = {
         "name": "Alex - Foundation Block (Weeks 1-4)",
         "status": "started",
         "startedAt": "2026-08-20",
-        "updatedAt": "2026-09-29",
+        "updatedAt": "2026-10-01",
         "isPlaylist": true
       },
       {
