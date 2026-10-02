@@ -2,7 +2,7 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-10-01T22:31:34.999Z
+   Last synced: 2026-10-02T00:00:39.638Z
    ============================================================ */
 
 const BRIDGE_DATA = {
@@ -463,6 +463,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-10-02",
+        "name": "Upper Pull (Horizontal + Vertical) + Arms",
+        "workoutId": 39015545,
+        "workoutHistoryId": 70694603,
+        "duration": 27,
+        "rpe": 5,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-10-01",
         "name": "Lower (Posterior Chain) + Rotation",
         "workoutId": 39015544,
@@ -579,16 +589,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 69991591,
         "duration": 37,
         "rpe": 7,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-16",
-        "name": "Impulse: Contrast Pairs",
-        "workoutId": 39015533,
-        "workoutHistoryId": 69961306,
-        "duration": 41,
-        "rpe": 9,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
       }
@@ -2488,7 +2488,7 @@ const BRIDGE_DATA = {
         "name": "2025 - Craig Saphin",
         "status": "started",
         "startedAt": "2024-12-24",
-        "updatedAt": "2026-09-27",
+        "updatedAt": "2026-10-01",
         "isPlaylist": true
       }
     ],
@@ -3334,6 +3334,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-10-02",
+        "name": "Lower A: Squat",
+        "workoutId": -39310658,
+        "workoutHistoryId": 70695186,
+        "duration": 60,
+        "rpe": 4,
+        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
+        "status": "completed"
+      },
+      {
         "date": "2026-09-30",
         "name": "Upper B: Pull",
         "workoutId": -39310657,
@@ -3440,16 +3450,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 69822244,
         "duration": 41,
         "rpe": 4,
-        "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-11",
-        "name": "Lower A: Squat",
-        "workoutId": 39310662,
-        "workoutHistoryId": 69742669,
-        "duration": 93,
-        "rpe": 3,
         "program": "Renee Lodens - Block 1 Foundation (Weeks 1-4)",
         "status": "completed"
       }
