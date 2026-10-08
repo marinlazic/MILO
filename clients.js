@@ -2,10 +2,315 @@
    MILO — Client Data Layer
    ============================================================
    Auto-synced from Bridge Athletic via /api/sync.
-   Last synced: 2026-10-07T22:43:00.735Z
+   Last synced: 2026-10-08T02:16:12.201Z
    ============================================================ */
 
 const BRIDGE_DATA = {
+  "samantha-van-gelder": {
+    "id": "samantha-van-gelder",
+    "bridgeId": 283317,
+    "name": "Samantha van Gelder",
+    "initials": "SV",
+    "email": "samantha_killesteyn@yahoo.com.au",
+    "age": 50,
+    "birthDate": "1976-04-01",
+    "gender": null,
+    "weightKg": 54,
+    "programs": [
+      {
+        "bridgeId": 2311868,
+        "name": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "started",
+        "startedAt": "2026-08-09",
+        "updatedAt": "2026-10-07",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1366329,
+        "name": "2025 -  SAM",
+        "status": "started",
+        "startedAt": "2024-02-26",
+        "updatedAt": "2026-08-06",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 2204709,
+        "name": "Hypertrophy & Impulse Integration",
+        "status": "completed",
+        "startedAt": "2026-05-10",
+        "updatedAt": "2026-08-09",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1311284,
+        "name": "DEC / JAN -  SAM",
+        "status": "completed",
+        "startedAt": "2023-12-27",
+        "updatedAt": "2024-02-26",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1270967,
+        "name": "3 Day Hypertrophy - NOV23",
+        "status": "completed",
+        "startedAt": "2023-11-06",
+        "updatedAt": "2023-12-27",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1236885,
+        "name": "Sam - MAX POWER BLOCK",
+        "status": "completed",
+        "startedAt": "2023-09-24",
+        "updatedAt": "2023-11-06",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1194250,
+        "name": "3 Day Hypertrophy 5.0 - Sam  (AUG 22)",
+        "status": "completed",
+        "startedAt": "2023-08-06",
+        "updatedAt": "2023-09-24",
+        "isPlaylist": false
+      },
+      {
+        "bridgeId": 1166488,
+        "name": "3 Day Hypertrophy 4.0 - Sam  (JULY 22) PALM BEACH",
+        "status": "completed",
+        "startedAt": "2023-06-25",
+        "updatedAt": "2023-08-06",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1145028,
+        "name": "3 Day Hypertrophy 3.0 - Sam  (JUNE 22)",
+        "status": "completed",
+        "startedAt": "2023-05-30",
+        "updatedAt": "2023-08-06",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1144064,
+        "name": "TESTING",
+        "status": "completed",
+        "startedAt": "2023-05-29",
+        "updatedAt": "2023-05-30",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1138673,
+        "name": "Unloading 3.0",
+        "status": "completed",
+        "startedAt": "2023-05-22",
+        "updatedAt": "2023-05-29",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1115753,
+        "name": "MAX STRENGHT 1 - SAM",
+        "status": "completed",
+        "startedAt": "2023-04-20",
+        "updatedAt": "2023-05-29",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1077699,
+        "name": "Hypertrophy 3.0 - Sam",
+        "status": "completed",
+        "startedAt": "2023-02-28",
+        "updatedAt": "2023-05-29",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1103208,
+        "name": "Unloading 1.0 copy",
+        "status": "completed",
+        "startedAt": "2023-04-03",
+        "updatedAt": "2023-04-21",
+        "isPlaylist": false
+      },
+      {
+        "bridgeId": 1077694,
+        "name": "Hypertrophy 3.0 - Sam",
+        "status": "completed",
+        "startedAt": "2023-02-28",
+        "updatedAt": "2023-02-28",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1071031,
+        "name": "Unloading Week 1.0",
+        "status": "completed",
+        "startedAt": "2023-02-18",
+        "updatedAt": "2023-02-28",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1052284,
+        "name": "Max Strength 1.0 - Marin Lazic Coaching",
+        "status": "completed",
+        "startedAt": "2023-01-23",
+        "updatedAt": "2023-02-18",
+        "isPlaylist": true
+      },
+      {
+        "bridgeId": 1030282,
+        "name": "Hypertrophy - Advanced - 2.0",
+        "status": "completed",
+        "startedAt": "2022-12-24",
+        "updatedAt": "2023-01-23",
+        "isPlaylist": false
+      },
+      {
+        "bridgeId": 1003786,
+        "name": "Hypertrophy - Advanced - 1.0",
+        "status": "completed",
+        "startedAt": "2022-11-18",
+        "updatedAt": "2022-12-30",
+        "isPlaylist": false
+      },
+      {
+        "bridgeId": 998100,
+        "name": "Unloading Week 1.0",
+        "status": "completed",
+        "startedAt": "2022-11-10",
+        "updatedAt": "2022-12-07",
+        "isPlaylist": false
+      },
+      {
+        "bridgeId": 981498,
+        "name": "Strength 8-6-5-4 - Sam",
+        "status": "completed",
+        "startedAt": "2022-10-17",
+        "updatedAt": "2022-11-25",
+        "isPlaylist": false
+      }
+    ],
+    "recentWorkouts": [
+      {
+        "date": "2026-10-08",
+        "name": "Upper Pull B, Vertical and Arms",
+        "workoutId": 40231178,
+        "workoutHistoryId": 70979576,
+        "duration": 34,
+        "rpe": 7,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-10-07",
+        "name": "Power, Impulse Contrast Pairs",
+        "workoutId": 40231176,
+        "workoutHistoryId": 70949472,
+        "duration": 46,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-10-06",
+        "name": "Upper Pull A, Horizontal",
+        "workoutId": 40231175,
+        "workoutHistoryId": 70870431,
+        "duration": null,
+        "rpe": null,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-10-05",
+        "name": "Lower, Quad Bias and Frontal Plane",
+        "workoutId": 40231174,
+        "workoutHistoryId": 70791309,
+        "duration": 39,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-10-02",
+        "name": "Upper Pull (Horizontal + Vertical) + Arms",
+        "workoutId": 39015545,
+        "workoutHistoryId": 70694603,
+        "duration": 27,
+        "rpe": 5,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-10-01",
+        "name": "Lower (Posterior Chain) + Rotation",
+        "workoutId": 39015544,
+        "workoutHistoryId": 70637852,
+        "duration": 16,
+        "rpe": 6,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-30",
+        "name": "Impulse: Contrast Pairs",
+        "workoutId": -39015543,
+        "workoutHistoryId": 70606119,
+        "duration": 36,
+        "rpe": 5,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-29",
+        "name": "Upper Push (Horizontal + Vertical Press)",
+        "workoutId": 39015542,
+        "workoutHistoryId": 70547905,
+        "duration": null,
+        "rpe": null,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-28",
+        "name": "Lower (Quad-Bias) + Frontal Plane",
+        "workoutId": 39015541,
+        "workoutHistoryId": 70484223,
+        "duration": 27,
+        "rpe": 5,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-25",
+        "name": "Upper Pull (Horizontal + Vertical) + Arms",
+        "workoutId": 39015540,
+        "workoutHistoryId": 70370540,
+        "duration": 47,
+        "rpe": 9,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-24",
+        "name": "Lower (Posterior Chain) + Rotation",
+        "workoutId": 39015539,
+        "workoutHistoryId": 70308324,
+        "duration": 41,
+        "rpe": 9,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
+        "date": "2026-09-23",
+        "name": "Impulse: Contrast Pairs",
+        "workoutId": -39015538,
+        "workoutHistoryId": 70255681,
+        "duration": 54,
+        "rpe": 9,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      }
+    ],
+    "programCount": 21,
+    "totalCompletedThisRange": 12
+  },
   "craig-blair": {
     "id": "craig-blair",
     "bridgeId": 283036,
@@ -164,6 +469,16 @@ const BRIDGE_DATA = {
     ],
     "recentWorkouts": [
       {
+        "date": "2026-10-08",
+        "name": "Upper Push / Lower Pull",
+        "workoutId": 37702336,
+        "workoutHistoryId": 70977866,
+        "duration": 63,
+        "rpe": 5,
+        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
+        "status": "completed"
+      },
+      {
         "date": "2026-10-06",
         "name": "Upper Pull / Lower Push",
         "workoutId": 37702335,
@@ -270,16 +585,6 @@ const BRIDGE_DATA = {
         "workoutHistoryId": 69309840,
         "duration": 61,
         "rpe": 5,
-        "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-31",
-        "name": "Upper Push / Lower Pull",
-        "workoutId": 37702320,
-        "workoutHistoryId": 69221025,
-        "duration": null,
-        "rpe": null,
         "program": "Craig Blair - 12 Week Hypertrophy 3.0 v2",
         "status": "completed"
       }
