@@ -1,279 +1,4 @@
 {
-  "reini-otter": {
-    "id": "reini-otter",
-    "bridgeId": 281140,
-    "name": "Reini Otter",
-    "initials": "RO",
-    "email": "reini.otter@gmail.com",
-    "age": 56,
-    "birthDate": "1970-07-29",
-    "gender": null,
-    "weightKg": 79,
-    "programs": [
-      {
-        "bridgeId": 2230360,
-        "name": "Reini Otter 12-Week Training Program",
-        "status": "started",
-        "startedAt": "2026-06-01",
-        "updatedAt": "2026-11-01",
-        "isPlaylist": true
-      },
-      {
-        "bridgeId": 2114919,
-        "name": "ARM FARM (no above head)",
-        "status": "completed",
-        "startedAt": "2026-02-08",
-        "updatedAt": "2026-06-01",
-        "isPlaylist": true
-      },
-      {
-        "bridgeId": 1312086,
-        "name": "2024",
-        "status": "completed",
-        "startedAt": "2023-12-29",
-        "updatedAt": "2026-02-08",
-        "isPlaylist": true
-      },
-      {
-        "bridgeId": 1534142,
-        "name": "2024",
-        "status": "completed",
-        "startedAt": "2024-08-23",
-        "updatedAt": "2026-02-08",
-        "isPlaylist": true
-      },
-      {
-        "bridgeId": 1242336,
-        "name": "Reini - S&P",
-        "status": "completed",
-        "startedAt": "2023-09-29",
-        "updatedAt": "2023-12-29",
-        "isPlaylist": true
-      },
-      {
-        "bridgeId": 1185482,
-        "name": "3 Day Hypertrophy 3.0 (KB + TRX) copy",
-        "status": "completed",
-        "startedAt": "2023-07-24",
-        "updatedAt": "2023-09-29",
-        "isPlaylist": true
-      },
-      {
-        "bridgeId": 1123188,
-        "name": "3 Day Hypertrophy 4.0 - Reini",
-        "status": "completed",
-        "startedAt": "2023-05-01",
-        "updatedAt": "2023-06-23",
-        "isPlaylist": false
-      },
-      {
-        "bridgeId": 1111154,
-        "name": "Unloading 2.0",
-        "status": "completed",
-        "startedAt": "2023-04-13",
-        "updatedAt": "2023-05-10",
-        "isPlaylist": false
-      },
-      {
-        "bridgeId": 1091964,
-        "name": "3 Day Hypertrophy 3.0 (KB + TRX)",
-        "status": "completed",
-        "startedAt": "2023-03-19",
-        "updatedAt": "2023-04-29",
-        "isPlaylist": false
-      },
-      {
-        "bridgeId": 1052647,
-        "name": "Reini - Block 1 (Jan / Feb 23) ",
-        "status": "completed",
-        "startedAt": "2023-01-24",
-        "updatedAt": "2023-03-19",
-        "isPlaylist": true
-      },
-      {
-        "bridgeId": 1080278,
-        "name": "Unloading 1.0",
-        "status": "completed",
-        "startedAt": "2023-03-05",
-        "updatedAt": "2023-03-19",
-        "isPlaylist": true
-      },
-      {
-        "bridgeId": 1014437,
-        "name": "Unloading Week 1.0",
-        "status": "completed",
-        "startedAt": "2022-12-04",
-        "updatedAt": "2023-01-24",
-        "isPlaylist": true
-      },
-      {
-        "bridgeId": 1025868,
-        "name": "Pre - Testing Week ",
-        "status": "completed",
-        "startedAt": "2022-12-18",
-        "updatedAt": "2023-01-24",
-        "isPlaylist": true
-      },
-      {
-        "bridgeId": 995500,
-        "name": "3 Day Hypertrophy 2.0 (KB + TRX)",
-        "status": "completed",
-        "startedAt": "2022-11-07",
-        "updatedAt": "2022-12-17",
-        "isPlaylist": false
-      },
-      {
-        "bridgeId": 976922,
-        "name": "Strength 8-6-5-4",
-        "status": "completed",
-        "startedAt": "2022-10-08",
-        "updatedAt": "2022-11-25",
-        "isPlaylist": false
-      },
-      {
-        "bridgeId": 972918,
-        "name": "Unloading Week 1.0",
-        "status": "completed",
-        "startedAt": "2022-10-02",
-        "updatedAt": "2022-10-22",
-        "isPlaylist": false
-      }
-    ],
-    "recentWorkouts": [
-      {
-        "date": "2026-10-30",
-        "name": "Upper Pull + Lower Push",
-        "workoutId": -37596530,
-        "workoutHistoryId": 72007369,
-        "duration": 119,
-        "rpe": 10,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-10-29",
-        "name": "Overhead Progression + Lower Pull",
-        "workoutId": 37596529,
-        "workoutHistoryId": 71843150,
-        "duration": 69,
-        "rpe": 8,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-10-27",
-        "name": "Upper Pull Vertical + Row Intervals",
-        "workoutId": 37596528,
-        "workoutHistoryId": 71760353,
-        "duration": 51,
-        "rpe": 4,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-10-21",
-        "name": "Upper Push + Lower Pull",
-        "workoutId": 37596527,
-        "workoutHistoryId": 71637687,
-        "duration": 94,
-        "rpe": 10,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-10-20",
-        "name": "Upper Pull + Lower Push",
-        "workoutId": -37596526,
-        "workoutHistoryId": 71471409,
-        "duration": 114,
-        "rpe": 10,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-10-15",
-        "name": "Upper Pull (V) + Lower Push + Intervals",
-        "workoutId": -37596384,
-        "workoutHistoryId": 71280088,
-        "duration": 104,
-        "rpe": 9,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-10-14",
-        "name": "Upper Push (H) + Lower Pull (Hinge)",
-        "workoutId": -37596383,
-        "workoutHistoryId": 71215538,
-        "duration": 106,
-        "rpe": 8,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-10-11",
-        "name": "Upper Pull (H) + Lower Push",
-        "workoutId": -37596382,
-        "workoutHistoryId": 71116410,
-        "duration": 102,
-        "rpe": 9,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-10-08",
-        "name": "Upper Push Overhead + Lower Pull",
-        "workoutId": 37596155,
-        "workoutHistoryId": 70978776,
-        "duration": 103,
-        "rpe": 7,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-10-06",
-        "name": "Upper Pull Vertical + Lower Push + Row Intervals",
-        "workoutId": -37596154,
-        "workoutHistoryId": 70870902,
-        "duration": 75,
-        "rpe": 7,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-24",
-        "name": "UPPER PUSH (Horizontal) + LOWER PULL (Hinge)",
-        "workoutId": 39169272,
-        "workoutHistoryId": 70373616,
-        "duration": 70,
-        "rpe": 4,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-24",
-        "name": "Upper Push + Lower Pull (Taper)",
-        "workoutId": 37596539,
-        "workoutHistoryId": 70373397,
-        "duration": null,
-        "rpe": null,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-21",
-        "name": "UPPER PUSH (Sub-Overhead) + LOWER UNILATERAL + Rotation",
-        "workoutId": -39169274,
-        "workoutHistoryId": 70213681,
-        "duration": 85,
-        "rpe": 7,
-        "program": "Reini Otter 12-Week Training Program",
-        "status": "completed"
-      }
-    ],
-    "programCount": 16,
-    "totalCompletedThisRange": 13
-  },
   "samantha-van-gelder": {
     "id": "samantha-van-gelder",
     "bridgeId": 283317,
@@ -290,7 +15,7 @@
         "name": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "started",
         "startedAt": "2026-08-09",
-        "updatedAt": "2026-11-01",
+        "updatedAt": "2026-11-02",
         "isPlaylist": true
       },
       {
@@ -456,6 +181,16 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-11-02",
+        "name": "Lower, Quad Bias and Frontal Plane",
+        "workoutId": 40231194,
+        "workoutHistoryId": 72005876,
+        "duration": 63,
+        "rpe": 7,
+        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
+        "status": "completed"
+      },
+      {
         "date": "2026-10-30",
         "name": "Upper Pull B, Vertical and Arms",
         "workoutId": 40231193,
@@ -564,16 +299,6 @@
         "rpe": 7,
         "program": "Sam - Max Strength & Power (6 Week) - Playlist",
         "status": "completed"
-      },
-      {
-        "date": "2026-10-15",
-        "name": "Lower, Posterior Chain and Rotation",
-        "workoutId": -40231182,
-        "workoutHistoryId": 71249662,
-        "duration": 59,
-        "rpe": 8,
-        "program": "Sam - Max Strength & Power (6 Week) - Playlist",
-        "status": "completed"
       }
     ],
     "programCount": 21,
@@ -588,14 +313,14 @@
     "age": 58,
     "birthDate": "1968-09-19",
     "gender": null,
-    "weightKg": 83,
+    "weightKg": 84,
     "programs": [
       {
         "bridgeId": 2239609,
         "name": "Craig Blair, Strength and Conditioning Program",
         "status": "started",
         "startedAt": "2026-06-06",
-        "updatedAt": "2026-10-31",
+        "updatedAt": "2026-11-02",
         "isPlaylist": true
       },
       {
@@ -2123,7 +1848,7 @@
         "name": "Build Block v2 - Mel and Steph",
         "status": "started",
         "startedAt": "2026-08-24",
-        "updatedAt": "2026-10-30",
+        "updatedAt": "2026-11-02",
         "isPlaylist": true
       },
       {
@@ -2338,6 +2063,16 @@
     ],
     "recentWorkouts": [
       {
+        "date": "2026-11-02",
+        "name": "Total Body - Day 2",
+        "workoutId": 37727912,
+        "workoutHistoryId": 72007305,
+        "duration": 36,
+        "rpe": 4,
+        "program": "Alana 2026 Health and Performance Program ",
+        "status": "completed"
+      },
+      {
         "date": "2026-10-29",
         "name": "Total Body - Day 4",
         "workoutId": 37727906,
@@ -2442,16 +2177,6 @@
         "name": "Total Body - Day 1",
         "workoutId": 37727895,
         "workoutHistoryId": 70614948,
-        "duration": null,
-        "rpe": null,
-        "program": "Alana 2026 Health and Performance Program ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-09-22",
-        "name": "Total Body - Day 4",
-        "workoutId": 37727894,
-        "workoutHistoryId": 70215494,
         "duration": null,
         "rpe": null,
         "program": "Alana 2026 Health and Performance Program ",
@@ -2780,18 +2505,28 @@
     "age": 50,
     "birthDate": "1976-06-30",
     "gender": "female",
-    "weightKg": 61.2,
+    "weightKg": 55.8,
     "programs": [
       {
         "bridgeId": 1947766,
         "name": "Health & Performance ",
         "status": "started",
         "startedAt": "2025-09-07",
-        "updatedAt": "2026-10-30",
+        "updatedAt": "2026-11-02",
         "isPlaylist": true
       }
     ],
     "recentWorkouts": [
+      {
+        "date": "2026-11-02",
+        "name": "Lower Push & Upper Pull A",
+        "workoutId": 37701277,
+        "workoutHistoryId": 72113627,
+        "duration": 52,
+        "rpe": 2,
+        "program": "Health & Performance ",
+        "status": "completed"
+      },
       {
         "date": "2026-10-30",
         "name": "Lower Pull & Upper Push A",
@@ -2898,16 +2633,6 @@
         "workoutId": 37701279,
         "workoutHistoryId": 68720200,
         "duration": 90,
-        "rpe": 3,
-        "program": "Health & Performance ",
-        "status": "completed"
-      },
-      {
-        "date": "2026-08-17",
-        "name": "Lower Pull & Upper Push B",
-        "workoutId": 37701278,
-        "workoutHistoryId": 68627433,
-        "duration": 89,
         "rpe": 3,
         "program": "Health & Performance ",
         "status": "completed"
